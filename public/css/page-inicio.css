@@ -1,0 +1,48 @@
+.container-main {
+    background-color: #5858ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #ffff;
+    margin-bottom: 10px;
+
+    h1 {
+        font-size: 25px;
+    }
+
+}
+
+.container {
+    padding-top: 10px;
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+
+    .container-left {
+        flex: 1;
+        padding-left: 90px;
+
+        h3 {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .menus {
+            button {
+
+                border: none;
+                background-color: transparent;
+                font-size: 22px;
+                color: #172577;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .container-right {
+        flex: 1;
+        padding-right: 90px;
+    }
+}
