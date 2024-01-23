@@ -38,6 +38,10 @@
                 color: #172577;
                 font-weight: bold;
             }
+
+            p {
+                margin-left: 10px;
+            }
         }
     }
 
