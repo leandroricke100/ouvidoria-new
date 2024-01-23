@@ -8,8 +8,10 @@
     color: #ffff;
     margin-bottom: 10px;
 
+
     h1 {
         font-size: 20px;
+        margin-bottom: 13px;
     }
 
     p {
@@ -20,6 +22,92 @@
         content: "\f0a1";
         font-size: 19px;
         margin-right: 10px;
+    }
+}
+
+.container {
+    padding-top: 10px;
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 75px;
+
+    p {
+        font-size: 15px;
+        color: #333;
+    }
+
+    .sigilo {
+        min-height: 50px;
+        background-color: #ecf0f1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 37px;
+        justify-content: center;
+        border-radius: 10px;
+        margin-top: 20px;
+        max-width: 1049px;
+        width: 100%;
+        padding: 30px;
+
+        label {
+            margin-bottom: 0;
+        }
+
+        input#semSigilo {
+            margin-right: 10px;
+        }
+
+        input#sigilo {
+            margin-right: 10px;
+        }
+
+        p {
+            color: #666
+        }
+
+        .input-sigilo {
+
+
+            .fa-question:before {
+                content: "\f128";
+                font-size: 9px;
+                background-color: #333333;
+                border-radius: 155px;
+                color: #fff;
+                padding: 3px;
+            }
+
+            label {
+                color: #666
+            }
+        }
+
+        .semSigi {
+            cursor: pointer;
+            border: none;
+        }
+
+        .modal-semSigi {
+            background-color: #fff;
+            padding: 12px;
+            width: 154px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+
+        .modal-Sigi {
+            background-color: #fff;
+            padding: 12px;
+            width: 154px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
     }
 
 }
