@@ -16,77 +16,103 @@
         <div class="container-left">
             <h3>Serviços</h3>
             <div class="menus">
-                <button><i class="fas fa-bullhorn"></i> Atendimentos</button>
-                <p>Atendimento ao Cidadão: Ouvidoria
-                    Envie sua demanda para a Prefeitura</p>
+                <div class="icons"><span><i class="fas fa-bullhorn"></i></span></div>
+                <div class="opcoes">
+                    <button>Atendimentos</button>
+                    <p>Atendimento ao Cidadão: Ouvidoria Envie sua demanda para a Prefeitura</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="fas fa-file-alt"></i> Ofícios</button>
-                <p>Consulte a autenticidade e andamento
-                    de Ofícios recebidos.</p>
+                <div class="icons"><span><i class="fas fa-file-alt"></i></span></div>
+                <div class="opcoes">
+                    <button>Ofícios</button>
+                    <p>Consulte a autenticidade e andamento de Ofícios recebidos.</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="fas fa-qrcode"></i> Protocolos</button>
-                <p>Abertura e Consulta
-                    de Requerimentos Administrativos.</p>
+                <div class="icons"><span><i class="fas fa-qrcode"></i></span></div>
+                <div class="opcoes">
+                    <button>Protocolos</button>
+                    <p>Abertura e Consulta de Requerimentos Administrativos.</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="fas fa-keyboard"></i> Chamados</button>
-                <p>Servidor Municipal, abra aqui
-                    o seu Chamado para a Informática.</p>
+                <div class="icons"><span><i class="fas fa-keyboard"></i></span></div>
+                <div class="opcoes">
+                    <button>Chamados</button>
+                    <p>Servidor Municipal, abra aqui o seu Chamado para a Informática.</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="fas fa-info"></i> Pedidos de e-SIC</button>
-                <p>Abertura e Consulta.</p>
+                <div class="icons"><span><i class="fas fa-info"></i></span></div>
+                <div class="opcoes">
+                    <button>Pedidos de e-SIC</button>
+                    <p>Abertura e Consulta.</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="fas fa-eraser"></i> Viabilização de Construção</button>
-                <p>Abertura e Consulta</p>
+                <div class="icons"><span><i class="fas fa-eraser"></i></span></div>
+                <div class="opcoes">
+                    <button>Viabilização de Construção</button>
+                    <p>Abertura e Consulta</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="fal fa-file-exclamation"></i> Intimações</button>
-                <p>Consulte a autenticidade
-                    de Intimações recebidas.</p>
+                <div class="icons"><span><i class="fal fa-file-exclamation"></i></span></div>
+                <div class="opcoes">
+                    <button>Intimações</button>
+                    <p>Consulte a autenticidade de Intimações recebidas.</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="fal fa-list-ol"></i> Processos Seletivos</button>
-                <p>Candidate-se a uma das vagas na Prefeitura de viçosa</p>
+                <div class="icons"><span><i class="fal fa-list-ol"></i></span></div>
+                <div class="opcoes">
+                    <button>Processos Seletivos</button>
+                    <p>Candidate-se a uma das vagas na Prefeitura de viçosa</p>
+                </div>
             </div>
 
             <div class="menus">
-                <button><i class="far fa-paste"></i> Licenciamento Urbano</button>
-                <p>Aprovação de Projetos e Alvará de Obras, Aprovação de Projetos e Licenciamentos de
-                    Loteamentos/Condomínios/Territorial</p>
+                <div class="icons"><span><i class="far fa-paste"></i></span></div>
+                <div class="opcoes">
+                    <button>Licenciamento Urbano</button>
+                    <p>Aprovação de Projetos e Alvará de Obras, Aprovação de Projetos e Licenciamentos de
+                        Loteamentos/Condomínios/Territorial</p>
+                </div>
             </div>
         </div>
 
         <div class="container-right">
-            <div menus-right>
-                <button><i class="fas fa-chart-bar"></i> Transparência</button>
+            <div class="menus-right">
+                <button><i class="fas fa-chart-bar"></i> <strong>Transparência</strong></button>
             </div>
 
-            <div menus-right>
-                <button><i class="far fa-thumbs-up"></i> Consulta Prévia Online</button>
+            <div class="menus-right">
+                <button><i class="far fa-thumbs-up"></i> <strong>Consulta Prévia Online</strong></button>
             </div>
 
             <div class="info-prefeitura">
-                <h2>Prefeitura de Viçosa</h2>
-                <p>R. Gomes Barbosa, 803 - Centro, Viçosa - MG</p>
-                <p><strong>Fone:</strong> (31) 3874-7700</p>
+                <p class="prefeitura">Prefeitura de Viçosa</p>
+                <div class="tel-pref">
+                    <p>R. Gomes Barbosa, 803 - Centro, Viçosa - MG</p>
+                    <p><strong>Fone:</strong> (31) 3874-7700</p>
+                </div>
+
+                <div class="border-bottom"></div>
 
                 <button class="organograma">Ver Organograma <i class="fal fa-angle-double-right"></i></button>
             </div>
 
             <div class="ajuda">
                 <p>Precisa de Ajuda?</p>
-                <div>
+                <div class="links-ajuda">
                     <a href="">• Precisa de Ajuda?</a>
                     <a href="">• Como criar um arquivo de projeto/prancha no formato PDF padrão 1Doc</a>
                     <a href="">• Utilizando o Login Único gov.br como acesso na Central de Atendimento 1Doc</a>

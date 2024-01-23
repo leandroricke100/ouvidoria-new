@@ -1,0 +1,25 @@
+.container-main {
+    background-color: #0505a3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #ffff;
+    margin-bottom: 10px;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .fa-bullhorn:before {
+        content: "\f0a1";
+        font-size: 19px;
+        margin-right: 10px;
+    }
+
+}

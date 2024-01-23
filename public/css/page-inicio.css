@@ -1,5 +1,5 @@
 .container-main {
-    background-color: #5858ff;
+    background-color: #0505a3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +19,7 @@
     margin-right: auto;
     margin-left: auto;
     display: flex;
+    margin-bottom: 50px;
 
     .container-left {
         flex: 1;
@@ -27,26 +28,116 @@
         h3 {
             font-size: 14px;
             color: #666;
+            margin-bottom: 20px;
         }
 
         .menus {
+            display: flex;
+            gap: 35px;
+            align-items: baseline;
+            margin-bottom: 20px;
+
             button {
 
                 border: none;
                 background-color: transparent;
-                font-size: 22px;
+                font-size: 20px;
                 color: #172577;
                 font-weight: bold;
             }
 
-            p {
-                margin-left: 10px;
+            .opcoes {
+                margin-right: 15px;
+
+                p {
+                    font-size: 13px;
+                }
             }
         }
+
     }
 
     .container-right {
         flex: 1;
         padding-right: 90px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .menus-right {
+            button {
+                padding: 12px 17px 18px 17px;
+                background-color: #ECECEC;
+                border: none;
+                border-radius: 5px;
+                font-size: 20px;
+                color: #172577;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .info-prefeitura {
+            padding: 12px 17px 18px 17px;
+            background-color: #ECECEC;
+            border-radius: 5px;
+            color: #333;
+            font-size: 15px;
+
+            .tel-pref {
+                margin-bottom: 20px;
+            }
+
+            .border-bottom {
+                border-bottom: 1px solid #fff;
+            }
+
+            button.organograma {
+                padding: 12px 20px;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                background-color: #333333;
+                border-radius: 5px;
+                margin-top: 20px;
+                width: 100%;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+
+            .prefeitura {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .ajuda {
+            padding: 12px 17px 18px 17px;
+            background-color: #ECECEC;
+            border-radius: 5px;
+
+            p {
+                font-size: 18px;
+                color: #333;
+            }
+
+            .links-ajuda {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                margin-left: 10px;
+                margin-top: 15px;
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+
+
     }
 }
