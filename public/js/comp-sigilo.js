@@ -1,6 +1,5 @@
 $(function () {
 
-
     const semSigilo = document.querySelectorAll('.semSigi');
     const modalSemSigilo = document.querySelector('.modal-semSigi');
 

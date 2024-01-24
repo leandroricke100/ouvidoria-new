@@ -1,0 +1,124 @@
+.cad-form-section {
+    background-color: #ecf0f1;
+    max-width: 1049px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 100px;
+    display: flex;
+    border-radius: 10px;
+    padding: 12px 17px 18px 17px;
+}
+
+form#cad-atendimento {
+    width: 100%;
+
+    label {
+        margin-bottom: 10px;
+    }
+
+    .tipo-cad {
+        display: flex;
+        justify-content: center;
+        gap: 94px;
+    }
+
+    .cadastro {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: flex-start;
+        margin-top: 25px;
+        padding-bottom: 21px;
+
+
+    }
+
+    .cad-borda {
+        border-bottom: 1px solid #fff;
+    }
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        label {
+            font-size: 88%;
+            color: #666 !important;
+        }
+    }
+
+    input {
+        padding: 7px 9px;
+        border: 1px solid #c9c9c9;
+        color: #666 !important;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    select#estadoCivil {
+        padding: 6px;
+        border: 1px solid #c9c9c9;
+        color: #666 !important;
+        border-radius: 6px;
+        font-size: 14px;
+        outline: none;
+    }
+
+    select {
+        padding: 6px;
+        border: 1px solid #c9c9c9;
+        border-radius: 9px;
+        font-size: 14px;
+        outline: none;
+        min-height: 38px !important;
+    }
+
+    .senha {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .button-cad-enviar {
+        border: none;
+        color: #fff;
+        text-decoration: none;
+        outline: none;
+        padding: 7px 20px;
+        background-color: #333333;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .endereco {
+        font-size: 88%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .text-cadastro-log {
+        font-size: 88%;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .min-senha {
+        font-size: 88%;
+        color: #666 !important;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sigilo {
+        width: auto !important;
+    }
+}
