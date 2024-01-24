@@ -9,6 +9,14 @@ function openSearchBtn() {
     }
 }
 
-function openMenuMobile() {
-    alert('teste')
+// function openMenuMobile() {
+//     alert('teste')
+// }
+
+function openModalLogin() {
+    $('.modal-login').show();
+}
+
+function closeModal() {
+    $('.modal-login').hide();
 }

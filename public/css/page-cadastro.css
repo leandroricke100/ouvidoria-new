@@ -73,6 +73,7 @@ form#cad-atendimento {
         font-size: 14px;
         outline: none;
         min-height: 38px !important;
+        color: #666 !important;
     }
 
     .senha {
@@ -114,6 +115,14 @@ form#cad-atendimento {
         font-size: 88%;
         color: #666 !important;
         margin-bottom: 50px;
+    }
+
+
+    .msg-senha {
+        font-size: 12px;
+        margin: 0;
+        color: red;
+        margin-top: 5px;
     }
 }
 

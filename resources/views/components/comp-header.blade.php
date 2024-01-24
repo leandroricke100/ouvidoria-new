@@ -19,8 +19,9 @@
                     class="fas fa-search"></i></button>
         </div>
 
+
         <div class="login-modal-mobile" style="display: none">
-            <a href="">Entrar</a>
+            <button onclick="openModalLogin()">Entrar</button>
             <a href="">Cadastro</a>
         </div>
 
@@ -35,8 +36,33 @@
         </div> --}}
     </div>
 
+    @php
+        $usuario = ['nome_completo' => 'Leandro'];
+    @endphp
+
     <div class="header-right">
-        <a>Entrar</a>
-        <a>Cadastro</a>
+        @if (isset($usuario))
+            <a href="https://ouvidoria.test/" class="inicio"><i class="fas fa-home"></i> Início</a>
+            <a class="inicio" href=""><i class="fas fa-inbox"></i>Meu inbox</a>
+            <a class="inicio"><i class="fas fa-user-alt"></i> {{ $usuario['nome_completo'] }}</a>
+        @else
+            <a onclick="openModalLogin()">Entrar</a>
+            <a>Cadastro</a>
+        @endif
     </div>
+
+    <div class="modal-login" style="display: none;">
+        <button class="close-modal" onclick="closeModal()"><i class="fas fa-times-circle"></i></button>
+        @include('components.comp-login')
+    </div>
+
 </header>
+
+
+@if (isset($banner) && $banner)
+    <section class="container-main">
+        <h1><i class="fas {{ $icon ?? 'fa-bullhorn' }}"></i> {{ $titulo_banner ?? 'Sem título' }}</h1>
+        <p>{{ $subtitulo_banner ?? 'Sem subtítulo' }}</p>
+        {!! isset($subtitulo_banner_2) ? '<p>' . $subtitulo_banner_2 . '</p>' : '' !!}
+    </section>
+@endif

@@ -24,3 +24,11 @@ Route::get('/login', function () {
 Route::get('/cadastro', function () {
     return view('pages.page-cadastro');
 });
+
+Route::get('novo/atendimento', function () {
+    return view('pages.page-novo-atendimento');
+});
+
+Route::get('/atendimento/{id}', function ($id = '') {
+    return view('pages.page-atendimento');
+});

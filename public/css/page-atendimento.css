@@ -1,0 +1,47 @@
+.container-atendi {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .fa-bullhorn:before {
+        content: "\f0a1";
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .bloco1 {
+        display: flex;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .image {
+        img {
+            max-height: 82px;
+        }
+    }
+
+    .atendimento {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+
+        p {
+            color: #666;
+        }
+
+    }
+
+    .cod {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        font-size: 14px;
+
+        span {
+            color: #666 !important;
+        }
+    }
+
+}

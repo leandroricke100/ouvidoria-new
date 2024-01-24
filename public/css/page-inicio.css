@@ -37,13 +37,13 @@
             align-items: baseline;
             margin-bottom: 20px;
 
-            button {
-
+            a {
                 border: none;
                 background-color: transparent;
                 font-size: 20px;
                 color: #172577;
                 font-weight: bold;
+                text-decoration: none;
             }
 
             .opcoes {

@@ -16,73 +16,73 @@
         <div class="container-left">
             <h3>Serviços</h3>
             <div class="menus">
-                <div class="icons"><span><i class="fas fa-bullhorn"></i></span></div>
+                <div class="icons"><span><i class="fas fa-fw fa-bullhorn"></i></span></div>
                 <div class="opcoes">
-                    <button>Atendimentos</button>
+                    <a href="">Atendimentos</a>
                     <p>Atendimento ao Cidadão: Ouvidoria Envie sua demanda para a Prefeitura</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="fas fa-file-alt"></i></span></div>
+                <div class="icons"><span><i class="fas fa-fw fa-file-alt"></i></span></div>
                 <div class="opcoes">
-                    <button>Ofícios</button>
+                    <a href="">Ofícios</a>
                     <p>Consulte a autenticidade e andamento de Ofícios recebidos.</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="fas fa-qrcode"></i></span></div>
+                <div class="icons"><span><i class="fas fa-fw fa-qrcode"></i></span></div>
                 <div class="opcoes">
-                    <button>Protocolos</button>
+                    <a href="">Protocolos</a>
                     <p>Abertura e Consulta de Requerimentos Administrativos.</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="fas fa-keyboard"></i></span></div>
+                <div class="icons"><span><i class="fas fa-fw fa-keyboard"></i></span></div>
                 <div class="opcoes">
-                    <button>Chamados</button>
+                    <a href="">Chamados</a>
                     <p>Servidor Municipal, abra aqui o seu Chamado para a Informática.</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="fas fa-info"></i></span></div>
+                <div class="icons"><span><i class="fas fa-fw fa-info"></i></span></div>
                 <div class="opcoes">
-                    <button>Pedidos de e-SIC</button>
+                    <a href="">Pedidos de e-SIC</a>
                     <p>Abertura e Consulta.</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="fas fa-eraser"></i></span></div>
+                <div class="icons"><span><i class="fas fa-fw fa-eraser"></i></span></div>
                 <div class="opcoes">
-                    <button>Viabilização de Construção</button>
+                    <a href="">Viabilização de Construção</a>
                     <p>Abertura e Consulta</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="fal fa-file-exclamation"></i></span></div>
+                <div class="icons"><span><i class="fal fa-fw fa-file-exclamation"></i></span></div>
                 <div class="opcoes">
-                    <button>Intimações</button>
+                    <a href="">Intimações</a>
                     <p>Consulte a autenticidade de Intimações recebidas.</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="fal fa-list-ol"></i></span></div>
+                <div class="icons"><span><i class="fal fa-fw fa-list-ol"></i></span></div>
                 <div class="opcoes">
-                    <button>Processos Seletivos</button>
+                    <a href="">Processos Seletivos</a>
                     <p>Candidate-se a uma das vagas na Prefeitura de viçosa</p>
                 </div>
             </div>
 
             <div class="menus">
-                <div class="icons"><span><i class="far fa-paste"></i></span></div>
+                <div class="icons"><span><i class="far fa-fw fa-paste"></i></span></div>
                 <div class="opcoes">
-                    <button>Licenciamento Urbano</button>
+                    <a href="">Licenciamento Urbano</a>
                     <p>Aprovação de Projetos e Alvará de Obras, Aprovação de Projetos e Licenciamentos de
                         Loteamentos/Condomínios/Territorial</p>
                 </div>
@@ -91,7 +91,7 @@
 
         <div class="container-right">
             <div class="menus-right">
-                <button><i class="fas fa-chart-bar"></i> <strong>Transparência</strong></button>
+                <button><i class="fas fa-fw fa-chart-bar"></i> <strong>Transparência</strong></button>
             </div>
 
             <div class="menus-right">

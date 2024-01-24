@@ -1,0 +1,159 @@
+.container-main-atendimento {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+
+    form#new-atendimento-user {
+        width: 100%;
+
+        label {
+            margin-bottom: 10px;
+        }
+    }
+
+    .cad {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: flex-start;
+        margin-top: 25px;
+        padding-bottom: 21px;
+
+        padding: 10px;
+    }
+
+
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        label {
+            font-size: 88%;
+            color: #666 !important;
+        }
+
+        input {
+            padding: 7px 9px;
+            border: 1px solid #c9c9c9;
+            color: #666 !important;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        select#prioridade {
+            padding: 7px 9px;
+            border: 1px solid #c9c9c9;
+            color: #666 !important;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        select#finalidade {
+            padding: 7px 9px;
+            border: 1px solid #c9c9c9;
+            color: #666 !important;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input#assunto {
+            padding: 7px 9px;
+            border: 1px solid #c9c9c9;
+            color: #666 !important;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input#codAnterior {
+            padding: 7px 9px;
+            border: 1px solid #c9c9c9;
+            color: #666 !important;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input#data {
+            padding: 7px 9px;
+            border: 1px solid #c9c9c9;
+            color: #666 !important;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input#hora {
+            padding: 7px 9px;
+            border: 1px solid #c9c9c9;
+            color: #666 !important;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+    }
+}
+
+.cad .bloco {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: #ececec;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.onde {
+    display: flex;
+    align-items: center;
+    margin-right: 35px;
+    color: #666 !important;
+}
+
+.bloco2 {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.bloco3 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+button.btn-enviar {
+    padding: 18px 36px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(51, 51, 51, 0.8) !important;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .bloco3 {
+
+        flex-direction: column;
+        gap: 15px;
+
+
+        .btn-enviar {
+            margin: 30px 0;
+        }
+    }
+}

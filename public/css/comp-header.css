@@ -4,7 +4,6 @@ header#comp-header {
     justify-content: space-between;
     height: 54px;
     padding: 15px 14px 8px 14px;
-    margin-bottom: 10px;
 
     .header-left {
         display: flex;
@@ -13,7 +12,7 @@ header#comp-header {
 
         .img-brasao {
             img {
-                max-width: 200px;
+                max-height: 40px;
             }
         }
 
@@ -120,6 +119,66 @@ header#comp-header {
         font-size: 13px;
     }
 }
+
+.modal-login {
+    background: white;
+    max-height: 600px;
+    position: fixed;
+    width: 480px;
+    top: 25%;
+    padding: 25px;
+    left: 50%;
+    transform: translate(-50%);
+    max-height: 607px;
+    max-height: 600px;
+    border-radius: 6px;
+    border: 1px solid #2c3e50;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .close-modal {
+        background-color: transparent;
+        border: none;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+}
+
+a.inicio {
+    text-decoration: none;
+    font-size: 13px;
+    padding: 14px 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a.inicio:hover {
+    background-color: #172577;
+    color: #fff;
+}
+
+.fa-times-circle:before {
+    content: "\f057";
+    font-size: 22px;
+}
+
+.fa-home:before {
+    content: "\f015";
+    margin-right: 5px;
+}
+
+.fa-inbox:before {
+    content: "\f01c";
+    margin-right: 5px;
+}
+
+.fa-user-alt:before {
+    content: "\f406";
+    margin-right: 5px;
+}
+
 
 @media screen and (max-width: 768px) {
     .header-right {

@@ -4,7 +4,7 @@
 @push('head')
     <link href="{{ asset('css/page-cadastro.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/comp-cadastro.js') }}"></script>
+    <script src="{{ asset('js/page-cadastro.js') }}"></script>
 @endpush
 
 @section('conteudo')
@@ -170,7 +170,7 @@
                     <div class="field">
                         <label for="senha">Senha de acesso:</label>
                         <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
-                        <p style="display: none" class="msg-senha">Senha</p>
+                        <p style="display: none" class="msg-senha">Senhas não conferem</p>
                     </div>
 
                     <div class="field">
