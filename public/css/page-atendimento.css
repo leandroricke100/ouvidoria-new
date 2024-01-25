@@ -44,11 +44,206 @@
         }
     }
 
+    .container-avalicao {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 12px 17px 18px 17px;
+        background-color: #ecf0f1;
+        margin-bottom: 15px;
+        border-radius: 6px;
+
+        .avalicao {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            p {
+                font-size: 88% !important;
+            }
+
+            .pesquisa {
+                color: #666 !important;
+            }
+        }
+    }
+
+    .container-atendimento {
+        border: 1px solid #e3e3e3;
+        display: flex;
+        border-radius: 6px;
+
+
+        .painel-left {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            border-right: 1px solid #e3e3e3;
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+            gap: 20px;
+            flex: 1;
+
+            .bloco-sigilo {
+                span {
+                    background-color: #b4bcc2;
+                    font-size: 11px;
+                    color: #fff;
+                    padding: 4px 10px;
+                    border-radius: 6px;
+                }
+            }
+
+            .finalidade {
+                display: flex;
+                gap: 4px;
+
+                .fina {
+                    color: #666 !important;
+                }
+            }
+
+            .border {
+                border-bottom: 1px solid white;
+            }
+        }
+
+        .painel-right {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            flex: 5;
+
+            .title {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                span {
+                    background-color: #b4bcc2;
+                    font-size: 11px;
+                    color: #fff;
+                    padding: 4px 10px;
+                    border-radius: 6px;
+                }
+            }
+
+            .border-2 {
+                border-bottom: 1px solid #e3e3e3;
+                width: 100%;
+            }
+
+            .msg {
+                padding: 20px;
+                font-size: 15px;
+            }
+        }
+    }
+
+    #cad-resposta-user {
+        background-color: #ecf0f1;
+        margin-top: 30px;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 25px;
+
+        label {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 13px;
+            color: #666
+        }
+
+    }
+
+    button {
+        padding: 9px 20px;
+        color: #fff;
+        border: none;
+        background-color: #2c7bff;
+        border-radius: 6px;
+        width: 20%;
+        font-weight: bold;
+        font-size: 17px;
+        cursor: pointer;
+    }
 }
 
-@media screen and (max-width:768px) {
-    .atendimento {
+#cad-resposta-user button:hover {
+    opacity: 0.5;
+}
 
+.bloco-voltar {
+    margin: 30px 0;
+
+    a {
+        color: #666;
+        outline: none;
+        text-decoration: none;
+    }
+}
+
+.bloco-voltar a:hover {
+    color: #2c7bff;
+}
+
+#full-stars-example-two {
+
+    .rating-group {
+        display: inline-flex;
+    }
+
+    .rating__icon {
+        pointer-events: none;
+    }
+
+    .rating__input {
+        position: absolute !important;
+        left: -9999px !important;
+    }
+
+    .rating__input--none {
+        display: none
+    }
+
+    .rating__label {
+        cursor: pointer;
+        padding: 0 0.1em;
+        font-size: 20px;
+    }
+
+    .rating__icon--star {
+        color: orange;
+    }
+
+    .rating__input:checked~.rating__label .rating__icon--star {
+        color: #ddd;
+    }
+
+    .rating-group:hover .rating__label .rating__icon--star {
+        color: orange;
+    }
+
+    .rating__input:hover~.rating__label .rating__icon--star {
+        color: #ddd;
+    }
+}
+
+
+@media screen and (max-width:768px) {
+
+    .container-atendi {
+        padding: 15px;
+    }
+
+    .atendimento {
         h2 {
             font-size: 17px;
         }
@@ -56,6 +251,9 @@
         p {
             font-size: 17px;
         }
+    }
 
+    .container-atendimento {
+        flex-direction: column;
     }
 }

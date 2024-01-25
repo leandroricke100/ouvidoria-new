@@ -45,27 +45,91 @@
             <div class="container-avalicao">
                 <div class="avalicao">
                     <p>AVALIE ATENDIMENTO</p>
-                    <p>Pesquisa de Satisfação</p>
+                    <p class="pesquisa">Pesquisa de Satisfação</p>
                 </div>
 
-                <div class="rating">
-                    <input value="5" name="rate" id="star5" type="radio">
-                    <label title="text" for="star5"></label>
-
-                    <input value="4" name="rate" id="star4" type="radio">
-                    <label title="text" for="star5"></label>
-
-                    <input value="3" name="rate" id="star3" type="radio">
-                    <label title="text" for="star5"></label>
-
-                    <input value="2" name="rate" id="star2" type="radio">
-                    <label title="text" for="star5"></label>
-
-                    <input value="1" name="rate" id="star1" type="radio">
-                    <label title="text" for="star5"></label>
+                <div id="full-stars-example-two">
+                    <div class="rating-group">
+                        <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none"
+                            value="0" type="radio">
+                        <label aria-label="1 star" class="rating__label" for="rating3-1"><i
+                                class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
+                        <label aria-label="2 stars" class="rating__label" for="rating3-2"><i
+                                class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
+                        <label aria-label="3 stars" class="rating__label" for="rating3-3"><i
+                                class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
+                        <label aria-label="4 stars" class="rating__label" for="rating3-4"><i
+                                class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
+                        <label aria-label="5 stars" class="rating__label" for="rating3-5"><i
+                                class="rating__icon rating__icon--star fa fa-star"></i></label>
+                        <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <div class="container-atendimento">
+                <div class="painel-left">
+                    <div class="bloco-sigilo">
+                        <span>Sigilosa</span>
+                    </div>
+                    <div class="finalidade">
+                        <p class="fina">Finalidade:</p>
+                        <p>Reclamação</p>
+                    </div>
+
+                    <div class="border">
+                        <span></span>
+                    </div>
+
+                    <div class="horario">
+                        <span>Em 24/01/2024 às 08:32</span>
+                    </div>
+
+                    <div class="local">
+                        <span>
+                            <strong>Localização:</strong> Viçosa, MG, 36570-000, Brasil. nº 20
+                        </span>
+                    </div>
+                </div>
+                <div class="painel-right">
+                    <div class="title">
+                        <span>Arquivado</span>
+                        <h2>Canal de esgoto</h2>
+                    </div>
+                    <div class="border-2">
+                        <span></span>
+                    </div>
+
+                    <div class="msg">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum minus reiciendis voluptatum ex
+                            cum, sunt dicta odio beatae dignissimos quo, eveniet qui laborum aspernatur reprehenderit
+                            possimus? In architecto aliquid unde.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-atendimento">
+                <form class="new-text form" id="cad-resposta-user">
+                    <label for="atendimentoUsuario"><strong><i class="fas fa-retweet"></i> Interagir em
+                            Atendimento</strong></label>
+                    <p>Adicione informações e anexe arquivos, caso necessário:</p>
+                    <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
+                    <input type="file" id="arquivo" name="arquivo">
+                    <input type="hidden" name="autor" id="autor" value="usuario">
+                    <input type="hidden" name="id_atendimento" id="id_atendimento" value="">
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+
+            <div class="bloco-voltar">
+                <a href="https://ouvidoria.test/">« Voltar - Central de Atendimento</a>
+            </div>
+    </div>
+    </section>
 
     </div>
     @include('components.comp-footer')
