@@ -32,3 +32,7 @@ Route::get('novo/atendimento', function () {
 Route::get('/atendimento/{id}', function ($id = '') {
     return view('pages.page-atendimento');
 });
+
+Route::get('atendimentos', function () {
+    return view('pages.page-atendimentos');
+});

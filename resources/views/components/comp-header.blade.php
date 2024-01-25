@@ -43,7 +43,7 @@
     <div class="header-right">
         @if (isset($usuario))
             <a href="https://ouvidoria.test/" class="inicio"><i class="fas fa-home"></i> Início</a>
-            <a class="inicio" href=""><i class="fas fa-inbox"></i>Meu inbox</a>
+            <a class="inicio" href="https://ouvidoria.test/atendimentos"><i class="fas fa-inbox"></i>Meu inbox</a>
             <a class="inicio"><i class="fas fa-user-alt"></i> {{ $usuario['nome_completo'] }}</a>
         @else
             <a onclick="openModalLogin()">Entrar</a>
@@ -59,10 +59,19 @@
 </header>
 
 
+
+
 @if (isset($banner) && $banner)
     <section class="container-main">
         <h1><i class="fas {{ $icon ?? 'fa-bullhorn' }}"></i> {{ $titulo_banner ?? 'Sem título' }}</h1>
         <p>{{ $subtitulo_banner ?? 'Sem subtítulo' }}</p>
         {!! isset($subtitulo_banner_2) ? '<p>' . $subtitulo_banner_2 . '</p>' : '' !!}
     </section>
+@endif
+
+@if (isset($banner2) && $banner2)
+    <div class="container-main2">
+        <h2>{{ $titleBanner2 ?? 'Central de Atendimento • Prefeitura de Petrolina' }}</h2>
+        {!! isset($titleBanner2) ? '<p>' . $titleBanner2 . '</p>' : '' !!}
+    </div>
 @endif

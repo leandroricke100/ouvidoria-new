@@ -7,11 +7,11 @@
 
 
 @section('conteudo')
-    @include('components.comp-header')
+    @include('components.comp-header', [
+        'banner2' => true,
+        '$titleBanner2' => 'Central de Atendimento • Prefeitura de Petrolina',
+    ])
 
-    <div class="container-main">
-        <h1><strong>Central de Atendimento •</strong> Prefeitura de Petrolina</h1>
-    </div>
     <div class="container">
         <div class="container-left">
             <h3>Serviços</h3>

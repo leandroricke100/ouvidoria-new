@@ -120,6 +120,21 @@ header#comp-header {
     }
 }
 
+.container-main2 {
+    background-color: #2c7bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #ffff;
+    margin-bottom: 10px;
+
+    h1 {
+        font-size: 25px;
+    }
+
+}
+
 .modal-login {
     background: white;
     max-height: 600px;
