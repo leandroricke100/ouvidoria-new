@@ -45,3 +45,17 @@
     }
 
 }
+
+@media screen and (max-width:768px) {
+    .atendimento {
+
+        h2 {
+            font-size: 17px;
+        }
+
+        p {
+            font-size: 17px;
+        }
+
+    }
+}
