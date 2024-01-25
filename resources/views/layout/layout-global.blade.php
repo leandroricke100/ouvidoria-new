@@ -16,6 +16,7 @@
         rel="stylesheet">
 
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
     @stack('head')
 </head>
 

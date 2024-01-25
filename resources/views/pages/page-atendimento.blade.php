@@ -2,6 +2,7 @@
 
 @push('head')
     <link href="{{ asset('css/page-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
+    <script src="{{ asset('js/page-atendimento.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
 @endpush
 
@@ -29,15 +30,20 @@
                 </div>
 
                 <div class="number-atendimento">
-                    <div class="atendimento">
-                        <h2><i class="fas fa-bullhorn"></i> <strong>Atendimento</strong></h2>
-                        <p>333/2024</p>
+                    <div>
+                        <div class="atendimento">
+                            <h2><i class="fas fa-bullhorn"></i> <strong>Atendimento</strong></h2>
+                            <p>333/2024</p>
+                        </div>
+                        <div class="cod">
+                            <span>Situação atual: </span>
+                            <p>Arquivado</p>
+                            <span>Código nº:</span>
+                            <p>593.617.060</p>
+                        </div>
                     </div>
-                    <div class="cod">
-                        <span>Situação atual: </span>
-                        <p>Arquivado |</p>
-                        <span>Código nº:</span>
-                        <p>593.617.060</p>
+                    <div class="print">
+                        <button onclick="printPage()" class="print"><i class="fas fa-print"></i> Imprimir</button>
                     </div>
                 </div>
             </div>
@@ -121,6 +127,9 @@
             <div class="comentario">
                 <div class="bloco">
                     <div class="bloco-left">
+                        <div id="btn-delete-msg">
+                            <button id="delete"><i class="fas fa-trash-alt"></i></button>
+                        </div>
                         <div class="despacho">
                             <p>Despacho</p>
                             <p>333/2024</p>
@@ -133,6 +142,7 @@
                             <span><i class="far fa-paperclip" style="margin-right: 8px"></i>Anexo</span>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -145,7 +155,7 @@
                     <input type="file" id="arquivo" name="arquivo">
                     <input type="hidden" name="autor" id="autor" value="usuario">
                     <input type="hidden" name="id_atendimento" id="id_atendimento" value="">
-                    <button type="submit">Enviar</button>
+                    <button id="btn-enviar" type="submit">Enviar</button>
                 </form>
             </div>
 

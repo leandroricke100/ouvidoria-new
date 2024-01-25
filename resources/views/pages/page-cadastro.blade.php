@@ -4,6 +4,7 @@
 @push('head')
     <link href="{{ asset('css/page-cadastro.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
     <script src="{{ asset('js/page-cadastro.js') }}"></script>
 @endpush
 
@@ -53,7 +54,7 @@
 
                 <div class="field pj">
                     <label for="cnpj">CNPJ:</label>
-                    <input type="number" id="cnpj" name="cnpj" placeholder="CNPJ">
+                    <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
                 </div>
 
                 <div class="field pj">
@@ -195,6 +196,7 @@
             </div>
             <div class="min-senha">
                 <span>Mínimo: 8 caracteres</span>
+                <span>Com caracteres especiais e letra maíuscula.</span>
             </div>
             <div class="button-cad">
                 <button class="button-cad-enviar" type="submit">Prosseguir <i class="fal fa-angle-double-right"

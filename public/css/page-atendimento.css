@@ -13,6 +13,21 @@
         display: flex;
         gap: 15px;
         padding: 10px;
+
+        .number-atendimento {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            button.print {
+                padding: 5px;
+                border: none;
+                color: #fff;
+                background-color: #626262;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        }
     }
 
     .image {
@@ -163,7 +178,7 @@
 
     }
 
-    button {
+    #btn-enviar {
         padding: 9px 20px;
         color: #fff;
         border: none;
@@ -233,6 +248,23 @@
     color: #2c7bff;
 }
 
+button#delete {
+    padding: 2px 5px;
+    color: #fff;
+    border: none;
+    background-color: #ff3b3b;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+div#btn-delete-msg {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
 #full-stars-example-two {
 
     .rating-group {
@@ -294,6 +326,10 @@
         p {
             font-size: 17px;
         }
+    }
+
+    .number-atendimento {
+        flex-direction: column;
     }
 
     .container-atendimento {

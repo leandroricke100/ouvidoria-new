@@ -20,3 +20,18 @@ function openModalLogin() {
 function closeModal() {
     $('.modal-login').hide();
 }
+
+
+function modalSair() {
+    if ($(".modal-sair").is(":visible")) {
+
+        $(".modal-sair").hide();
+    } else {
+
+        $(".modal-sair").show();
+    }
+}
+
+function sair() {
+    alert('teste')
+}

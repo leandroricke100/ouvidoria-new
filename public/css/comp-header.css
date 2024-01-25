@@ -1,9 +1,8 @@
 header#comp-header {
-
     display: flex;
     justify-content: space-between;
-    height: 54px;
-    padding: 15px 14px 8px 14px;
+    /* height: 65px; */
+    /* padding: 25px 16px; */
 
     .header-left {
         display: flex;
@@ -11,9 +10,14 @@ header#comp-header {
         gap: 10px;
 
         .img-brasao {
+            padding: 4px 16px;
+
             img {
-                max-height: 40px;
+                max-height: 51px;
             }
+
+
+
         }
 
         .btn-menu-mobile {
@@ -47,23 +51,25 @@ header#comp-header {
 
             input#codigo {
                 opacity: 1;
-                padding: 4px 6px;
+                padding: 4px 11px;
                 font-size: 12.5px;
-                height: 26px !important;
-                width: 124px;
+                height: 32px !important;
+                width: 142px;
                 margin-left: 10px;
-                border: 2px solid #dce4ec;
+                border: 1px solid #c1c1c1;
                 border-top-left-radius: 4px;
                 border-bottom-left-radius: 4px;
                 margin-right: 0;
+                outline: none !important;
+                border-right: 0;
             }
 
             .fa-search:before {
                 content: "\f002";
-                background-color: #0f1950;
-                padding: 5px 10px;
-                color: #fff;
-                border-radius: 0 6px 6px 0;
+                /* background-color: #0f1950; */
+                /* padding: 5px 10px; */
+                /* color: #fff; */
+                /* border-radius: 0 6px 6px 0; */
             }
 
             button.btn-search-codigo {
@@ -105,7 +111,7 @@ header#comp-header {
             }
         }
 
-        .search-options a:hover {
+        .search-optionsa:hover {
             background-color: #131E62;
         }
     }
@@ -117,6 +123,41 @@ header#comp-header {
         color: #172577;
         cursor: pointer;
         font-size: 13px;
+
+        a.cadastro {
+            text-decoration: none;
+        }
+
+        .modal-sair {
+            top: 53px;
+            position: absolute;
+            right: 14px;
+
+            .sair {
+                font-size: 12px;
+                padding: 2px 16px;
+                background-color: #333;
+                color: #fff
+            }
+        }
+
+        .user {
+            text-decoration: none;
+            font-size: 13px;
+            padding: 14px 0px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: transparent;
+            border: none;
+            color: #172577;
+            cursor: pointer;
+            height: 100%;
+        }
+    }
+
+    .header-right .user:hover {
+        background-color: #246add;
+        color: #fff;
     }
 }
 
@@ -173,16 +214,24 @@ header#comp-header {
     }
 }
 
+
+
 a.inicio {
     text-decoration: none;
     font-size: 13px;
     padding: 14px 0px;
     padding-left: 10px;
     padding-right: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #373737;
 }
 
+
+
 a.inicio:hover {
-    background-color: #172577;
+    background-color: #2069e3;
     color: #fff;
 }
 

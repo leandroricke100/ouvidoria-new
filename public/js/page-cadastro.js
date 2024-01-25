@@ -38,6 +38,40 @@ $(function () {
         }
     });
 
+
 });
 
+$(document).ready(function () {
+
+
+    $('#protocolo').mask('0000.000.000');
+    $('#cpf').mask('000.000.000-00', { reverse: true });
+    $('#cnpj').mask('00.000.000/0000-00', { reverse: true });
+    $('#celular').mask('(00) 0 0000-0000');
+    $('#cep').mask('00000-000');
+});
+
+function validarSenha() {
+    const senha = $("#senha").val();
+    const confirmarSenha = $("#confirmarSenha").val();
+
+
+    const senhaMaiscula = /[A-Z]/;
+    const senhaCaracterEspecial = /[!@#$%^&*(),.?":{}|<>]/;
+
+    if (!senhaMaiscula.test(senha) || !senhaCaracterEspecial.test(senha)) {
+        alert('A senha deve conter letra maiúscula e caractere especial.')
+        return false;
+    }
+
+    if (senha !== confirmarSenha) {
+        alert('As senhas não coincidem.');
+        return false;
+    }
+
+    if (senha.length < 8) {
+        alert('A senha deve conter pelo menos 8 caracteres');
+        return false;
+    }
+}
 

@@ -27,14 +27,14 @@
         </div>
 
 
-        <div class="btn-modal-search">
+        {{-- <div class="btn-modal-search">
             <button class="btn-search-number"><i class="fas fa-caret-down" onclick="openSearchBtn()"></i></button>
 
             <div class="search-options" style="display: none">
                 <a href="">Buscar por código</a>
                 <a href>Buscar por número + cpf/cnpj</a>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     @php
@@ -45,10 +45,18 @@
         @if (isset($usuario))
             <a href="https://ouvidoria.test/" class="inicio"><i class="fas fa-home"></i> Início</a>
             <a class="inicio" href="https://ouvidoria.test/atendimentos"><i class="fas fa-inbox"></i>Meu inbox</a>
-            <a class="inicio"><i class="fas fa-user-alt"></i> {{ $usuario['nome_completo'] }}</a>
+            <div>
+                <button onclick="modalSair()" class="user"><i class="fas fa-user-alt"></i>
+                    {{ $usuario['nome_completo'] }}<i class="fas fa-caret-down" style="margin-left: 4px"></i></button>
+
+                <div class="modal-sair" style="display: none">
+                    <button onclick="sair()" class="sair"><i class="fas fa-power-off"
+                            style="margin-right: 5px"></i>Sair</button>
+                </div>
+            </div>
         @else
             <a onclick="openModalLogin()">Entrar</a>
-            <a>Cadastro</a>
+            <a class="cadastro" href="https://ouvidoria.test/cadastro">Cadastro</a>
         @endif
     </div>
 
