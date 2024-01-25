@@ -8,8 +8,17 @@
 @endpush
 
 @section('conteudo')
-    @include('components.comp-header')
-    @include('components.comp-sigilo')
+    @include(
+        'components.comp-header',
+    
+        [
+            'banner' => true,
+            'titulo_banner' => 'Atendimentos',
+            'subtitulo_banner' => 'Atendimento ao Cidadão: Ouvidoria',
+            'subtitulo_banner_2' => 'Envie sua demanda para a Prefeitura',
+        ]
+    )
+    @include('components.comp-sigilo', ['sigilo' => true])
 
     <section class="cad-form-section">
         <form class="form" id="cad-atendimento" onsubmit="return validarSenha()">

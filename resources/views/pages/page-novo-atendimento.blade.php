@@ -68,8 +68,7 @@
 
                     <div class="inputs">
                         <label for="codAnterior">N° ou referência*:</label>
-                        <input type="text" id="codAnterior" name="codAnterior"
-                            placeholder="Se este assunto já foi solicitado antes, informe os códigos">
+                        <input type="text" id="codAnterior" name="codAnterior" placeholder="N°">
                     </div>
 
                     <div class="inputs" style="flex-basis: 100%;">

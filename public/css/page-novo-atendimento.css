@@ -99,6 +99,10 @@
     }
 }
 
+.text-sigiloso {
+    margin: 36px 10px;
+}
+
 .cad .bloco {
     flex-basis: 100%;
     display: flex;
