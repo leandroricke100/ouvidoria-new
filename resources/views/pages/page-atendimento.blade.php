@@ -42,6 +42,8 @@
                 </div>
             </div>
 
+
+            {{-- SE ATENDIMENTO ESTIVER FINALIZADO MOSTRAR CONTAINER AVALIAÇÃO --}}
             <div class="container-avalicao">
                 <div class="avalicao">
                     <p>AVALIE ATENDIMENTO</p>
@@ -108,6 +110,28 @@
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum minus reiciendis voluptatum ex
                             cum, sunt dicta odio beatae dignissimos quo, eveniet qui laborum aspernatur reprehenderit
                             possimus? In architecto aliquid unde.</p>
+                    </div>
+
+                    <div class="arquivo">
+                        <span><i class="far fa-paperclip" style="margin-right: 6px"></i>Anexo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comentario">
+                <div class="bloco">
+                    <div class="bloco-left">
+                        <div class="despacho">
+                            <p>Despacho</p>
+                            <p>333/2024</p>
+                        </div>
+                        <p>24/01/2024 às 08:32</p>
+                    </div>
+                    <div class="bloco-right">
+                        <h2>comentario</h2>
+                        <div class="arquivo">
+                            <span><i class="far fa-paperclip" style="margin-right: 8px"></i>Anexo</span>
+                        </div>
                     </div>
                 </div>
             </div>

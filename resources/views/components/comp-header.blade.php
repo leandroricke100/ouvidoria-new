@@ -11,7 +11,8 @@
         </div>
 
         <div class="img-brasao">
-            <img src="https://otimize-edoc.s3.amazonaws.com/edoc_310/logo_petrolina.png?v=" alt="logo da prefeitura" />
+            <img src="https://digitaliza-institucional.s3.us-east-2.amazonaws.com/municipio-de-marilac/site/brasao.png"
+                alt="logo da prefeitura" />
         </div>
 
         <div class="div-codigo">
@@ -26,14 +27,14 @@
         </div>
 
 
-        {{-- <div class="btn-modal-search">
+        <div class="btn-modal-search">
             <button class="btn-search-number"><i class="fas fa-caret-down" onclick="openSearchBtn()"></i></button>
 
             <div class="search-options" style="display: none">
                 <a href="">Buscar por código</a>
                 <a href>Buscar por número + cpf/cnpj</a>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     @php
@@ -62,16 +63,9 @@
 
 
 @if (isset($banner) && $banner)
-    <section class="container-main">
+    <section class="banner-header">
         <h1><i class="fas {{ $icon ?? 'fa-bullhorn' }}"></i> {{ $titulo_banner ?? 'Sem título' }}</h1>
         <p>{{ $subtitulo_banner ?? 'Sem subtítulo' }}</p>
         {!! isset($subtitulo_banner_2) ? '<p>' . $subtitulo_banner_2 . '</p>' : '' !!}
     </section>
-@endif
-
-@if (isset($banner2) && $banner2)
-    <div class="container-main2">
-        <h2>{{ $titleBanner2 ?? 'Central de Atendimento • Prefeitura de Petrolina' }}</h2>
-        {!! isset($titleBanner2) ? '<p>' . $titleBanner2 . '</p>' : '' !!}
-    </div>
 @endif

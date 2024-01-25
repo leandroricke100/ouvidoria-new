@@ -7,18 +7,22 @@
 
 
 @section('conteudo')
-    @include('components.comp-header', [
-        'banner2' => true,
-        '$titleBanner2' => 'Central de Atendimento • Prefeitura de Petrolina',
-    ])
-
+    @include(
+        'components.comp-header',
+    
+        [
+            'banner' => true,
+            'titulo_banner' => 'Atendimentos',
+            'subtitulo_banner' => 'Atendimento ao Cidadão: Ouvidoria',
+        ]
+    )
     <div class="container">
         <div class="container-left">
             <h3>Serviços</h3>
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-bullhorn"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Atendimentos</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Atendimentos</a>
                     <p>Atendimento ao Cidadão: Ouvidoria Envie sua demanda para a Prefeitura</p>
                 </div>
             </div>
@@ -26,7 +30,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-file-alt"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Ofícios</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Ofícios</a>
                     <p>Consulte a autenticidade e andamento de Ofícios recebidos.</p>
                 </div>
             </div>
@@ -34,7 +38,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-qrcode"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Protocolos</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Protocolos</a>
                     <p>Abertura e Consulta de Requerimentos Administrativos.</p>
                 </div>
             </div>
@@ -42,7 +46,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-keyboard"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Chamados</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Chamados</a>
                     <p>Servidor Municipal, abra aqui o seu Chamado para a Informática.</p>
                 </div>
             </div>
@@ -50,14 +54,14 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-info"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Pedidos de e-SIC</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Pedidos de e-SIC</a>
                     <p>Abertura e Consulta.</p>
                 </div>
             </div>
 
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-eraser"></i></span></div>
-                <div class="opcoes">
+                <div class="ohttps://ouvidoria.test/novo/atendimentopcoes">
                     <a href="">Viabilização de Construção</a>
                     <p>Abertura e Consulta</p>
                 </div>
@@ -66,7 +70,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fal fa-fw fa-file-exclamation"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Intimações</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Intimações</a>
                     <p>Consulte a autenticidade de Intimações recebidas.</p>
                 </div>
             </div>
@@ -74,7 +78,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fal fa-fw fa-list-ol"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Processos Seletivos</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Processos Seletivos</a>
                     <p>Candidate-se a uma das vagas na Prefeitura de viçosa</p>
                 </div>
             </div>
@@ -82,7 +86,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="far fa-fw fa-paste"></i></span></div>
                 <div class="opcoes">
-                    <a href="">Licenciamento Urbano</a>
+                    <a href="https://ouvidoria.test/novo/atendimento">Licenciamento Urbano</a>
                     <p>Aprovação de Projetos e Alvará de Obras, Aprovação de Projetos e Licenciamentos de
                         Loteamentos/Condomínios/Territorial</p>
                 </div>

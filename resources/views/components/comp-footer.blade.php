@@ -6,6 +6,6 @@
 
 <footer id="comp-footer">
     <div class="div-footer">
-        <p>Prefeitura de Viçosa 2024</p>
+        <p>Prefeitura de Marilac 2024</p>
     </div>
 </footer>
