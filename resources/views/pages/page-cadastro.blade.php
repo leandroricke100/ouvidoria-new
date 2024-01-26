@@ -24,7 +24,6 @@
     <section class="cad-form-section">
         <form class="form" id="cad-atendimento" onsubmit="return validarSenha()">
 
-
             <div class="tipo-cad">
                 <div class="radio">
                     <input type="radio" id="pessoaFisica" name="tipoCadastro" value="pessoaFisica" checked required>
@@ -47,43 +46,48 @@
                 <label for="sigilo" style="margin-bottom: -4px;">Sigiloso</label>
             </div> --}}
             <div class="cadastro cad-borda">
-                <div class="field pj">
+                <div class="field pj" style="flex-basis: 60%">
                     <label for="nomeFantasia">Organização/Nome fantasia*: </label>
                     <input type="text" id="nomeFantasia" name="nomeFantasia" placeholder="Nome" required>
                 </div>
 
-                <div class="field pj">
+                <div class="field pj" style="flex-basis: 30%">
                     <label for="cnpj">CNPJ:</label>
                     <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
                 </div>
 
-                <div class="field pj">
+                <div class="field pj" style="flex-basis: 30%">
                     <label for="razaoSocial">Razão Social:</label>
                     <input type="text" id="razaoSocial" name="razaoSocial" placeholder="Razão social">
                 </div>
 
-                <div class="field pj">
+                <div class="field pj" style="flex-basis: 30%">
                     <label for="nomeContato">Nome do contato Principal:</label>
                     <input type="text" id="nomeContato" name="nomeContato" placeholder="Contato">
                 </div>
 
-                <div class="pj">
+                <div class="pj" style="flex-basis: 30%">
                     <div class="field">
                         <label for="areaAtuacao">Área de atuação:</label>
-                        <input type="text" id="areaAtuacao" name="areaAtuacao" placeholder="Área atuacao">
+                        <select id="areaAtuacao" name="areaAtuacao">
+                            <option value="" disabled selected>- Selecione -</option>
+                            <option value="admistracaoDeBens">Administração de bens</option>
+                            <option value="academias">Academias</option>
+                            <option value="chaveiros">Chaveiros</option>
+                            <option value="outros">Outros</option>
+                        </select>
                     </div>
                 </div>
 
 
-                <div class="field pf">
+                <div class="field pf" style="flex-basis: 50%">
                     <label for="nomeCompleto">Nome completo:<span class="campo-obrigatorio"><span
                                 class="campo-obrigatorio">*</span></span></label>
-                    <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Digite seu nome completo"
-                        required>
+                    <input type="text" id="nomeCompleto" name="nomeCompleto" required>
                 </div>
 
 
-                <div class="field pf">
+                <div class="field pf" style="flex-basis: 30%">
                     <label for="cpf">CPF:</label>
                     <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
                 </div>
@@ -94,22 +98,28 @@
                     <input type="date" id="dataNascimento" name="dataNascimento">
                 </div>
 
-                <div class="field pf">
+                <div class="field pf" style="flex-basis: 50%">
                     <label for="funcao">Função:</label>
                     <input type="text" id="funcao" name="funcao" placeholder="Função/Cargo">
                 </div>
 
-                <div class="field pf">
+                <div class="field pf" style="flex-basis: 45%">
                     <label for="organizacao">Organização:</label>
                     <input type="text" id="organizacao" name="organizacao" placeholder="Organização">
                 </div>
 
-                <div class="field pf">
+                <div class="field pf" style="flex-basis: 60%">
                     <label for="profissao">Profissão:</label>
-                    <input type="text" id="profissao" name="profissao" placeholder="Profissão">
+                    <select id="profissao" name="profissao">
+                        <option value="" disabled selected>- Selecione -</option>
+                        <option value="repositor">Repositor</option>
+                        <option value="programador">Programador</option>
+                        <option value="vereador">Vereador</option>
+                        <option value="outros">Outros</option>
+                    </select>
                 </div>
 
-                <div class="field pf">
+                <div class="field pf" style="flex-basis: 30%">
                     <label for="sexo">Sexo:</label>
                     <select id="sexo" name="sexo">
                         <option value="" disabled selected>- Selecione -</option>
@@ -119,7 +129,7 @@
                     </select>
                 </div>
 
-                <div class="field">
+                <div class="field" style="flex-basis: 40%">
                     <label for="email">E-mail*:</label>
                     <input type="text" id="email" name="email" value='' placeholder="Digite seu e-email"
                         required>
@@ -135,23 +145,23 @@
                     <input type="tel" id="celular" name="celular" placeholder="Digite seu celular">
                 </div>
 
-                <div class="field">
+                <div class="field" style="flex-basis: 100%">
                     <label for="emailAlternativo">E-mails alternativo (casso possuir):</label>
                     <input type="email" id="emailAlternativo" name="emailAlternativo" placeholder="Caso possuir">
                 </div>
 
             </div>
 
-            <h3 class="endereco">Endereço</h3>
+            <p class="endereco">Endereço</p>
 
             <div class="cadastro cad-borda">
 
-                <div class="field">
+                <div class="field" style="flex-basis: 64%">
                     <label for="endereco">Endereço completo (com número):</label>
                     <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço">
                 </div>
 
-                <div class="field">
+                <div class="field" style="flex-basis: 30%">
                     <label for="cep">CEP:</label>
                     <input type="text" id="cep" name="cep" placeholder="CEP">
                 </div>
@@ -198,6 +208,12 @@
                 <span>Mínimo: 8 caracteres</span>
                 <span>Com caracteres especiais e letra maíuscula.</span>
             </div>
+
+            <div class="mostrar-senha">
+                <input type="checkbox" id="mostarSenha">
+                <p>Mostrar Senha</p>
+            </div>
+
             <div class="button-cad">
                 <button class="button-cad-enviar" type="submit">Prosseguir <i class="fal fa-angle-double-right"
                         style="margin-left: 5px"></i></button>

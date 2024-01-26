@@ -10,12 +10,13 @@
 
     .text-cpf-email {
         p {
+            font-size: 13px;
             color: #666;
         }
     }
 
     input#emailLogin {
-        max-width: 206px;
+        width: 250px;
         padding: 7px 9px;
         font-size: 12.5px;
         border: 2px solid #dce4ec;
@@ -45,7 +46,7 @@
     .btn-recuperar-senha {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 5px;
 
         button {
             text-decoration: none;
@@ -54,7 +55,11 @@
             color: #888;
             background: transparent;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
+        }
+
+        .senha {
+            color: #131e62;
         }
     }
 
@@ -74,7 +79,7 @@
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            margin: 25px 0px;
+            margin: 18px 0px;
         }
 
         .fa-google-plus-g:before {
@@ -91,7 +96,7 @@
 
         p {
             color: #666;
-            font-size: 12px;
+            font-size: 11px;
         }
     }
 }
@@ -100,5 +105,9 @@
 @media screen and (max-width: 768px) {
     .sigilo {
         width: auto !important;
+    }
+
+    .container-login {
+        padding: 15px;
     }
 }

@@ -12,8 +12,8 @@
     
         [
             'banner' => true,
-            'titulo_banner' => 'Atendimentos',
-            'subtitulo_banner' => 'Atendimento ao Cidadão: Ouvidoria',
+            'cadastro' => true,
+            'titulo_banner' => 'Central de Atendimento • Prefeitura de Marilac',
         ]
     )
     <div class="container">
@@ -94,6 +94,16 @@
         </div>
 
         <div class="container-right">
+
+
+            {{-- SE ESTIVER LOGADO --}}
+            {{-- <div class="inbox">
+                <div class="tel-pref">
+                    <p>Olá, Leandro. consulte suas demandas.</p>
+                </div>
+                <a href="https://ouvidoria.test/atendimentos" class="inbox">Meu Inbox</a>
+            </div> --}}
+
             <div class="menus-right">
                 <button><i class="fas fa-fw fa-chart-bar"></i> <strong>Transparência</strong></button>
             </div>

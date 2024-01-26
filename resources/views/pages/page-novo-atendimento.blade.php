@@ -25,6 +25,17 @@
     @include('components.comp-sigilo', ['sigilo' => false])
 
     <section class="container-main-atendimento">
+        <div class="idenficacao">
+            <div class="itens2">
+                <span><i class="fas fa-user"></i>Identificação</span>
+                <p>Passo 1</p>
+            </div>
+            <div class="itens">
+                <span><i class="fas fa-bullhorn"></i>Informações</span>
+                <p>Passo 2</p>
+            </div>
+        </div>
+        <div class="border"><span></span></div>
         <div class="text-sigiloso"><span><strong>Atendimento sigiloso:</strong> Seus dados estarão ocultos durante a
                 tramitação. O pedido de sigilo
                 deve ser justificado e caberá ao destinatário o deferimento ou não do sigilo.</span></div>
@@ -33,12 +44,18 @@
             <div class="cad">
                 <div class="inputs" style="flex-basis: 50%">
                     <label for="assunto">Assunto*:</label>
-                    <input type="text" id="assunto" name="assunto" placeholder="Assunto" required>
+                    <select id="assunto" name="assunto" required>
+                        <option value="" disabled selected>- Selecione -</option>
+                        <option value="demoraNoAtendimento">Demora no Atendimento</option>
+                        <option value="meioAmbiente">Meio Ambiente</option>
+                        <option value="reciclagem">reciclagem</option>
+                        <option value="outros">Outros</option>
+                    </select>
                 </div>
 
                 <div class="inputs">
                     <label for="prioridade">Prioridade:</label>
-                    <select id="prioridade" name="prioridade">
+                    <select id="prioridade" name="prioridade" style="cursor: pointer">
                         <option value="baixo">Baixo</option>
                         <option value="media">Média</option>
                         <option value="alta">Alta</option>

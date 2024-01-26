@@ -4,16 +4,15 @@
     margin-right: auto;
     margin-left: auto;
     display: flex;
+    padding: 10px 130px;
     margin-bottom: 50px;
 
     .container-left {
-        flex: 1;
-        padding-left: 90px;
-
         h3 {
-            font-size: 14px;
+            font-size: 12px;
             color: #666;
             margin-bottom: 20px;
+            font-weight: 400;
         }
 
         .menus {
@@ -32,7 +31,11 @@
             }
 
             .opcoes {
-                margin-right: 15px;
+                display: flex;
+                margin-right: 89px;
+                flex-direction: column;
+                gap: 12px;
+                margin-right: 290px;
 
                 p {
                     font-size: 13px;
@@ -43,11 +46,40 @@
     }
 
     .container-right {
-        flex: 1;
-        padding-right: 90px;
         display: flex;
         flex-direction: column;
         gap: 12px;
+
+        .inbox {
+            padding: 12px 17px 18px 17px;
+            background-color: #ECECEC;
+            border-radius: 5px;
+            color: #333;
+            font-size: 15px;
+            width: 366px;
+            margin-bottom: 10px;
+
+            a.inbox {
+                padding: 12px 20px;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                background-color: #24e3be;
+                border-radius: 5px;
+                margin-top: 20px;
+                width: 100%;
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+        }
+
+        .inbox a.inbox:hover {
+            opacity: 0.5;
+        }
+
 
         .menus-right {
             button {
@@ -57,8 +89,9 @@
                 border-radius: 5px;
                 font-size: 20px;
                 color: #172577;
-                width: 100%;
+                width: 366px;
                 margin-bottom: 20px;
+                text-align: left;
             }
         }
 
@@ -68,9 +101,11 @@
             border-radius: 5px;
             color: #333;
             font-size: 15px;
+            width: 366px;
 
             .tel-pref {
                 margin-bottom: 20px;
+                font-size: 13px;
             }
 
             .border-bottom {
@@ -78,7 +113,7 @@
             }
 
             button.organograma {
-                padding: 12px 20px;
+                padding: 10px 20px;
                 color: #fff;
                 text-decoration: none;
                 border: none;
@@ -86,13 +121,12 @@
                 border-radius: 5px;
                 margin-top: 20px;
                 width: 100%;
-                font-size: 18px;
+                font-size: 15px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 8px;
             }
-
 
             .prefeitura {
                 font-size: 18px;
@@ -100,10 +134,15 @@
             }
         }
 
+        .info-prefeitura .organograma:hover {
+            opacity: 0.5;
+        }
+
         .ajuda {
             padding: 12px 17px 18px 17px;
             background-color: #ECECEC;
             border-radius: 5px;
+            width: 366px;
 
             p {
                 font-size: 18px;
@@ -116,10 +155,49 @@
                 gap: 5px;
                 margin-left: 10px;
                 margin-top: 15px;
+                font-size: 13px;
 
                 a {
                     text-decoration: none;
                 }
+            }
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+        padding: 10px 20px;
+
+        .container-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .container-right {
+            padding-right: 0px;
+            align-items: center;
+
+            .menus-right {
+                button {
+                    width: 300px;
+                }
+            }
+
+
+            .info-prefeitura {
+                width: 300px;
+            }
+
+            .ajuda {
+                width: 300px;
             }
         }
 

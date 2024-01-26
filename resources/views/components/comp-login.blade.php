@@ -15,7 +15,9 @@
 
     <div class="btn-recuperar-senha">
         <button>Sem e-mail? Entre com CPF/CNPJ</button>
-        <button>Esqueceu a senha?</button>
+        <button class="senha">Esqueceu a senha?</button>
+        <button class="senha">Não tenho a senha</button>
+        <button class="senha">Confirmação de segurança*:</button>
     </div>
 
     <div class="login-google">
@@ -23,7 +25,11 @@
     </div>
 
     <div class="text-sigilo">
-        <p>Não postaremos nada nas redes sociais</p>
-        <p>sem sua permissão.</p>
+        <i>
+            <p>Não postaremos nada nas redes sociais</p>
+        </i>
+        <i>
+            <p>sem sua permissão.</p>
+        </i>
     </div>
 </section>

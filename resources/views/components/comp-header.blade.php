@@ -11,8 +11,9 @@
         </div>
 
         <div class="img-brasao">
-            <img src="https://digitaliza-institucional.s3.us-east-2.amazonaws.com/municipio-de-marilac/site/brasao.png"
-                alt="logo da prefeitura" />
+            <a href="https://ouvidoria.test/"><img
+                    src="https://digitaliza-institucional.s3.us-east-2.amazonaws.com/municipio-de-marilac/site/brasao.png"
+                    alt="logo da prefeitura" /></a>
         </div>
 
         <div class="div-codigo">
@@ -55,8 +56,12 @@
                 </div>
             </div>
         @else
-            <a onclick="openModalLogin()">Entrar</a>
-            <a class="cadastro" href="https://ouvidoria.test/cadastro">Cadastro</a>
+            <div class="login-cad">
+                <a onclick="openModalLogin()">Entrar</a>
+                @if (isset($cadastro) && $cadastro)
+                    <a class="cadastro" href="https://ouvidoria.test/cadastro">Cadastro</a>
+                @endif
+            </div>
         @endif
     </div>
 
@@ -72,8 +77,10 @@
 
 @if (isset($banner) && $banner)
     <section class="banner-header">
-        <h1><i class="fas {{ $icon ?? 'fa-bullhorn' }}"></i> {{ $titulo_banner ?? 'Sem título' }}</h1>
-        <p>{{ $subtitulo_banner ?? 'Sem subtítulo' }}</p>
-        {!! isset($subtitulo_banner_2) ? '<p>' . $subtitulo_banner_2 . '</p>' : '' !!}
+        <div class="backgound-banner">
+            <h1><i class="fas {{ $icon ?? 'fa-bullhorn' }}"></i> {{ $titulo_banner ?? 'Sem título' }}</h1>
+            <p>{{ $subtitulo_banner ?? '' }}</p>
+            {!! isset($subtitulo_banner_2) ? '<p>' . $subtitulo_banner_2 . '</p>' : '' !!}
+        </div>
     </section>
 @endif

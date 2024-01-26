@@ -1,3 +1,66 @@
+.idenficacao {
+    max-width: 1160px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    margin-top: 20px;
+
+    .itens {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        color: #000;
+        border-top: 2px solid #bbb;
+        padding: 6px 12px 8px 8px !important;
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-bottom: white;
+        margin-bottom: -10px;
+        border-radius: 4px 4px 0 0;
+        font-size: 12px;
+
+        i {
+            margin-right: 5px;
+        }
+
+        p {
+            color: #666 !important;
+        }
+    }
+
+    .itens2 {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        color: #000;
+        padding: 6px 12px 8px 8px !important;
+        border-bottom: white;
+        margin-bottom: -10px;
+        border-radius: 4px 4px 0 0;
+        font-size: 12px;
+        color: #666 !important;
+
+        i {
+            margin-right: 5px;
+        }
+
+        p {
+            color: #666 !important;
+        }
+    }
+
+    .itens2:hover {
+        padding: 9px 12px 8px 8px !important;
+        border-right: 1px solid #ddd;
+        margin-bottom: -11px;
+        background-color: #ddd;
+        cursor: pointer;
+    }
+}
+
 .container {
     padding-top: 10px;
     max-width: 1280px;
@@ -7,31 +70,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 75px;
+
+
+
+    .border {
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        max-width: 1160px;
+        margin-bottom: 20px;
+    }
 
     p {
-        font-size: 15px;
-        color: #333;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 15px;
+        margin-top: 16px;
+        margin-bottom: 30px;
+        color: #333;
 
     }
 
     .sigilo {
-        min-height: 50px;
-        background-color: #ecf0f1;
+        background-color: #ECECEC;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 37px;
         justify-content: center;
         border-radius: 10px;
         margin-top: 20px;
         max-width: 1049px;
         width: 100%;
-        padding: 30px;
+        padding: 5px;
+        padding-bottom: 30px;
 
         label {
             margin-bottom: 0;
@@ -52,17 +123,17 @@
         .input-sigilo {
 
 
-            .fa-question:before {
-                content: "\f128";
-                font-size: 9px;
-                background-color: #333333;
-                border-radius: 155px;
-                color: #fff;
-                padding: 3px;
-            }
 
             label {
-                color: #666
+                color: #666;
+
+                i {
+                    font-size: 9px;
+                    background-color: #333333;
+                    border-radius: 155px;
+                    color: #fff;
+                    padding: 3px;
+                }
             }
         }
 

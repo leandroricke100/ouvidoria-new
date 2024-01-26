@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="number-atendimento">
-                    <div>
+                    <div class="bloco-atendimento">
                         <div class="atendimento">
                             <h2><i class="fas fa-bullhorn"></i> <strong>Atendimento</strong></h2>
                             <p>333/2024</p>
@@ -42,7 +42,7 @@
                             <p>593.617.060</p>
                         </div>
                     </div>
-                    <div class="print">
+                    <div class="div-print">
                         <button onclick="printPage()" class="print"><i class="fas fa-print"></i> Imprimir</button>
                     </div>
                 </div>
@@ -95,6 +95,11 @@
 
                     <div class="horario">
                         <span>Em 24/01/2024 às 08:32</span>
+                        <p>Há 3 dias atrás</p>
+                    </div>
+
+                    <div class="border">
+                        <span></span>
                     </div>
 
                     <div class="local">
@@ -113,6 +118,9 @@
                     </div>
 
                     <div class="msg">
+                        <div class="data-time">
+                            <p>Data/hora : 24/01/2024 08:30:00</p>
+                        </div>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum minus reiciendis voluptatum ex
                             cum, sunt dicta odio beatae dignissimos quo, eveniet qui laborum aspernatur reprehenderit
                             possimus? In architecto aliquid unde.</p>
@@ -127,23 +135,88 @@
             <div class="comentario">
                 <div class="bloco">
                     <div class="bloco-left">
-                        <div id="btn-delete-msg">
-                            <button id="delete"><i class="fas fa-trash-alt"></i></button>
+                        <div>
+                            <div class="number-despacho">
+
+                                <div class="despacho">
+                                    <p>Despacho</p>
+                                    <p>333/2024</p>
+                                </div>
+
+                                {{-- <div id="btn-delete-msg">
+                                    <button id="delete"><i class="fas fa-trash-alt"></i></button>
+                                </div> --}}
+                            </div>
+                            <div class="tempo-res">
+                                <p>Há 23 horas atrás</p>
+                            </div>
                         </div>
-                        <div class="despacho">
-                            <p>Despacho</p>
-                            <p>333/2024</p>
+                        <div class="titular">
+                            <span><i class="fas fa-user"></i>Usuário</span>
                         </div>
-                        <p>24/01/2024 às 08:32</p>
                     </div>
                     <div class="bloco-right">
-                        <h2>comentario</h2>
+                        <div class="res-comentario">
+                            <p>comentario</p>
+                        </div>
+                        <div class="border4">
+                            <span></span>
+                        </div>
                         <div class="arquivo">
                             <span><i class="far fa-paperclip" style="margin-right: 8px"></i>Anexo</span>
                         </div>
                     </div>
 
                 </div>
+
+                <div class="bloco">
+                    <div class="bloco-left">
+                        <div>
+                            <div class="number-despacho">
+
+                                <div class="despacho">
+                                    <p>Despacho</p>
+                                    <p>333/2024</p>
+                                </div>
+
+                                <div id="btn-delete-msg">
+                                    <button id="delete"><i class="fas fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                            <div class="tempo-res">
+                                <p>Há 23 horas atrás</p>
+                            </div>
+                        </div>
+                        <div class="titular">
+                            <span><i class="fas fa-university"></i>Câmara</span>
+                        </div>
+                    </div>
+                    <div class="bloco-right">
+                        <div class="res-comentario">
+                            <p>comentario</p>
+                        </div>
+                        <div class="border4">
+                            <span></span>
+                        </div>
+                        <div class="arquivo">
+                            <span><i class="far fa-paperclip" style="margin-right: 8px"></i>Anexo</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="border3">
+                <span></span>
+            </div>
+
+            <div class="situacao-atual">
+                <p>Situação atual:</p>
+                <span>Em tramitação interna</span>
+            </div>
+
+            <div class="border3">
+                <span></span>
             </div>
 
             <div class="new-atendimento">

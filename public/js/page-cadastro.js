@@ -43,6 +43,20 @@ $(function () {
 
 $(document).ready(function () {
 
+    const mostrarSenhaCheckbox = $('#mostarSenha');
+    const senhaInput = $('#senha');
+    const confirmarSenhaInput = $('#confirmarSenha');
+
+    mostrarSenhaCheckbox.change(function () {
+        if (mostrarSenhaCheckbox.prop('checked')) {
+            senhaInput.prop('type', 'text');
+            confirmarSenhaInput.prop('type', 'text');
+        } else {
+            senhaInput.prop('type', 'password');
+            confirmarSenhaInput.prop('type', 'password');
+        }
+    });
+
 
     $('#protocolo').mask('0000.000.000');
     $('#cpf').mask('000.000.000-00', { reverse: true });

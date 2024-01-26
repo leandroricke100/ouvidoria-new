@@ -1,5 +1,5 @@
 .cad-form-section {
-    background-color: #ecf0f1;
+    background-color: #ECECEC;
     max-width: 1049px;
     margin-right: auto;
     margin-left: auto;
@@ -18,8 +18,10 @@ form#cad-atendimento {
 
     .tipo-cad {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 94px;
+        margin-top: 10px;
+        font-size: 88% !important;
     }
 
     .cadastro {
@@ -49,7 +51,7 @@ form#cad-atendimento {
     }
 
     input {
-        padding: 7px 9px;
+        padding: 10px 10px;
         border: 1px solid #c9c9c9;
         color: #666 !important;
         border-radius: 8px;
@@ -87,7 +89,7 @@ form#cad-atendimento {
         color: #fff;
         text-decoration: none;
         outline: none;
-        padding: 7px 20px;
+        padding: 11px 21px;
         background-color: #333333;
         border-radius: 6px;
         font-size: 15px;
@@ -103,6 +105,7 @@ form#cad-atendimento {
         justify-content: center;
         margin-top: 20px;
         color: #333;
+
     }
 
     .text-cadastro-log {
@@ -114,7 +117,7 @@ form#cad-atendimento {
     .min-senha {
         font-size: 88%;
         color: #666 !important;
-        margin-bottom: 50px;
+        margin-bottom: 8px;
         display: flex;
         flex-direction: column;
         gap: 5px;
@@ -127,6 +130,18 @@ form#cad-atendimento {
         color: red;
         margin-top: 5px;
 
+    }
+
+    .mostrar-senha {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin-bottom: 50px;
+
+        p {
+            font-size: 88%;
+            color: #666 !important;
+        }
     }
 }
 
