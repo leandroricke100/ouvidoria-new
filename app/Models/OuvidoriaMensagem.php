@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Arquivo extends Model
+class OuvidoriaMensagem extends Model
 {
+
     use SoftDeletes;
 
-    protected $table = 'tb_arquivos';
+    protected $table = 'tb_ouvidoria_mensagem';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
