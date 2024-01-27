@@ -11,7 +11,7 @@
 @section('conteudo')
     @include(
         'components.comp-header',
-    
+
         [
             'banner' => true,
             'titulo_banner' => 'Atendimentos',
@@ -71,10 +71,10 @@
                         <label for="areaAtuacao">Área de atuação:</label>
                         <select id="areaAtuacao" name="areaAtuacao">
                             <option value="" disabled selected>- Selecione -</option>
-                            <option value="admistracaoDeBens">Administração de bens</option>
-                            <option value="academias">Academias</option>
-                            <option value="chaveiros">Chaveiros</option>
-                            <option value="outros">Outros</option>
+                            <option value="AdmistracaoDeBens">Administração de bens</option>
+                            <option value="Academias">Academias</option>
+                            <option value="Chaveiros">Chaveiros</option>
+                            <option value="Outros">Outros</option>
                         </select>
                     </div>
                 </div>
@@ -112,10 +112,10 @@
                     <label for="profissao">Profissão:</label>
                     <select id="profissao" name="profissao">
                         <option value="" disabled selected>- Selecione -</option>
-                        <option value="repositor">Repositor</option>
-                        <option value="programador">Programador</option>
-                        <option value="vereador">Vereador</option>
-                        <option value="outros">Outros</option>
+                        <option value="Repositor">Repositor</option>
+                        <option value="Programador">Programador</option>
+                        <option value="Vereador">Vereador</option>
+                        <option value="Outros">Outros</option>
                     </select>
                 </div>
 
@@ -123,9 +123,9 @@
                     <label for="sexo">Sexo:</label>
                     <select id="sexo" name="sexo">
                         <option value="" disabled selected>- Selecione -</option>
-                        <option value="solteiro">Masculino</option>
-                        <option value="casado">Feminino</option>
-                        <option value="naoEspeficicado">Não especificado</option>
+                        <option value="Solteiro">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="NaoEspeficicado">Não especificado</option>
                     </select>
                 </div>
 

@@ -2,14 +2,15 @@ $(function () {
     $('[name="tipoCadastro"]').change(function () {
         let tipo = $('[name="tipoCadastro"]:checked').val();
 
+
         if (tipo === "pessoaFisica") {
             $(".pf").show();
             $(".pj").hide();
-            $("#razaoSocial, #cnpj, #nomeResponsavel").removeAttr("required");
+            $("#nomeFantasia").removeAttr("required");
         } else {
             $(".pf").hide();
             $(".pj").show();
-            $("#nomeCompleto, #cpf").removeAttr("required");
+            $("#nomeCompleto").removeAttr("required");
         }
     });
 
@@ -89,3 +90,46 @@ function validarSenha() {
     }
 }
 
+function efetuarCadastro() {
+    const dadosForm = new FormData($('#cad-atendimento')[0]);
+
+    const profissao = $('#profissao').val();
+    dadosForm.append('profissao', profissao);
+
+    const sexo = $('#sexo').val();
+    dadosForm.append('sexo', sexo);
+
+    const areaAtuacao = $('#areaAtuacao').val();
+    dadosForm.append('areaAtuacao', areaAtuacao);
+
+    $.ajax({
+        url: '/api/OuvidoriaCadastro',
+        type: "POST",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        cache: false,
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: dadosForm,
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+                // Handle success, e.g., redirect to another page
+            } else {
+                // Handle failure
+            }
+        },
+        error: function (XMLHttpRequest, xhr, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+            console.log(textStatus);
+            console.log(errorThrown);
+        }
+    });
+}
+
+$(() => $('form').submit(function (e) {
+    efetuarCadastro();
+    e.preventDefault();
+}));

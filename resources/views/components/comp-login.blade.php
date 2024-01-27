@@ -15,8 +15,8 @@
 
     <div class="btn-recuperar-senha">
         <button>Sem e-mail? Entre com CPF/CNPJ</button>
-        <button class="senha">Esqueceu a senha?</button>
-        <button class="senha">Não tenho a senha</button>
+        <a href="https://ouvidoria.test/novasenha" class="senha">Esqueceu a senha?</a>
+        <a href="https://ouvidoria.test/novasenha" class="senha">Não tenho a senha</a>
         <button class="senha">Confirmação de segurança*:</button>
     </div>
 

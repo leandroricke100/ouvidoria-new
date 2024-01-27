@@ -219,6 +219,19 @@ header#comp-header {
     background-position: center center;
     background-size: cover;
 
+    .icon-back {
+        position: absolute;
+        top: 23px;
+        left: 9px;
+        font-size: 22px;
+        color: white;
+        padding: 10px;
+
+        i {
+            color: white;
+        }
+    }
+
 
     h1 {
         font-size: 20px;

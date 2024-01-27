@@ -36,3 +36,7 @@ Route::get('/atendimento/{id}', function ($id = '') {
 Route::get('atendimentos', function () {
     return view('pages.page-atendimentos');
 });
+
+Route::get('/novasenha', function () {
+    return view('pages.page-recuperarSenha');
+});

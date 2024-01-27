@@ -77,7 +77,11 @@
 
 @if (isset($banner) && $banner)
     <section class="banner-header">
+
         <div class="backgound-banner">
+            <div class="icon-back">
+                <a href="https://ouvidoria.test"><i class="fas fa-chevron-left"></i></a>
+            </div>
             <h1><i class="fas {{ $icon ?? 'fa-bullhorn' }}"></i> {{ $titulo_banner ?? 'Sem título' }}</h1>
             <p>{{ $subtitulo_banner ?? '' }}</p>
             {!! isset($subtitulo_banner_2) ? '<p>' . $subtitulo_banner_2 . '</p>' : '' !!}
