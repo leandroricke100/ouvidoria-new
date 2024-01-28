@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,9 +34,7 @@ Route::get('/atendimento/{id}', function ($id = '') {
     return view('pages.page-atendimento');
 });
 
-Route::get('atendimentos', function () {
-    return view('pages.page-atendimentos');
-});
+Route::get('atendimentos', [IndexController::class, 'atendimentos'])->name('usuario-atendimentos');
 
 Route::get('/novasenha', function () {
     return view('pages.page-recuperarSenha');

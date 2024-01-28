@@ -6,3 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/OuvidoriaCadastro', [OuvidoriaController::class, 'cadastro']);
+
+Route::post('/OuvidoriaNovoAtendimento', [OuvidoriaController::class, 'novoAtendimento']);

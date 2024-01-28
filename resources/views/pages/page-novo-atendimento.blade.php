@@ -46,8 +46,8 @@
                     <label for="assunto">Assunto*:</label>
                     <select id="assunto" name="assunto" required>
                         <option value="" disabled selected>- Selecione -</option>
-                        <option value="demoraNoAtendimento">Demora no Atendimento</option>
-                        <option value="meioAmbiente">Meio Ambiente</option>
+                        <option value="Demora no Atendimento">Demora no Atendimento</option>
+                        <option value="Meio Ambiente">Meio Ambiente</option>
                         <option value="reciclagem">reciclagem</option>
                         <option value="outros">Outros</option>
                     </select>
@@ -56,10 +56,10 @@
                 <div class="inputs">
                     <label for="prioridade">Prioridade:</label>
                     <select id="prioridade" name="prioridade" style="cursor: pointer">
-                        <option value="baixo">Baixo</option>
-                        <option value="media">Média</option>
-                        <option value="alta">Alta</option>
-                        <option value="urgente">Urgente</option>
+                        <option value="Baixo">Baixo</option>
+                        <option value="Media">Média</option>
+                        <option value="Alta">Alta</option>
+                        <option value="Urgente">Urgente</option>
                     </select>
                 </div>
 
@@ -70,7 +70,7 @@
 
                 <div class="inputs">
                     <label for="hora">Hora:</label>
-                    <input type="number" id="hora" name="hora" placeholder="10:30">
+                    <input type="time" id="hora" name="hora" placeholder="10:30">
                 </div>
 
 
@@ -84,8 +84,8 @@
                     </div>
 
                     <div class="inputs">
-                        <label for="codAnterior">N° ou referência*:</label>
-                        <input type="text" id="codAnterior" name="codAnterior" placeholder="N°">
+                        <label for="referencia">N° ou referência*:</label>
+                        <input type="text" id="referencia" name="referencia" placeholder="N°">
                     </div>
 
                     <div class="inputs" style="flex-basis: 100%;">
@@ -100,13 +100,13 @@
                     <div class="inputs">
                         <label for="finalidade">Finalidade:</label>
                         <select id="finalidade" name="finalidade">
-                            <option value="baixo">Informação</option>
-                            <option value="media">Sugestão</option>
-                            <option value="alta">Reclamação</option>
-                            <option value="urgente">Denúncia</option>
-                            <option value="urgente">Elogio</option>
-                            <option value="urgente">Solicitação</option>
-                            <option value="urgente">Simplifique</option>
+                            <option value="Informação">Informação</option>
+                            <option value="Sugestão">Sugestão</option>
+                            <option value="Reclamação">Reclamação</option>
+                            <option value="Denúncia">Denúncia</option>
+                            <option value="Elogio">Elogio</option>
+                            <option value="Solicitação">Solicitação</option>
+                            <option value="Simplifique">Simplifique</option>
                         </select>
                     </div>
 
@@ -119,6 +119,9 @@
 
                 <div class="bloco3">
                     <input type="file" id="arquivo" name="arquivo">
+                    <input type="hidden" name="autor" id="autor" value="Usuario">
+                    <input type="hidden" name="sigilo" id="sigilo" value="sigilo">
+                    <input type="hidden" name="id_atendimento" id="id_atendimento" value="1">
                     <button class="btn-enviar" type="submit">Registrar</button>
                 </div>
 
