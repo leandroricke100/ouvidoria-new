@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\IndexArquivo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/arquivo/{id}/{op?}', [IndexArquivo::class, 'index'])->name('pg-arquivo');
 
 Route::get('/', function () {
     return view('pages.page-inicio');
@@ -30,9 +33,9 @@ Route::get('novo/atendimento', function () {
     return view('pages.page-novo-atendimento');
 });
 
-Route::get('/atendimento/{id}', function ($id = '') {
-    return view('pages.page-atendimento');
-});
+Route::get('/atendimento/{id}', [IndexController::class, 'atendimento'])->name('usuario-atendimento');
+
+Route::get('/admin/atendimento/{id}', [IndexController::class, 'admin'])->name('admin-atendimento');
 
 Route::get('atendimentos', [IndexController::class, 'atendimentos'])->name('usuario-atendimentos');
 

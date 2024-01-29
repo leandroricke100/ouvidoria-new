@@ -242,6 +242,10 @@
 
     }
 
+    textarea#atendimentoUsuario {
+        padding: 15px;
+    }
+
     #btn-enviar {
         padding: 9px 20px;
         color: #fff;
@@ -320,6 +324,10 @@
             .arquivo {
                 font-size: 12px;
                 cursor: pointer;
+
+                .link {
+                    text-decoration: none !important;
+                }
             }
         }
 

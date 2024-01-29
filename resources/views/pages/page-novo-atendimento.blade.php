@@ -48,8 +48,8 @@
                         <option value="" disabled selected>- Selecione -</option>
                         <option value="Demora no Atendimento">Demora no Atendimento</option>
                         <option value="Meio Ambiente">Meio Ambiente</option>
-                        <option value="reciclagem">reciclagem</option>
-                        <option value="outros">Outros</option>
+                        <option value="Reciclagem">reciclagem</option>
+                        <option value="Outros">Outros</option>
                     </select>
                 </div>
 

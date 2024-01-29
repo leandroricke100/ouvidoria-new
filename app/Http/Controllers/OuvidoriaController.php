@@ -130,4 +130,38 @@ class OuvidoriaController extends Controller
 
         return response()->json(['status' => true, 'msg' => 'Solicitação cadastrada com sucesso!', 'dados' => $dadosForm]);
     }
+
+    public function atendimento(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $nome_arquivo = null;
+        if ($request->file('arquivo')) {
+            $FileHelper = new FileHelper;
+            $infoAnexoImg = $FileHelper->upload([
+                'file' => $request->file('arquivo'),
+                'pasta' => 'ouvidoria/arquivos',
+                'nome' => 'Arquivo Ouvidoria',
+                'observacao' => '',
+                'temporario' => false,
+                'restrito' => true,
+            ]);
+            $nome_arquivo = $infoAnexoImg['status'] ? $infoAnexoImg['nome_arquivo'] : null;
+
+            if (!$infoAnexoImg['status']) return ['status' => false, 'msg' => 'Falha no upload do arquivo.', 'retorno' => $infoAnexoImg];
+        }
+
+        $respostaUser = new OuvidoriaMensagem;
+        $respostaUser->id_atendimento = $dadosForm['id_atendimento'];
+        $respostaUser->autor = $dadosForm['autor'];
+        $respostaUser->mensagem = $dadosForm['atendimentoUsuario'];
+        $respostaUser->arquivo = $nome_arquivo;
+        $respostaUser->save();
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Solicitação cadastrada com sucesso!',
+            'dados' => $dadosForm
+        ]);
+    }
 }

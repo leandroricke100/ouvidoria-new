@@ -29,6 +29,8 @@ function efetuarCadastro() {
             console.log(errorThrown);
         }
     });
+
+    location.replace("/ouvidoria/atendimentos");
 }
 
 $(() => $('form').submit(function (e) {

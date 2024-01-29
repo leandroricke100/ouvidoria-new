@@ -32,8 +32,9 @@
                         <th>Data</th>
                     </tr>
                 </thead>
-                @foreach ($atendimentos as $atendimento)
-                    <tbody>
+
+                <tbody>
+                    @foreach ($atendimentos as $atendimento)
                         <tr>
                             <td>
                                 <div class="number-atendimento">
@@ -66,8 +67,9 @@
                                 </div>
                             </td>
                         </tr>
-                    </tbody>
-                @endforeach
+                    @endforeach
+                </tbody>
+
             </table>
         </div>
 
