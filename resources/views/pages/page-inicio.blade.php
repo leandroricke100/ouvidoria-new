@@ -13,7 +13,7 @@
         [
             'banner' => true,
             'cadastro' => true,
-            'titulo_banner' => 'Central de Atendimento • Prefeitura de Marilac',
+            'titulo_banner' => 'Central de Atendimento • Prefeitura de Campanário',
         ]
     )
     <div class="container">

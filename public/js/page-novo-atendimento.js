@@ -18,6 +18,7 @@ function efetuarCadastro() {
             } else {
                 // Handle failure
             }
+            location.replace("/atendimentos");
         },
         error: function (XMLHttpRequest, xhr, textStatus, errorThrown) {
             console.log(XMLHttpRequest, textStatus, errorThrown);

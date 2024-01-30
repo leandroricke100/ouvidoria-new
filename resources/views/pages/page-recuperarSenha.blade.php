@@ -9,7 +9,7 @@
     <div class="background-img">
         <div class="container-password">
             <div class="img-brasao">
-                <img src="https://digitaliza-institucional.s3.us-east-2.amazonaws.com/municipio-de-marilac/site/brasao.png"
+                <img src="https://digitaliza-institucional.s3.us-east-2.amazonaws.com/municipio-de-campanario/site/brasao.png"
                     alt="logo da prefeitura" />
             </div>
             <div class="container">

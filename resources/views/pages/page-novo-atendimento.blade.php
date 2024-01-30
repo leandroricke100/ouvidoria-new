@@ -113,7 +113,7 @@
                     <div class="inputs">
                         <label for="codAnterior">Cód. Anteriores:</label>
                         <input type="text" id="codAnterior" name="codAnterior"
-                            placeholder="Se este assunto já foi solicitado antes, informe os códigos">
+                            placeholder="Se este assunto já foi solicitado antes, informe o código">
                     </div>
                 </div>
 
