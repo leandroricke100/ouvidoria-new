@@ -75,6 +75,7 @@ class OuvidoriaController extends Controller
         $dadosForm = $request->all();
 
         if (!session('usuario')) return ['status' => false, 'msg' => 'Usuário desconectado!'];
+        if (!session('usuario')) return redirect('/');
 
         $nome_arquivo = null;
         if ($request->file('arquivo')) {
@@ -141,6 +142,7 @@ class OuvidoriaController extends Controller
     public function atendimento(Request $request)
     {
         $dadosForm = $request->all();
+        if (!session('usuario')) return redirect('/');
 
         $nome_arquivo = null;
         if ($request->file('arquivo')) {

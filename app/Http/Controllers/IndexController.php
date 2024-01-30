@@ -18,9 +18,6 @@ class IndexController extends Controller
         foreach ($atendimentos as $atendimento) {
             $atendimento->tempo_atras = $this->calcularTempoAtras($atendimento->created_at);
         }
-
-
-
         // Retorna a view com os atendimentos e a diferença de tempo
         return view('pages.page-atendimentos', [
             'atendimentos' => $atendimentos,

@@ -115,6 +115,7 @@ function efetuarCadastro() {
             console.log(resposta);
             if (resposta.status) {
                 // Handle success, e.g., redirect to another page
+                location.replace('/novo/atendimento');
             } else {
                 // Handle failure
             }

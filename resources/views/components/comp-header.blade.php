@@ -61,7 +61,7 @@
             <div class="login-cad">
                 <a onclick="openModalLogin()">Entrar</a>
                 @if (isset($cadastro) && $cadastro)
-                    <a class="cadastro" href="https://ouvidoria.test/cadastro">Cadastro</a>
+                    <a class="cadastro" href="/cadastro">Cadastro</a>
                 @endif
             </div>
         @endif
