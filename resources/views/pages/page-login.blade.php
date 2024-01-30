@@ -17,7 +17,7 @@
 
         @include('components.comp-sigilo', ['sigilo' => true])
 
-        @include('components.comp-login')
+        @include('components.comp-login', ['modalLoginInput' => true])
 
     </div>
     @include('components.comp-footer')

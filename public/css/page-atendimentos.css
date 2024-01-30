@@ -47,6 +47,11 @@ section.bloco-atendimentos {
     flex-direction: column;
     min-height: 349px;
 
+    .link-atendimento {
+        text-decoration: none;
+        outline: none;
+    }
+
     table {
         text-align: left;
         font-size: 13px;
@@ -58,7 +63,7 @@ section.bloco-atendimentos {
             cursor: pointer;
         }
 
-        tbody:hover {
+        tr:hover {
             background-color: #eeeeee;
         }
 

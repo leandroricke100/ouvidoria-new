@@ -1,9 +1,6 @@
 function efetuarCadastro() {
     let dadosForm = new FormData($('#new-atendimento-user')[0]);
 
-
-    console.log(dadosForm)
-
     $.ajax({
         url: '/api/OuvidoriaNovoAtendimento',
         type: "POST",
@@ -30,7 +27,7 @@ function efetuarCadastro() {
         }
     });
 
-    location.replace("/ouvidoria/atendimentos");
+    location.replace("/atendimentos");
 }
 
 $(() => $('form').submit(function (e) {

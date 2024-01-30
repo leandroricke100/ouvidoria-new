@@ -74,6 +74,8 @@ class OuvidoriaController extends Controller
     {
         $dadosForm = $request->all();
 
+        if (!session('usuario')) return ['status' => false, 'msg' => 'Usuário desconectado!'];
+
         $nome_arquivo = null;
         if ($request->file('arquivo')) {
             $FileHelper = new FileHelper;
@@ -116,7 +118,7 @@ class OuvidoriaController extends Controller
         $atendimento->status = 'Aguardando resposta da Câmara';
         $atendimento->codigo = $codigo;
         $atendimento->prioridade = $dadosForm['prioridade'];
-        $atendimento->id_usuario = 1;
+        $atendimento->id_usuario = session('usuario')->id;
         $atendimento->save();
 
         $mensagem = new OuvidoriaMensagem;
@@ -128,7 +130,12 @@ class OuvidoriaController extends Controller
         $mensagem->save();
 
 
-        return response()->json(['status' => true, 'msg' => 'Solicitação cadastrada com sucesso!', 'dados' => $dadosForm]);
+        return response()->json([
+            'status' => true,
+            'msg' => 'Solicitação cadastrada com sucesso!',
+            'dados' => $dadosForm,
+            'usuario' => session('usuario'),
+        ]);
     }
 
     public function atendimento(Request $request)
@@ -162,6 +169,84 @@ class OuvidoriaController extends Controller
             'status' => true,
             'msg' => 'Solicitação cadastrada com sucesso!',
             'dados' => $dadosForm
+        ]);
+    }
+
+    public function login(Request $request)
+    {
+        $dados = $request->all();
+        $metodo = $dados['metodo'];
+
+        if ($metodo == 'login') {
+            $user = OuvidoriaUsuario::where('email', $dados['email'])->first();
+
+
+            if (!$user) {
+                return response()->json(['status' => false, 'msg' => 'Não existe conta com este endereço de email']);
+            }
+
+            if (!Hash::check($dados['senha'], $user->senha)) {
+                return response()->json(['status' => false, 'msg' => 'Senha incorreta!']);
+            }
+
+
+            session(['usuario' => $user]);
+
+            return response()->json([
+                'status' => true,
+                'msg' => 'logado',
+                'dados' => $dados,
+                'usuario' => $user,
+            ]);
+        } else if ($metodo == 'sair') {
+            // DESLOGAR
+            session()->invalidate();
+
+            return response()->json([
+                'status' => true,
+                'msg' => 'Deslogado'
+            ]);
+        }
+    }
+
+    public function verificarEmail(Request $request)
+    {
+        $dados = $request->input('dados');
+
+        $user = OuvidoriaUsuario::where('email', $dados['email'])->get()->first();
+
+        if (!$user) {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Não existe conta com esses dados'
+            ]);
+        } else {
+
+            return response()->json([
+                'status' => true,
+                'msg' => 'Dados encontrado',
+                'dados' => $dados
+            ]);
+        }
+    }
+
+    public function codigo(Request $request)
+    {
+        $dados = $request->input('protocolo');
+
+        $protocolo = OuvidoriaAtendimento::where('codigo', $dados['dados'])->get()->first();
+
+        if (!$protocolo) return response()->json(['status' => false, 'msg' => 'Não foi encontrado nenhum protocolo com esses dados.']);
+
+        $numFormat = str_replace('.', '', $dados['dados']);
+
+        //$link = route('usuario-atendimento', ['numero' => $numFormat]);
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Protocolo encontrado',
+            'dados' => $protocolo,
+            'link' => $numFormat
         ]);
     }
 }

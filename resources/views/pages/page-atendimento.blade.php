@@ -6,17 +6,14 @@
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
 @endpush
 
+
 @section('conteudo')
-    @include(
-        'components.comp-header',
-    
-        [
-            'banner' => true,
-            'titulo_banner' => 'Atendimentos',
-            'subtitulo_banner' => 'Atendimento ao Cidadão: Ouvidoria',
-            'subtitulo_banner_2' => 'Envie sua demanda para a Prefeitura',
-        ]
-    )
+    @include('components.comp-header', [
+        'banner' => true,
+        'titulo_banner' => 'Atendimentos',
+        'subtitulo_banner' => 'Atendimento ao Cidadão: Ouvidoria',
+        'subtitulo_banner_2' => 'Envie sua demanda para a Prefeitura',
+    ])
 
     <div class="container-login">
 

@@ -37,37 +37,46 @@
                     @foreach ($atendimentos as $atendimento)
                         <tr>
                             <td>
-                                <div class="number-atendimento">
-                                    <span class="title-atendi">Atendimento
-                                        {{ $atendimento->numero }}/{{ $atendimento->ano }}</span>
-                                    <p>N° {{ $atendimento->codigo }}</p>
-                                    <p class="dataHora">{{ $atendimento->created_at }}</p>
-                                </div>
+                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}" target="blank">
+                                    <div class="number-atendimento">
+                                        <span class="title-atendi">Atendimento
+                                            {{ $atendimento->numero }}/{{ $atendimento->ano }}</span>
+                                        <p>N° {{ $atendimento->codigo }}</p>
+                                        <p class="dataHora">{{ $atendimento->created_at }}</p>
+                                    </div>
+                                </a>
                             </td>
                             <td>
-                                <div class="sigilo">
-                                    @if ($atendimento->sigiloso == 1)
-                                        <span class="sigiloso">Sigiloso</span>
-                                    @else
-                                        <span class="sigiloso">Sem Sigiloso</span>
-                                    @endif
-                                </div>
+                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}" target="blank">
+                                    <div class="sigilo">
+                                        @if ($atendimento->sigiloso == 1)
+                                            <span class="sigiloso">Sigiloso</span>
+                                        @else
+                                            <span class="sigiloso">Sem Sigiloso</span>
+                                        @endif
+                                    </div>
+                                </a>
                             </td>
                             <td>
-                                <div class="assunto">
-                                    <span class="title">{{ $atendimento->assunto }}</span>
-                                    <span class="prioridade">{{ $atendimento->prioridade }}</span>
-                                </div>
+                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}" target="blank">
+                                    <div class="assunto">
+                                        <span class="title">{{ $atendimento->assunto }}</span>
+                                        <span class="prioridade">{{ $atendimento->prioridade }}</span>
+                                    </div>
+                                </a>
                             </td>
                             <td>
-                                <div class="data">
-                                    <p>Há {{ $atendimento->tempo_atras }}</p>
-                                    <span><i class="far fa-paperclip"></i></span>
-                                    <span><i class="fas fa-map-marker-alt"></i></span>
-                                </div>
+                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}" target="blank">
+                                    <div class="data">
+                                        <p>Há {{ $atendimento->tempo_atras }}</p>
+                                        <span><i class="far fa-paperclip"></i></span>
+                                        <span><i class="fas fa-map-marker-alt"></i></span>
+                                    </div>
+                                </a>
                             </td>
                         </tr>
                     @endforeach
+
                 </tbody>
 
             </table>

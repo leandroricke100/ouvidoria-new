@@ -11,9 +11,9 @@ class IndexController extends Controller
 {
     public function atendimentos(Request $request)
     {
-
-        $atendimentos = OuvidoriaAtendimento::where('id_usuario', 1)->get();
-
+        if (!session('usuario')) return redirect('/');
+        $atendimentos = OuvidoriaAtendimento::where('id_usuario', session('usuario')->id)->get();
+        $user = session('usuario');
 
         $atendimentos->each(function ($atendimento) {
             $atendimento->tempo_atras = $this->calcularTempoAtras($atendimento->created_at);
@@ -23,6 +23,7 @@ class IndexController extends Controller
         // Retorna a view com os atendimentos e a diferença de tempo
         return view('pages.page-atendimentos', [
             'atendimentos' => $atendimentos,
+            'usuario' => $user,
         ]);
     }
 
@@ -51,8 +52,11 @@ class IndexController extends Controller
 
     public function atendimento(Request $request, $id)
     {
+
+
         $atendimento = OuvidoriaAtendimento::find($id);
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $id)->orderBy('id')->get()->all();
+        $user = session('usuario');
 
         $atendimento->tempo_atras = $this->calcularTempoAtras($atendimento->created_at);
         foreach ($mensagens as $mensagem) {
@@ -62,7 +66,8 @@ class IndexController extends Controller
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
-            'mensagens' => $mensagens
+            'mensagens' => $mensagens,
+            'user' => $user,
         ]);
     }
 }

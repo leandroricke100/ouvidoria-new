@@ -11,7 +11,7 @@
 @section('conteudo')
     @include(
         'components.comp-header',
-
+    
         [
             'banner' => true,
             'titulo_banner' => 'Atendimentos',

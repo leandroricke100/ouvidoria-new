@@ -18,7 +18,7 @@
 
         <div class="div-codigo">
             <input type="text" id="codigo" placeholder="Buscar por código" /><button class="btn-search-codigo"><i
-                    class="fas fa-search"></i></button>
+                    class="fas fa-search" onclick="buscarCodigo()"></i></button>
         </div>
 
 
@@ -39,16 +39,18 @@
     </div>
 
     @php
-        $usuario = ['nome_completo' => 'Leandro'];
+        $usuario = session('usuario') ?? null;
     @endphp
 
     <div class="header-right">
-        @if (isset($usuario))
+        @if (isset($usuario) && $usuario->nome_completo)
+            <!-- Usuário está logado -->
             <a href="https://ouvidoria.test/" class="inicio"><i class="fas fa-home"></i> Início</a>
             <a class="inicio" href="https://ouvidoria.test/atendimentos"><i class="fas fa-inbox"></i>Meu inbox</a>
             <div>
                 <button onclick="modalSair()" class="user"><i class="fas fa-user-alt"></i>
-                    {{ $usuario['nome_completo'] }}<i class="fas fa-caret-down" style="margin-left: 4px"></i></button>
+                    {{ explode(' ', $usuario->nome_completo)[0] }}<i class="fas fa-caret-down"
+                        style="margin-left: 8px"></i></button>
 
                 <div class="modal-sair" style="display: none">
                     <button onclick="sair()" class="sair"><i class="fas fa-power-off"
@@ -67,7 +69,7 @@
 
     <div class="modal-login" style="display: none;">
         <button class="close-modal" onclick="closeModal()"><i class="fas fa-times-circle"></i></button>
-        @include('components.comp-login')
+        @include('components.comp-login', ['usuario' => $usuario ?? null])
     </div>
 
 </header>
