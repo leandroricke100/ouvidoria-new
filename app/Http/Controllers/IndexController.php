@@ -56,11 +56,9 @@ class IndexController extends Controller
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $id)->orderBy('id')->get()->all();
         $user = session('usuario');
 
-        $atendimento->tempo_atras = $this->calcularTempoAtras($atendimento->created_at);
         foreach ($mensagens as $mensagem) {
             $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
         }
-
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,

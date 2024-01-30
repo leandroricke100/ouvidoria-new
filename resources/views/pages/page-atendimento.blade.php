@@ -144,8 +144,9 @@
                     @endif
                 </div>
             </div>
+        </section>
 
-
+        <section class="container-atendi">
             <div class="comentario">
                 @foreach ($mensagens as $mensagem)
                     @if (!$loop->first)
@@ -222,7 +223,7 @@
                     <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
                     <input type="file" id="arquivo" name="arquivo">
                     <input type="hidden" name="autor" id="autor" value="Usuario">
-                    <input type="hidden" name="id_atendimento" id="id_atendimento" value="1">
+                    <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $atendimento->id }}">
                     <button id="btn-enviar" type="submit">Enviar</button>
                 </form>
             </div>
@@ -230,9 +231,11 @@
             <div class="bloco-voltar">
                 <a href="/">« Voltar - Central de Atendimento</a>
             </div>
-    </div>
-    </section>
 
+        </section>
     </div>
+
+
+
     @include('components.comp-footer')
 @endsection
