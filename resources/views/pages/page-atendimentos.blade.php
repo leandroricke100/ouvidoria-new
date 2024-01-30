@@ -37,10 +37,10 @@
                     @foreach ($atendimentos as $atendimento)
                         <tr>
                             <td>
-                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}" target="blank">
+                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->id }}" target="blank">
                                     <div class="number-atendimento">
                                         <span class="title-atendi">Atendimento
-                                            {{ $atendimento->numero }}/{{ $atendimento->ano }}</span>
+                                            {{ $atendimento->id }}/{{ $atendimento->ano }}</span>
                                         <p>N° {{ $atendimento->codigo }}</p>
                                         <p class="dataHora">{{ $atendimento->created_at }}</p>
                                     </div>

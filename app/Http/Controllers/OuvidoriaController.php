@@ -232,13 +232,12 @@ class OuvidoriaController extends Controller
 
     public function codigo(Request $request)
     {
-        $dados = $request->input('protocolo');
-
-        $protocolo = OuvidoriaAtendimento::where('codigo', $dados['dados'])->get()->first();
+        $dados = $request->all();
+        $protocolo = OuvidoriaAtendimento::where('codigo', $dados['protocolo'])->get()->first();
 
         if (!$protocolo) return response()->json(['status' => false, 'msg' => 'Não foi encontrado nenhum protocolo com esses dados.']);
 
-        $numFormat = str_replace('.', '', $dados['dados']);
+        $numFormat = str_replace('.', '', $dados['protocolo']);
 
         //$link = route('usuario-atendimento', ['numero' => $numFormat]);
 

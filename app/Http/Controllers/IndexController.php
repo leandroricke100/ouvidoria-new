@@ -12,12 +12,13 @@ class IndexController extends Controller
     public function atendimentos(Request $request)
     {
         if (!session('usuario')) return redirect('/');
-        $atendimentos = OuvidoriaAtendimento::where('id_usuario', session('usuario')->id)->get();
+        $atendimentos = OuvidoriaAtendimento::where('id_usuario', session('usuario')->id)->get()->all();
         $user = session('usuario');
 
-        $atendimentos->each(function ($atendimento) {
+        foreach ($atendimentos as $atendimento) {
             $atendimento->tempo_atras = $this->calcularTempoAtras($atendimento->created_at);
-        });
+        }
+
 
 
         // Retorna a view com os atendimentos e a diferença de tempo
@@ -53,7 +54,7 @@ class IndexController extends Controller
     public function atendimento(Request $request, $id)
     {
 
-
+        if (!session('usuario')) return redirect('/');
         $atendimento = OuvidoriaAtendimento::find($id);
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $id)->orderBy('id')->get()->all();
         $user = session('usuario');
