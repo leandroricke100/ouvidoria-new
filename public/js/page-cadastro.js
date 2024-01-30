@@ -119,6 +119,7 @@ function efetuarCadastro() {
             } else {
                 // Handle failure
             }
+            location.replace('/novo/atendimento');
         },
         error: function (XMLHttpRequest, xhr, textStatus, errorThrown) {
             console.log(XMLHttpRequest, textStatus, errorThrown);

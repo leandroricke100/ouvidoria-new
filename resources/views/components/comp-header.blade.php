@@ -11,7 +11,7 @@
         </div>
 
         <div class="img-brasao">
-            <a href="https://ouvidoria.test/"><img
+            <a href="/"><img
                     src="https://digitaliza-institucional.s3.us-east-2.amazonaws.com/municipio-de-marilac/site/brasao.png"
                     alt="logo da prefeitura" /></a>
         </div>
@@ -45,8 +45,8 @@
     <div class="header-right">
         @if (isset($usuario) && $usuario->nome_completo)
             <!-- Usuário está logado -->
-            <a href="https://ouvidoria.test/" class="inicio"><i class="fas fa-home"></i> Início</a>
-            <a class="inicio" href="https://ouvidoria.test/atendimentos"><i class="fas fa-inbox"></i>Meu inbox</a>
+            <a href="/" class="inicio"><i class="fas fa-home"></i> Início</a>
+            <a class="inicio" href="/atendimentos"><i class="fas fa-inbox"></i>Meu inbox</a>
             <div>
                 <button onclick="modalSair()" class="user"><i class="fas fa-user-alt"></i>
                     {{ explode(' ', $usuario->nome_completo)[0] }}<i class="fas fa-caret-down"
@@ -82,7 +82,7 @@
 
         <div class="backgound-banner">
             <div class="icon-back">
-                <a href="https://ouvidoria.test"><i class="fas fa-chevron-left"></i></a>
+                <a href="/"><i class="fas fa-chevron-left"></i></a>
             </div>
             <h1><i class="fas {{ $icon ?? 'fa-bullhorn' }}"></i> {{ $titulo_banner ?? 'Sem título' }}</h1>
             <p>{{ $subtitulo_banner ?? '' }}</p>

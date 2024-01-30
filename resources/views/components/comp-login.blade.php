@@ -29,15 +29,15 @@
 
     <div class="btn-recuperar-senha btn-text-email">
         <button onclick="cnpjCpf()">Sem e-mail? Entre com CPF/CNPJ</button>
-        <a href="https://ouvidoria.test/novasenha" class="senha">Esqueceu a senha?</a>
-        <a href="https://ouvidoria.test/novasenha" class="senha">Não tenho a senha</a>
+        <a href="/novasenha" class="senha">Esqueceu a senha?</a>
+        <a href="/novasenha" class="senha">Não tenho a senha</a>
         <button class="senha">Confirmação de segurança*:</button>
     </div>
 
     <div class="btn-recuperar-senha btn-text-cnpj" style="display: none">
         <button onclick="entrarEmail()">Entre com E-mail</button>
-        <a href="https://ouvidoria.test/novasenha" class="senha">Esqueceu a senha?</a>
-        <a href="https://ouvidoria.test/novasenha" class="senha">Não tenho a senha</a>
+        <a href="/novasenha" class="senha">Esqueceu a senha?</a>
+        <a href="/novasenha" class="senha">Não tenho a senha</a>
         <button class="senha">Confirmação de segurança*:</button>
     </div>
 

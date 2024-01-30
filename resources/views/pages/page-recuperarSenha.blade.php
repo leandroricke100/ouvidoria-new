@@ -17,7 +17,7 @@
                 <input type="email" id="recuperarSenha" class="recuperarSenha" placeholder="Endereço de e-mail" required>
                 <div class="btn">
                     <button>Recuperar</button>
-                    <a href="https://ouvidoria.test/login">« Voltar</a>
+                    <a href="/login">« Voltar</a>
                 </div>
             </div>
         </div>

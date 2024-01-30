@@ -22,7 +22,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-bullhorn"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Atendimentos</a>
+                    <a href="/novo/atendimento">Atendimentos</a>
                     <p>Atendimento ao Cidadão: Ouvidoria Envie sua demanda para a Prefeitura</p>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-file-alt"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Ofícios</a>
+                    <a href="/novo/atendimento">Ofícios</a>
                     <p>Consulte a autenticidade e andamento de Ofícios recebidos.</p>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-qrcode"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Protocolos</a>
+                    <a href="/novo/atendimento">Protocolos</a>
                     <p>Abertura e Consulta de Requerimentos Administrativos.</p>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-keyboard"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Chamados</a>
+                    <a href="/novo/atendimento">Chamados</a>
                     <p>Servidor Municipal, abra aqui o seu Chamado para a Informática.</p>
                 </div>
             </div>
@@ -54,14 +54,14 @@
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-info"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Pedidos de e-SIC</a>
+                    <a href="/novo/atendimento">Pedidos de e-SIC</a>
                     <p>Abertura e Consulta.</p>
                 </div>
             </div>
 
             <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-eraser"></i></span></div>
-                <div class="ohttps://ouvidoria.test/novo/atendimentopcoes">
+                <div class="o/novo/atendimentopcoes">
                     <a href="">Viabilização de Construção</a>
                     <p>Abertura e Consulta</p>
                 </div>
@@ -70,7 +70,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fal fa-fw fa-file-exclamation"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Intimações</a>
+                    <a href="/novo/atendimento">Intimações</a>
                     <p>Consulte a autenticidade de Intimações recebidas.</p>
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="fal fa-fw fa-list-ol"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Processos Seletivos</a>
+                    <a href="/novo/atendimento">Processos Seletivos</a>
                     <p>Candidate-se a uma das vagas na Prefeitura de viçosa</p>
                 </div>
             </div>
@@ -86,7 +86,7 @@
             <div class="menus">
                 <div class="icons"><span><i class="far fa-fw fa-paste"></i></span></div>
                 <div class="opcoes">
-                    <a href="https://ouvidoria.test/novo/atendimento">Licenciamento Urbano</a>
+                    <a href="/novo/atendimento">Licenciamento Urbano</a>
                     <p>Aprovação de Projetos e Alvará de Obras, Aprovação de Projetos e Licenciamentos de
                         Loteamentos/Condomínios/Territorial</p>
                 </div>
@@ -101,7 +101,7 @@
                 <div class="tel-pref">
                     <p>Olá, Leandro. consulte suas demandas.</p>
                 </div>
-                <a href="https://ouvidoria.test/atendimentos" class="inbox">Meu Inbox</a>
+                <a href="/atendimentos" class="inbox">Meu Inbox</a>
             </div> --}}
 
             <div class="menus-right">

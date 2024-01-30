@@ -228,7 +228,7 @@
             </div>
 
             <div class="bloco-voltar">
-                <a href="https://ouvidoria.test/">« Voltar - Central de Atendimento</a>
+                <a href="/">« Voltar - Central de Atendimento</a>
             </div>
     </div>
     </section>
