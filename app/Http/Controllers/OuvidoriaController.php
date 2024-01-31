@@ -241,13 +241,13 @@ class OuvidoriaController extends Controller
 
         $numFormat = str_replace('.', '', $dados['protocolo']);
 
-        //$link = route('usuario-atendimento', ['numero' => $numFormat]);
+        $link = route('usuario-protocolo', ['numero' => $numFormat]);
 
         return response()->json([
             'status' => true,
             'msg' => 'Protocolo encontrado',
             'dados' => $protocolo,
-            'link' => $numFormat
+            'link' => $link
         ]);
     }
 }

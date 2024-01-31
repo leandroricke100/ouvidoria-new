@@ -95,14 +95,21 @@
 
         <div class="container-right">
 
-
+            @php
+                $usuario = session('usuario') ?? null;
+            @endphp
             {{-- SE ESTIVER LOGADO --}}
-            {{-- <div class="inbox">
-                <div class="tel-pref">
-                    <p>Olá, Leandro. consulte suas demandas.</p>
+            @if (isset($usuario))
+                <div class="inbox">
+
+                    <div class="tel-pref">
+                        <p>Olá, {{ explode(' ', $usuario->nome_completo)[0] }}. consulte suas demandas.</p>
+                    </div>
+                    <a href="/atendimentos" class="inbox">Meu Inbox</a>
+
                 </div>
-                <a href="/atendimentos" class="inbox">Meu Inbox</a>
-            </div> --}}
+            @endif
+
 
             <div class="menus-right">
                 <button><i class="fas fa-fw fa-chart-bar"></i> <strong>Transparência</strong></button>

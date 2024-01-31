@@ -52,6 +52,8 @@ class IndexController extends Controller
     {
 
         if (!session('usuario')) return redirect('/');
+
+
         $atendimento = OuvidoriaAtendimento::find($id);
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $id)->orderBy('id')->get()->all();
         $user = session('usuario');
@@ -64,6 +66,28 @@ class IndexController extends Controller
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
             'user' => $user,
+        ]);
+    }
+
+    public function protocolo(Request $request, $numero)
+    {
+
+
+        $protocolo = substr($numero, 0, 4) . '.' . substr($numero, 4, 3) . '.' . substr($numero, 7, 3);
+
+
+        // if (!strlen($numero) == 8) return view('404', ['msg' => 'Página não encontrada']);
+
+        $atendimento = OuvidoriaAtendimento::where('codigo', $protocolo)->get()->first();
+
+        if (!$atendimento) return view('404', ['msg' => 'Página não encontrada']);
+
+        $mensagens = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->orderBy('id')->get()->all();
+
+
+        return view('pages.page-atendimento', [
+            'atendimento' => $atendimento,
+            'mensagens' => $mensagens
         ]);
     }
 }

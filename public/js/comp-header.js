@@ -95,8 +95,6 @@ function sair() {
 function buscarCodigo() {
     let numberProtocolo = $('#codigo').val();
 
-
-
     $.ajax({
         url: '/api/OuvidoriaBuscarProtocolo',
         type: "POST",
@@ -107,7 +105,7 @@ function buscarCodigo() {
             console.log(resposta);
             if (resposta.status) {
                 //popNotif({ msg: resposta.msg, time: 2000 });
-                //location.replace(resposta.link);
+                location.replace(resposta.link);
             } else {
                 //popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
@@ -117,5 +115,9 @@ function buscarCodigo() {
         }
     });
 }
+
+$(document).ready(function () {
+    $('#codigo').mask('0000.000.000');
+});
 
 

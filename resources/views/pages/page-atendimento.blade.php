@@ -102,7 +102,10 @@
                     <div class="horario">
                         <span>Em {{ $atendimento->created_at->format('d/m/Y') }} às
                             {{ $atendimento->created_at->format('H:i:s') }}</span>
-                        <p>Há {{ $atendimento->tempo_atras }}</p>
+                        <p>Há {{ $mensagens[0]->tempo_atras }}</p>
+                        <span>
+                            <p>Cód. Anterior: </p>{{ $atendimento->ref_atendimento }}
+                        </span>
                     </div>
 
 
@@ -157,7 +160,7 @@
 
                                         <div class="despacho">
                                             <p>Despacho</p>
-                                            <p>{{ $atendimento->numero }}/{{ $atendimento->ano }}</p>
+                                            <p>{{ $mensagem->id }}/{{ $atendimento->ano }}</p>
                                         </div>
 
                                         @if ($mensagem->autor == 'Camara')
@@ -216,16 +219,18 @@
             </div>
 
             <div class="new-atendimento">
-                <form class="new-text form" id="cad-resposta-user">
-                    <label for="atendimentoUsuario"><strong><i class="fas fa-retweet"></i> Interagir em
-                            Atendimento</strong></label>
-                    <p>Adicione informações e anexe arquivos, caso necessário:</p>
-                    <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
-                    <input type="file" id="arquivo" name="arquivo">
-                    <input type="hidden" name="autor" id="autor" value="Usuario">
-                    <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $atendimento->id }}">
-                    <button id="btn-enviar" type="submit">Enviar</button>
-                </form>
+                @if (isset($user))
+                    <form class="new-text form" id="cad-resposta-user">
+                        <label for="atendimentoUsuario"><strong><i class="fas fa-retweet"></i> Interagir em
+                                Atendimento</strong></label>
+                        <p>Adicione informações e anexe arquivos, caso necessário:</p>
+                        <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
+                        <input type="file" id="arquivo" name="arquivo">
+                        <input type="hidden" name="autor" id="autor" value="Usuario">
+                        <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $atendimento->id }}">
+                        <button id="btn-enviar" type="submit">Enviar</button>
+                    </form>
+                @endif
             </div>
 
             <div class="bloco-voltar">

@@ -40,3 +40,5 @@ Route::get('atendimentos', [IndexController::class, 'atendimentos'])->name('usua
 Route::get('/novasenha', function () {
     return view('pages.page-recuperarSenha');
 });
+
+Route::get('/ouvidoria/protocolo/{numero}', [IndexController::class, 'protocolo'])->name('usuario-protocolo');
