@@ -16,3 +16,7 @@ Route::post('/OuvidoriaNovoAtendimento', [OuvidoriaController::class, 'novoAtend
 Route::post('OuvidoriaAtendimento', [OuvidoriaController::class, 'atendimento']);
 
 Route::post('/OuvidoriaBuscarProtocolo', [OuvidoriaController::class, 'codigo']);
+
+Route::post('/OuvidoriaDeleteMensagem', [OuvidoriaController::class, 'deleteMsg']);
+
+Route::post('/OuvidoriaInputAdmin', [OuvidoriaController::class, 'inputAdmin']);

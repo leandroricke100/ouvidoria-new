@@ -250,4 +250,44 @@ class OuvidoriaController extends Controller
             'link' => $link
         ]);
     }
+
+    public function deleteMsg(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $mensagem = OuvidoriaMensagem::find($dadosForm['id']);
+
+        if ($mensagem) {
+            $mensagem->delete();
+
+            return response()->json([
+                'status' => true,
+                'msg' => 'Mensagem deletada',
+                'dados' => $dadosForm
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Mensagem não encontrada!',
+            ]);
+        }
+    }
+
+    public function inputAdmin(Request $request)
+    {
+
+        $dadosForm = $request->all();
+
+        $atendimento = OuvidoriaAtendimento::find($dadosForm['id']);
+        $atendimento->situacao = $dadosForm['situacao'];
+
+        $atendimento->save();
+
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Valor trocado',
+            'dados' => $dadosForm
+        ]);
+    }
 }

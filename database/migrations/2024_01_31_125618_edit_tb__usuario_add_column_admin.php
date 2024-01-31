@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tb_ouvidoria_usuarios', function (Blueprint $table) {
-            $table->string('admin')->nullable()->after('cidade');
+            $table->tinyInteger('admin')->default(0)->after('cidade');
         });
     }
 

@@ -30,11 +30,24 @@
                     <div class="bloco-atendimento">
                         <div class="atendimento">
                             <h2><i class="fas fa-bullhorn"></i> <strong>Atendimento</strong></h2>
-                            <p>{{ $atendimento->numero }}/{{ $atendimento->ano }}</p>
+                            <p>{{ $atendimento->id }}/{{ $atendimento->ano }}</p>
                         </div>
                         <div class="cod">
                             <span>Situação atual: </span>
-                            <p>{{ $atendimento->situacao }}</p>
+                            <input type="hidden" name="atendimento_id" id="atendimento_id" value="{{ $atendimento->id }}">
+                            @if ($user->admin == 1)
+                                <select class="input-situacao" id="situacao" name="situacao">
+                                    <option value="Novo" {{ $atendimento->situacao == 'novo' ? 'selected' : '' }}>Novo
+                                    </option>
+                                    <option value="Andamento" {{ $atendimento->situacao == 'Andamento' ? 'selected' : '' }}>
+                                        Andamento</option>
+                                    <option value="Finalizado"
+                                        {{ $atendimento->situacao == 'Finalizado' ? 'selected' : '' }}>
+                                        Finalizado</option>
+                                </select>
+                            @else
+                                <p>{{ $atendimento->situacao }}</p>
+                            @endif
                             <span>Código nº:</span>
                             <p>{{ $atendimento->codigo }}</p>
                         </div>
@@ -103,9 +116,11 @@
                         <span>Em {{ $atendimento->created_at->format('d/m/Y') }} às
                             {{ $atendimento->created_at->format('H:i:s') }}</span>
                         <p>Há {{ $mensagens[0]->tempo_atras }}</p>
-                        <span>
-                            <p>Cód. Anterior: </p>{{ $atendimento->ref_atendimento }}
-                        </span>
+                        @if ($atendimento->ref_atendimento)
+                            <span>
+                                <p>Cód. Anterior: </p>{{ $atendimento->ref_atendimento }}
+                            </span>
+                        @endif
                     </div>
 
 
@@ -164,10 +179,12 @@
                                         </div>
 
                                         @if ($mensagem->autor == 'Camara')
-                                            <div id="btn-delete-msg">
-                                                <button id="delete" onclick="deleteMsg({{ $mensagem->id }})"><i
-                                                        class="fas fa-trash-alt"></i></button>
-                                            </div>
+                                            @if ($user->admin == 1)
+                                                <div id="btn-delete-msg">
+                                                    <button id="delete" onclick="deleteMsg({{ $mensagem->id }})"><i
+                                                            class="fas fa-trash-alt"></i></button>
+                                                </div>
+                                            @endif
                                         @endif
                                     </div>
                                     <div class="tempo-res">
@@ -219,15 +236,22 @@
             </div>
 
             <div class="new-atendimento">
-                @if (isset($user))
+                @if (isset($user) && $permitir_resposta)
                     <form class="new-text form" id="cad-resposta-user">
                         <label for="atendimentoUsuario"><strong><i class="fas fa-retweet"></i> Interagir em
                                 Atendimento</strong></label>
                         <p>Adicione informações e anexe arquivos, caso necessário:</p>
                         <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
                         <input type="file" id="arquivo" name="arquivo">
-                        <input type="hidden" name="autor" id="autor" value="Usuario">
-                        <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $atendimento->id }}">
+                        @if ($user->admin == 1)
+                            <input type="hidden" name="autor" id="autor" value="Camara">
+                            <input type="hidden" name="id_atendimento" id="id_atendimento"
+                                value="{{ $atendimento->id }}">
+                        @else
+                            <input type="hidden" name="autor" id="autor" value="Usuario">
+                            <input type="hidden" name="id_atendimento" id="id_atendimento"
+                                value="{{ $atendimento->id }}">
+                        @endif
                         <button id="btn-enviar" type="submit">Enviar</button>
                     </form>
                 @endif

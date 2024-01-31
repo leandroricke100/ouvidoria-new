@@ -94,6 +94,15 @@
         gap: 5px;
         font-size: 12px;
 
+        .input-situacao {
+            padding: 2px;
+            border: 1px solid #c9c9c9;
+            border-radius: 9px;
+            outline: none;
+            color: #666 !important;
+            margin: 0 5px;
+        }
+
         span {
             color: #666 !important;
         }
@@ -296,6 +305,7 @@
                 align-items: center;
                 gap: 14px;
                 padding: 0px 15px;
+                margin-top: 10px;
             }
 
             .titular {

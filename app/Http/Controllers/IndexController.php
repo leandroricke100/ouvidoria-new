@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\OuvidoriaAtendimento;
 use App\Models\OuvidoriaMensagem;
+use App\Models\OuvidoriaUsuario;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -11,23 +12,29 @@ class IndexController extends Controller
 {
     public function atendimentos(Request $request)
     {
-        if (!session('usuario')) return redirect('/');
-        $atendimentos = OuvidoriaAtendimento::where('id_usuario', session('usuario')->id)->get()->all();
         $user = session('usuario');
+        if (!$user) return redirect('/');
+
+
+        if ($user->admin == 1) {
+            $atendimentos = OuvidoriaAtendimento::get()->all();
+        } else {
+            $atendimentos = OuvidoriaAtendimento::where('id_usuario', $user->id)->get()->all();
+        }
 
         foreach ($atendimentos as $atendimento) {
             $atendimento->tempo_atras = $this->calcularTempoAtras($atendimento->created_at);
         }
-        // Retorna a view com os atendimentos e a diferença de tempo
+
         return view('pages.page-atendimentos', [
             'atendimentos' => $atendimentos,
             'usuario' => $user,
         ]);
     }
 
+
     public function calcularTempoAtras($data)
     {
-
 
         $agora = Carbon::now();
         $dataAtendimento = Carbon::parse($data);
@@ -54,6 +61,7 @@ class IndexController extends Controller
         if (!session('usuario')) return redirect('/');
 
 
+
         $atendimento = OuvidoriaAtendimento::find($id);
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $id)->orderBy('id')->get()->all();
         $user = session('usuario');
@@ -62,32 +70,45 @@ class IndexController extends Controller
             $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
         }
 
+        $admin = ($user->admin == 1);
+        $titular = ($user->id == $atendimento->id_usuario);
+
+        $permitido = $admin || $titular;
+
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
             'user' => $user,
+            'permitir_resposta' => $permitido,
         ]);
     }
 
     public function protocolo(Request $request, $numero)
     {
 
-
+        if (!session('usuario')) return redirect('/');
         $protocolo = substr($numero, 0, 4) . '.' . substr($numero, 4, 3) . '.' . substr($numero, 7, 3);
 
+        $atendimento = OuvidoriaAtendimento::where('codigo', $protocolo)->first();
 
-        // if (!strlen($numero) == 8) return view('404', ['msg' => 'Página não encontrada']);
-
-        $atendimento = OuvidoriaAtendimento::where('codigo', $protocolo)->get()->first();
-
-        if (!$atendimento) return view('404', ['msg' => 'Página não encontrada']);
+        if (!$atendimento) {
+            return view('404', ['msg' => 'Página não encontrada']);
+        }
 
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->orderBy('id')->get()->all();
+        $user = session('usuario');
 
+
+        $admin = ($user->admin == 1);
+        $titular = ($user->id == $atendimento->id_usuario);
+
+        $permitido = $admin || $titular;
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
-            'mensagens' => $mensagens
+            'mensagens' => $mensagens,
+            'user' => $user,
+            'permitir_resposta' => $permitido,
         ]);
     }
 }

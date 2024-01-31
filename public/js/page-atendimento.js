@@ -4,15 +4,15 @@ function printPage() {
 
 function deleteMsg(id) {
 
-
+    console.log(id)
     $.ajax({
-        url: '/api/OuvidoriaDeleteMensagem', // CAMINHO DA FUNCTION NO CONTROLLER (api.php)
+        url: '/api/OuvidoriaDeleteMensagem',
         type: "POST",
         dataType: "json",
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         data: {
             id: id
-        }, // DADOS QUE TO ENVIANDO PRA CONTROLLER
+        },
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
@@ -65,6 +65,47 @@ $(() => $('form').submit(function (e) {
     respostaUsuario();
     e.preventDefault();
 }));
+
+$(() => {
+    $('#situacao').change(function () {
+        updateInput();
+    });
+
+})
+
+function updateInput() {
+    let inputSitucao = $('#situacao').val();
+    let id = $('#atendimento_id').val();
+
+    let dadosForm = {
+        situacao: inputSitucao,
+        id: id,
+    };
+
+
+    $.ajax({
+        url: '/api/OuvidoriaInputAdmin',
+        type: "POST",
+        dataType: "json",
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: dadosForm,
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+
+                location.reload();
+            } else {
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+
+        }
+    });
+
+}
+
 
 
 
