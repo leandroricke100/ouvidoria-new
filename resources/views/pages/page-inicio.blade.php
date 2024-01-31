@@ -103,7 +103,7 @@
                 <div class="inbox">
 
                     <div class="tel-pref">
-                        <p>Olá, {{ explode(' ', $usuario->nome_completo)[0] }}. consulte suas demandas.</p>
+                        <p>Olá, {{ explode(' ', $usuario->nome_completo)[0] }}. Consulte suas demandas.</p>
                     </div>
                     <a href="/atendimentos" class="inbox">Meu Inbox</a>
 
@@ -122,8 +122,8 @@
             <div class="info-prefeitura">
                 <p class="prefeitura">Prefeitura de Viçosa</p>
                 <div class="tel-pref">
-                    <p>R. Gomes Barbosa, 803 - Centro, Viçosa - MG</p>
-                    <p><strong>Fone:</strong> (31) 3874-7700</p>
+                    <p>R. Antônio Barbosa, 65 - Centro, Campanário - MG</p>
+                    <p><strong>Fone:</strong> (33) 3513-1200</p>
                 </div>
 
                 <div class="border-bottom"></div>
