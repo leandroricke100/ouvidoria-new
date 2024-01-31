@@ -15,7 +15,11 @@
     @if (isset($modalLoginInput) && $modalLoginInput)
         <div class="input-login">
             <input type="email" id="emailLogin" placeholder="teste@teste.com" />
+
+            <input type="text" id="entrarCnpj" placeholder="CPF/CNPJ" style="display: none" />
+
             <input type="password" id="senhaLogin" placeholder="*********" style="display: none" />
+
             <button id="prosseguir" onclick="verificarEmail()">Prosseguir</button>
             <button id="entrar" onclick="login()" style="display: none">Entrar</button>
         </div>

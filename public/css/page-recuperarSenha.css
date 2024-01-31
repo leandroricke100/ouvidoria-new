@@ -44,6 +44,124 @@
             font-size: 14px;
             outline: none;
             margin-bottom: 20px;
+            margin-top: 8px;
+            width: 100%;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                border: none;
+                color: #fff;
+                text-decoration: none;
+                outline: none;
+                padding: 11px 21px;
+                background-color: #333333;
+                border-radius: 6px;
+                font-size: 15px;
+                cursor: pointer;
+                display: flex;
+                align-items: flex-end;
+            }
+
+            a {
+                color: #172577;
+                text-decoration: none;
+                font-size: 13px;
+            }
+        }
+
+        .btn button:hover {
+            opacity: 0.5;
+        }
+
+        .min-senha {
+            font-size: 88%;
+            color: #666 !important;
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+
+        .msg-senha {
+            font-size: 12px;
+            margin: 0;
+            color: red;
+            margin-top: 5px;
+
+        }
+
+        .mostrar-senha {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 50px;
+
+            p {
+                font-size: 88%;
+                color: #666 !important;
+            }
+        }
+    }
+
+    .container-nova-password {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .title-nova-senha {
+            margin-top: 23px;
+            margin-bottom: 30px;
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        .email-recuperar {
+            font-weight: 600 !important;
+        }
+
+        .container-icons {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: -8px;
+
+            label {
+                color: #666;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            input {
+                padding: 10px 10px;
+                border: 1px solid #c9c9c9;
+                color: #666 !important;
+                border-radius: 8px;
+                font-size: 14px;
+                outline: none;
+                margin-bottom: 20px;
+            }
+
+        }
+
+        .min-senha {
+            color: #666 !important;
+            font-size: 13px;
+            margin: 15px 0px;
+        }
+
+        .mostrar-senha {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            p {
+                color: #666 !important;
+            }
         }
 
         .btn {

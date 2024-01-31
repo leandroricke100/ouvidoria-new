@@ -176,31 +176,30 @@ class OuvidoriaController extends Controller
 
     public function login(Request $request)
     {
-        $dados = $request->all();
+        $dados = $request->only(['metodo', 'email', 'cpfCnpj', 'senha']);
         $metodo = $dados['metodo'];
 
         if ($metodo == 'login') {
-            $user = OuvidoriaUsuario::where('email', $dados['email'])->first();
+            $user = OuvidoriaUsuario::where(function ($query) use ($dados) {
+                $query->where('email', $dados['email'])
+                    ->orWhere('cpf', $dados['cpfCnpj'])
+                    ->orWhere('cnpj', $dados['cpfCnpj']);
+            })
+                ->first();
 
-
-            if (!$user) {
-                return response()->json(['status' => false, 'msg' => 'Não existe conta com este endereço de email']);
+            if (!$user || !Hash::check($dados['senha'], $user->senha)) {
+                return response()->json(['status' => false, 'msg' => 'Não foi possível fazer login. Verifique suas credenciais.']);
             }
-
-            if (!Hash::check($dados['senha'], $user->senha)) {
-                return response()->json(['status' => false, 'msg' => 'Senha incorreta!']);
-            }
-
 
             session(['usuario' => $user]);
 
             return response()->json([
                 'status' => true,
-                'msg' => 'logado',
+                'msg' => 'Logado',
                 'dados' => $dados,
                 'usuario' => $user,
             ]);
-        } else if ($metodo == 'sair') {
+        } elseif ($metodo == 'sair') {
             // DESLOGAR
             session()->invalidate();
 
@@ -209,13 +208,20 @@ class OuvidoriaController extends Controller
                 'msg' => 'Deslogado'
             ]);
         }
+
+        return response()->json(['status' => false, 'msg' => 'Método inválido.']);
     }
+
 
     public function verificarEmail(Request $request)
     {
-        $dados = $request->input('dados');
+        $dados = $request->all();
 
-        $user = OuvidoriaUsuario::where('email', $dados['email'])->get()->first();
+        $user = OuvidoriaUsuario::where(function ($query) use ($dados) {
+            $query->where('email', $dados['email'])
+                ->orWhere('cpf', $dados['cpfCnpj'])
+                ->orWhere('cnpj', $dados['cpfCnpj']);
+        })->first();
 
         if (!$user) {
             return response()->json([
@@ -223,7 +229,6 @@ class OuvidoriaController extends Controller
                 'msg' => 'Não existe conta com esses dados'
             ]);
         } else {
-
             return response()->json([
                 'status' => true,
                 'msg' => 'Dados encontrado',
@@ -231,6 +236,8 @@ class OuvidoriaController extends Controller
             ]);
         }
     }
+
+
 
     public function codigo(Request $request)
     {
@@ -289,5 +296,49 @@ class OuvidoriaController extends Controller
             'msg' => 'Valor trocado',
             'dados' => $dadosForm
         ]);
+    }
+
+    public function recuperarSenha(Request $request)
+    {
+        $dados = $request->all();
+
+        $user = OuvidoriaUsuario::where('email', $dados['email'])->get()->first();
+
+        if (!$user) {
+            return response()->json(['status' => false, 'msg' => 'Não existe conta com este endereço de email']);
+        } else {
+            $token = rand(1000, 9999);
+            mail($dados['email'], 'Recuperação de Senha', 'Seu token para alterar sua senha é:<br>' . $token);
+
+            $user->token_senha = $token;
+            $user->save();
+        }
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Verifique seu email para obter o código de alteração da sua senha.',
+            'dados' => $dados
+        ]);
+    }
+
+    public function salvarNovaSenha(Request $request)
+    {
+        $dados = $request->all();
+
+        $user = OuvidoriaUsuario::where('email', $dados['email'])->get()->first();
+
+        if (!$user || $dados['senha'] != $dados['confirmarSenha'] || $dados['token'] != $user['token_senha'] || !$dados['senha']) {
+            return response()->json(['status' => false, 'msg' => 'Dados inválidos do token ou senha']);
+        } else {
+
+            $user->senha = Hash::make($dados['senha']);
+            $user->save();
+
+            return response()->json([
+                'status' => true,
+                'msg' => 'Nova senha cadastrada.',
+                'dados' => $dados
+            ]);
+        }
     }
 }

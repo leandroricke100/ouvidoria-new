@@ -103,7 +103,13 @@
                 <div class="inbox">
 
                     <div class="tel-pref">
-                        <p>Olá, {{ explode(' ', $usuario->nome_completo)[0] }}. Consulte suas demandas.</p>
+                        <p>Olá,
+                            @if (!$usuario->nome_completo)
+                                {{ explode(' ', $usuario->nome_fantasia)[0] }}
+                            @else
+                                {{ explode(' ', $usuario->nome_completo)[0] }}
+                            @endif. Consulte suas demandas.
+                        </p>
                     </div>
                     <a href="/atendimentos" class="inbox">Meu Inbox</a>
 
