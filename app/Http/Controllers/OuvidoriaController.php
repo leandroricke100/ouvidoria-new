@@ -353,6 +353,7 @@ class OuvidoriaController extends Controller
         $newMenu->titulo = $dadosForm['titulo'];
         $newMenu->conteudo = $dadosForm['conteudo-pagina'];
         $newMenu->slog = $dadosForm['link'];
+        $newMenu->status = $dadosForm['status'];
         $newMenu->save();
 
         return response()->json([
