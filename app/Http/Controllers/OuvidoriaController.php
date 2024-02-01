@@ -169,7 +169,7 @@ class OuvidoriaController extends Controller
 
         return response()->json([
             'status' => true,
-            'msg' => 'Solicitação cadastrada com sucesso!',
+            'msg' => 'Nova mensagem enviada com sucesso!',
             'dados' => $dadosForm
         ]);
     }
@@ -181,9 +181,9 @@ class OuvidoriaController extends Controller
 
         if ($metodo == 'login') {
             $user = OuvidoriaUsuario::where(function ($query) use ($dados) {
-                $query->where('email', $dados['email'])
-                    ->orWhere('cpf', $dados['cpfCnpj'])
-                    ->orWhere('cnpj', $dados['cpfCnpj']);
+                $query->where('email', $dados['email'] ?? '0')
+                    ->orWhere('cpf', $dados['cpfCnpj'] ?? '0')
+                    ->orWhere('cnpj', $dados['cpfCnpj'] ?? '0');
             })
                 ->first();
 
@@ -195,8 +195,8 @@ class OuvidoriaController extends Controller
 
             return response()->json([
                 'status' => true,
-                'msg' => 'Logado',
-                'dados' => $dados,
+                'msg' => 'Logado com sucesso!',
+                // 'dados' => $dados,
                 'usuario' => $user,
             ]);
         } elseif ($metodo == 'sair') {
@@ -212,7 +212,6 @@ class OuvidoriaController extends Controller
         return response()->json(['status' => false, 'msg' => 'Método inválido.']);
     }
 
-
     public function verificarEmail(Request $request)
     {
         $dados = $request->all();
@@ -226,18 +225,16 @@ class OuvidoriaController extends Controller
         if (!$user) {
             return response()->json([
                 'status' => false,
-                'msg' => 'Não existe conta com esses dados'
+                'msg' => 'Não existe conta com esses dados.'
             ]);
         } else {
             return response()->json([
                 'status' => true,
-                'msg' => 'Dados encontrado',
+                'msg' => 'Dados encontrado.',
                 'dados' => $dados
             ]);
         }
     }
-
-
 
     public function codigo(Request $request)
     {
@@ -252,7 +249,7 @@ class OuvidoriaController extends Controller
 
         return response()->json([
             'status' => true,
-            'msg' => 'Protocolo encontrado',
+            'msg' => 'Protocolo encontrado.',
             'dados' => $protocolo,
             'link' => $link
         ]);
@@ -269,7 +266,7 @@ class OuvidoriaController extends Controller
 
             return response()->json([
                 'status' => true,
-                'msg' => 'Mensagem deletada',
+                'msg' => 'Mensagem deletada.',
                 'dados' => $dadosForm
             ]);
         } else {
@@ -293,7 +290,7 @@ class OuvidoriaController extends Controller
 
         return response()->json([
             'status' => true,
-            'msg' => 'Valor trocado',
+            'msg' => 'Valor trocado.',
             'dados' => $dadosForm
         ]);
     }
@@ -305,7 +302,7 @@ class OuvidoriaController extends Controller
         $user = OuvidoriaUsuario::where('email', $dados['email'])->get()->first();
 
         if (!$user) {
-            return response()->json(['status' => false, 'msg' => 'Não existe conta com este endereço de email']);
+            return response()->json(['status' => false, 'msg' => 'Dados inválidos.']);
         } else {
             $token = rand(1000, 9999);
             mail($dados['email'], 'Recuperação de Senha', 'Seu token para alterar sua senha é:<br>' . $token);
@@ -336,7 +333,7 @@ class OuvidoriaController extends Controller
 
             return response()->json([
                 'status' => true,
-                'msg' => 'Nova senha cadastrada.',
+                'msg' => 'Nova senha cadastrada com sucesso.',
                 'dados' => $dados
             ]);
         }

@@ -59,6 +59,7 @@ $(document).ready(function () {
     });
 
 
+
     $('#protocolo').mask('0000.000.000');
     $('#cpf').mask('000.000.000-00', { reverse: true });
     $('#cnpj').mask('00.000.000/0000-00', { reverse: true });
@@ -75,17 +76,20 @@ function validarSenha() {
     const senhaCaracterEspecial = /[!@#$%^&*(),.?":{}|<>]/;
 
     if (!senhaMaiscula.test(senha) || !senhaCaracterEspecial.test(senha)) {
-        alert('A senha deve conter letra maiúscula e caractere especial.')
+        popNotif({ tipo: 'error', msg: 'A senha deve conter letra maiúscula e caractere especial.', time: 2000 });
+        // alert('A senha deve conter letra maiúscula e caractere especial.')
         return false;
     }
 
     if (senha !== confirmarSenha) {
-        alert('As senhas não coincidem.');
+        popNotif({ tipo: 'error', msg: 'As senhas não coincidem.', time: 2000 });
+        // alert('As senhas não coincidem.');
         return false;
     }
 
     if (senha.length < 8) {
-        alert('A senha deve conter pelo menos 8 caracteres');
+        popNotif({ tipo: 'error', msg: 'A senha deve conter pelo menos 8 caracteres.', time: 2000 });
+        // alert('A senha deve conter pelo menos 8 caracteres.');
         return false;
     }
 }
@@ -114,10 +118,10 @@ function efetuarCadastro() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-                // Handle success, e.g., redirect to another page
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.replace('/novo/atendimento');
             } else {
-                // Handle failure
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
             location.replace('/novo/atendimento');
         },
@@ -132,6 +136,9 @@ function efetuarCadastro() {
 }
 
 $(() => $('form').submit(function (e) {
-    efetuarCadastro();
+    let validar_senha = validarSenha();
+
+    if (validar_senha) efetuarCadastro();
+
     e.preventDefault();
 }));

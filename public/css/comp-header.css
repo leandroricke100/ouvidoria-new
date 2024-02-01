@@ -128,17 +128,46 @@ header#comp-header {
         }
 
         .modal-sair {
+            display: flex;
             top: 63px;
             position: absolute;
             right: 0px;
+            flex-direction: column;
+
+            .configuracao {
+                z-index: 99;
+                font-size: 12px;
+                padding: 10px 15px;
+                background-color: #fff;
+                color: #000;
+                position: relative;
+                width: 102px;
+                border: none;
+                border-bottom: 1px solid cadetblue;
+                cursor: pointer;
+            }
 
             .sair {
                 z-index: 99;
                 font-size: 12px;
-                padding: 2px 15px;
-                background-color: #333;
-                color: #fff;
+                padding: 10px 15px;
+                background-color: #fff;
+                color: #000;
                 position: relative;
+                width: 102px;
+                border: none;
+                border-radius: 0 0 0 12px;
+                cursor: pointer;
+            }
+
+            .configuracao:hover {
+                background-color: #0F1950;
+                color: #fff;
+            }
+
+            .sair:hover {
+                background-color: #0F1950;
+                color: #fff;
             }
         }
 
@@ -159,10 +188,17 @@ header#comp-header {
             display: flex;
             gap: 15px;
             height: 100%;
-            align-items: center;
+            align-items: stretch;
             font-size: 12px;
-            padding: 5px 10px 3px 10px !important;
+            padding: 0;
             margin-right: 24px;
+        }
+
+        .login-cad a {
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+            line-height: 1;
         }
 
         .login-cad a:hover {
@@ -172,6 +208,12 @@ header#comp-header {
     }
 
     .header-right .user:hover {
+        background-color: #0F1950;
+        color: #fff;
+        height: 100%;
+    }
+
+    .header-right .user.selected {
         background-color: #0F1950;
         color: #fff;
         height: 100%;
@@ -189,9 +231,8 @@ header#comp-header {
     transform: translate(-50%);
     max-height: 607px;
     max-height: 600px;
-    border-radius: 6px;
-    border: 1px solid #2c3e50;
-
+    border-radius: 26px;
+    border: 1px solid #cacaca;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -199,9 +240,14 @@ header#comp-header {
     .close-modal {
         background-color: transparent;
         border: none;
-        margin-bottom: 30px;
+        margin-bottom: 6px;
         cursor: pointer;
+        text-align: right;
+        color: #e95d5d;
     }
+
+
+    box-shadow: 0 19px 20px -18px #00000070;
 }
 
 .banner-header {
@@ -288,6 +334,11 @@ a.inicio {
 
 
 a.inicio:hover {
+    background-color: #0F1950;
+    color: #fff;
+}
+
+a.inicio.selected {
     background-color: #0F1950;
     color: #fff;
 }

@@ -22,9 +22,10 @@ function login() {
             console.log(resposta);
             if (resposta.status) {
                 // SE LOGIN E SENHA FOR OK
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.replace("/atendimentos");
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -35,9 +36,11 @@ function login() {
 }
 
 function loginModal() {
+
     const email = $('#emailLoginModal').val();
     const senha = $('#senhaLoginModal').val();
     const cpfCnpj = $('#entrarCnpj').val();
+
 
     let dadosLogin = {
         email: email,
@@ -58,9 +61,10 @@ function loginModal() {
             console.log(resposta);
             if (resposta.status) {
                 // SE LOGIN E SENHA FOR OK
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.replace("/atendimentos");
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -93,9 +97,11 @@ function verificarEmail() {
                 $('#senhaLogin').show();
                 $('#entrar').show();
                 $('#prosseguir').hide();
-                senha.focus()
+                senha.focus();
+                popNotif({ msg: resposta.msg, time: 2000 });
             } else {
-                //location.replace('/cadastro')
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+                location.replace('/cadastro')
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

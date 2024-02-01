@@ -18,6 +18,11 @@
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
 
+    <script src="{{ asset('js/tools/toastr.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/tools/toastr.min.css') }}" />
+
+    <script src="{{ asset('js/global.js') }}"></script>
+
     @stack('head')
 </head>
 

@@ -42,19 +42,31 @@
 
     @php
         $usuario = session('usuario') ?? null;
+        $currentPage = request()->path();
     @endphp
 
     <div class="header-right">
         @if (isset($usuario) && $usuario->nome_completo)
             <!-- Usuário está logado -->
-            <a href="/" class="inicio"><i class="fas fa-home"></i> Início</a>
-            <a class="inicio" href="/atendimentos"><i class="fas fa-inbox"></i>Meu inbox</a>
+            <a href="/" class="inicio {{ $currentPage == '/' ? 'selected' : '' }}"><i class="fas fa-home"></i>
+                Início</a>
+            <a class="inicio {{ $currentPage == 'atendimentos' ? 'selected' : '' }}" href="/atendimentos"><i
+                    class="fas fa-inbox"></i>Meu inbox</a>
+
             <div>
-                <button onclick="modalSair()" class="user"><i class="fas fa-user-alt"></i>
-                    {{ explode(' ', $usuario->nome_completo)[0] }}<i class="fas fa-caret-down"
-                        style="margin-left: 8px"></i></button>
+                <button class="user {{ $currentPage == 'configuracao' ? 'selected' : '' }}" onclick="modalSair()">
+                    <i class="fas fa-user-alt"></i>
+                    {{ explode(' ', $usuario->nome_completo)[0] }}
+                    <i class="fas fa-caret-down" style="margin-left: 8px"></i>
+                </button>
+
 
                 <div class="modal-sair" style="display: none">
+                    @if ($usuario->admin == 1)
+                        <button onclick="configuracao()" class="configuracao">Configurações</button>
+                    @else
+                        <button onclick="" class="configuracao">Minha conta</button>
+                    @endif
                     <button onclick="sair()" class="sair"><i class="fas fa-power-off"
                             style="margin-right: 5px"></i>Sair</button>
                 </div>

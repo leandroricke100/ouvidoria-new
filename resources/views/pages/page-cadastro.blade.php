@@ -22,7 +22,7 @@
     @include('components.comp-sigilo', ['sigilo' => true])
 
     <section class="cad-form-section">
-        <form class="form" id="cad-atendimento" onsubmit="return validarSenha()">
+        <form class="form" id="cad-atendimento">
 
             <div class="tipo-cad">
                 <div class="radio">

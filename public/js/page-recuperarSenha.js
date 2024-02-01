@@ -16,10 +16,11 @@ function recuperarSenha() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
+                popNotif({ msg: resposta.msg, time: 2000 });
                 $('.container').hide();
                 $('.container-nova-password').show();
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -93,10 +94,10 @@ function salvarNovaSenha() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.replace("/login");
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

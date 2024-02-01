@@ -17,9 +17,10 @@ function deleteMsg(id) {
             console.log(resposta);
             if (resposta.status) {
 
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.reload();
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -46,10 +47,10 @@ function respostaUsuario() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-
-                //location.reload();
+                popNotif({ msg: resposta.msg, time: 2000 });
+                location.reload();
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
             location.reload();
         },
@@ -92,10 +93,10 @@ function updateInput() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.reload();
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

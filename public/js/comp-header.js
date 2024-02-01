@@ -14,7 +14,7 @@ function openSearchBtn() {
 // }
 
 function openModalLogin() {
-    $('.modal-login').show();
+    $('.modal-login').fadeIn(300);
     $('.input-login').hide();
     $('.input-login-modal').show();
 }
@@ -34,10 +34,11 @@ function cadastro() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.reload();
             } else {
 
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -75,19 +76,16 @@ function sair() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.reload();
             } else {
-
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(XMLHttpRequest, textStatus, errorThrown);
-
         }
-
-
-
     });
 
 }
@@ -104,16 +102,20 @@ function buscarCodigo() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-                //popNotif({ msg: resposta.msg, time: 2000 });
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.replace(resposta.link);
             } else {
-                //popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(XMLHttpRequest, textStatus, errorThrown);
         }
     });
+}
+
+function configuracao() {
+    location.replace('/configuracao')
 }
 
 $(document).ready(function () {

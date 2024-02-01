@@ -17,9 +17,9 @@ class IndexController extends Controller
 
 
         if ($user->admin == 1) {
-            $atendimentos = OuvidoriaAtendimento::get()->all();
+            $atendimentos = OuvidoriaAtendimento::orderBy('created_at', 'desc')->get();
         } else {
-            $atendimentos = OuvidoriaAtendimento::where('id_usuario', $user->id)->get()->all();
+            $atendimentos = OuvidoriaAtendimento::where('id_usuario', $user->id)->orderBy('created_at', 'desc')->get();
         }
 
         foreach ($atendimentos as $atendimento) {
@@ -31,7 +31,6 @@ class IndexController extends Controller
             'usuario' => $user,
         ]);
     }
-
 
     public function calcularTempoAtras($data)
     {

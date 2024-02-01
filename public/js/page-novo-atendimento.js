@@ -13,10 +13,10 @@ function efetuarCadastro() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-                // Handle success, e.g., redirect to another page
+                popNotif({ msg: resposta.msg, time: 2000 });
                 location.replace("/atendimentos");
             } else {
-                // Handle failure
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
             location.replace("/atendimentos");
         },

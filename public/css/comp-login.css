@@ -5,7 +5,7 @@
     max-width: 375px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
+    margin-bottom: 36px;
     gap: 12px;
 
     .text-cpf-email {
@@ -21,7 +21,6 @@
             color: #666;
         }
     }
-
 
     input#entrarCnpj {
         width: 100%;
@@ -43,7 +42,7 @@
 
     input#emailLoginModal {
         width: 100%;
-        padding: 7px 9px;
+        padding: 11px 9px;
         font-size: 12.5px;
         border: 2px solid #dce4ec;
         border-radius: 6px;
@@ -59,7 +58,6 @@
 
 
     .input-login {
-
         display: flex;
         gap: 25px;
         width: 100%;
@@ -93,7 +91,7 @@
             color: #fff;
             text-decoration: none;
             outline: none;
-            padding: 7px 20px;
+            padding: 11px 20px;
             background-color: #333333;
             border-radius: 6px;
             font-size: 15px;
@@ -104,7 +102,7 @@
 
     input#senhaLoginModal {
         width: 100%;
-        padding: 7px 9px;
+        padding: 11px 9px;
         font-size: 12.5px;
         border: 2px solid #dce4ec;
         border-radius: 6px;
@@ -164,7 +162,7 @@
             margin: 18px 0px;
         }
 
-        .fa-google-plus-g:before {
+        .fa-google-plus-g: before {
             content: "\f0d5";
             font-size: 23px;
         }

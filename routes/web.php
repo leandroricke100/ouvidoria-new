@@ -36,6 +36,10 @@ Route::get('novo/atendimento', function () {
     return view('pages.page-novo-atendimento');
 });
 
+Route::get('/configuracao', function () {
+    return view('pages.page-config');
+});
+
 
 Route::get('/atendimento/{id}', [IndexController::class, 'atendimento'])->name('usuario-atendimento');
 
