@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helper\FileHelper;
 use App\Models\OuvidoriaUsuario;
 use App\Models\OuvidoriaAtendimento;
+use App\Models\OuvidoriaConfiguracao;
 use App\Models\OuvidoriaMensagem;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -337,5 +338,27 @@ class OuvidoriaController extends Controller
                 'dados' => $dados
             ]);
         }
+    }
+
+    public function novoMenu(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        if (!session('usuario')) return redirect('/');
+
+
+        $newMenu = new OuvidoriaConfiguracao;
+
+        $newMenu->id_admin = $dadosForm['id_admin'];
+        $newMenu->titulo = $dadosForm['titulo'];
+        $newMenu->conteudo = $dadosForm['conteudo-pagina'];
+        $newMenu->slog = $dadosForm['link'];
+        $newMenu->save();
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Nova título cadastrado com sucesso.',
+            'dados' => $dadosForm
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\OuvidoriaAtendimento;
+use App\Models\OuvidoriaConfiguracao;
 use App\Models\OuvidoriaMensagem;
 use App\Models\OuvidoriaUsuario;
 use Illuminate\Http\Request;
@@ -108,6 +109,22 @@ class IndexController extends Controller
             'mensagens' => $mensagens,
             'user' => $user,
             'permitir_resposta' => $permitido,
+        ]);
+    }
+
+    public function menus(Request $request)
+    {
+        $user = session('usuario');
+        if ($user->admin !== 1) return redirect('/');
+
+        $menus = OuvidoriaConfiguracao::where('id_admin', $user->id)->orderBy('created_at', 'desc')->get();
+        foreach ($menus as $menu) {
+            $menu->tempo_atras = $this->calcularTempoAtras($menu->created_at);
+        }
+
+        return view('pages.page-config', [
+            'menus' => $menus,
+            'admin' => $user,
         ]);
     }
 }

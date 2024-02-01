@@ -24,3 +24,5 @@ Route::post('/OuvidoriaInputAdmin', [OuvidoriaController::class, 'inputAdmin']);
 Route::post('/OuvidoriaRecuperarSenha', [OuvidoriaController::class, 'recuperarSenha']);
 
 Route::post('/OuvidoriaNovaSenha', [OuvidoriaController::class, 'salvarNovaSenha']);
+
+Route::post('/OuvidoriNovoMenu', [OuvidoriaController::class, 'novoMenu']);

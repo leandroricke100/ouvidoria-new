@@ -13,9 +13,8 @@
         </div>
 
         <div class="img-brasao">
-            <a href="/"><img
-                    src="https://digitaliza-institucional.s3.us-east-2.amazonaws.com/municipio-de-campanario/site/brasao.png"
-                    alt="logo da prefeitura" /></a>
+            <a href="/"><img src="{{ asset('asset/brasaocampanario.jpeg') }}" /></a>
+
         </div>
 
         <div class="div-codigo">

@@ -2,10 +2,25 @@ section.bloco-atendimentos {
     padding: 0px 59px;
 
     .bloco {
-
         margin-top: 31px;
 
         .aberto {
+            border-top: 2px solid #bbb;
+            padding: 6px 12px 8px 8px !important;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-bottom: white;
+            margin-bottom: -1px;
+            border-radius: 4px 4px 0 0;
+            font-size: 11px;
+            cursor: pointer;
+
+            i {
+                margin-right: 5px;
+            }
+        }
+
+        .aberto.ativo {
             border-top: 2px solid #bbb;
             padding: 6px 12px 8px 8px !important;
             border-right: 1px solid #ddd;
@@ -31,6 +46,24 @@ section.bloco-atendimentos {
             margin-bottom: -1px;
             border-radius: 4px 4px 0 0;
             font-size: 11px;
+            cursor: pointer;
+
+            i {
+                margin-right: 5px;
+            }
+
+        }
+
+        .arquivado.ativo {
+            border-top: 2px solid #bbb;
+            padding: 6px 12px 8px 8px !important;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-bottom: white;
+            margin-bottom: -1px;
+            border-radius: 4px 4px 0 0;
+            font-size: 11px;
+            background-color: white;
             cursor: pointer;
 
             i {
