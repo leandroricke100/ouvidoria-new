@@ -34,7 +34,7 @@ function salvarNovoMenu() {
     let dadosForm = new FormData($('#new-title-menu')[0]);
 
     $.ajax({
-        url: '/api/OuvidoriNovoMenu',
+        url: '/api/OuvidoriaNovoMenu',
         type: "POST",
         dataType: "json",
         contentType: false,
@@ -46,7 +46,34 @@ function salvarNovoMenu() {
             console.log(resposta);
             if (resposta.status) {
                 popNotif({ msg: resposta.msg, time: 2000 });
-                //location.reload();
+                location.reload();
+            } else {
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+
+        }
+    });
+}
+
+function DeleteMenu(id) {
+
+    $.ajax({
+        url: '/api/OuvidoriaDeleteMenu',
+        type: "POST",
+        dataType: "json",
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: {
+            id: id
+        },
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+
+                popNotif({ msg: resposta.msg, time: 2000 });
+                location.reload();
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }

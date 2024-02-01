@@ -4,7 +4,7 @@ function printPage() {
 
 function deleteMsg(id) {
 
-    console.log(id)
+
     $.ajax({
         url: '/api/OuvidoriaDeleteMensagem',
         type: "POST",

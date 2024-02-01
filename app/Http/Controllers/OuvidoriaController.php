@@ -346,14 +346,18 @@ class OuvidoriaController extends Controller
 
         if (!session('usuario')) return redirect('/');
 
-
         $newMenu = new OuvidoriaConfiguracao;
+
+        if ($dadosForm['status'] == 'Ativado') {
+            $newMenu->status = 1;
+        } else {
+            $newMenu->status = 0;
+        }
 
         $newMenu->id_admin = $dadosForm['id_admin'];
         $newMenu->titulo = $dadosForm['titulo'];
         $newMenu->conteudo = $dadosForm['conteudo-pagina'];
         $newMenu->slog = $dadosForm['link'];
-        $newMenu->status = $dadosForm['status'];
         $newMenu->save();
 
         return response()->json([
@@ -361,5 +365,27 @@ class OuvidoriaController extends Controller
             'msg' => 'Nova título cadastrado com sucesso.',
             'dados' => $dadosForm
         ]);
+    }
+
+    public function deleteMenu(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $menu = OuvidoriaConfiguracao::find($dadosForm['id']);
+
+        if ($menu) {
+            $menu->delete();
+
+            return response()->json([
+                'status' => true,
+                'msg' => 'Menu deletado.',
+                'dados' => $dadosForm
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Não foi possível apagar!',
+            ]);
+        }
     }
 }

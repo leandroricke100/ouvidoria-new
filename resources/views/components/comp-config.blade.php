@@ -47,10 +47,17 @@
                             <td>
                                 <a>
                                     <div class="status">
-                                        <span>Ativo</span>
+                                        <span>
+                                            @if ($menu->status == 1)
+                                                Ativado
+                                            @else
+                                                Desativado
+                                            @endif
+                                        </span>
                                         <div class="btn-edit">
                                             <button class="edit">Editar</button>
-                                            <button class="btn-delete-menu">Excluir</button>
+                                            <button onclick="DeleteMenu({{ $menu->id }})"
+                                                class="btn-delete-menu">Excluir</button>
                                         </div>
                                     </div>
                                 </a>
@@ -89,7 +96,7 @@
                             <option value="Ativado">Ativado</option>
                             <option value="Desativado">Desativado</option>
                         </select>
-                        <input type="hidden" name="id_admin" id="id_dmin" value="7">
+                        <input type="hidden" name="id_admin" id="id_dmin" value="{{ $admin->id }}">
                     </div>
                     <div class="btn">
                         <button type="submit" class="save"><i class="far fa-save"></i>Salvar</button>
