@@ -1,10 +1,9 @@
 @push('head')
-    <script src="{{ asset('js/comp-header.js') }}"></script>
+    <script src="{{ asset('js/components/comp-header.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
-    <link href="{{ asset('css/comp-header.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/components/comp-header.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
-
 
 <header id="comp-header">
     <div class="header-left">
@@ -14,12 +13,10 @@
 
         <div class="img-brasao">
             <a href="/"><img src="{{ asset('asset/brasaocampanario.jpeg') }}" /></a>
-
         </div>
 
         <div class="div-codigo">
-            <input type="text" id="codigo" placeholder="Buscar por código" /><button class="btn-search-codigo"><i
-                    class="fas fa-search" onclick="buscarCodigo()"></i></button>
+            <input type="text" id="codigo" placeholder="Buscar por código" /><button class="btn-search-codigo"><i class="fas fa-search" onclick="buscarCodigo()"></i></button>
         </div>
 
 
@@ -27,7 +24,6 @@
             <button onclick="openModalLogin()">Entrar</button>
             <a href="">Cadastro</a>
         </div>
-
 
         {{-- <div class="btn-modal-search">
             <button class="btn-search-number"><i class="fas fa-caret-down" onclick="openSearchBtn()"></i></button>
@@ -47,10 +43,8 @@
     <div class="header-right">
         @if (isset($usuario) && $usuario->nome_completo)
             <!-- Usuário está logado -->
-            <a href="/" class="inicio {{ $currentPage == '/' ? 'selected' : '' }}"><i class="fas fa-home"></i>
-                Início</a>
-            <a class="inicio {{ $currentPage == 'atendimentos' ? 'selected' : '' }}" href="/atendimentos"><i
-                    class="fas fa-inbox"></i>Meu inbox</a>
+            <a href="/" class="inicio {{ $currentPage == '/' ? 'selected' : '' }}"><i class="fas fa-home"></i> Início</a>
+            <a class="inicio {{ $currentPage == 'atendimentos' ? 'selected' : '' }}" href="/atendimentos"><i class="fas fa-inbox"></i>Meu inbox</a>
 
             <div>
                 <button class="user {{ $currentPage == 'configuracao' ? 'selected' : '' }}" onclick="modalSair()">
@@ -66,8 +60,7 @@
                     @else
                         <button onclick="" class="configuracao">Minha conta</button>
                     @endif
-                    <button onclick="sair()" class="sair"><i class="fas fa-power-off"
-                            style="margin-right: 5px"></i>Sair</button>
+                    <button onclick="sair()" class="sair"><i class="fas fa-power-off" style="margin-right: 5px"></i>Sair</button>
                 </div>
             </div>
         @else

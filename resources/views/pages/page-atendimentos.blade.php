@@ -1,15 +1,15 @@
 @extends('layout.layout-global', ['titulo' => 'Meus atendimentos'])
 
 @push('head')
-    <script src="{{ asset('js/page-atendimentos.js') }}"></script>
+    <script src="{{ asset('js/pages/page-atendimentos.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
-    <link href="{{ asset('css/page-atendimentos.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/pages/page-atendimentos.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
 @section('conteudo')
     @include(
         'components.comp-header',
-    
+
         [
             'banner' => true,
             'titulo_banner' => 'Meu Inbox - Minhas solicitações',

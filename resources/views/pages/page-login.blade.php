@@ -1,7 +1,7 @@
 @extends('layout.layout-global', ['titulo' => 'Página Login'])
 
 @push('head')
-    <link href="{{ asset('css/comp-login.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/pages/comp-login.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
 @endpush
 

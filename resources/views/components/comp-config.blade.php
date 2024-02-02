@@ -1,7 +1,7 @@
 @push('head')
-    <link href="{{ asset('css/comp-config.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/components/comp-config.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
-    <script src="{{ asset('js/comp-config.js') }}"></script>
+    <script src="{{ asset('js/components/comp-config.js') }}"></script>
 @endpush
 
 
@@ -10,8 +10,7 @@
 
     <div class="bloco">
         <button id="btnMenus" onclick="modalMenu()" class="menus" ativo><i class="fas fa-bars"></i>Menus</button>
-        <button id="btnMinhaConta" onclick="modalConta()" class="minhaConta"><i class="fas fa-user-cog"></i></i>Minha
-            Conta</button>
+        <button id="btnMinhaConta" onclick="modalConta()" class="minhaConta"><i class="fas fa-user-cog"></i></i>Minha Conta</button>
     </div>
 
 
@@ -57,7 +56,7 @@
                                         <div class="btn-edit">
                                             <button class="edit">Editar</button>
                                             <button onclick="DeleteMenu({{ $menu->id }})"
-                                                class="btn-delete-menu">Excluir</button>
+                                                    class="btn-delete-menu">Excluir</button>
                                         </div>
                                     </div>
                                 </a>

@@ -70,8 +70,6 @@ $(document).ready(function () {
 function validarSenha() {
     const senha = $("#senha").val();
     const confirmarSenha = $("#confirmarSenha").val();
-
-
     const senhaMaiscula = /[A-Z]/;
     const senhaCaracterEspecial = /[!@#$%^&*(),.?":{}|<>]/;
 
@@ -92,6 +90,8 @@ function validarSenha() {
         // alert('A senha deve conter pelo menos 8 caracteres.');
         return false;
     }
+
+    return true;
 }
 
 function efetuarCadastro() {
@@ -137,6 +137,9 @@ function efetuarCadastro() {
 
 $(() => $('form').submit(function (e) {
     let validar_senha = validarSenha();
+
+    console.log('validar_senha', validar_senha);
+
 
     if (validar_senha) efetuarCadastro();
 

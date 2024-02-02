@@ -21,14 +21,17 @@
         margin-bottom: -10px;
         border-radius: 4px 4px 0 0;
         font-size: 12px;
-
         i {
             margin-right: 5px;
         }
-
         p {
             color: #666 !important;
         }
+    ;
+        border-bottom: 1px solid white;
+        margin-bottom: -12px;
+        border-bottom: 2px solid white;
+        z-index: 1;
     }
 
     .itens2 {
@@ -52,7 +55,7 @@
         }
     }
 
-    .itens2:hover {
+    .itens2 {
         padding: 9px 12px 8px 8px !important;
         border-right: 1px solid #ddd;
         margin-bottom: -11px;

@@ -2,8 +2,8 @@
 
 
 @push('head')
-    <link href="{{ asset('css/page-recuperarSenha.css') }}?v={{ time() }}" rel="stylesheet">
-    <script src="{{ asset('js/page-recuperarSenha.js') }}"></script>
+    <link href="{{ asset('css/pages/page-recuperarSenha.css') }}?v={{ time() }}" rel="stylesheet">
+    <script src="{{ asset('js/pages/page-recuperarSenha.js') }}"></script>
 @endpush
 
 @section('conteudo')

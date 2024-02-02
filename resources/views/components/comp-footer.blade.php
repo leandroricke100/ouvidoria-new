@@ -1,5 +1,5 @@
 @push('head')
-    <link href="{{ asset('css/comp-footer.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/components/comp-footer.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
 

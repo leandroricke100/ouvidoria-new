@@ -2,16 +2,16 @@
 
 
 @push('head')
-    <link href="{{ asset('css/page-cadastro.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/pages/page-cadastro.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
-    <script src="{{ asset('js/page-cadastro.js') }}"></script>
+    <script src="{{ asset('js/pages/page-cadastro.js') }}"></script>
 @endpush
 
 @section('conteudo')
     @include(
         'components.comp-header',
-    
+
         [
             'banner' => true,
             'titulo_banner' => 'Atendimentos',

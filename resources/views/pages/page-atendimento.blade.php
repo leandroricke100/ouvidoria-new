@@ -1,8 +1,8 @@
 @extends('layout.layout-global', ['titulo' => 'Página Atendimento'])
 
 @push('head')
-    <link href="{{ asset('css/page-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
-    <script src="{{ asset('js/page-atendimento.js') }}"></script>
+    <link href="{{ asset('css/pages/page-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
+    <script src="{{ asset('js/pages/page-atendimento.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
 @endpush
 
