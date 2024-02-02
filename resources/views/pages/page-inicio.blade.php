@@ -9,7 +9,7 @@
 @section('conteudo')
     @include(
         'components.comp-header',
-    
+
         [
             'banner' => true,
             'cadastro' => true,
@@ -20,14 +20,17 @@
         <div class="container-left">
             <h3>Serviços</h3>
             <div class="menus">
-                <div class="icons"><span><i class="fas fa-fw fa-bullhorn"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Atendimentos</a>
-                    <p>Atendimento ao Cidadão: Ouvidoria Envie sua demanda para a Prefeitura</p>
-                </div>
+
+                @foreach ($menus as $menu)
+                    <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
+                    <div class="opcoes">
+                        <a href="{{ $menu->slog }}">{{ $menu->titulo }}</a>
+                        <p>{{ $menu->conteudo }}</p>
+                    </div>
+                @endforeach
             </div>
 
-            <div class="menus">
+            {{-- <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-file-alt"></i></span></div>
                 <div class="opcoes">
                     <a href="/novo/atendimento">Ofícios</a>
@@ -90,7 +93,7 @@
                     <p>Aprovação de Projetos e Alvará de Obras, Aprovação de Projetos e Licenciamentos de
                         Loteamentos/Condomínios/Territorial</p>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <div class="container-right">

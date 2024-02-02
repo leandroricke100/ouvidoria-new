@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/arquivo/{id}/{op?}', [IndexArquivo::class, 'index'])->name('pg-arquivo');
 
-Route::get('/', function () {
-    return view('pages.page-inicio');
-});
+Route::get('/', [IndexController::class, 'inicio'])->name('inicio-menus');
 
 Route::get('/login', function () {
     return view('pages.page-login');

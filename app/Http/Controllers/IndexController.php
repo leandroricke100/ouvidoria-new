@@ -127,4 +127,13 @@ class IndexController extends Controller
             'admin' => $user,
         ]);
     }
+
+    public function inicio(Request $request)
+    {
+        $menus = OuvidoriaConfiguracao::orderBy('created_at', 'desc')->get()->all();
+
+        return view('pages.page-inicio', [
+            'menus' => $menus,
+        ]);
+    }
 }
