@@ -410,4 +410,50 @@ class OuvidoriaController extends Controller
             ]);
         }
     }
+
+    public function EditAccountAdmin(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $usuario = OuvidoriaUsuario::where('id', $dadosForm['conta'])->get()->first();
+
+        if ($usuario) {
+            return response()->json([
+                'status' => true,
+                'msg' => 'Conta encontrado.',
+                'menu' => $usuario
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Não foi possível encontrar a conta.',
+            ]);
+        }
+    }
+
+    public function EditSaveMenu(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $editMenu = OuvidoriaConfiguracao::where('id', $dadosForm['menuId'])->get()->first();
+
+        if ($dadosForm['status'] == 'Ativado') {
+            $editMenu->status = 1;
+        } else {
+            $editMenu->status = 0;
+        }
+
+
+        $editMenu->id_admin = $dadosForm['id_admin'];
+        $editMenu->titulo = $dadosForm['titulo'];
+        $editMenu->conteudo = $dadosForm['conteudo-pagina'];
+        $editMenu->slog = $dadosForm['link'];
+        $editMenu->save();
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Título editado com sucesso.',
+            'dados' => $dadosForm
+        ]);
+    }
 }

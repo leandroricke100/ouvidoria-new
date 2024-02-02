@@ -81,7 +81,7 @@
 
     .add-new {
         display: flex;
-        width: 16%;
+        width: 150px;
         align-items: center;
         justify-content: center;
         padding: 10px;
@@ -269,6 +269,23 @@
                     gap: 20px;
 
                     .save {
+                        border: none;
+                        color: #fff;
+                        text-decoration: none;
+                        outline: none;
+                        padding: 9px 18px;
+                        background-color: #59BF59;
+                        border-radius: 6px;
+                        font-size: 15px;
+                        cursor: pointer;
+
+                        i {
+                            margin-right: 8px;
+                            font-size: 18px;
+                        }
+                    }
+
+                    .saveEdit {
                         border: none;
                         color: #fff;
                         text-decoration: none;

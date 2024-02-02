@@ -37,3 +37,34 @@ function popNotif(options = {}) {
 
     if (options.console) console.log(options.console);
 }
+
+
+function startLoadBtn($btn) {
+    if (!$btn) return false;
+
+    if (!$btn.is('[load-track]')) {
+        let $spanOriginal = $('<span org style="display: none;"></span>');
+        let html = $btn.html();
+        $spanOriginal.html(html);
+
+        let txt = $spanOriginal.text() ? ' Carregando...' : '';
+        let $spanCaregamento = $('<span ldg><i fx-rotate class="fas fa-spinner-third" style="margin-right: 6px;"></i>' + txt + '</span>');
+
+        $btn.text('');
+
+        $btn.append($spanCaregamento);
+        $btn.append($spanOriginal);
+    } else {
+        $btn.find('[org]').hide();
+        $btn.find('[ldg]').show();
+    }
+
+    $btn.attr('disabled', '');
+}
+
+function stopLoadBtn($btn) {
+    if (!$btn) return false;
+    $btn.find('[org]').show();
+    $btn.find('[ldg]').hide();
+    $btn.removeAttr('disabled');
+}

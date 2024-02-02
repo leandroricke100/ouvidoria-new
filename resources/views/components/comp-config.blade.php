@@ -10,7 +10,8 @@
 
     <div class="bloco">
         <button id="btnMenus" onclick="modalMenu()" class="menus" ativo><i class="fas fa-bars"></i>Menus</button>
-        <button id="btnMinhaConta" onclick="modalConta()" class="minhaConta"><i class="fas fa-user-cog"></i></i>Minha
+        <button id="btnMinhaConta" onclick="modalConta({{ $admin->id }})" class="minhaConta"><i
+                class="fas fa-user-cog"></i></i>Minha
             Conta</button>
     </div>
 
@@ -70,7 +71,7 @@
         </table>
 
         <div class="conta" style="display: none">
-            minha conta
+            @include('components.comp-cadastro')
         </div>
 
         <div class="novo-menu" style="display: none">
@@ -78,6 +79,7 @@
                 <div class="div-titulo">
                     <label>Título do Menu</label>
                     <input type="text" name="titulo" id="titulo">
+                    <input type="hidden" class="menu_id" id="menu_id" value="{{ $menu->id }}">
                 </div>
 
                 <div class="div-conteudo">
@@ -101,7 +103,10 @@
                     </div>
                     <div class="btn">
                         <button type="submit" class="save"><i class="far fa-save"></i>Salvar</button>
-                        <button class="cancel"><i class="fal fa-times-circle"></i>Cancelar</button>
+                        <button type="button" onclick="saveEdit()" class="saveEdit"><i class="far fa-save"
+                                style="display: none"></i>Salvar</button>
+                        <button type="button" onclick="cancel()" class="cancel"><i
+                                class="fal fa-times-circle"></i>Cancelar</button>
                     </div>
                 </div>
 

@@ -14,13 +14,58 @@ function modalMenu() {
 
 }
 
-function modalConta() {
+function modalConta(id) {
     $('#btnMinhaConta').addClass('ativo');
     $('#btnMenus').removeClass('ativo');
     $('#table').hide();
     $('#add-new').hide();
     $('.conta').show();
     $('.novo-menu').hide();
+
+
+    let conta = id;
+
+    $.ajax({
+        url: '/api/OuvidoriaEditAccountAdmin',
+        type: "POST",
+        dataType: "json",
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: {
+            conta: conta
+        },
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+                //location.reload();
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+                $('#cpf').val(resposta.menu.nome_completo);
+                $('#dataNascimento').val(resposta.menu.nome_completo);
+                $('#funcao').val(resposta.menu.nome_completo);
+                $('#organizacao').val(resposta.menu.nome_completo);
+                $('#profissao').val(resposta.menu.nome_completo);
+                $('#sexo').val(resposta.menu.nome_completo);
+                $('#email').val(resposta.menu.nome_completo);
+                $('#telefone').val(resposta.menu.nome_completo);
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+                $('#nomeCompleto').val(resposta.menu.nome_completo);
+
+
+
+                //popNotif({ msg: resposta.msg, time: 2000 });
+            } else {
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+
+        }
+    });
 }
 
 function addNewMenu() {
@@ -28,6 +73,9 @@ function addNewMenu() {
     $('#add-new').hide();
     $('.add-new').hide();
     $('.novo-menu').show();
+    $('.saveEdit').hide();
+    $('.save').show();
+
 }
 
 function salvarNovoMenu() {
@@ -87,6 +135,9 @@ function deleteMenu(id) {
 
 function editMenu(id) {
 
+    $('.save').hide();
+    $('.saveEdit').show();
+
     let menu = id;
 
     $.ajax({
@@ -117,7 +168,7 @@ function editMenu(id) {
                 }
 
 
-                popNotif({ msg: resposta.msg, time: 2000 });
+                //popNotif({ msg: resposta.msg, time: 2000 });
 
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
@@ -129,6 +180,45 @@ function editMenu(id) {
         }
     });
 
+}
+
+function saveEdit(id) {
+    let dadosForm = new FormData($('#new-title-menu')[0]);
+
+
+    let menuId = $('#menu_id').val();
+
+
+    dadosForm.append('menuId', menuId);
+
+    $.ajax({
+        url: '/api/OuvidoriaSaveEditMenu',
+        type: "POST",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        cache: false,
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: dadosForm,
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+                popNotif({ msg: resposta.msg, time: 2000 });
+                location.reload();
+            } else {
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+
+        }
+    });
+
+}
+
+function cancel() {
+    location.reload();
 }
 
 
