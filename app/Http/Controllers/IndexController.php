@@ -23,6 +23,13 @@ class IndexController extends Controller
             $atendimentos = OuvidoriaAtendimento::where('id_usuario', $user->id)->orderBy('created_at', 'desc')->get();
         }
 
+        $mensagens = OuvidoriaMensagem::where('id_atendimento', $user->id)->orderBy('id')->get()->all();
+
+
+        foreach ($mensagens as $mensagem) {
+            $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
+        }
+
         foreach ($atendimentos as $atendimento) {
             $atendimento->tempo_atras = $this->calcularTempoAtras($atendimento->created_at);
         }
@@ -30,6 +37,7 @@ class IndexController extends Controller
         return view('pages.page-atendimentos', [
             'atendimentos' => $atendimentos,
             'usuario' => $user,
+            'mensagens' => $mensagem
         ]);
     }
 

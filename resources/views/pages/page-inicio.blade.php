@@ -19,16 +19,18 @@
     <div class="container">
         <div class="container-left">
             <h3>Serviços</h3>
-            <div class="menus">
+            @foreach ($menus as $menu)
+                @if ($menu->status == 1)
+                    <div class="menus">
+                        <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
+                        <div class="opcoes">
+                            <a href="{{ $menu->slog }}">{{ $menu->titulo }}</a>
 
-                @foreach ($menus as $menu)
-                    <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
-                    <div class="opcoes">
-                        <a href="{{ $menu->slog }}">{{ $menu->titulo }}</a>
-                        <p>{{ $menu->conteudo }}</p>
+                        </div>
+
                     </div>
-                @endforeach
-            </div>
+                @endif
+            @endforeach
 
             {{-- <div class="menus">
                 <div class="icons"><span><i class="fas fa-fw fa-file-alt"></i></span></div>
@@ -129,7 +131,7 @@
             </div>
 
             <div class="info-prefeitura">
-                <p class="prefeitura">Prefeitura de Viçosa</p>
+                <p class="prefeitura">Câmara de Campanário</p>
                 <div class="tel-pref">
                     <p>R. Antônio Barbosa, 65 - Centro, Campanário - MG</p>
                     <p><strong>Fone:</strong> (33) 3513-1200</p>

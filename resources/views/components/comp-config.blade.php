@@ -55,8 +55,9 @@
                                             @endif
                                         </span>
                                         <div class="btn-edit">
-                                            <button class="edit">Editar</button>
-                                            <button onclick="DeleteMenu({{ $menu->id }})"
+                                            <button onclick="editMenu({{ $menu->id }})"
+                                                class="edit">Editar</button>
+                                            <button onclick="deleteMenu({{ $menu->id }})"
                                                 class="btn-delete-menu">Excluir</button>
                                         </div>
                                     </div>

@@ -28,3 +28,5 @@ Route::post('/OuvidoriaNovaSenha', [OuvidoriaController::class, 'salvarNovaSenha
 Route::post('/OuvidoriaNovoMenu', [OuvidoriaController::class, 'novoMenu']);
 
 Route::post('/OuvidoriaDeleteMenu', [OuvidoriaController::class, 'deleteMenu']);
+
+Route::post('/OuvidoriaEditMenu', [OuvidoriaController::class, 'EditMenu']);

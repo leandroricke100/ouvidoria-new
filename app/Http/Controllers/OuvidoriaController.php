@@ -388,4 +388,26 @@ class OuvidoriaController extends Controller
             ]);
         }
     }
+
+    public function EditMenu(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $menu = OuvidoriaConfiguracao::where('id', $dadosForm['menu'])->get()->first();
+
+        if ($menu) {
+
+
+            return response()->json([
+                'status' => true,
+                'msg' => 'Menu encontrado.',
+                'menu' => $menu
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Não foi editar o menu.',
+            ]);
+        }
+    }
 }

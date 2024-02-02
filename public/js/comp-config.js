@@ -58,7 +58,7 @@ function salvarNovoMenu() {
     });
 }
 
-function DeleteMenu(id) {
+function deleteMenu(id) {
 
     $.ajax({
         url: '/api/OuvidoriaDeleteMenu',
@@ -83,6 +83,52 @@ function DeleteMenu(id) {
 
         }
     });
+}
+
+function editMenu(id) {
+
+    let menu = id;
+
+    $.ajax({
+        url: '/api/OuvidoriaEditMenu',
+        type: "POST",
+        dataType: "json",
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: {
+            menu: menu
+        },
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+                //location.reload();
+
+                $('#table').hide();
+                $('#add-new').hide();
+                $('.add-new').hide();
+                $('.novo-menu').show();
+
+                $('#titulo').val(resposta.menu.titulo);
+                $('#conteudo-pagina').val(resposta.menu.conteudo);
+                $('#link').val(resposta.menu.slog);
+                if (resposta.menu.status == 0) {
+                    $('#status').val('Desativado');
+                } else {
+                    $('#status').val('Ativado');
+                }
+
+
+                popNotif({ msg: resposta.msg, time: 2000 });
+
+            } else {
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+
+        }
+    });
+
 }
 
 

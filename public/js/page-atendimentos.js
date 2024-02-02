@@ -7,6 +7,8 @@ function modalAberto() {
     $('#btnArquivado').removeClass('ativo');
     $('.emArquivado').hide();
     $('.emAberto').show();
+    $('.bloco-arquivado').hide();
+    $('.bloco-aberto').show();
 }
 
 function modalArquivado() {
@@ -14,4 +16,6 @@ function modalArquivado() {
     $('#btnAberto').removeClass('ativo');
     $('.emAberto').hide();
     $('.emArquivado').show();
+    $('.bloco-arquivado').show();
+    $('.bloco-aberto').hide();
 }
