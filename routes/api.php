@@ -34,3 +34,7 @@ Route::post('/OuvidoriaEditMenu', [OuvidoriaController::class, 'EditMenu']);
 Route::post('/OuvidoriaSaveEditMenu', [OuvidoriaController::class, 'EditSaveMenu']);
 
 Route::post('/OuvidoriaEditAccountAdmin', [OuvidoriaController::class, 'EditAccountAdmin']);
+
+Route::post('/OuvidoriaEditAccountUser', [OuvidoriaController::class, 'EditAccountUser']);
+
+Route::post('/OuvidoriaCadAtualizado', [OuvidoriaController::class, 'EditCadAtualizado']);

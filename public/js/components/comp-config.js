@@ -21,7 +21,8 @@ function modalConta(id) {
     $('#add-new').hide();
     $('.conta').show();
     $('.novo-menu').hide();
-
+    $('.button-cad-enviar').hide();
+    $('.btn-save-cad').show();
 
     let conta = id;
 
@@ -37,24 +38,19 @@ function modalConta(id) {
             console.log(resposta);
             if (resposta.status) {
                 //location.reload();
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
-                $('#cpf').val(resposta.menu.nome_completo);
-                $('#dataNascimento').val(resposta.menu.nome_completo);
-                $('#funcao').val(resposta.menu.nome_completo);
-                $('#organizacao').val(resposta.menu.nome_completo);
-                $('#profissao').val(resposta.menu.nome_completo);
-                $('#sexo').val(resposta.menu.nome_completo);
-                $('#email').val(resposta.menu.nome_completo);
-                $('#telefone').val(resposta.menu.nome_completo);
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
-                $('#nomeCompleto').val(resposta.menu.nome_completo);
 
+                let $frm = $('#cad-atendimento');
+                let dados = resposta.menu;
+                dados['nomeCompleto'] = dados.nome_completo;
+                dados['dataNascimento'] = dados.data_nascimento;
+                dados['funcao'] = dados.cargo;
+                dados['emailAlternativo'] = dados.email_alternativo;
+                dados['nomeFantasia'] = dados.nome_fantasia;
+                dados['razaoSocial'] = dados.razao_social;
+                dados['nomeContato'] = dados.contato_principal;
+                dados['areaAtuacao'] = dados.area_atuacao;
 
+                preencherForm($frm, dados);
 
                 //popNotif({ msg: resposta.msg, time: 2000 });
             } else {
@@ -76,6 +72,37 @@ function addNewMenu() {
     $('.saveEdit').hide();
     $('.save').show();
 
+}
+
+function saveCadastro() {
+    let dadosForm = new FormData($('#cad-atendimento')[0]);
+
+    const idAdmin = $('#id_dmin').val();
+    dadosForm.append('idAdmin', idAdmin);
+
+    $.ajax({
+        url: '/api/OuvidoriaCadAtualizado',
+        type: "POST",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        cache: false,
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: dadosForm,
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+                popNotif({ msg: resposta.msg, time: 2000 });
+                location.reload();
+            } else {
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+
+        }
+    });
 }
 
 function salvarNovoMenu() {
@@ -182,7 +209,7 @@ function editMenu(id) {
 
 }
 
-function saveEdit(id) {
+function saveEdit() {
     let dadosForm = new FormData($('#new-title-menu')[0]);
 
 
@@ -224,5 +251,6 @@ function cancel() {
 
 $(() => $('form').submit(function (e) {
     salvarNovoMenu();
+    saveCadastro();
     e.preventDefault();
 }));

@@ -4,9 +4,12 @@
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
     <link href="{{ asset('css/components/comp-header.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
+@php
+    $usuario = session('usuario') ?? null;
+    $currentPage = request()->path();
+@endphp
 
-
-<header id="comp-header">
+<header id="comp-header" class="{{ $currentPage == 'minhaconta' ? 'selected' : '' }}">
     <div class="header-left">
         <div class="menu-left-modal" style="display: none">
             <button class="btn-menu-mobile" onclick="openMenuMobile()"><i class="fas fa-bars"></i></button>
@@ -24,8 +27,8 @@
 
 
         <div class="login-modal-mobile" style="display: none">
-            <button onclick="openModalLogin()">Entrar</button>
-            <a href="">Cadastro</a>
+            <button onclick="modalLoginUser()">Entrar</button>
+            <button onclick="cad()">Cadastro</button>
         </div>
 
 
@@ -39,10 +42,7 @@
         </div> --}}
     </div>
 
-    @php
-        $usuario = session('usuario') ?? null;
-        $currentPage = request()->path();
-    @endphp
+
 
     <div class="header-right">
         @if (isset($usuario) && $usuario->nome_completo)
@@ -64,7 +64,8 @@
                     @if ($usuario->admin == 1)
                         <button onclick="configuracao()" class="configuracao">Configurações</button>
                     @else
-                        <button onclick="" class="configuracao">Minha conta</button>
+                        <button onclick="configuracao()" class="configuracao"
+                            {{ $currentPage == 'configuracao' ? 'selected' : '' }}>Minha conta</button>
                     @endif
                     <button onclick="sair()" class="sair"><i class="fas fa-power-off"
                             style="margin-right: 5px"></i>Sair</button>

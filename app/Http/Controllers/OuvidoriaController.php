@@ -396,8 +396,6 @@ class OuvidoriaController extends Controller
         $menu = OuvidoriaConfiguracao::where('id', $dadosForm['menu'])->get()->first();
 
         if ($menu) {
-
-
             return response()->json([
                 'status' => true,
                 'msg' => 'Menu encontrado.',
@@ -431,6 +429,17 @@ class OuvidoriaController extends Controller
         }
     }
 
+    public function EditAccountUser(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Conta encontrado.',
+            'menu' => $dadosForm
+        ]);
+    }
+
     public function EditSaveMenu(Request $request)
     {
         $dadosForm = $request->all();
@@ -453,6 +462,71 @@ class OuvidoriaController extends Controller
         return response()->json([
             'status' => true,
             'msg' => 'Título editado com sucesso.',
+            'dados' => $dadosForm
+        ]);
+    }
+
+    public function EditCadAtualizado(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $userUpdate = OuvidoriaUsuario::where('id', $dadosForm['idAdmin'])->get()->first();
+
+        if (!$userUpdate) {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Usuário não encontrado.',
+            ]);
+        }
+
+        if ($dadosForm['profissao'] == 'null') {
+            $userUpdate->profissao = null;
+        } else {
+            $userUpdate->profissao = $dadosForm['profissao'];
+        }
+
+        if ($dadosForm['sexo'] == 'null') {
+            $userUpdate->sexo = null;
+        } else {
+            $userUpdate->sexo = $dadosForm['sexo'];
+        }
+
+        if ($dadosForm['areaAtuacao'] == 'null') {
+            $userUpdate->area_atuacao = null;
+        } else {
+            $userUpdate->area_atuacao = $dadosForm['areaAtuacao'];
+        }
+
+        if (!empty($dadosForm['senha'])) {
+            $userUpdate->senha = Hash::make($dadosForm['senha']);
+        }
+
+        $userUpdate->bairro = $dadosForm['bairro'];
+        $userUpdate->celular = $dadosForm['celular'];
+        $userUpdate->cep = intval($dadosForm['cep']);
+        $userUpdate->cidade = $dadosForm['cidade'];
+        $userUpdate->cnpj = $dadosForm['cnpj'];
+        $userUpdate->complemento = $dadosForm['complemento'];
+        $userUpdate->cpf = $dadosForm['cpf'];
+        $userUpdate->data_nascimento = $dadosForm['dataNascimento'];
+        $userUpdate->email = $dadosForm['email'];
+        $userUpdate->email_alternativo = $dadosForm['emailAlternativo'];
+        $userUpdate->endereco = $dadosForm['endereco'];
+        $userUpdate->cargo = $dadosForm['funcao'];
+        $userUpdate->nome_completo = $dadosForm['nomeCompleto'];
+        $userUpdate->contato_principal = $dadosForm['nomeContato'];
+        $userUpdate->nome_fantasia = $dadosForm['nomeFantasia'];
+        $userUpdate->organizacao = $dadosForm['organizacao'];
+        $userUpdate->razao_social = $dadosForm['razaoSocial'];
+
+        $userUpdate->telefone = $dadosForm['telefone'];
+        $userUpdate->tipo_pessoa = $dadosForm['tipoCadastro'];
+        $userUpdate->nome_responsavel = $dadosForm['nomeContato'];
+        $userUpdate->save();
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Dados do usuário atualiados com sucesso.',
             'dados' => $dadosForm
         ]);
     }

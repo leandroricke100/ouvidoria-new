@@ -19,9 +19,9 @@
     <section class="bloco-atendimentos">
         <div class="bloco">
             <button id="btnAberto" onclick="modalAberto()" class="aberto ativo"><i class="fas fa-arrow-down"></i>Em aberto
-                (1)</button>
+                ({{ $atendimentosAberto }})</button>
             <button id="btnArquivado" onclick="modalArquivado()" class="arquivado"><i class="fas fa-download"></i>Arquivado
-                (1)</button>
+                ({{ $atendimentosArquivado }})</button>
         </div>
 
 
@@ -42,8 +42,7 @@
                             <div id="emAberto" class="emAberto">
                                 <tr>
                                     <td>
-                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->id }}"
-                                            target="blank">
+                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->id }}">
                                             <div class="number-atendimento">
                                                 <span class="title-atendi">Atendimento
                                                     {{ $atendimento->id }}/{{ $atendimento->ano }}</span>
@@ -53,8 +52,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}"
-                                            target="blank">
+                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                             <div class="sigilo">
                                                 @if ($atendimento->sigiloso == 1)
                                                     <span class="sigiloso">Sigiloso</span>
@@ -65,8 +63,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}"
-                                            target="blank">
+                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                             <div class="assunto">
                                                 <span class="title">{{ $atendimento->assunto }}</span>
                                                 <span class="prioridade">{{ $atendimento->prioridade }}</span>
@@ -74,8 +71,7 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}"
-                                            target="blank">
+                                        <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                             <div class="data">
                                                 <p>Há {{ $atendimento->tempo_atras }}</p>
                                                 @if ($mensagens->id_atendimento == $usuario->id && $mensagens->arquivo !== null)

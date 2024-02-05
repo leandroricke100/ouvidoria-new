@@ -68,3 +68,24 @@ function stopLoadBtn($btn) {
     $btn.find('[ldg]').hide();
     $btn.removeAttr('disabled');
 }
+
+
+
+
+function preencherForm($frm, dados) {
+    $.each(dados, function (key, val) {
+        $el = $frm.find(`[name="${key}"]`);
+
+        $el.val(val);
+
+        if ($el.is('input[type="radio"]')) {
+            $(`[name="${key}"][value="${val}"]`).prop('checked', true);
+        }
+
+        if ($el.is('input[type="checkbox"]')) {
+            if (val) $el.prop('checked', true);
+        }
+
+        $el.change();
+    });
+}

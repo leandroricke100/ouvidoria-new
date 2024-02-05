@@ -160,3 +160,9 @@
     }
 
 }
+
+@media screen and (max-width:768px) {
+    .padding-mobile {
+        padding: 15px;
+    }
+}

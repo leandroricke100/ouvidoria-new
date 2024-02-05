@@ -19,25 +19,26 @@
     <div class="container">
         <div class="container-left">
             <h3>Serviços</h3>
-            @if ($menus !== null)
+
+            @if (count($menus) === 0)
                 <div class="menus">
                     <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
                     <div class="opcoes">
                         <h2>Nenhum menu cadastrado</h2>
                     </div>
-
                 </div>
-            @endif
-            @foreach ($menus as $menu)
-                @if ($menu->status == 1)
-                    <div class="menus">
-                        <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
-                        <div class="opcoes">
-                            <a href="{{ $menu->slog }}">{{ $menu->titulo }}</a>
+            @else
+                @foreach ($menus as $menu)
+                    @if ($menu->status == 1)
+                        <div class="menus">
+                            <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
+                            <div class="opcoes">
+                                <a href="{{ $menu->slog }}">{{ $menu->titulo }}</a>
+                            </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
+            @endif
 
         </div>
 

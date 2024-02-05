@@ -9,14 +9,33 @@ function openSearchBtn() {
     }
 }
 
-// function openMenuMobile() {
-//     alert('teste')
-// }
+function openMenuMobile() {
+    $('.login-modal-mobile').fadeIn(300);
+    $('.login-modal-mobile').show();
 
-function openModalLogin() {
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('.login-modal-mobile').length &&
+            !$(e.target).closest('.btn-menu-mobile').length) {
+
+            closeMobileMenu();
+        }
+    });
+}
+
+function closeMobileMenu() {
+    $('.login-modal-mobile').fadeOut(300);
+}
+
+function cad() {
+    location.replace('/cadastro');
+}
+
+function modalLoginUser() {
     $('.modal-login').fadeIn(300);
     $('.input-login').hide();
     $('.input-login-modal').show();
+
+    location.replace('/login');
 }
 
 function cadastro() {
@@ -77,7 +96,7 @@ function sair() {
             console.log(resposta);
             if (resposta.status) {
                 popNotif({ msg: resposta.msg, time: 2000 });
-                location.reload();
+                location.replace('/');
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
@@ -118,8 +137,11 @@ function configuracao() {
     location.replace('/configuracao')
 }
 
+function minhaConta() {
+    location.replace('/minhaconta')
+}
+
 $(document).ready(function () {
     $('#codigo').mask('0000.000.000');
 });
-
 
