@@ -19,83 +19,26 @@
     <div class="container">
         <div class="container-left">
             <h3>Serviços</h3>
+            @if ($menus !== null)
+                <div class="menus">
+                    <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
+                    <div class="opcoes">
+                        <h2>Nenhum menu cadastrado</h2>
+                    </div>
+
+                </div>
+            @endif
             @foreach ($menus as $menu)
                 @if ($menu->status == 1)
                     <div class="menus">
                         <div class="icons"><span><i class="fas fa-arrow-right"></i></span></div>
                         <div class="opcoes">
                             <a href="{{ $menu->slog }}">{{ $menu->titulo }}</a>
-
                         </div>
-
                     </div>
                 @endif
             @endforeach
 
-            {{-- <div class="menus">
-                <div class="icons"><span><i class="fas fa-fw fa-file-alt"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Ofícios</a>
-                    <p>Consulte a autenticidade e andamento de Ofícios recebidos.</p>
-                </div>
-            </div>
-
-            <div class="menus">
-                <div class="icons"><span><i class="fas fa-fw fa-qrcode"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Protocolos</a>
-                    <p>Abertura e Consulta de Requerimentos Administrativos.</p>
-                </div>
-            </div>
-
-            <div class="menus">
-                <div class="icons"><span><i class="fas fa-fw fa-keyboard"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Chamados</a>
-                    <p>Servidor Municipal, abra aqui o seu Chamado para a Informática.</p>
-                </div>
-            </div>
-
-            <div class="menus">
-                <div class="icons"><span><i class="fas fa-fw fa-info"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Pedidos de e-SIC</a>
-                    <p>Abertura e Consulta.</p>
-                </div>
-            </div>
-
-            <div class="menus">
-                <div class="icons"><span><i class="fas fa-fw fa-eraser"></i></span></div>
-                <div class="o/novo/atendimentopcoes">
-                    <a href="">Viabilização de Construção</a>
-                    <p>Abertura e Consulta</p>
-                </div>
-            </div>
-
-            <div class="menus">
-                <div class="icons"><span><i class="fal fa-fw fa-file-exclamation"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Intimações</a>
-                    <p>Consulte a autenticidade de Intimações recebidas.</p>
-                </div>
-            </div>
-
-            <div class="menus">
-                <div class="icons"><span><i class="fal fa-fw fa-list-ol"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Processos Seletivos</a>
-                    <p>Candidate-se a uma das vagas na Prefeitura de viçosa</p>
-                </div>
-            </div>
-
-            <div class="menus">
-                <div class="icons"><span><i class="far fa-fw fa-paste"></i></span></div>
-                <div class="opcoes">
-                    <a href="/novo/atendimento">Licenciamento Urbano</a>
-                    <p>Aprovação de Projetos e Alvará de Obras, Aprovação de Projetos e Licenciamentos de
-                        Loteamentos/Condomínios/Territorial</p>
-                </div>
-            </div> --}}
         </div>
 
         <div class="container-right">
