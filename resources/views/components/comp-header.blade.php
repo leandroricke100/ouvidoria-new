@@ -1,8 +1,8 @@
 @push('head')
-    <script src="{{ asset('js/comp-header.js') }}"></script>
+    <script src="{{ asset('js/components/comp-header.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
-    <link href="{{ asset('css/comp-header.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/components/comp-header.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
 

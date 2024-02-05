@@ -2,7 +2,7 @@
 
 
 @push('head')
-    <link href="{{ asset('css/page-inicio.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/pages/page-inicio.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
 

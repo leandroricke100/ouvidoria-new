@@ -1,7 +1,7 @@
 @push('head')
-    <link href="{{ asset('css/comp-config.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/components/comp-config.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
-    <script src="{{ asset('js/comp-config.js') }}"></script>
+    <script src="{{ asset('js/components/comp-config.js') }}"></script>
 @endpush
 
 

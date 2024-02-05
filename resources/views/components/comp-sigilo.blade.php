@@ -1,6 +1,6 @@
 @push('head')
-    <script src="{{ asset('js/comp-sigilo.js') }}"></script>
-    <link href="{{ asset('css/comp-sigilo.css') }}?v={{ time() }}" rel="stylesheet">
+    <script src="{{ asset('js/components/comp-sigilo.js') }}"></script>
+    <link href="{{ asset('css/components/comp-sigilo.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
 

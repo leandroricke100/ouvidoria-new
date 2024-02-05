@@ -1,8 +1,8 @@
 @push('head')
-    <link href="{{ asset('css/comp-cadastro.css') }}?v={{ time() }}" rel="stylesheet">
+    <link href="{{ asset('css/components/comp-cadastro.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.mask.js') }}"></script>
-    <script src="{{ asset('js/comp-cadastro.js') }}"></script>
+    <script src="{{ asset('js/components/comp-cadastro.js') }}"></script>
 @endpush
 
 <section class="cad-form-section">

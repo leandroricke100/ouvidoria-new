@@ -1,6 +1,6 @@
 @push('head')
-    <script src="{{ asset('js/comp-login.js') }}"></script>
-    <link href="{{ asset('css/comp-login.css') }}?v={{ time() }}" rel="stylesheet">
+    <script src="{{ asset('js/components/comp-login.js') }}"></script>
+    <link href="{{ asset('css/components/comp-login.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
 <section class="login">
