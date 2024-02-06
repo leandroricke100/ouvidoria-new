@@ -36,8 +36,6 @@ Route::get('novo/atendimento', function () {
 
 Route::get('/configuracao', [IndexController::class, 'menus'])->name('admin-menus');
 
-Route::get('/minhaconta', [IndexController::class, 'minhaconta'])->name('user-minhaconta');
-
 Route::get('/atendimento/{id}', [IndexController::class, 'atendimento'])->name('usuario-atendimento');
 
 Route::get('atendimentos', [IndexController::class, 'atendimentos'])->name('usuario-atendimentos');

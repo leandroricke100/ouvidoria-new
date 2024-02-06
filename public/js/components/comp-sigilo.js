@@ -1,31 +1,15 @@
-// $(function () {
+$(document).ready(function () {
 
-//     const semSigilo = document.querySelectorAll('.semSigi');
-//     const modalSemSigilo = document.querySelector('.modal-semSigi');
+    $('#itens').addClass('ativo');
+});
 
-//     const sigilo = document.querySelectorAll('.sigi');
-//     const modalSigilo = document.querySelector('.modal-Sigi');
+function identificacao() {
+    $('#itens').addClass('ativo');
+    $('#itens2').removeClass('ativo');
+}
 
+function informacao() {
+    $('#itens2').addClass('ativo');
+    $('#itens').removeClass('ativo');
+}
 
-//     semSigilo.forEach(item => {
-//         item.addEventListener('mouseover', () => {
-//             modalSemSigilo.style.display = 'block';
-//         });
-
-//         item.addEventListener('mouseout', () => {
-//             modalSemSigilo.style.display = 'none';
-//         })
-//     })
-
-//     sigilo.forEach(item => {
-//         item.addEventListener('mouseover', () => {
-//             modalSigilo.style.display = 'block';
-//         });
-
-//         item.addEventListener('mouseout', () => {
-//             modalSigilo.style.display = 'none';
-//         })
-//     })
-
-
-// })

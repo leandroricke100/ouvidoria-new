@@ -1,8 +1,11 @@
 $(document).ready(function () {
 
-    $('#btnMenus').addClass('ativo');
-    $('.menu').show();
-    $('.conta').hide();
+    let id_usuario = $('[id_usuario]').attr('id_usuario');
+    modalConta(id_usuario);
+
+    // $('#btnMenus').addClass('ativo');
+    // $('.menu').show();
+    // $('.conta').hide();
 });
 
 function modalMenu() {
@@ -41,6 +44,7 @@ function modalConta(id) {
 
                 let $frm = $('#cad-atendimento');
                 let dados = resposta.menu;
+                dados['senha'] = '';
                 dados['nomeCompleto'] = dados.nome_completo;
                 dados['dataNascimento'] = dados.data_nascimento;
                 dados['funcao'] = dados.cargo;

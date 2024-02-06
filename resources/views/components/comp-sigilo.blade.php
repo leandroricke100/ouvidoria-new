@@ -9,14 +9,12 @@
         <section class="container-identificacao">
 
             <div class="idenficacao">
-                <div class="itens">
-                    <span><i class="fas fa-user"></i>Identificação</span>
-                    <p>Passo 1</p>
-                </div>
-                <div class="itens2">
-                    <span><i class="fas fa-bullhorn"></i>Informações</span>
+                <button onclick="identificacao()" id="itens" class="itens" ativo><i
+                        class="fas fa-user"></i>Identificação <p>Passo 1
+                    </p></button>
+                <button onclick="informacao()" id="itens2" class="itens2"><i class="fas fa-bullhorn"></i>Informações
                     <p>Passo 2</p>
-                </div>
+                </button>
             </div>
             <div class="container">
                 <div class="border"><span></span></div>

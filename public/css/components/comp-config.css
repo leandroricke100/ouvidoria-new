@@ -7,7 +7,6 @@
 
 
     .bloco {
-
         margin-top: 31px;
 
         .menus {
@@ -76,7 +75,6 @@
                 margin-right: 5px;
             }
         }
-
     }
 
     .add-new {
@@ -315,18 +313,19 @@
                         border-radius: 6px;
                         font-size: 15px;
                         cursor: pointer;
+                        padding: 9px 18px;
 
                         i {
                             margin-right: 8px;
                         }
 
-                        .fa-times-circle: before {
+                        /* .fa-times-circle: before {
                             content: "\f057";
                             font-size: 19px;
-                        }
+                        } */
 
-                        ;
-                        padding: 9px 18px;
+
+
                     }
 
                     .cancel:hover {

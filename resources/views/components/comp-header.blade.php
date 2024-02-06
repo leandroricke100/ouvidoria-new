@@ -73,7 +73,7 @@
             </div>
         @else
             <div class="login-cad">
-                <a onclick="openModalLogin()">Entrar</a>
+                <a onclick="modalLoginUser()">Entrar</a>
                 @if (isset($cadastro) && $cadastro)
                     <a class="cadastro" href="/cadastro">Cadastro</a>
                 @endif

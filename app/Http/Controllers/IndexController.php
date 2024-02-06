@@ -143,18 +143,7 @@ class IndexController extends Controller
 
         return view('pages.page-config', [
             'menus' => $menus,
-            'admin' => $user,
-        ]);
-    }
-
-    public function minhaconta(Request $request)
-    {
-        $user = session('usuario');
-        if (!$user) return redirect('/');
-
-
-        return view('pages.page-minhaConta', [
-            'user' => $user,
+            'usuario' => $user,
         ]);
     }
 

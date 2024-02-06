@@ -31,11 +31,12 @@ function cad() {
 }
 
 function modalLoginUser() {
+
     $('.modal-login').fadeIn(300);
     $('.input-login').hide();
     $('.input-login-modal').show();
 
-    location.replace('/login');
+    //location.replace('/login');
 }
 
 function cadastro() {
@@ -135,10 +136,6 @@ function buscarCodigo() {
 
 function configuracao() {
     location.replace('/configuracao')
-}
-
-function minhaConta() {
-    location.replace('/minhaconta')
 }
 
 $(document).ready(function () {
