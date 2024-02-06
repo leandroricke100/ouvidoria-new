@@ -1,14 +1,15 @@
 .container {
     padding-top: 10px;
-    max-width: 1280px;
+    max-width: 100%;
     margin-right: auto;
     margin-left: auto;
     display: flex;
-    padding: 10px 130px;
+    padding: 16px 15px;
     margin-bottom: 50px;
+    width: 1010px;
 
     .container-left {
-        width: 50%;
+        flex: 1;
 
         h3 {
             font-size: 12px;
@@ -45,14 +46,13 @@
                 }
             }
         }
-
     }
 
     .container-right {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        width: 50%;
+        width: 430px;
 
         .inbox {
             padding: 12px 17px 18px 17px;
@@ -93,7 +93,7 @@
                 border-radius: 5px;
                 font-size: 20px;
                 color: #172577;
-                width: 366px;
+                width: 100%;
                 margin-bottom: 20px;
                 text-align: left;
             }
@@ -105,7 +105,7 @@
             border-radius: 5px;
             color: #333;
             font-size: 15px;
-            width: 366px;
+            width: 100%;
 
             .tel-pref {
                 margin-bottom: 20px;
@@ -138,7 +138,7 @@
             }
         }
 
-        .info-prefeitura .organograma:hover {
+        .info-prefeitura .organograma: hover {
             opacity: 0.5;
         }
 
@@ -146,7 +146,7 @@
             padding: 12px 17px 18px 17px;
             background-color: #ECECEC;
             border-radius: 5px;
-            width: 366px;
+            width: 100%;
 
             p {
                 font-size: 18px;
@@ -166,9 +166,45 @@
                 }
             }
         }
-
-
     }
+
+}
+
+.banner-opcoes {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: flex-start;
+    gap: 12px;
+    margin: auto;
+    /* border-bottom: 5px solid black; */
+    width: 1350px;
+    padding: 0 10px;
+}
+
+.banner-opcoes .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* background: red; */
+    padding: 28px 25px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    flex: 1;
+}
+
+.banner-opcoes .item i {
+    font-size: 33px;
+    aspect-ratio: 1;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ededed;
+    border-radius: 18px;
 }
 
 @media screen and (max-width: 768px) {

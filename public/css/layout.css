@@ -2,5 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --primary-color: #2c7bff;
+}
+
+#toast-container>div {
+    border-radius: 8px;
 }

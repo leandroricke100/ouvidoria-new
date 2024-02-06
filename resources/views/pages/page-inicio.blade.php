@@ -13,11 +13,52 @@
         [
             'banner' => true,
             'cadastro' => true,
-            'titulo_banner' => 'Central de Atendimento • Prefeitura de Campanário',
+            'titulo_banner' => 'Central de Atendimento',
+            'subtitulo_banner' => 'Câmara Municipal de Campanário - MG',
         ]
     )
+
+    <section class="banner">
+
+        <div class="banner-opcoes">
+            <div class="item">
+                <i class="fal fa-fw fa-thumbs-down"></i>
+                <h3>Reclamação</h3>
+                <p>Relatar insatisfação com ações e serviços prestados</p>
+            </div>
+            <div class="item">
+                <i class="fal fa-fw fa-comment-alt-lines"></i>
+                <h3>Sugestão</h3>
+                <p>Propor ações úteis para melhoria da gestão</p>
+            </div>
+            <div class="item">
+                <i class="fal fa-fw fa-thumbs-up"></i>
+                <h3>Elogio</h3>
+                <p>Demonstrar satisfação ou agradecer por algum serviço</p>
+            </div>
+            <div class="item">
+                <i class="fal fa-fw fa-hand-point-up"></i>
+                <h3>Solicitação</h3>
+                <p>Requerer informações ou esclarecimento de dúvidas</p>
+            </div>
+            <div class="item">
+                <i class="fal fa-fw fa-megaphone"></i>
+                <h3>Denúncia</h3>
+                <p>Apontar falhas na gestão ou no atendimento recebido</p>
+            </div>
+            <div class="item">
+                <i class="fal fa-fw fa-check-circle"></i>
+                <h3>Simplifique</h3>
+                <p>Propor simplificações de procedimentos</p>
+            </div>
+        </div>
+    </section>
+
+
     <div class="container">
         <div class="container-left">
+
+
             <h3>Serviços</h3>
 
             @if (count($menus) === 0)
@@ -70,9 +111,9 @@
                 <button><i class="fas fa-fw fa-chart-bar"></i> <strong>Transparência</strong></button>
             </div>
 
-            <div class="menus-right">
+            {{-- <div class="menus-right">
                 <button><i class="far fa-thumbs-up"></i> <strong>Consulta Prévia Online</strong></button>
-            </div>
+            </div> --}}
 
             <div class="info-prefeitura">
                 <p class="prefeitura">Câmara de Campanário</p>
