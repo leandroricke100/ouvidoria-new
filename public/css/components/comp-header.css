@@ -309,6 +309,8 @@ header#comp-header {
 
 
 
+    ;
+    z-index: 9999999;
 }
 
 .banner-header {
