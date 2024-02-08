@@ -92,7 +92,7 @@
                     </a>
                     <a href="/login" class="op">
                         <i class="fal fa-comment-alt-lines"></i>
-                        <span>Criar uma nova solicitação</span>
+                        <span>Cadastrar nova solicitação</span>
                     </a>
                 </div>
 
