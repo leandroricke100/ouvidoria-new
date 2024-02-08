@@ -1,3 +1,12 @@
+$(function () {
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('.login-modal-mobile').length && !$(e.target).closest('.btn-menu-mobile').length) {
+            closeMenuMobile();
+        }
+    });
+});
+
+
 function openSearchBtn() {
 
     if ($(".search-options").is(":visible")) {
@@ -10,20 +19,15 @@ function openSearchBtn() {
 }
 
 function openMenuMobile() {
-    $('.login-modal-mobile').fadeIn(300);
-    $('.login-modal-mobile').show();
-
-    $(document).on('click', function (e) {
-        if (!$(e.target).closest('.login-modal-mobile').length &&
-            !$(e.target).closest('.btn-menu-mobile').length) {
-
-            closeMobileMenu();
-        }
-    });
+    $('.login-modal-mobile').fadeIn(200);
+    $('.open-mm').hide();
+    $('.close-mm').show();
 }
 
-function closeMobileMenu() {
-    $('.login-modal-mobile').fadeOut(300);
+function closeMenuMobile() {
+    $('.login-modal-mobile').fadeOut(200);
+    $('.open-mm').show();
+    $('.close-mm').hide();
 }
 
 function cad() {

@@ -9,19 +9,12 @@
         <section class="container-identificacao">
 
             <div class="idenficacao">
-                <button onclick="identificacao()" id="itens" class="itens" ativo><i
-                        class="fas fa-user"></i>Identificação <p>Passo 1
-                    </p></button>
-                <button onclick="informacao()" id="itens2" class="itens2"><i class="fas fa-bullhorn"></i>Informações
-                    <p>Passo 2</p>
-                </button>
+                <button id="itens" class="itens ativo"><i class="fas fa-user"></i>Identificação <p>Passo 1</p></button>
+                <button class="itens"><i class="fas fa-bullhorn"></i>Informações <p>Passo 2</p></button>
             </div>
             <div class="container">
                 <div class="border"><span></span></div>
-                <p>Manifestações anônimas deve ser feitas presencialmente ou pelo telefone 156 de segunda a sexta das 7h
-                    às
-                    13h.
-                </p>
+                <p>Manifestações anônimas deve ser feitas presencialmente ou pelo telefone 156 de segunda a sexta das 7h às 13h.</p>
                 <div class="sigilo">
                     <p>Identificação:</p>
 
@@ -39,14 +32,13 @@
                     <div class="input-sigilo">
                         <input type="radio" id="semSigilo" name="sigiloso" value="0" checked required>
                         <label for="semSigilo" style="margin-bottom: -4px;">
-                            Sem sigilo <button onclick="openInfoSigi()" class="semSigi" style="cursor: pointer"><i
-                                    class="fas fa-question"></i></button>
+                            Sem sigilo <span onclick="openInfoSigi()" class="semSigi"><i class="fas fa-question-circle"></i></span>
                         </label>
 
-                        <input style="margin-left: 15px" type="radio" id="sigilo" name="sigiloso" value="1"
-                            required>
-                        <label for="sigilo" style="margin-bottom: -4px;">Sigiloso <span class="sigi"
-                                style="cursor: pointer"><i class="fas fa-question"></i></span></label>
+                        <input style="margin-left: 15px" type="radio" id="sigilo" name="sigiloso" value="1" required>
+                        <label for="sigilo" style="margin-bottom: -4px;">
+                            Sigiloso <span class="sigi"><i class="fas fa-question-circle"></i></span>
+                        </label>
                     </div>
                 </div>
             </div>

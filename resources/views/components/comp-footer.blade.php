@@ -6,6 +6,7 @@
 
 <footer id="comp-footer">
     <div class="div-footer">
-        <p>Prefeitura de Campanário 2024</p>
+        <img src="{{asset('asset/gw.png')}}" alt="GW">
+        <p>Câmara Municipal de Campanário - {{date('Y')}}</p>
     </div>
 </footer>

@@ -5,12 +5,23 @@
     margin-top: 10px;
     width: 1160px;
 
-    .div-footer {
-        padding: 31px;
-        border-top: 1px solid #ecf0f1;
-        font-size: 13px;
-        color: #666;
-    }
+
+}
+
+#comp-footer .div-footer {
+    padding: 31px;
+    border-top: 1px solid #b7b7b7;
+    font-size: 13px;
+    color: #717171;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+#comp-footer .div-footer img {
+    width: 77px;
 }
 
 @media screen and (max-width: 768px) {

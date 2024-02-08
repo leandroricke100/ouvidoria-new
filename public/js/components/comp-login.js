@@ -1,7 +1,8 @@
-function login() {
-    const email = $('#emailLogin').val();
-    const senha = $('#senhaLogin').val();
-    const cpfCnpj = $('#entrarCnpj').val();
+function login(id) {
+    let $comp = $(`[comp-login=${id}]`);
+    const email = $comp.find('[dd=emailLogin]').val();
+    const senha = $comp.find('[dd=senhaLogin]').val();
+    const cpfCnpj = $comp.find('[dd=entrarCnpj]').val();
 
     let dadosLogin = {
         email: email,
@@ -35,12 +36,11 @@ function login() {
     });
 }
 
-function loginModal() {
-
-    const email = $('#emailLoginModal').val();
-    const senha = $('#senhaLoginModal').val();
-    const cpfCnpj = $('#entrarCnpj').val();
-
+function loginModal(id) {
+    let $comp = $(`[comp-login=${id}]`);
+    const email = $comp.find('[dd=emailLoginModal]').val();
+    const senha = $comp.find('[dd=senhaLoginModal]').val();
+    const cpfCnpj = $comp.find('[dd=entrarCnpj]').val();
 
     let dadosLogin = {
         email: email,
@@ -74,10 +74,11 @@ function loginModal() {
     });
 }
 
-function verificarEmail() {
-    const email = $('#emailLogin').val();
-    const senha = $('#senhaLogin');
-    const cpfCnpj = $('#entrarCnpj').val();
+function verificarEmail(id) {
+    let $comp = $(`[comp-login=${id}]`);
+    const email = $('[dd=emailLogin]').val();
+    const senha = $('[dd=senhaLogin]');
+    const cpfCnpj = $('[dd=entrarCnpj]').val();
 
     let dadosVerificarEmail = {
         email: email,
@@ -94,9 +95,9 @@ function verificarEmail() {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-                $('#senhaLogin').show();
-                $('#entrar').show();
-                $('#prosseguir').hide();
+                $('[dd=senhaLogin]').show();
+                $('[dd=entrar]').show();
+                $('[dd=prosseguir]').hide();
                 senha.focus();
                 popNotif({ msg: resposta.msg, time: 2000 });
             } else {
@@ -115,8 +116,8 @@ function cnpjCpf() {
     $('.text-cnpj-email').show();
     $('.text-cpf-email').hide();
 
-    $('#entrarCnpj').show();
-    $('#emailLogin').hide();
+    $('[dd=entrarCnpj]').show();
+    $('[dd=emailLogin]').hide();
 
     $('.btn-text-cnpj').show();
     $('.btn-text-email').hide();
@@ -126,8 +127,8 @@ function entrarEmail() {
     $('.text-cnpj-email').hide();
     $('.text-cpf-email').show();
 
-    $('#entrarCnpj').hide();
-    $('#emailLogin').show();
+    $('[dd=entrarCnpj]').hide();
+    $('[dd=emailLogin]').show();
 
     $('.btn-text-cnpj').hide();
     $('.btn-text-email').show();

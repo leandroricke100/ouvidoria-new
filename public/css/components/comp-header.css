@@ -26,30 +26,35 @@ header#comp-header {
         }
 
         .btn-menu-mobile {
-            padding: 24px 26px;
+            padding: 18px 20px;
             position: absolute;
-            left: 0;
+            right: 0;
             margin-left: 0;
             border: none;
-            background-color: #172577;
-            color: #fff;
+            background-color: #dfdfdf;
+            color: #494949;
             top: 0px;
             cursor: pointer;
+            font-size: 19px;
+            border-radius: 0 0 0 13px;
+            z-index: 999;
+            aspect-ratio: 1;
+            width: 58px;
         }
 
         .login-modal-mobile {
             display: flex;
             flex-direction: column;
-            background-color: #172577;
+            background-color: #1c1c1c;
             top: 63px;
             position: absolute;
-            left: 0px;
+            /* left: 0px; */
             flex-direction: column;
             z-index: 99;
             width: 100%;
             height: 100px;
             align-items: flex-start;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 10px;
 
             button {
@@ -58,12 +63,25 @@ header#comp-header {
                 color: #fff;
                 outline: none;
                 border: none;
-                font-weight: bold;
+                font-weight: 500;
                 font-size: 15px;
                 text-decoration: none;
                 color: #fff;
-                font: 13px;
+                text-align: left;
+                width: 100%;
+                padding: 15px 20px;
             }
+
+            button i {
+                margin-right: 10px;
+            }
+
+            height: 100vh;
+            top: 0;
+            width: 50%;
+            right: 0;
+            gap: 0;
+            padding: 13px 0;
         }
 
         .div-codigo {
@@ -305,52 +323,54 @@ header#comp-header {
     /* margin-bottom: 10px; */
 
     .icon-back {
-    position: absolute;
-    top: 23px;
-    left: 9px;
-    font-size: 22px;
-    color: white;
-    padding: 10px;
-    i {
+        position: absolute;
+        top: 23px;
+        left: 9px;
+        font-size: 22px;
+        color: white;
+        padding: 10px;
+
+        i {
             color: white;
         }
     }
+
     h1 {
         font-size: 22px;
-    /* margin-bottom: 5px; */
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    justify-content: center;
-    }
-    p {
-        font-size: 15px;
-    margin-top: 3px;
-    text-align: center;
-    font-weight: 400;
+        /* margin-bottom: 5px; */
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        justify-content: center;
     }
 
-    .fa-bullhorn:
-    before {
+    p {
+        font-size: 15px;
+        margin-top: 3px;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .fa-bullhorn:before {
         content: "\f0a1";
-    font-size: 14px;
-    margin-right: 10px;
+        font-size: 14px;
+        margin-right: 10px;
     }
 
     .backgound-banner {
-    position: absolute;
-    /* bottom: 0; */
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0;
-    padding: 39px 0;
-    color: #fff;
-    min-height: 99px;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+        position: absolute;
+        /* bottom: 0; */
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+        padding: 39px 0;
+        color: #fff;
+        min-height: 99px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -431,6 +451,8 @@ a.inicio.selected {
     .header-left {
         flex-direction: column;
         gap: 0px !important;
+        width: 100%;
+        padding-bottom: 13px;
     }
 
     .icon-back {

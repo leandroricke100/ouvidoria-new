@@ -22,41 +22,6 @@
         }
     }
 
-    input#entrarCnpj {
-        width: 100%;
-        padding: 7px 9px;
-        font-size: 12.5px;
-        border: 2px solid #dce4ec;
-        border-radius: 6px;
-        flex: 1;
-    }
-
-    input#emailLogin {
-        width: 100%;
-        padding: 7px 9px;
-        font-size: 12.5px;
-        border: 2px solid #dce4ec;
-        border-radius: 6px;
-        flex: 1;
-    }
-
-    input#emailLoginModal {
-        width: 100%;
-        padding: 11px 9px;
-        font-size: 12.5px;
-        border: 2px solid #dce4ec;
-        border-radius: 6px;
-    }
-
-    input#senhaLogin {
-        width: 100%;
-        padding: 7px 9px;
-        font-size: 12.5px;
-        border: 2px solid #dce4ec;
-        border-radius: 6px;
-    }
-
-
     .input-login {
         display: flex;
         gap: 25px;
@@ -65,7 +30,7 @@
         gap: 6px 5px;
         width: 100%;
         flex-wrap: wrap;
-        justify-content: flex-end;
+        justify-content: center;
 
         button {
             border: none;
@@ -77,35 +42,39 @@
             border-radius: 6px;
             font-size: 15px;
             cursor: pointer;
-            width: 110px;
+            text-align: center;
         }
+
+        ;
+        flex-direction: row;
     }
 
     .input-login-modal {
         display: flex;
         flex-direction: column;
         gap: 10px;
-
-        button {
-            border: none;
-            color: #fff;
-            text-decoration: none;
-            outline: none;
-            padding: 11px 20px;
-            background-color: #333333;
-            border-radius: 6px;
-            font-size: 15px;
-            cursor: pointer;
-            width: 350px;
-        }
     }
 
-    input#senhaLoginModal {
-        width: 100%;
-        padding: 11px 9px;
-        font-size: 12.5px;
-        border: 2px solid #dce4ec;
+    .input-login-modal button {
+        border: none;
+        color: #fff;
+        text-decoration: none;
+        outline: none;
+        padding: 11px 20px;
+        background-color: #333333;
         border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+        width: 350px;
+    }
+
+    .input-login-modal input,
+    .input-login input {
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #656565;
+        outline: none;
+        min-width: 250px;
     }
 
     .input-login button:hover {
@@ -116,31 +85,32 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
+    }
 
-        button {
-            text-decoration: none;
-            outline: none;
-            border: none;
-            color: #888;
-            background: transparent;
-            cursor: pointer;
-            font-size: 12px;
-        }
+    .btn-recuperar-senha button {
+        text-decoration: none;
+        outline: none;
+        border: none;
+        color: #888;
+        background: transparent;
+        cursor: pointer;
+        font-size: 12px;
+    }
 
-        a {
-            text-decoration: none;
-            outline: none;
-            border: none;
-            color: #888;
-            background: transparent;
-            cursor: pointer;
-            font-size: 12px;
-            text-align: center;
-        }
+    .btn-recuperar-senha a {
+        text-decoration: none;
+        outline: none;
+        border: none;
+        color: #888;
+        background: transparent;
+        cursor: pointer;
+        font-size: 12px;
+        text-align: center;
+    }
 
-        .senha {
-            color: #131e62;
-        }
+    .btn-recuperar-senha .senha {
+        color: #131e62;
+        font-weight: 500;
     }
 
     .login-google {
@@ -162,7 +132,7 @@
             margin: 18px 0px;
         }
 
-        .fa-google-plus-g: before {
+        .fa-google-plus-g:before {
             content: "\f0d5";
             font-size: 23px;
         }
@@ -178,16 +148,23 @@
             color: #666;
             font-size: 11px;
         }
+
+        font-size: 11px;
+        width: 215px;
+        text-align: center;
     }
 }
 
 
 @media screen and (max-width: 768px) {
-    .sigilo {
-        width: auto !important;
-    }
-
     .container-login {
         padding: 15px;
     }
+}
+
+
+.login>h3 {
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
 }

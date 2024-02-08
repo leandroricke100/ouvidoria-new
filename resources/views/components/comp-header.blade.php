@@ -13,7 +13,8 @@
     <div class="conteudo">
         <div class="header-left">
             <div class="menu-left-modal" style="display: none">
-                <button class="btn-menu-mobile" onclick="openMenuMobile()"><i class="fas fa-bars"></i></button>
+                <button class="btn-menu-mobile open-mm" onclick="openMenuMobile()"><i class="fas fa-bars"></i></button>
+                <button class="btn-menu-mobile close-mm" onclick="closeMenuMobile()" style="display: none;"><i class="fas fa-times"></i></button>
             </div>
 
             <div class="img-brasao">
