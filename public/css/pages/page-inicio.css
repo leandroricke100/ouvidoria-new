@@ -7,150 +7,147 @@
     padding: 36px 15px;
     margin-bottom: 50px;
     width: 1250px;
+    gap: 30px;
+}
 
-    .container-left {
-        flex: 1;
+.container .container-left {
+    flex: 1;
 
-        h3 {
-            font-size: 14px;
-            color: #979797;
-            margin-bottom: 13px;
-            font-weight: 500;
-        }
+    h3 {
+        font-size: 14px;
+        color: #979797;
+        margin-bottom: 13px;
+        font-weight: 500;
+    }
+}
 
-        .menus {
-            display: flex;
-            gap: 17px;
-            align-items: baseline;
-            margin-bottom: 20px;
-            /* margin-right: 290px; */
-            width: 100%;
+.container .container-left .menus {
+    display: flex;
+    gap: 17px;
+    align-items: baseline;
+    margin-bottom: 20px;
+    /* margin-right: 290px; */
+    width: 100%;
 
-            a {
-                border: none;
-                background-color: transparent;
-                font-size: 20px;
-                color: #172577;
-                font-weight: bold;
-                text-decoration: none;
-            }
-
-            .opcoes {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-
-                p {
-                    font-size: 13px;
-                }
-            }
-        }
+    a {
+        border: none;
+        background-color: transparent;
+        font-size: 20px;
+        color: #172577;
+        font-weight: bold;
+        text-decoration: none;
     }
 
-    .container-right {
+    .opcoes {
         display: flex;
         flex-direction: column;
-        width: 430px;
+        gap: 12px;
 
-
-        .inbox {
-            padding: 12px 17px 18px 17px;
-            background-color: #ECECEC;
-            border-radius: 5px;
-            color: #333;
-            font-size: 15px;
-            width: 366px;
-            margin-bottom: 10px;
-
-            a.inbox {
-                padding: 12px 20px;
-                color: #fff;
-                text-decoration: none;
-                border: none;
-                background-color: #24e3be;
-                border-radius: 5px;
-                margin-top: 20px;
-                width: 100%;
-                font-size: 15px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-            }
-        }
-
-        .inbox a.inbox:hover {
-            opacity: 0.5;
-        }
-
-
-        .info-prefeitura {
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 9px;
-            color: #333;
-            font-size: 15px;
-            width: 100%;
-
-            .tel-pref {
-                /* margin-bottom: 20px; */
-                font-size: 13px;
-            }
-
-            button.organograma {
-                padding: 12px 20px;
-                color: #fff;
-                text-decoration: none;
-                border: none;
-                background-color: #333333;
-                border-radius: 9px;
-                margin-top: 20px;
-                width: 100%;
-                font-size: 15px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-            }
-
-            .prefeitura {
-                font-size: 18px;
-                margin-bottom: 20px;
-                font-weight: 700;
-            }
-        }
-
-        .info-prefeitura .organograma: hover {
-            opacity: 0.5;
-        }
-
-        .ajuda {
-            padding: 12px 17px 18px 17px;
-            background-color: #ECECEC;
-            border-radius: 5px;
-            width: 100%;
-
-            p {
-                font-size: 18px;
-                color: #333;
-            }
-
-            .links-ajuda {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-                margin-left: 10px;
-                margin-top: 15px;
-                font-size: 13px;
-
-                a {
-                    text-decoration: none;
-                }
-            }
+        p {
+            font-size: 13px;
         }
     }
+}
 
-    gap: 30px;
+.container .container-right {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+}
+
+.container .container-right .inbox {
+    padding: 12px 17px 18px 17px;
+    background-color: #ECECEC;
+    border-radius: 5px;
+    color: #333;
+    font-size: 15px;
+    width: 366px;
+    margin-bottom: 10px;
+
+    a.inbox {
+        padding: 12px 20px;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        background-color: #24e3be;
+        border-radius: 5px;
+        margin-top: 20px;
+        width: 100%;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+
+.container .container-right .inbox a.inbox:hover {
+    opacity: 0.5;
+}
+
+.container .container-right .info-prefeitura {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 9px;
+    color: #333;
+    font-size: 15px;
+    width: 100%;
+
+    .tel-pref {
+        font-size: 13px;
+    }
+
+    button.organograma {
+        padding: 12px 20px;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        background-color: #333333;
+        border-radius: 9px;
+        margin-top: 20px;
+        width: 100%;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .prefeitura {
+        font-size: 18px;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+    .organograma:hover {
+        opacity: 0.5;
+    }
+}
+
+
+.container .container-right .ajuda {
+    padding: 12px 17px 18px 17px;
+    background-color: #ECECEC;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.container .container-right .ajuda p {
+    font-size: 18px;
+    color: #333;
+}
+
+.container .container-right .ajuda .links-ajuda {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 10px;
+    margin-top: 15px;
+    font-size: 13px;
+
+    a {
+        text-decoration: none;
+    }
 }
 
 .titulo-bx {
@@ -195,7 +192,7 @@
 .banner-opcoes .item i {
     font-size: 33px;
     aspect-ratio: 1;
-    width: 55px;
+    width: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -291,32 +288,28 @@ section.banner {
         flex-direction: column;
         padding-left: 20px;
         padding-right: 20px;
+    }
 
-        .container-left {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    .container .container-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
-        .container-right {
+    .container .container-right {
+        width: 100%;
+    }
 
-            .menus-right button {
-                width: 100%;
-            }
+    .container .container-right .menus-right button {
+        width: 100%;
+    }
 
-            .info-prefeitura {
-                width: 100%;
-            }
+    .container .container-right .info-prefeitura {
+        width: 100%;
+    }
 
-            .ajuda {
-                width: 100%;
-            }
-
-            width: 100%;
-        }
-
-
-
+    .container .container-right .ajuda {
+        width: 100%;
     }
 }
