@@ -224,11 +224,9 @@ class OuvidoriaController extends Controller
     {
         $dados = $request->all();
 
-        $user = OuvidoriaUsuario::where(function ($query) use ($dados) {
-            $query->where('email', $dados['email'])
-                ->orWhere('cpf', $dados['cpfCnpj'])
-                ->orWhere('cnpj', $dados['cpfCnpj']);
-        })->first();
+        $user = OuvidoriaUsuario::where('email', $dados['email'])->first();
+        $user = !$user && $dados['cpfCnpj'] ? OuvidoriaUsuario::where('cpf', $dados['cpfCnpj'])->first() : $user;
+        $user = !$user && $dados['cpfCnpj'] ? OuvidoriaUsuario::where('cnpj', $dados['cpfCnpj'])->first() : $user;
 
         if (!$user) {
             return response()->json([

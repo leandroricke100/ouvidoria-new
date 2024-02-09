@@ -10,11 +10,11 @@
 <section class="login" comp-login="{{$id}}">
     <h3><i class="fas fa-sign-in"></i> Acessar Ouvidoria</h3>
     <div class="text-cpf-email">
-        <p dd="text-cpf">Entrar com seu e-mail</p>
+        <p dd="text-cpf">Insira seu e-mail abaixo</p>
     </div>
 
     <div class="text-cnpj-email" style="display: none">
-        <p dd="text-cnpj">Entrar com CPF ou CNPJ</p>
+        <p dd="text-cnpj">Insira seu CPF ou CNPJ</p>
     </div>
 
     @if (isset($modalLoginInput) && $modalLoginInput)
