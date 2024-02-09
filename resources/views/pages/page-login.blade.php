@@ -11,13 +11,14 @@
         'subtitulo_banner' => 'Atendimento ao Cidadão: Ouvidoria',
         'subtitulo_banner_2' => 'Envie sua demanda para a Prefeitura',
     ])
+    <main>
+        <div class="container-login">
 
-    <div class="container-login">
+            @include('components.comp-sigilo', ['sigilo' => true])
 
-        @include('components.comp-sigilo', ['sigilo' => true])
+            @include('components.comp-login', ['modalLoginInput' => true])
 
-        @include('components.comp-login', ['modalLoginInput' => true])
-
-    </div>
+        </div>
+    </main>
     @include('components.comp-footer')
 @endsection

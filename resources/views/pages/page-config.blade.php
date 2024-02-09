@@ -9,7 +9,9 @@
         'titulo_banner' => 'Configuração',
     ])
 
-    @include('components.comp-config')
+    <main>
+        @include('components.comp-config')
+    </main>
 
     @include('components.comp-footer')
 @endsection

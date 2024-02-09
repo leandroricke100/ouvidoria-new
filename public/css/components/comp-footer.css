@@ -1,13 +1,13 @@
 #comp-footer {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    width: 1350px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* margin-top: 10px; */
+    width: 100%;
+    border-top: 1px solid #e5e5e5;
 }
 
 #comp-footer .div-footer {
     padding: 31px;
-    border-top: 1px solid #b7b7b7;
     font-size: 13px;
     color: #717171;
     display: flex;
@@ -15,6 +15,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    width: 1350px;
+    margin: auto;
 }
 
 #comp-footer .div-footer img {

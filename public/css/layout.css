@@ -19,3 +19,14 @@ th,
 td {
     border-collapse: collapse;
 }
+
+
+main {
+    flex: 1;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

@@ -28,8 +28,8 @@
 </head>
 
 <body>
-
     @yield('conteudo')
+
     @stack('foot')
 </body>
 

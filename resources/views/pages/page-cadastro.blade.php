@@ -11,9 +11,11 @@
             'subtitulo_banner_2' => 'Envie sua demanda para a Prefeitura',
         ]
     )
-    @include('components.comp-sigilo', ['sigilo' => true])
+    <main>
+        @include('components.comp-sigilo', ['sigilo' => true])
 
-    @include('components.comp-cadastro')
+        @include('components.comp-cadastro')
+    </main>
 
     @include('components.comp-footer')
 @endsection
