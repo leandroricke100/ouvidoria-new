@@ -1,6 +1,6 @@
 @inject('OuvidoriaConfiguracao', 'App\Models\OuvidoriaConfiguracao')
 
-@extends('layout.layout-global', ['titulo' => 'Início'])
+@extends('layout.layout-global', ['titulo' => 'Ouvidoria - ' . $OuvidoriaConfiguracao->first()->titulo])
 
 @push('head')
     <link href="{{ asset('css/pages/page-inicio.css') }}?v={{ time() }}" rel="stylesheet">
