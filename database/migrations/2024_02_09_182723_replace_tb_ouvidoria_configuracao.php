@@ -11,8 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (Schema::hasTable('tb_ouvidoria_configuracao')) Schema::dropIfExists('tb_ouvidoria_configuracao');
-
         Schema::create('tb_ouvidoria_configuracao', function (Blueprint $table) {
             $table->id();
             $table->string('informacoes', 255)->nullable();
