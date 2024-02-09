@@ -5,9 +5,15 @@
     <script src="{{ asset('js/components/comp-cadastro.js') }}"></script>
 @endpush
 
+@php
+    $usuario = session('usuario') ?? null;
+@endphp
+
 <div class="padding-mobile">
     <section class="cad-form-section">
         <form class="form" id="cad-atendimento">
+
+            <input type="hidden" name="id_usuario" value="{{ $usuario ? $usuario->id : '' }}">
 
             <div class="tipo-cad">
                 <div class="radio">
@@ -67,7 +73,7 @@
 
                 <div class="field pf" style="flex-basis: 50%">
                     <label for="nomeCompleto">Nome completo:<span class="campo-obrigatorio"><span
-                                class="campo-obrigatorio">*</span></span></label>
+                                  class="campo-obrigatorio">*</span></span></label>
                     <input type="text" id="nomeCompleto" name="nomeCompleto" required>
                 </div>
 
@@ -117,7 +123,7 @@
                 <div class="field" style="flex-basis: 40%">
                     <label for="email">E-mail*:</label>
                     <input type="text" id="email" name="email" value=''
-                        placeholder="Digite seu e-email" required>
+                           placeholder="Digite seu e-email" required>
                 </div>
 
                 <div class="field">
@@ -175,14 +181,14 @@
                     <div class="field">
                         <label for="senha">Senha de acesso:</label>
                         <input type="password" id="senha" name="senha" placeholder="Digite sua senha"
-                            required>
+                               required>
                         <p style="display: none" class="msg-senha">Senhas não conferem</p>
                     </div>
 
                     <div class="field">
                         <label for="confirmarSenha">Confirmar:</label>
                         <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmação"
-                            required>
+                               required>
                         <p style="display: none" class="msg-senha">Senhas não conferem</p>
                     </div>
 
@@ -202,10 +208,10 @@
 
             <div class="button-cad">
                 <button class="button-cad-enviar" type="submit">Prosseguir <i class="fal fa-angle-double-right"
-                        style="margin-left: 5px"></i></button>
+                       style="margin-left: 5px"></i></button>
                 <button class="button-cad-enviar btn-save-cad" type="button" onclick="saveCadastro()"
-                    style="display: none">Salvar <i class="fal fa-angle-double-right"
-                        style="margin-left: 5px"></i></button>
+                        style="display: none">Salvar <i class="fal fa-angle-double-right"
+                       style="margin-left: 5px"></i></button>
             </div>
         </form>
     </section>

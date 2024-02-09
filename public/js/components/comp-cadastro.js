@@ -58,8 +58,6 @@ $(document).ready(function () {
         }
     });
 
-
-
     $('#protocolo').mask('0000.000.000');
     $('#cpf').mask('000.000.000-00', { reverse: true });
     $('#cnpj').mask('00.000.000/0000-00', { reverse: true });
@@ -70,8 +68,6 @@ $(document).ready(function () {
 function validarSenha() {
     const senha = $("#senha").val();
     const confirmarSenha = $("#confirmarSenha").val();
-
-
     const senhaMaiscula = /[A-Z]/;
     const senhaCaracterEspecial = /[!@#$%^&*(),.?":{}|<>]/;
 
@@ -92,6 +88,8 @@ function validarSenha() {
         // alert('A senha deve conter pelo menos 8 caracteres.');
         return false;
     }
+
+    return true;
 }
 
 function efetuarCadastro() {
@@ -135,7 +133,7 @@ function efetuarCadastro() {
     });
 }
 
-$(() => $('form').submit(function (e) {
+$(() => $('#cad-atendimento').submit(function (e) {
     let validar_senha = validarSenha();
 
     if (validar_senha) efetuarCadastro();

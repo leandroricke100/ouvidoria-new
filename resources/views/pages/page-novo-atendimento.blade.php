@@ -26,19 +26,17 @@
 
     <section class="container-main-atendimento">
         <div class="idenficacao">
-            <div class="itens2">
+            <div class="itens">
                 <span><i class="fas fa-user"></i>Identificação</span>
                 <p>Passo 1</p>
             </div>
-            <div class="itens">
+            <div class="itens ativo">
                 <span><i class="fas fa-bullhorn"></i>Informações</span>
                 <p>Passo 2</p>
             </div>
         </div>
         <div class="border"><span></span></div>
-        <div class="text-sigiloso"><span><strong>Atendimento sigiloso:</strong> Seus dados estarão ocultos durante a
-                tramitação. O pedido de sigilo
-                deve ser justificado e caberá ao destinatário o deferimento ou não do sigilo.</span></div>
+        <div class="text-sigiloso"><span><strong>Atendimento sigiloso:</strong> Seus dados estarão ocultos durante a tramitação. O pedido de sigilo deve ser justificado e caberá ao destinatário o deferimento ou não do sigilo.</span></div>
 
         <form class="new-text form" id="new-atendimento-user">
             <div class="cad">
@@ -48,7 +46,7 @@
                         <option value="" disabled selected>- Selecione -</option>
                         <option value="Demora no Atendimento">Demora no Atendimento</option>
                         <option value="Meio Ambiente">Meio Ambiente</option>
-                        <option value="Reciclagem">reciclagem</option>
+                        <option value="Reciclagem">Reciclagem</option>
                         <option value="Outros">Outros</option>
                     </select>
                 </div>
@@ -79,12 +77,12 @@
                         <p>Onde ocorreu? </p>
                     </div>
                     <div class="inputs">
-                        <label for="endereco">Endereço completo*:</label>
+                        <label for="endereco">Endereço completo:</label>
                         <input type="text" id="endereco" name="endereco" placeholder="Infome o endereço completo">
                     </div>
 
                     <div class="inputs">
-                        <label for="referencia">N° ou referência*:</label>
+                        <label for="referencia">N° ou referência:</label>
                         <input type="text" id="referencia" name="referencia" placeholder="N°">
                     </div>
 

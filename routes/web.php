@@ -28,9 +28,7 @@ Route::get('/cadastro', function () {
 });
 
 Route::get('novo/atendimento', function () {
-    if (!session('usuario')) {
-        return redirect('/login');
-    }
+    if (!session('usuario')) return redirect('/login');
     return view('pages.page-novo-atendimento');
 });
 

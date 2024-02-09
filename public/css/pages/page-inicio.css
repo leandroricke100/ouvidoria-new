@@ -56,29 +56,34 @@
 }
 
 .container .container-right .inbox {
-    padding: 12px 17px 18px 17px;
-    background-color: #ECECEC;
-    border-radius: 5px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
     color: #333;
     font-size: 15px;
-    width: 366px;
+    /* width: 366px; */
     margin-bottom: 10px;
-
     a.inbox {
         padding: 12px 20px;
-        color: #fff;
-        text-decoration: none;
-        border: none;
-        background-color: #24e3be;
-        border-radius: 5px;
-        margin-top: 20px;
-        width: 100%;
-        font-size: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    margin: 0;
     }
+;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
 }
 
 .container .container-right .inbox a.inbox:hover {

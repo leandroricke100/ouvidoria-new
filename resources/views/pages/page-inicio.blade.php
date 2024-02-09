@@ -1,5 +1,6 @@
-@extends('layout.layout-global', ['titulo' => 'Início'])
+@inject('OuvidoriaConfiguracao', 'App\Models\OuvidoriaConfiguracao')
 
+@extends('layout.layout-global', ['titulo' => 'Início'])
 
 @push('head')
     <link href="{{ asset('css/pages/page-inicio.css') }}?v={{ time() }}" rel="stylesheet">
@@ -14,7 +15,7 @@
             'banner' => true,
             'cadastro' => true,
             'titulo_banner' => 'Central de Atendimento',
-            'subtitulo_banner' => 'Câmara Municipal de Campanário - MG',
+            'subtitulo_banner' => $OuvidoriaConfiguracao->first()->titulo,
             'voltar' => false,
         ]
     )
@@ -107,20 +108,28 @@
             @endphp
             {{-- SE ESTIVER LOGADO --}}
             @if (isset($usuario))
+                @if ($usuario->admin)
                 <div class="inbox">
-
                     <div class="tel-pref">
-                        <p>Olá,
-                            @if (!$usuario->nome_completo)
-                                {{ explode(' ', $usuario->nome_fantasia)[0] }}
-                            @else
-                                {{ explode(' ', $usuario->nome_completo)[0] }}
-                            @endif. Consulte suas demandas.
-                        </p>
+                        <p>Olá {{$usuario->nome_completo}}! Clique abaixo para responder as solicitações.</p>
                     </div>
-                    <a href="/atendimentos" class="inbox">Meu Inbox</a>
-
+                    <a href="/atendimentos" class="inbox">Visualizar Solicitações</a>
                 </div>
+                @else
+                    <div class="inbox">
+                        <div class="tel-pref">
+                            <p>Olá,
+                                @if (!$usuario->nome_completo)
+                                    {{ explode(' ', $usuario->nome_fantasia)[0] }}
+                                @else
+                                    {{ explode(' ', $usuario->nome_completo)[0] }}
+                                @endif. Consulte suas demandas.
+                            </p>
+                        </div>
+                        <a href="/atendimentos" class="inbox">Meu Inbox</a>
+                    </div>
+                @endif
+
             @endif
 
 
@@ -131,10 +140,9 @@
             </div> --}}
 
             <div class="info-prefeitura">
-                <p class="prefeitura">Câmara de Campanário</p>
+                <p class="prefeitura">{{ $OuvidoriaConfiguracao->first()->titulo }}</p>
                 <div class="tel-pref">
-                    <p>R. Antônio Barbosa, 65 - Centro, Campanário - MG</p>
-                    <p><strong>Fone:</strong> (33) 3513-1200</p>
+                    <p>{{ $OuvidoriaConfiguracao->first()->informacoes }}</p>
                 </div>
 
                 <button class="organograma">Ver Organograma <i class="fal fa-angle-double-right"></i></button>

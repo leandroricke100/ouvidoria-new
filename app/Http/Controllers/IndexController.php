@@ -45,7 +45,6 @@ class IndexController extends Controller
 
         return view('pages.page-atendimentos', [
             'atendimentos' => $atendimentos,
-            'usuario' => $user,
             'mensagens' => $mensagem,
             'atendimentosAberto' => $atendimentosAberto,
             'atendimentosArquivado' => $atendimentosArquivado,
@@ -78,8 +77,6 @@ class IndexController extends Controller
     {
 
         if (!session('usuario')) return redirect('/');
-
-
 
         $atendimento = OuvidoriaAtendimento::find($id);
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $id)->orderBy('id')->get()->all();
@@ -136,13 +133,13 @@ class IndexController extends Controller
         $user = session('usuario');
         if (!$user) return redirect('/');
 
-        $menus = OuvidoriaConfiguracao::where('id_admin', $user->id)->orderBy('created_at', 'desc')->get();
-        foreach ($menus as $menu) {
-            $menu->tempo_atras = $this->calcularTempoAtras($menu->created_at);
-        }
+        // $menus = OuvidoriaConfiguracao::where('id_admin', $user->id)->orderBy('created_at', 'desc')->get();
+        // foreach ($menus as $menu) {
+        //     $menu->tempo_atras = $this->calcularTempoAtras($menu->created_at);
+        // }
 
         return view('pages.page-config', [
-            'menus' => $menus,
+            'menus' => null,
             'usuario' => $user,
         ]);
     }

@@ -17,6 +17,12 @@ class OuvidoriaController extends Controller
     {
         $dadosForm = $request->all();
 
+        return response()->json([
+            'status' => false,
+            'msg' => 'aa',
+            'dados' => $dadosForm
+        ]);
+
         $user = new OuvidoriaUsuario;
 
         if ($dadosForm['profissao'] == 'null') {
@@ -187,6 +193,7 @@ class OuvidoriaController extends Controller
                     ->orWhere('cnpj', $dados['cpfCnpj'] ?? '0');
             })
                 ->first();
+
 
             if (!$user || !Hash::check($dados['senha'], $user->senha)) {
                 return response()->json(['status' => false, 'msg' => 'Não foi possível fazer login. Verifique suas credenciais.']);
@@ -470,7 +477,7 @@ class OuvidoriaController extends Controller
     {
         $dadosForm = $request->all();
 
-        $userUpdate = OuvidoriaUsuario::where('id', $dadosForm['idAdmin'])->get()->first();
+        $userUpdate = OuvidoriaUsuario::find($dadosForm['id_usuario']);
 
         if (!$userUpdate) {
             return response()->json([
@@ -479,49 +486,41 @@ class OuvidoriaController extends Controller
             ]);
         }
 
-        if ($dadosForm['profissao'] == 'null') {
-            $userUpdate->profissao = null;
-        } else {
-            $userUpdate->profissao = $dadosForm['profissao'];
-        }
 
-        if ($dadosForm['sexo'] == 'null') {
-            $userUpdate->sexo = null;
-        } else {
-            $userUpdate->sexo = $dadosForm['sexo'];
-        }
-
-        if ($dadosForm['areaAtuacao'] == 'null') {
-            $userUpdate->area_atuacao = null;
-        } else {
-            $userUpdate->area_atuacao = $dadosForm['areaAtuacao'];
-        }
-
-        if (!empty($dadosForm['senha'])) {
+        if (isset($dadosForm['senha'])) {
             $userUpdate->senha = Hash::make($dadosForm['senha']);
+
+            if ($dadosForm['senha'] != $dadosForm['confirmarSenha']) {
+                return response()->json([
+                    'status' => false,
+                    'msg' => 'Senhas não conferem.',
+                ]);
+            }
         }
 
-        $userUpdate->bairro = $dadosForm['bairro'];
-        $userUpdate->celular = $dadosForm['celular'];
-        $userUpdate->cep = intval($dadosForm['cep']);
-        $userUpdate->cidade = $dadosForm['cidade'];
-        $userUpdate->cnpj = $dadosForm['cnpj'];
-        $userUpdate->complemento = $dadosForm['complemento'];
-        $userUpdate->cpf = $dadosForm['cpf'];
-        $userUpdate->data_nascimento = $dadosForm['dataNascimento'];
-        $userUpdate->email = $dadosForm['email'];
-        $userUpdate->email_alternativo = $dadosForm['emailAlternativo'];
-        $userUpdate->endereco = $dadosForm['endereco'];
-        $userUpdate->cargo = $dadosForm['funcao'];
-        $userUpdate->nome_completo = $dadosForm['nomeCompleto'];
-        $userUpdate->contato_principal = $dadosForm['nomeContato'];
-        $userUpdate->nome_fantasia = $dadosForm['nomeFantasia'];
-        $userUpdate->organizacao = $dadosForm['organizacao'];
-        $userUpdate->razao_social = $dadosForm['razaoSocial'];
-
-        $userUpdate->telefone = $dadosForm['telefone'];
-        $userUpdate->tipo_pessoa = $dadosForm['tipoCadastro'];
-        $userUpdate->nome_responsavel = $dadosForm['nomeContato'];
+        $userUpdate->profissao = $dadosForm['profissao'] ?? null;
+        $userUpdate->sexo = $dadosForm['sexo'] ?? null;
+        $userUpdate->area_atuacao = $dadosForm['areaAtuacao'] ?? null;
+        $userUpdate->bairro = $dadosForm['bairro'] ?? null;
+        $userUpdate->celular = $dadosForm['celular'] ?? null;
+        $userUpdate->cep = isset($dadosForm['cep']) ? intval($dadosForm['cep']) : null;
+        $userUpdate->cidade = $dadosForm['cidade'] ?? null;
+        $userUpdate->cnpj = $dadosForm['cnpj'] ?? null;
+        $userUpdate->complemento = $dadosForm['complemento'] ?? null;
+        $userUpdate->cpf = $dadosForm['cpf'] ?? null;
+        $userUpdate->data_nascimento = $dadosForm['dataNascimento'] ?? null;
+        $userUpdate->email = $dadosForm['email'] ?? null;
+        $userUpdate->email_alternativo = $dadosForm['emailAlternativo'] ?? null;
+        $userUpdate->endereco = $dadosForm['endereco'] ?? null;
+        $userUpdate->cargo = $dadosForm['funcao'] ?? null;
+        $userUpdate->nome_completo = $dadosForm['nomeCompleto'] ?? null;
+        $userUpdate->contato_principal = $dadosForm['nomeContato'] ?? null;
+        $userUpdate->nome_fantasia = $dadosForm['nomeFantasia'] ?? null;
+        $userUpdate->organizacao = $dadosForm['organizacao'] ?? null;
+        $userUpdate->razao_social = $dadosForm['razaoSocial'] ?? null;
+        $userUpdate->telefone = $dadosForm['telefone'] ?? null;
+        $userUpdate->tipo_pessoa = $dadosForm['tipoCadastro'] ?? null;
+        $userUpdate->nome_responsavel = $dadosForm['nomeContato'] ?? null;
         $userUpdate->save();
 
         return response()->json([

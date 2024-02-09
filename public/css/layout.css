@@ -13,3 +13,9 @@
 #toast-container>div {
     border-radius: 8px;
 }
+
+table,
+th,
+td {
+    border-collapse: collapse;
+}

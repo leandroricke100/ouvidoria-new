@@ -1,3 +1,5 @@
+@inject('OuvidoriaConfiguracao', 'App\Models\OuvidoriaConfiguracao')
+
 @push('head')
     <script src="{{ asset('js/components/comp-header.js') }}"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
@@ -17,9 +19,13 @@
                 <button class="btn-menu-mobile close-mm" onclick="closeMenuMobile()" style="display: none;"><i class="fas fa-times"></i></button>
             </div>
 
-            <div class="img-brasao">
-                <a href="/"><img src="{{ asset('asset/brasaocampanario.jpeg') }}" /></a>
-            </div>
+            <a href="/" class="brasao">
+                <img src="{{ asset('uploads/brasao.png') }}" />
+                <p>
+                    <span>{{ $OuvidoriaConfiguracao->first()->titulo }}</span>
+                    {{-- <span class="cidade">Campanário - MG</span> --}}
+                </p>
+            </a>
 
             <div class="div-codigo">
                 <input type="text" id="codigo" placeholder="Buscar por código" /><button class="btn-search-codigo"><i class="fas fa-search" onclick="buscarCodigo()"></i></button>
@@ -45,10 +51,8 @@
         <div class="header-right">
             @if (isset($usuario) && $usuario->nome_completo)
                 <!-- Usuário está logado -->
-                <a href="/" class="inicio {{ $currentPage == '/' ? 'selected' : '' }}"><i class="fas fa-home"></i>
-                    Início</a>
-                <a class="inicio {{ $currentPage == 'atendimentos' ? 'selected' : '' }}" href="/atendimentos"><i
-                       class="fas fa-inbox"></i>Meu inbox</a>
+                <a href="/" class="inicio {{ $currentPage == '/' ? 'selected' : '' }}"><i class="fas fa-home"></i> Início</a>
+                <a class="inicio {{ $currentPage == 'atendimentos' ? 'selected' : '' }}" href="/atendimentos"><i class="fas fa-inbox"></i>{{ session('usuario')->admin ? 'Solicitações' : 'Meu inbox' }}</a>
 
                 <div>
                     <button class="user {{ $currentPage == 'configuracao' ? 'selected' : '' }}" onclick="modalSair()">

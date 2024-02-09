@@ -11,23 +11,23 @@
 
     <div class="bloco">
         <div style="display: none;" id_usuario="{{ $usuario->id }}"></div>
-        @if ($usuario->admin)
+        {{-- @if ($usuario->admin)
             <button id="btnMenus" onclick="modalMenu()" class="menus" ativo>
                 <i class="fas fa-bars"><i> Menus
             </button>
             <button id="btnMinhaConta" onclick="modalConta({{ $usuario->id }})" class="minhaConta">
                 <i class="fas fa-user-cog"></i> Minha Conta
             </button>
-        @else
-            <button id="btnMinhaConta" onclick="modalConta({{ $usuario->id }})" class="minhaConta" ativo>
-                <i class="fas fa-user-cog"></i> Minha Conta
-            </button>
-        @endif
+        @else --}}
+        <button id="btnMinhaConta" onclick="modalConta({{ $usuario->id }})" class="minhaConta" ativo>
+            <i class="fas fa-user-cog"></i> Minha Conta
+        </button>
+        {{-- @endif --}}
     </div>
 
 
     <div class="div-padding">
-        @if ($usuario->admin)
+        {{-- @if ($usuario->admin)
             <table width="100%" id="table">
                 <button class="add-new" id="add-new" onclick="addNewMenu()">Adicionar Novo</button>
                 <thead>
@@ -39,7 +39,7 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($menus as $menu)
+                    @foreach ($menus ?? [] as $menu)
                         <div id="menus-aberto" class="menus-aberto">
                             <tr>
                                 <td>
@@ -80,13 +80,14 @@
                     @endforeach
                 </tbody>
             </table>
-        @endif
+        @endif --}}
 
 
         <div class="conta" style="{{ $usuario->admin ? 'display: none;' : '' }}">
             @include('components.comp-cadastro')
         </div>
 
+        {{--
         <div class="novo-menu" style="display: none">
             <form class="new-title-menu form" id="new-title-menu">
                 <div class="div-titulo">
@@ -124,7 +125,7 @@
                 </div>
 
             </form>
-        </div>
+        </div> --}}
     </div>
 
 </section>

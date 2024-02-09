@@ -1,11 +1,8 @@
 #comp-footer {
-    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
-    width: 1160px;
-
-
+    width: 1350px;
 }
 
 #comp-footer .div-footer {
@@ -17,7 +14,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0;
+    padding: 0 20px;
 }
 
 #comp-footer .div-footer img {

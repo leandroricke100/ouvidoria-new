@@ -13,4 +13,9 @@ class OuvidoriaUsuario extends Model
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
+
+    public function administrador()
+    {
+        return $this->admin == 1;
+    }
 }

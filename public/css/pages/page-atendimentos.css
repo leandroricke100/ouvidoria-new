@@ -73,6 +73,11 @@ section.bloco-atendimentos {
     }
 }
 
+table.bloco-aberto th {
+    background: #efefef;
+    padding: 10px 4px;
+}
+
 .div-padding {
     border: 1px solid #ddd;
     padding: 15px;
@@ -83,6 +88,7 @@ section.bloco-atendimentos {
     .link-atendimento {
         text-decoration: none;
         outline: none;
+        color: black;
     }
 
     table {

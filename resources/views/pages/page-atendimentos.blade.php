@@ -6,13 +6,18 @@
     <link href="{{ asset('css/pages/page-atendimentos.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
+@php
+    $usuario = session('usuario');
+    // dd($usuario->administrador());
+@endphp
+
 @section('conteudo')
     @include(
         'components.comp-header',
 
         [
             'banner' => true,
-            'titulo_banner' => 'Meu Inbox - Minhas solicitações',
+            'titulo_banner' => $usuario->admin ? 'Solicitações' : 'Inbox - Minhas Solicitações',
         ]
     )
 
