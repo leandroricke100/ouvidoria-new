@@ -101,8 +101,10 @@ function verificarEmail(id) {
                 senha.focus();
                 popNotif({ msg: resposta.msg, time: 2000 });
             } else {
-                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
-                location.replace('/cadastro')
+                location.replace('/cadastro');
+                popNotif({ msg: 'Estamos redirecionando você, aguarde um instante...', time: 2000 });
+
+                // popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

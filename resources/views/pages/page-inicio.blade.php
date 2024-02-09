@@ -10,7 +10,6 @@
 @section('conteudo')
     @include(
         'components.comp-header',
-
         [
             'banner' => true,
             'cadastro' => true,
