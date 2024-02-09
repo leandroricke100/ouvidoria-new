@@ -28,3 +28,27 @@ jobs:
           port: ${{ secrets.ftp_port }}
           script: 'cd /home/gwouvidoria/new.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
+  cmcampanario:
+    name: 🌐 Deploy - cmcampanario.gwouvidoria.com.br
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔎 Verificando Diretório
+        uses: actions/checkout@v3
+
+      - name: 📂 Sincronizando Arquivos
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.ftp_host }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: new.gwouvidoria.com.br/
+
+      - name: ▶️ Executando Scripts
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.ftp_host }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
+          port: ${{ secrets.ftp_port }}
+          script: 'cd /home/gwouvidoria/clientes/cmcampanario.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+
