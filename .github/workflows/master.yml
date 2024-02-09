@@ -41,7 +41,7 @@ jobs:
           server: ${{ secrets.ftp_host }}
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
-          server-dir: new.gwouvidoria.com.br/
+          server-dir: clientes/cmcampanario.gwouvidoria.com.br/
 
       - name: ▶️ Executando Scripts
         uses: appleboy/ssh-action@master
