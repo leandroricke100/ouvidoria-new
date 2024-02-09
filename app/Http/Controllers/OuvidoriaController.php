@@ -17,11 +17,11 @@ class OuvidoriaController extends Controller
     {
         $dadosForm = $request->all();
 
-        return response()->json([
-            'status' => false,
-            'msg' => 'aa',
-            'dados' => $dadosForm
-        ]);
+        // return response()->json([
+        //     'status' => false,
+        //     'msg' => 'aa',
+        //     'dados' => $dadosForm
+        // ]);
 
         $user = new OuvidoriaUsuario;
 
