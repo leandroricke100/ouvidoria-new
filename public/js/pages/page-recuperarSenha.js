@@ -25,7 +25,6 @@ function recuperarSenha() {
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(XMLHttpRequest, textStatus, errorThrown);
-
         }
     });
 
