@@ -170,7 +170,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmmiravania.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmmiravania.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmmanga:
     name: 🌐 Deploy - cmmanga.gwouvidoria.com.br
