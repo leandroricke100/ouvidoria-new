@@ -155,7 +155,7 @@ function entrarEmail() {
 }
 
 function mostrarSenha() {
-    const senhaInput = $('#senhaLoginModal');
+    const senhaInput = $('[dd=senhaLoginModal]');
 
     $('#ocultar').show();
     $('#mostrar').hide();
@@ -164,7 +164,7 @@ function mostrarSenha() {
 }
 
 function ocultarSenha() {
-    const senhaInput = $('#senhaLoginModal');
+    const senhaInput = $('[dd=senhaLoginModal]');
 
     $('#ocultar').hide();
     $('#mostrar').show();

@@ -87,11 +87,11 @@
                 <div class="opcoes-home">
                     <span class="titulo-bx"><i class="fas fa-caret-right"></i> Selecione uma opção abaixo</span>
                     <div>
-                        <a href="/login" class="op">
+                        <a href="/atendimentos" class="op">
                             <i class="fal fa-file-search"></i>
                             <span>Consultar meus protocolos</span>
                         </a>
-                        <a href="/login" class="op">
+                        <a href="/novo/atendimento" class="op">
                             <i class="fal fa-comment-alt-lines"></i>
                             <span>Cadastrar nova solicitação</span>
                         </a>

@@ -1,77 +1,79 @@
 section.bloco-atendimentos {
     padding: 0px 59px;
-
-    .bloco {
-        margin-top: 31px;
-
-        .aberto {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-        }
-
-        .aberto.ativo {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            background-color: white;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-        }
-
-        .arquivado {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-
-        }
-
-        .arquivado.ativo {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            background-color: white;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-        }
-    }
 }
+
+.bloco {
+    margin-top: 31px;
+}
+
+.aberto {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.aberto i {
+    margin-right: 5px;
+}
+
+
+.aberto.ativo {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.aberto.ativo i {
+    margin-right: 5px;
+}
+
+
+.arquivado {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.arquivado i {
+    margin-right: 5px;
+}
+
+.arquivado.ativo {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.arquivado.ativo i {
+    margin-right: 5px;
+}
+
 
 table.bloco-aberto th {
     background: #efefef;
@@ -84,84 +86,89 @@ table.bloco-aberto th {
     display: flex;
     flex-direction: column;
     min-height: 349px;
-
-    .link-atendimento {
-        text-decoration: none;
-        outline: none;
-        color: black;
-    }
-
-    table {
-        text-align: left;
-        font-size: 13px;
-        font-weight: bold;
-        padding: 18px;
-
-        tbody {
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        tr:hover {
-            background-color: #eeeeee;
-        }
-
-        p.dataHora {
-            margin-top: 6px;
-            color: #666;
-        }
-
-
-        .number-atendimento {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 5px;
-            font-size: 11px;
-            font-weight: 500;
-            color: #172577;
-        }
-
-        span.sigiloso {
-            font-size: 11px;
-            padding: 4px 10px;
-            border-radius: 3px;
-            background: #fff !important;
-            border: 1px solid #aaa !important;
-            color: #888 !important;
-        }
-
-        .assunto {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
-            padding: 5px;
-
-            span.prioridade {
-                font-size: 11px;
-                padding: 4px 7px;
-                border-radius: 3px;
-                background-color: #4881c3 !important;
-                border: 0 !important;
-                color: white !important;
-            }
-        }
-
-        .data {
-            display: flex;
-            padding: 5px;
-            color: #666;
-            font-size: 11px;
-            align-items: center;
-            gap: 8px;
-        }
-    }
-
-    .sigilo {
-        padding: 5px;
-    }
 }
+
+.link-atendimento {
+    text-decoration: none;
+    outline: none;
+    color: black;
+}
+
+/*pode ser que tenha o div-padding*/
+
+table {
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 18px;
+}
+
+tbody {
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #eeeeee;
+}
+
+p.dataHora {
+    margin-top: 6px;
+    color: #666;
+}
+
+
+.number-atendimento {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #172577;
+}
+
+span.sigiloso {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: #fff !important;
+    border: 1px solid #aaa !important;
+    color: #888 !important;
+}
+
+.assunto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 5px;
+}
+
+span.prioridade {
+    font-size: 11px;
+    padding: 4px 7px;
+    border-radius: 3px;
+    background-color: #4881c3 !important;
+    border: 0 !important;
+    color: white !important;
+}
+
+
+.data {
+    display: flex;
+    padding: 5px;
+    color: #666;
+    font-size: 11px;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.sigilo {
+    padding: 5px;
+}
+
 
 @media screen and (max-width: 768px) {
     .div-padding {

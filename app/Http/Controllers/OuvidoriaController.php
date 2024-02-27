@@ -28,7 +28,15 @@ class OuvidoriaController extends Controller
         if ($dadosForm['profissao'] == 'null') {
             $user->profissao = null;
         } else {
+
             $user->profissao = $dadosForm['profissao'];
+
+
+            // if ($dadosForm['profissao'] == 'Outros'){
+            //     $user->profissao = $dadosForm['profissaoOutros'];
+            // }else{
+            //     $user->profissao = $dadosForm['profissao'];
+            // }
         }
 
         if ($dadosForm['sexo'] == 'null') {

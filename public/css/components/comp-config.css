@@ -4,335 +4,331 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+}
+
+.bloco {
+    margin-top: 31px;
+}
+
+.menus {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.menus i {
+    margin-right: 5px;
+}
 
 
-    .bloco {
-        margin-top: 31px;
+.menus.ativo {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    background-color: white;
+    cursor: pointer;
+}
 
-        .menus {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-        }
-
-        .menus.ativo {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            background-color: white;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-        }
-
-        .minhaConta {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-
-        }
-
-        .minhaConta.ativo {
-            border-top: 2px solid #bbb;
-            padding: 6px 12px 8px 8px !important;
-            border-right: 1px solid #ddd;
-            border-left: 1px solid #ddd;
-            border-bottom: white;
-            margin-bottom: -1px;
-            border-radius: 4px 4px 0 0;
-            font-size: 11px;
-            background-color: white;
-            cursor: pointer;
-
-            i {
-                margin-right: 5px;
-            }
-        }
-    }
-
-    .add-new {
-        display: flex;
-        width: 150px;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        background-color: #59BF59;
-        outline: none;
-        border: none;
-        color: white;
-        font-weight: bold;
-        font-size: 16px;
-        border-radius: 6px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-
-    .add-new:hover {
-        opacity: 0.5;
-    }
-
-    .div-padding {
-        border: 1px solid #ddd;
-        padding: 15px;
-        display: flex;
-        flex-direction: column;
-        min-height: 349px;
+.menus.ativo i {
+    margin-right: 5px;
+}
 
 
-        table {
-            text-align: left;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 18px;
+.minhaConta {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    cursor: pointer;
+}
 
-            tbody {
-                border-radius: 6px;
-                cursor: pointer;
-            }
+.minhaConta i {
+    margin-right: 5px;
+}
 
-            tr:hover {
-                background-color: #eeeeee;
-            }
+.minhaConta.ativo {
+    border-top: 2px solid #bbb;
+    padding: 6px 12px 8px 8px !important;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -1px;
+    border-radius: 4px 4px 0 0;
+    font-size: 11px;
+    background-color: white;
+    cursor: pointer;
+}
 
-            .title {
-                margin-top: 10px;
-                font-size: 15px;
-            }
-
-            .link {
-                margin-top: 10px;
-                font-size: 15px;
-                color: #3c3cd3;
-
-
-            }
-
-            .status {
-                margin-top: 10px;
-                font-size: 15px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                span {
-                    font-size: 11px;
-                    padding: 4px 10px;
-                    border-radius: 3px;
-                    background: #fff !important;
-                    border: 1px solid #aaa !important;
-                    color: #888 !important;
-                }
-
-                .btn-edit {
-                    display: flex;
-                    gap: 12px;
-                }
-
-                button.edit {
-                    border: none;
-                    padding: 10px;
-                    border-radius: 6px;
-                    background-color: #2C7BFF;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 13px;
-                    cursor: pointer;
-
-                }
-
-                button.edit:hover {
-                    opacity: 0.5;
-                }
-
-                button.btn-delete-menu {
-                    border: none;
-                    padding: 10px;
-                    border-radius: 6px;
-                    background-color: #D55E5E;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 13px;
-                    cursor: pointer;
-                }
-
-                button.btn-delete-menu:hover {
-                    opacity: 0.5;
-                }
-            }
-
-        }
-
-        .novo-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            .div-titulo {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                input {
-                    width: 100%;
-                    padding: 11px 9px;
-                    font-size: 12.5px;
-                    border: 2px solid #dce4ec;
-                    border-radius: 6px;
-                    outline: none;
-                }
-            }
-
-            .div-conteudo {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                .conteudo-pagina {
-                    width: 100%;
-                    padding: 15px;
-                    font-size: 14px;
-                    border: 2px solid #dce4ec;
-                    border-radius: 6px;
-                    outline: none;
-                }
-            }
-
-            .div-url {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                input {
-                    width: 100%;
-                    padding: 11px 9px;
-                    font-size: 12.5px;
-                    border: 2px solid #dce4ec;
-                    border-radius: 6px;
-                    outline: none;
-                }
-            }
-
-            .container-save {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                .onOf {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-
-
-                    select#status {
-                        padding: 6px;
-                        border: 1px solid #c9c9c9;
-                        border-radius: 9px;
-                        font-size: 14px;
-                        outline: none;
-                        min-height: 38px !important;
-                        color: #666 !important;
-                    }
-                }
-
-                .btn {
-                    display: flex;
-                    align-items: center;
-                    gap: 20px;
-
-                    .save {
-                        border: none;
-                        color: #fff;
-                        text-decoration: none;
-                        outline: none;
-                        padding: 9px 18px;
-                        background-color: #59BF59;
-                        border-radius: 6px;
-                        font-size: 15px;
-                        cursor: pointer;
-
-                        i {
-                            margin-right: 8px;
-                            font-size: 18px;
-                        }
-                    }
-
-                    .saveEdit {
-                        border: none;
-                        color: #fff;
-                        text-decoration: none;
-                        outline: none;
-                        padding: 9px 18px;
-                        background-color: #59BF59;
-                        border-radius: 6px;
-                        font-size: 15px;
-                        cursor: pointer;
-
-                        i {
-                            margin-right: 8px;
-                            font-size: 18px;
-                        }
-                    }
-
-                    .save:hover {
-                        opacity: 0.5;
-                    }
-
-                    .cancel {
-                        border: none;
-                        color: #fff;
-                        text-decoration: none;
-                        outline: none;
-                        background-color: #D55E5E;
-                        border-radius: 6px;
-                        font-size: 15px;
-                        cursor: pointer;
-                        padding: 9px 18px;
-
-                        i {
-                            margin-right: 8px;
-                        }
-
-                        /* .fa-times-circle: before {
-                            content: "\f057";
-                            font-size: 19px;
-                        } */
+.minhaConta.ativo i {
+    margin-right: 5px;
+}
 
 
 
-                    }
+.add-new {
+    display: flex;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #59BF59;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
 
-                    .cancel:hover {
-                        opacity: 0.5;
-                    }
-                }
-            }
-        }
-    }
+.add-new:hover {
+    opacity: 0.5;
+}
+
+.div-padding {
+    border: 1px solid #ddd;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 349px;
+}
+
+.div-padding table {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 18px;
+}
+
+table tbody {
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+table tr:hover {
+    background-color: #eeeeee;
+}
+
+.title {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.link {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #3c3cd3;
+}
+
+.status {
+    margin-top: 10px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.status span {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: #fff !important;
+    border: 1px solid #aaa !important;
+    color: #888 !important;
+}
+
+.btn-edit {
+    display: flex;
+    gap: 12px;
+}
+
+/* pode ser que venha o .status na frente */
+button.edit {
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #2C7BFF;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+
+}
+
+button.edit:hover {
+    opacity: 0.5;
+}
+
+button.btn-delete-menu {
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #D55E5E;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+button.btn-delete-menu:hover {
+    opacity: 0.5;
+}
+
+.novo-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.div-titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.div-titulo input {
+    width: 100%;
+    padding: 11px 9px;
+    font-size: 12.5px;
+    border: 2px solid #dce4ec;
+    border-radius: 6px;
+    outline: none;
+}
+
+
+.div-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.conteudo-pagina {
+    width: 100%;
+    padding: 15px;
+    font-size: 14px;
+    border: 2px solid #dce4ec;
+    border-radius: 6px;
+    outline: none;
+}
+
+
+.div-url {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.div-url input {
+    width: 100%;
+    padding: 11px 9px;
+    font-size: 12.5px;
+    border: 2px solid #dce4ec;
+    border-radius: 6px;
+    outline: none;
+}
+
+
+.container-save {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.onOf {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*pode ser qie onOf venha aqui*/
+select#status {
+    padding: 6px;
+    border: 1px solid #c9c9c9;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+    min-height: 38px !important;
+    color: #666 !important;
+}
+
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.save {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    padding: 9px 18px;
+    background-color: #59BF59;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.save i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.saveEdit {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    padding: 9px 18px;
+    background-color: #59BF59;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.saveEdit i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+
+.save:hover {
+    opacity: 0.5;
+}
+
+.cancel {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    background-color: #D55E5E;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 9px 18px;
+}
+
+.cancel i {
+    margin-right: 8px;
+}
+
+.cancel:hover {
+    opacity: 0.5;
 }

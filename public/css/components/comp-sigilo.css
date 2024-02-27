@@ -7,47 +7,46 @@
     gap: 6px;
     font-size: 12px;
     margin-top: 20px;
+}
 
-    .itens.ativo {
-        background-color: white;
+.itens.ativo {
+    background-color: white;
+}
 
-        i {
-            margin-right: 5px;
-        }
+.itens.ativo i {
+    margin-right: 5px;
+}
 
-        p {
-            color: #666 !important;
-        }
-    }
+.itens.ativo p {
+    color: #666 !important;
+}
 
-    .itens {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        color: #666 !important;
-        border-top: 2px solid #bbb;
-        padding: 10px 20px;
-        border-right: 1px solid #ddd;
-        border-left: 1px solid #ddd;
-        border-bottom: white;
-        margin-bottom: -11px;
-        border-radius: 8px 8px 0 0;
-        font-size: 13px;
-        cursor: pointer;
-        background-color: #ddd;
-        z-index: 99;
 
-        i {
-            margin-right: 5px;
-        }
+.itens {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: #666 !important;
+    border-top: 2px solid #bbb;
+    padding: 10px 20px;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: white;
+    margin-bottom: -11px;
+    border-radius: 8px 8px 0 0;
+    font-size: 13px;
+    cursor: pointer;
+    background-color: #ddd;
+    z-index: 99;
+    font-weight: 500;
+}
 
-        p {
-            color: #666 !important;
-        }
+.itens i {
+    margin-right: 5px;
+}
 
-        font-weight: 500;
-    }
-
+.itens p {
+    color: #666 !important;
 }
 
 .container {
@@ -59,85 +58,82 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
-
-    .border {
-        border-bottom: 1px solid #ddd;
-        width: 100%;
-        max-width: 1160px;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 16px;
-        margin-bottom: 12px;
-        color: #333;
-    }
-
-    .sigilo {
-        background-color: #f3f3f3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        margin-top: 20px;
-        max-width: 1049px;
-        width: 100%;
-        padding: 5px;
-        padding-bottom: 30px;
-
-        label {
-            margin-bottom: 0;
-        }
-
-        input#semSigilo {
-            margin-right: 10px;
-        }
-
-        input#sigilo {
-            margin-right: 10px;
-        }
-
-        p {
-            color: #292929;
-            font-weight: 600;
-        }
-
-        .input-sigilo {
-            label {
-                color: #666;
-            }
-        }
-
-        .semSigi {
-            cursor: pointer;
-            border: none;
-        }
-
-        .modal-semSigi {
-            background-color: #fff;
-            padding: 12px;
-            width: 154px;
-            font-size: 12px;
-            border-radius: 5px;
-        }
-
-        .modal-Sigi {
-            background-color: #fff;
-            padding: 12px;
-            width: 154px;
-            font-size: 12px;
-            border-radius: 5px;
-        }
-    }
-
 }
+
+.border {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    max-width: 1160px;
+    margin-bottom: 20px;
+}
+
+.border p {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.sigilo {
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-width: 1049px;
+    width: 100%;
+    padding: 5px;
+    padding-bottom: 30px;
+}
+
+.sigilo label {
+    margin-bottom: 0;
+}
+
+input#semSigilo {
+    margin-right: 10px;
+}
+
+input#sigilo {
+    margin-right: 10px;
+}
+
+.sigilo p {
+    color: #292929;
+    font-weight: 600;
+}
+
+.input-sigilo label {
+    color: #666;
+}
+
+
+.semSigi {
+    cursor: pointer;
+    border: none;
+}
+
+.modal-semSigi {
+    background-color: #fff;
+    padding: 12px;
+    width: 154px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.modal-Sigi {
+    background-color: #fff;
+    padding: 12px;
+    width: 154px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
 
 @media screen and (max-width:768px) {
     .padding-mobile {

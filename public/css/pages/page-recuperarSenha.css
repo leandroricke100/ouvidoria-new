@@ -19,185 +19,190 @@
     align-items: center;
     /* padding-bottom: 100px; */
     gap: 10px;
+}
 
-    .img-brasao {
-        /* flex: 1; */
-    }
+.img-brasao {
+    /* flex: 1; */
+}
 
-    .container {
-        /* flex: 1; */
-        display: flex;
-        flex-direction: column;
+.container {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+}
 
-        label {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
+.container label {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
 
-        #recuperarSenha {
-            padding: 10px 10px;
-            border: 1px solid #c9c9c9;
-            color: #666 !important;
-            border-radius: 8px;
-            font-size: 14px;
-            outline: none;
-            margin-bottom: 20px;
-            margin-top: 8px;
-            width: 100%;
-        }
+#recuperarSenha {
+    padding: 10px 10px;
+    border: 1px solid #c9c9c9;
+    color: #666 !important;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    width: 100%;
+}
 
-        .btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-            button {
-                border: none;
-                color: #fff;
-                text-decoration: none;
-                outline: none;
-                padding: 11px 21px;
-                background-color: #333333;
-                border-radius: 6px;
-                font-size: 15px;
-                cursor: pointer;
-                display: flex;
-                align-items: flex-end;
-            }
+.btn button {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    padding: 11px 21px;
+    background-color: #333333;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+}
 
-            a {
-                color: #172577;
-                text-decoration: none;
-                font-size: 13px;
-            }
-        }
-
-        .btn button:hover {
-            opacity: 0.5;
-        }
-
-        .min-senha {
-            font-size: 88%;
-            color: #666 !important;
-            margin-bottom: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
+.btn a {
+    color: #172577;
+    text-decoration: none;
+    font-size: 13px;
+}
 
 
-        .msg-senha {
-            font-size: 12px;
-            margin: 0;
-            color: red;
-            margin-top: 5px;
+.btn button:hover {
+    opacity: 0.5;
+}
 
-        }
+.min-senha {
+    font-size: 88%;
+    color: #666 !important;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-        .mostrar-senha {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            margin-bottom: 50px;
 
-            p {
-                font-size: 88%;
-                color: #666 !important;
-            }
-        }
-    }
+.msg-senha {
+    font-size: 12px;
+    margin: 0;
+    color: red;
+    margin-top: 5px;
 
-    .container-nova-password {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
+}
 
-        .title-nova-senha {
-            margin-top: 23px;
-            margin-bottom: 30px;
-            font-size: 17px;
-            font-weight: 500;
-        }
+.mostrar-senha {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 50px;
+}
 
-        .email-recuperar {
-            font-weight: 600 !important;
-        }
+.mostrar-senha p {
+    font-size: 88%;
+    color: #666 !important;
+}
 
-        .container-icons {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: -8px;
 
-            label {
-                color: #666;
-                font-size: 16px;
-                margin-bottom: 5px;
-            }
 
-            input {
-                padding: 10px 10px;
-                border: 1px solid #c9c9c9;
-                color: #666 !important;
-                border-radius: 8px;
-                font-size: 14px;
-                outline: none;
-                margin-bottom: 20px;
-            }
-
-        }
-
-        .min-senha {
-            color: #666 !important;
-            font-size: 13px;
-            margin: 15px 0px;
-        }
-
-        .mostrar-senha {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-
-            p {
-                color: #666 !important;
-            }
-        }
-
-        .btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            button {
-                border: none;
-                color: #fff;
-                text-decoration: none;
-                outline: none;
-                padding: 11px 21px;
-                background-color: #333333;
-                border-radius: 6px;
-                font-size: 15px;
-                cursor: pointer;
-                display: flex;
-                align-items: flex-end;
-            }
-
-            a {
-                color: #172577;
-                text-decoration: none;
-                font-size: 13px;
-            }
-        }
-
-        .btn button:hover {
-            opacity: 0.5;
-        }
-    }
-
-    ;
+.container-nova-password {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
     flex-direction: column;
     border-radius: 22px;
 }
+
+.title-nova-senha {
+    margin-top: 23px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.email-recuperar {
+    font-weight: 600 !important;
+}
+
+.container-icons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -8px;
+}
+
+.container-icons label {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.container-icons input {
+    padding: 10px 10px;
+    border: 1px solid #c9c9c9;
+    color: #666 !important;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+
+
+.min-senha {
+    color: #666 !important;
+    font-size: 13px;
+    margin: 15px 0px;
+}
+
+.mostrar-senha {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.mostrar-senha p {
+    color: #666 !important;
+}
+
+
+.btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn button {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    padding: 11px 21px;
+    background-color: #333333;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn a {
+    color: #172577;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+.btn button:hover {
+    opacity: 0.5;
+}
+
 
 @media screen and (max-width:768px) {
     .background-img {
@@ -209,20 +214,19 @@
         flex-direction: column;
         align-items: normal;
         max-width: 400px;
-
-        .img-brasao {
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container {
-            label {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
     }
+
+    .img-brasao {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }

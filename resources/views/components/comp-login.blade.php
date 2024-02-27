@@ -8,7 +8,7 @@
 @endphp
 
 <section class="login" comp-login="{{$id}}">
-    <h3><i class="fas fa-sign-in"></i> Acessar Ouvidoria</h3>
+    <h3><i class="fas fa-sign-in"></i> Registrar</h3>
     <div class="text-cpf-email">
         <p dd="text-cpf">Insira seu e-mail abaixo</p>
     </div>
@@ -19,7 +19,7 @@
 
     @if (isset($modalLoginInput) && $modalLoginInput)
         <div class="input-login">
-            <input type="email" dd="emailLogin" placeholder="teste@teste.com" />
+            <input type="email" dd="emailLogin" placeholder="Ex: teste@teste.com" />
 
             <input type="text" dd="entrarCnpj" placeholder="CPF/CNPJ" style="display: none" />
 
@@ -36,9 +36,9 @@
         </div>
     @else
         <div class="input-login-modal">
-            <input type="email" dd="emailLoginModal" placeholder="teste@teste.com" />
+            <input type="email" dd="emailLoginModal" placeholder="Ex: teste@teste.com" />
             <div class="container-password">
-                <input type="password" id="senhaLoginModal" placeholder="*********" />
+                <input type="password" dd="senhaLoginModal" placeholder="*********" />
                 <span class="visualizar-senha" id="ocultar" onclick="ocultarSenha()" style="display: none"><i class="fas fa-eye-slash"></i></span>
                 <span class="visualizar-senha" id="mostrar" onclick="mostrarSenha()"><i class="fad fa-eye"></i></span>
             </div>

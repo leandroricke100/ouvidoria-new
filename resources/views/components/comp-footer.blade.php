@@ -7,7 +7,9 @@
 
 <footer id="comp-footer">
     <div class="div-footer">
-        <img src="{{ asset('asset/gw.png') }}" alt="GW">
+        <a href="https://governoweb.com.br/">
+            <img src="{{ asset('asset/logo-nova-black.png') }}" alt="logo-governoweb">
+        </a>
         <div class="cliente">
             <p><b>{{ $OuvidoriaConfiguracao->first()->titulo }}</b></p>
             <p>{{ $OuvidoriaConfiguracao->first()->informacoes }}</p>

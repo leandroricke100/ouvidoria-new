@@ -11,139 +11,142 @@
 
 form#cad-atendimento {
     width: 100%;
+}
+
+form#cad-atendimento label {
+    margin-bottom: 10px;
+}
+
+.tipo-cad {
+    display: flex;
+    justify-content: flex-start;
+    gap: 94px;
+    margin-top: 10px;
+    font-size: 88% !important;
+}
+
+.cadastro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start;
+    margin-top: 25px;
+    padding-bottom: 21px;
+
+
+}
+
+.cad-borda {
+    border-bottom: 1px solid #fff;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 
     label {
-        margin-bottom: 10px;
-    }
-
-    .tipo-cad {
-        display: flex;
-        justify-content: flex-start;
-        gap: 94px;
-        margin-top: 10px;
-        font-size: 88% !important;
-    }
-
-    .cadastro {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: flex-start;
-        margin-top: 25px;
-        padding-bottom: 21px;
-
-
-    }
-
-    .cad-borda {
-        border-bottom: 1px solid #fff;
-    }
-
-    .field {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-
-        label {
-            font-size: 88%;
-            color: #666 !important;
-        }
-    }
-
-    input {
-        padding: 10px 10px;
-        border: 1px solid #c9c9c9;
-        color: #666 !important;
-        border-radius: 8px;
-        font-size: 14px;
-        outline: none;
-    }
-
-    select#estadoCivil {
-        padding: 6px;
-        border: 1px solid #c9c9c9;
-        color: #666 !important;
-        border-radius: 6px;
-        font-size: 14px;
-        outline: none;
-    }
-
-    select {
-        padding: 6px;
-        border: 1px solid #c9c9c9;
-        border-radius: 9px;
-        font-size: 14px;
-        outline: none;
-        min-height: 38px !important;
-        color: #666 !important;
-    }
-
-    .senha {
-        display: flex;
-        flex-direction: row;
-        gap: 15px;
-    }
-
-    .button-cad-enviar {
-        border: none;
-        color: #fff;
-        text-decoration: none;
-        outline: none;
-        padding: 11px 21px;
-        background-color: #333333;
-        border-radius: 6px;
-        font-size: 15px;
-        cursor: pointer;
-        display: flex;
-        align-items: flex-end;
-    }
-
-    .endereco {
-        font-size: 88%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-        color: #333;
-
-    }
-
-    .text-cadastro-log {
-        font-size: 88%;
-        margin-top: 20px;
-        color: #333;
-    }
-
-    .min-senha {
         font-size: 88%;
         color: #666 !important;
-        margin-bottom: 8px;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-
-    .msg-senha {
-        font-size: 12px;
-        margin: 0;
-        color: red;
-        margin-top: 5px;
-
-    }
-
-    .mostrar-senha {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        margin-bottom: 50px;
-
-        p {
-            font-size: 88%;
-            color: #666 !important;
-        }
     }
 }
+
+form#cad-atendimento input {
+    padding: 10px 10px;
+    border: 1px solid #c9c9c9;
+    color: #666 !important;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+form#cad-atendimento select#estadoCivil {
+    padding: 6px;
+    border: 1px solid #c9c9c9;
+    color: #666 !important;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+form#cad-atendimento select {
+    padding: 6px;
+    border: 1px solid #c9c9c9;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+    min-height: 38px !important;
+    color: #666 !important;
+}
+
+.senha {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.button-cad-enviar {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    padding: 11px 21px;
+    background-color: #333333;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+}
+
+.endereco {
+    font-size: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: #333;
+
+}
+
+.text-cadastro-log {
+    font-size: 88%;
+    margin-top: 20px;
+    color: #333;
+}
+
+.min-senha {
+    font-size: 88%;
+    color: #666 !important;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.msg-senha {
+    font-size: 12px;
+    margin: 0;
+    color: red;
+    margin-top: 5px;
+
+}
+
+.mostrar-senha {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 50px;
+}
+
+.mostrar-senha p {
+    font-size: 88%;
+    color: #666 !important;
+}
+
+
+
 
 @media screen and (max-width: 768px) {
     .sigilo {

@@ -43,6 +43,7 @@ function modalConta(id) {
                 //location.reload();
 
                 let $frm = $('#cad-atendimento');
+
                 let dados = resposta.menu;
                 dados['senha'] = '';
                 dados['nomeCompleto'] = dados.nome_completo;

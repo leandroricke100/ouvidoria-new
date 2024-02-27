@@ -20,7 +20,9 @@
 }
 
 #comp-footer .div-footer img {
-    width: 77px;
+    width: 135px;
+    padding: 12px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

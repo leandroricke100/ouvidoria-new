@@ -43,6 +43,16 @@ $(function () {
 });
 
 $(document).ready(function () {
+    //SE USUARIO COLOCAR OPÇAO OUTROS ABRE O CAMPO PARA DIGITAR
+    // $('#profissaoOutros').hide();
+
+    // $('#profissao').change(function(){
+    //     if ($(this).val() === 'Outros'){
+    //         $('#profissaoOutros').show();
+    //     }else{
+    //         $('#profissaoOutros').hide();
+    //     }
+    // });
 
     const mostrarSenhaCheckbox = $('#mostarSenha');
     const senhaInput = $('#senha');
@@ -140,3 +150,4 @@ $(() => $('#cad-atendimento').submit(function (e) {
 
     e.preventDefault();
 }));
+

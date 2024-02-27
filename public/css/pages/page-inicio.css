@@ -12,13 +12,13 @@
 
 .container .container-left {
     flex: 1;
+}
 
-    h3 {
-        font-size: 14px;
-        color: #979797;
-        margin-bottom: 13px;
-        font-weight: 500;
-    }
+.container .container-left h3 {
+    font-size: 14px;
+    color: #979797;
+    margin-bottom: 13px;
+    font-weight: 500;
 }
 
 .container .container-left .menus {
@@ -28,26 +28,27 @@
     margin-bottom: 20px;
     /* margin-right: 290px; */
     width: 100%;
-
-    a {
-        border: none;
-        background-color: transparent;
-        font-size: 20px;
-        color: #172577;
-        font-weight: bold;
-        text-decoration: none;
-    }
-
-    .opcoes {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-
-        p {
-            font-size: 13px;
-        }
-    }
 }
+
+.container .container-left .menus a {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    color: #172577;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.opcoes p {
+    font-size: 13px;
+}
+
 
 .container .container-right {
     display: flex;
@@ -63,8 +64,13 @@
     font-size: 15px;
     /* width: 366px; */
     margin-bottom: 10px;
-    a.inbox {
-        padding: 12px 20px;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+a.inbox {
+    padding: 12px 20px;
     color: #fff;
     text-decoration: none;
     border: none;
@@ -79,12 +85,8 @@
     gap: 8px;
     font-weight: 600;
     margin: 0;
-    }
-;
-    gap: 12px;
-    display: flex;
-    flex-direction: column;
 }
+
 
 .container .container-right .inbox a.inbox:hover {
     opacity: 0.5;
@@ -97,36 +99,36 @@
     color: #333;
     font-size: 15px;
     width: 100%;
+}
 
-    .tel-pref {
-        font-size: 13px;
-    }
+.tel-pref {
+    font-size: 13px;
+}
 
-    button.organograma {
-        padding: 12px 20px;
-        color: #fff;
-        text-decoration: none;
-        border: none;
-        background-color: #333333;
-        border-radius: 9px;
-        margin-top: 20px;
-        width: 100%;
-        font-size: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
+button.organograma {
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background-color: #333333;
+    border-radius: 9px;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
 
-    .prefeitura {
-        font-size: 18px;
-        margin-bottom: 20px;
-        font-weight: 700;
-    }
+.prefeitura {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
 
-    .organograma:hover {
-        opacity: 0.5;
-    }
+.organograma:hover {
+    opacity: 0.5;
 }
 
 
@@ -149,11 +151,12 @@
     margin-left: 10px;
     margin-top: 15px;
     font-size: 13px;
-
-    a {
-        text-decoration: none;
-    }
 }
+
+.container .container-right .ajuda .links-ajuda a {
+    text-decoration: none;
+}
+
 
 .titulo-bx {
     padding: 15px;

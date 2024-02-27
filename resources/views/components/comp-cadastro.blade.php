@@ -69,9 +69,6 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="field pf" style="flex-basis: 50%">
                     <label for="nomeCompleto">Nome completo:<span class="campo-obrigatorio"><span class="campo-obrigatorio">*</span></span></label>
                     <input type="text" id="nomeCompleto" name="nomeCompleto" required>
@@ -99,7 +96,7 @@
                     <input type="text" id="organizacao" name="organizacao" placeholder="Organização">
                 </div>
 
-                <div class="field pf" style="flex-basis: 60%">
+                {{-- <div class="field pf" style="flex-basis: 50%">
                     <label for="profissao">Profissão:</label>
                     <select id="profissao" name="profissao">
                         <option value="" disabled selected>- Selecione -</option>
@@ -108,9 +105,15 @@
                         <option value="Vereador">Vereador</option>
                         <option value="Outros">Outros</option>
                     </select>
+                </div> --}}
+
+                <div class="field pf" style="flex-basis: 50%" >
+                    <label  for="profissao">Profissão:</label>
+                    <input type="text" id="profissao" name="profissao" placeholder="Digite a Profissão">
                 </div>
 
-                <div class="field pf" style="flex-basis: 30%">
+
+                <div class="field pf" style="flex-basis: 45%">
                     <label for="sexo">Sexo:</label>
                     <select id="sexo" name="sexo">
                         <option value="" disabled selected>- Selecione -</option>
