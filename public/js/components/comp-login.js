@@ -135,3 +135,24 @@ function entrarEmail() {
     $('.btn-text-cnpj').hide();
     $('.btn-text-email').show();
 }
+
+function mostrarSenha() {
+
+    const senhaInput = document.getElementById("senhaLoginModal");
+
+    $('#ocultar').show();
+    $('#mostrar').hide();
+
+    senhaInput.type = 'text';
+}
+
+function ocultarSenha() {
+
+    const senhaInput = document.getElementById("senhaLoginModal");
+
+    $('#ocultar').hide();
+    $('#mostrar').show();
+
+    senhaInput.type = 'password';
+
+}

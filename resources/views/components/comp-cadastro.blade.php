@@ -70,11 +70,10 @@
                 </div>
 
 
-                {{-- <h1>teste</h1> --}}
+
 
                 <div class="field pf" style="flex-basis: 50%">
-                    <label for="nomeCompleto">Nome completo:<span class="campo-obrigatorio"><span
-                                  class="campo-obrigatorio">*</span></span></label>
+                    <label for="nomeCompleto">Nome completo:<span class="campo-obrigatorio"><span class="campo-obrigatorio">*</span></span></label>
                     <input type="text" id="nomeCompleto" name="nomeCompleto" required>
                 </div>
 
@@ -123,8 +122,7 @@
 
                 <div class="field" style="flex-basis: 40%">
                     <label for="email">E-mail*:</label>
-                    <input type="text" id="email" name="email" value=''
-                           placeholder="Digite seu e-email" required>
+                    <input type="text" id="email" name="email" value='' placeholder="Digite seu e-email" required>
                 </div>
 
                 <div class="field">
@@ -181,15 +179,13 @@
                 <div class="field senha">
                     <div class="field">
                         <label for="senha">Senha de acesso:</label>
-                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha"
-                               required>
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
                         <p style="display: none" class="msg-senha">Senhas não conferem</p>
                     </div>
 
                     <div class="field">
                         <label for="confirmarSenha">Confirmar:</label>
-                        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmação"
-                               required>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirmação" required>
                         <p style="display: none" class="msg-senha">Senhas não conferem</p>
                     </div>
 
@@ -208,11 +204,8 @@
             </div>
 
             <div class="button-cad">
-                <button class="button-cad-enviar" type="submit">Prosseguir <i class="fal fa-angle-double-right"
-                       style="margin-left: 5px"></i></button>
-                <button class="button-cad-enviar btn-save-cad" type="button" onclick="saveCadastro()"
-                        style="display: none">Salvar <i class="fal fa-angle-double-right"
-                       style="margin-left: 5px"></i></button>
+                <button class="button-cad-enviar" type="submit">Prosseguir <i class="fal fa-angle-double-right" style="margin-left: 5px"></i></button>
+                <button class="button-cad-enviar btn-save-cad" type="button" onclick="saveCadastro()" style="display: none">Salvar <i class="fal fa-angle-double-right" style="margin-left: 5px"></i></button>
             </div>
         </form>
     </section>

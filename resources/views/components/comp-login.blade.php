@@ -31,7 +31,11 @@
     @else
         <div class="input-login-modal">
             <input type="email" dd="emailLoginModal" placeholder="teste@teste.com" />
-            <input type="password" dd="senhaLoginModal" placeholder="*********" />
+            <div class="container-password">
+                <input type="password" id="senhaLoginModal" placeholder="*********" />
+                <span class="visualizar-senha" id="ocultar" onclick="ocultarSenha()" style="display: none"><i class="fas fa-eye-slash"></i></span>
+                <span class="visualizar-senha" id="mostrar" onclick="mostrarSenha()"><i class="fad fa-eye"></i></span>
+            </div>
             <button onclick="loginModal('{{$id}}')">Entrar</button>
         </div>
     @endif
