@@ -77,7 +77,7 @@ function loginModal(id) {
 function verificarEmail(id) {
     let $comp = $(`[comp-login=${id}]`);
     const email = $('[dd=emailLogin]').val();
-    const senha = $('[dd=senhaLogin]');
+    const senha = $('[dd=senhaLogin]').val();
     const cpfCnpj = $('[dd=entrarCnpj]').val();
 
     let dadosVerificarEmail = {
@@ -95,7 +95,7 @@ function verificarEmail(id) {
         success: function (resposta) {
             console.log(resposta);
             if (resposta.status) {
-                $('[dd=senhaLogin]').show();
+                $('.container-password').show();
                 $('[dd=entrar]').show();
                 $('[dd=prosseguir]').hide();
                 senha.focus();
@@ -103,16 +103,34 @@ function verificarEmail(id) {
             } else {
                 location.replace('/cadastro');
                 popNotif({ msg: 'Estamos redirecionando você, aguarde um instante...', time: 2000 });
-
-                // popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(XMLHttpRequest, textStatus, errorThrown);
-
         }
     });
 }
+
+function senhaMostrar(){
+
+    const senhaInput = $('[dd=senhaLogin]');
+
+    $('[dd=ocultar]').show();
+    $('[dd=mostrar]').hide();
+
+    senhaInput.attr('type', 'text');
+
+}
+
+function senhaOcultar(){
+    const senhaInput = $('[dd=senhaLogin]');
+
+    $('[dd=ocultar]').hide();
+    $('[dd=mostrar]').show();
+
+    senhaInput.attr('type', 'password');
+}
+
 
 function cnpjCpf() {
     $('.text-cnpj-email').show();
@@ -137,22 +155,19 @@ function entrarEmail() {
 }
 
 function mostrarSenha() {
-
-    const senhaInput = document.getElementById("senhaLoginModal");
+    const senhaInput = $('#senhaLoginModal');
 
     $('#ocultar').show();
     $('#mostrar').hide();
 
-    senhaInput.type = 'text';
+    senhaInput.attr('type', 'text');
 }
 
 function ocultarSenha() {
-
-    const senhaInput = document.getElementById("senhaLoginModal");
+    const senhaInput = $('#senhaLoginModal');
 
     $('#ocultar').hide();
     $('#mostrar').show();
 
-    senhaInput.type = 'password';
-
+    senhaInput.attr('type', 'password');
 }

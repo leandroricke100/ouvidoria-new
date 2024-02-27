@@ -23,7 +23,13 @@
 
             <input type="text" dd="entrarCnpj" placeholder="CPF/CNPJ" style="display: none" />
 
-            <input type="password" dd="senhaLogin" placeholder="*********" style="display: none" />
+            {{-- <input type="password" dd="senhaLogin" placeholder="*********" style="display: none" /> --}}
+
+            <div class="container-password" style="display: none">
+                <input type="password" dd="senhaLogin" placeholder="*********"  />
+                <span class="visualizar-senha" dd="ocultar" onclick="senhaOcultar()" style="display: none"><i class="fas fa-eye-slash"></i></span>
+                <span class="visualizar-senha" dd="mostrar" onclick="senhaMostrar()"><i class="fad fa-eye"></i></span>
+            </div>
 
             <button dd="prosseguir" onclick="verificarEmail('{{$id}}')">Prosseguir</button>
             <button dd="entrar" onclick="login('{{$id}}')" style="display: none">Entrar</button>

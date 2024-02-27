@@ -31,6 +31,7 @@
         width: 100%;
         flex-wrap: wrap;
         justify-content: center;
+        flex-direction: column;
 
         button {
             border: none;
@@ -45,8 +46,8 @@
             text-align: center;
         }
 
-        ;
-        flex-direction: row;
+
+
     }
 
     .input-login-modal {
