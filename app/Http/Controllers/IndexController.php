@@ -101,7 +101,7 @@ class IndexController extends Controller
     public function protocolo(Request $request, $numero)
     {
 
-        if (!session('usuario')) return redirect('/');
+        // if (!session('usuario')) return redirect('/');
         $protocolo = substr($numero, 0, 4) . '.' . substr($numero, 4, 3) . '.' . substr($numero, 7, 3);
 
         $atendimento = OuvidoriaAtendimento::where('codigo', $protocolo)->first();
@@ -113,8 +113,8 @@ class IndexController extends Controller
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->orderBy('id')->get()->all();
         $user = session('usuario');
 
-        $admin = ($user->admin == 1);
-        $titular = ($user->id == $atendimento->id_usuario);
+        $admin = $user && $user->admin == 1;
+        $titular = $user && $user->id == $atendimento->id_usuario;
 
         $permitido = $admin || $titular;
 

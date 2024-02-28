@@ -35,7 +35,7 @@
                             <div class="cod">
                                 <span>Situação atual: </span>
                                 <input type="hidden" name="atendimento_id" id="atendimento_id" value="{{ $atendimento->id }}">
-                                @if ($user->admin == 1)
+                                @if ($user && $user->admin == 1)
                                     <select class="input-situacao" id="situacao" name="situacao">
                                         <option value="Novo" {{ $atendimento->situacao == 'novo' ? 'selected' : '' }}>Novo
                                         </option>
