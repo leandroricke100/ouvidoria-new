@@ -459,6 +459,7 @@ header#comp-header .header-right>* {
     height: 100%;
 }
 
+
 @media screen and (max-width: 768px) {
     .header-right {
         display: none !important;

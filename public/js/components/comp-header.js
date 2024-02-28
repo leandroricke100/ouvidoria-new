@@ -6,6 +6,10 @@ $(function () {
     });
 });
 
+$(document).ready(function () {
+    $('#codigo').mask('0000.000.000');
+});
+
 
 function openSearchBtn() {
 
@@ -143,9 +147,4 @@ function configuracao() {
     location.replace('/configuracao')
 }
 
-$(document).ready(function () {
-    $('#codigo').mask('0000.000.000');
-    document.getElementById('codigo').value = '';
-
-});
 
