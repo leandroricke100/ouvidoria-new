@@ -1,35 +1,86 @@
+let classicEditor = null;
+
 $(document).ready(function () {
+
+    ClassicEditor
+        .create(document.querySelector('#enderecoCompleto'))
+        .then(editor => {
+            classicEditor = editor;
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
     let id_usuario = $('[id_usuario]').attr('id_usuario');
     modalConta(id_usuario);
-
-
     $('[dd=cep]').mask('00000-000');
-
-    // $('#btnMenus').addClass('ativo');
-    // $('.menu').show();
-    // $('.conta').hide();
 });
 
-// function modalMenu() {
-//     $('#btnMenus').addClass('ativo');
-//     $('#btnMinhaConta').removeClass('ativo');
-//     $('.conta').hide();
-//     $('#table').show();
-//     $('#add-new').show();
 
-// }
 
-function modalEndereco(){
+function modalEndereco() {
     $('#btnEndereco').addClass('ativo');
     $('#btnMinhaConta').removeClass('ativo');
-
-
-
-
     $('.conta').hide();
     $('.menuEndereco').show();
     $('.btn-cancel-cad').show();
+
+    let idEndereco = 1;
+
+    $.ajax({
+        url: '/api/OuvidoriaEditInformacao',
+        type: "POST",
+        dataType: "json",
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: {
+            idEndereco: 1
+        },
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+                $('#nomeMunicipio').val(resposta.endereco.titulo);
+                classicEditor.setData(resposta.endereco.informacoes);
+            } else {
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+        }
+    });
+}
+
+function saveInfo() {
+    let dadosForm = new FormData($('#endereco-form')[0]);
+
+    dadosForm.append('enderecoCompleto', classicEditor.getData());
+    dadosForm.append('nomeMunicipio', $('#nomeMunicipio').val());
+
+    $.ajax({
+        url: '/api/OuvidoriaInfoAtualizado',
+        type: "POST",
+        dataType: "json",
+        contentType: false,
+        processData: false,
+        cache: false,
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: dadosForm,
+        success: function (resposta) {
+            console.log(resposta);
+            if (resposta.status) {
+                popNotif({ msg: resposta.msg, time: 2000 });
+                //location.reload();
+
+            } else {
+                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+
+        }
+    });
 }
 
 function modalConta(id) {
@@ -88,20 +139,13 @@ function modalConta(id) {
     });
 }
 
-// function addNewMenu() {
-//     $('#table').hide();
-//     $('#add-new').hide();
-//     $('.add-new').hide();
-//     $('.novo-menu').show();
-//     $('.saveEdit').hide();
-//     $('.save').show();
-
-// }
 
 function saveCadastro() {
+
     let dadosForm = new FormData($('#cad-atendimento')[0]);
 
     const idAdmin = $('#id_dmin').val();
+
     dadosForm.append('idAdmin', idAdmin);
 
     $.ajax({
@@ -117,110 +161,7 @@ function saveCadastro() {
             console.log(resposta);
             if (resposta.status) {
                 popNotif({ msg: resposta.msg, time: 2000 });
-                location.reload();
-            } else {
-                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
-            }
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest, textStatus, errorThrown);
-
-        }
-    });
-}
-
-function salvarNovoMenu() {
-    let dadosForm = new FormData($('#new-title-menu')[0]);
-
-    $.ajax({
-        url: '/api/OuvidoriaNovoMenu',
-        type: "POST",
-        dataType: "json",
-        contentType: false,
-        processData: false,
-        cache: false,
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: dadosForm,
-        success: function (resposta) {
-            console.log(resposta);
-            if (resposta.status) {
-                popNotif({ msg: resposta.msg, time: 2000 });
-                location.reload();
-            } else {
-                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
-            }
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest, textStatus, errorThrown);
-
-        }
-    });
-}
-
-function deleteMenu(id) {
-
-    $.ajax({
-        url: '/api/OuvidoriaDeleteMenu',
-        type: "POST",
-        dataType: "json",
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: {
-            id: id
-        },
-        success: function (resposta) {
-            console.log(resposta);
-            if (resposta.status) {
-
-                popNotif({ msg: resposta.msg, time: 2000 });
-                location.reload();
-            } else {
-                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
-            }
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest, textStatus, errorThrown);
-
-        }
-    });
-}
-
-function editMenu(id) {
-
-    $('.save').hide();
-    $('.saveEdit').show();
-
-    let menu = id;
-
-    $.ajax({
-        url: '/api/OuvidoriaEditMenu',
-        type: "POST",
-        dataType: "json",
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: {
-            menu: menu
-        },
-        success: function (resposta) {
-            console.log(resposta);
-            if (resposta.status) {
                 //location.reload();
-
-                $('#table').hide();
-                $('#add-new').hide();
-                $('.add-new').hide();
-                $('.novo-menu').show();
-
-                $('#titulo').val(resposta.menu.titulo);
-                $('#conteudo-pagina').val(resposta.menu.conteudo);
-                $('#link').val(resposta.menu.slog);
-                if (resposta.menu.status == 0) {
-                    $('#status').val('Desativado');
-                } else {
-                    $('#status').val('Ativado');
-                }
-
-
-                //popNotif({ msg: resposta.msg, time: 2000 });
-
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
@@ -230,43 +171,8 @@ function editMenu(id) {
 
         }
     });
-
 }
 
-function saveEdit() {
-    let dadosForm = new FormData($('#new-title-menu')[0]);
-
-
-    let menuId = $('#menu_id').val();
-
-
-    dadosForm.append('menuId', menuId);
-
-    $.ajax({
-        url: '/api/OuvidoriaSaveEditMenu',
-        type: "POST",
-        dataType: "json",
-        contentType: false,
-        processData: false,
-        cache: false,
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        data: dadosForm,
-        success: function (resposta) {
-            console.log(resposta);
-            if (resposta.status) {
-                popNotif({ msg: resposta.msg, time: 2000 });
-                location.reload();
-            } else {
-                popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
-            }
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            console.log(XMLHttpRequest, textStatus, errorThrown);
-
-        }
-    });
-
-}
 
 
 
@@ -276,7 +182,7 @@ function cancel() {
 
 
 $(() => $('form').submit(function (e) {
-    salvarNovoMenu();
     saveCadastro();
+    saveInfo();
     e.preventDefault();
 }));

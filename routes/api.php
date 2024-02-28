@@ -25,16 +25,12 @@ Route::post('/OuvidoriaRecuperarSenha', [OuvidoriaController::class, 'recuperarS
 
 Route::post('/OuvidoriaNovaSenha', [OuvidoriaController::class, 'salvarNovaSenha']);
 
-Route::post('/OuvidoriaNovoMenu', [OuvidoriaController::class, 'novoMenu']);
-
-Route::post('/OuvidoriaDeleteMenu', [OuvidoriaController::class, 'deleteMenu']);
-
-Route::post('/OuvidoriaEditMenu', [OuvidoriaController::class, 'EditMenu']);
-
-Route::post('/OuvidoriaSaveEditMenu', [OuvidoriaController::class, 'EditSaveMenu']);
-
 Route::post('/OuvidoriaEditAccountAdmin', [OuvidoriaController::class, 'EditAccountAdmin']);
 
 Route::post('/OuvidoriaEditAccountUser', [OuvidoriaController::class, 'EditAccountUser']);
 
 Route::post('/OuvidoriaCadAtualizado', [OuvidoriaController::class, 'EditCadAtualizado']);
+
+Route::post('/OuvidoriaEditInformacao', [OuvidoriaController::class, 'EditInformacao']);
+
+Route::post('/OuvidoriaInfoAtualizado', [OuvidoriaController::class, 'EditInfoAtualizado']);

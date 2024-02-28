@@ -353,75 +353,6 @@ class OuvidoriaController extends Controller
         }
     }
 
-    public function novoMenu(Request $request)
-    {
-        $dadosForm = $request->all();
-
-        if (!session('usuario')) return redirect('/');
-
-        $newMenu = new OuvidoriaConfiguracao;
-
-        if ($dadosForm['status'] == 'Ativado') {
-            $newMenu->status = 1;
-        } else {
-            $newMenu->status = 0;
-        }
-
-        $newMenu->id_admin = $dadosForm['id_admin'];
-        $newMenu->titulo = $dadosForm['titulo'];
-        $newMenu->conteudo = $dadosForm['conteudo-pagina'];
-        $newMenu->slog = $dadosForm['link'];
-        $newMenu->save();
-
-        return response()->json([
-            'status' => true,
-            'msg' => 'Nova título cadastrado com sucesso.',
-            'dados' => $dadosForm
-        ]);
-    }
-
-    public function deleteMenu(Request $request)
-    {
-        $dadosForm = $request->all();
-
-        $menu = OuvidoriaConfiguracao::find($dadosForm['id']);
-
-        if ($menu) {
-            $menu->delete();
-
-            return response()->json([
-                'status' => true,
-                'msg' => 'Menu deletado.',
-                'dados' => $dadosForm
-            ]);
-        } else {
-            return response()->json([
-                'status' => false,
-                'msg' => 'Não foi possível apagar!',
-            ]);
-        }
-    }
-
-    public function EditMenu(Request $request)
-    {
-        $dadosForm = $request->all();
-
-        $menu = OuvidoriaConfiguracao::where('id', $dadosForm['menu'])->get()->first();
-
-        if ($menu) {
-            return response()->json([
-                'status' => true,
-                'msg' => 'Menu encontrado.',
-                'menu' => $menu
-            ]);
-        } else {
-            return response()->json([
-                'status' => false,
-                'msg' => 'Não foi editar o menu.',
-            ]);
-        }
-    }
-
     public function EditAccountAdmin(Request $request)
     {
         $dadosForm = $request->all();
@@ -450,32 +381,6 @@ class OuvidoriaController extends Controller
             'status' => true,
             'msg' => 'Conta encontrado.',
             'menu' => $dadosForm
-        ]);
-    }
-
-    public function EditSaveMenu(Request $request)
-    {
-        $dadosForm = $request->all();
-
-        $editMenu = OuvidoriaConfiguracao::where('id', $dadosForm['menuId'])->get()->first();
-
-        if ($dadosForm['status'] == 'Ativado') {
-            $editMenu->status = 1;
-        } else {
-            $editMenu->status = 0;
-        }
-
-
-        $editMenu->id_admin = $dadosForm['id_admin'];
-        $editMenu->titulo = $dadosForm['titulo'];
-        $editMenu->conteudo = $dadosForm['conteudo-pagina'];
-        $editMenu->slog = $dadosForm['link'];
-        $editMenu->save();
-
-        return response()->json([
-            'status' => true,
-            'msg' => 'Título editado com sucesso.',
-            'dados' => $dadosForm
         ]);
     }
 
@@ -533,6 +438,37 @@ class OuvidoriaController extends Controller
             'status' => true,
             'msg' => 'Dados do usuário atualiados com sucesso.',
             'dados' => $dadosForm
+        ]);
+    }
+
+    public function EditInformacao(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $updateEndereco = OuvidoriaConfiguracao::find($dadosForm['idEndereco']);
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Conta encontrado.',
+            'endereco' => $updateEndereco
+        ]);
+    }
+
+    public function EditInfoAtualizado(Request $request)
+    {
+        $dadosForm = $request->all();
+
+        $enderecoAtualizado = OuvidoriaConfiguracao::find(1);
+
+        $enderecoAtualizado->informacoes = $dadosForm['enderecoCompleto'] ?? null;
+        $enderecoAtualizado->titulo = $dadosForm['nomeMunicipio'] ?? null;
+        $enderecoAtualizado->save();
+
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Informações Atualizada.',
+            'endereco' => $dadosForm
         ]);
     }
 }
