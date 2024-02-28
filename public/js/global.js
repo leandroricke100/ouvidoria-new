@@ -89,3 +89,16 @@ function preencherForm($frm, dados) {
         $el.change();
     });
 }
+
+$(function () {
+    $('[prevent-autocomplete]').each(function () {
+        let $el = $(this);
+        let is_readonly = $el.is('[readonly]');
+
+        $el.attr('readonly', '');
+
+        $el.on('focus', function () {
+            if (!is_readonly) $el.removeAttr('readonly');
+        });
+    });
+});
