@@ -113,7 +113,6 @@ class IndexController extends Controller
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->orderBy('id')->get()->all();
         $user = session('usuario');
 
-
         $admin = ($user->admin == 1);
         $titular = ($user->id == $atendimento->id_usuario);
 

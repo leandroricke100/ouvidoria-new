@@ -117,6 +117,7 @@ function sair() {
 function buscarCodigo() {
     let numberProtocolo = $('#codigo').val();
 
+
     $.ajax({
         url: '/api/OuvidoriaBuscarProtocolo',
         type: "POST",
