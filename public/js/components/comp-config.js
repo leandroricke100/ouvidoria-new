@@ -8,24 +8,37 @@ $(document).ready(function () {
     // $('.conta').hide();
 });
 
-function modalMenu() {
-    $('#btnMenus').addClass('ativo');
-    $('#btnMinhaConta').removeClass('ativo');
-    $('.conta').hide();
-    $('#table').show();
-    $('#add-new').show();
+// function modalMenu() {
+//     $('#btnMenus').addClass('ativo');
+//     $('#btnMinhaConta').removeClass('ativo');
+//     $('.conta').hide();
+//     $('#table').show();
+//     $('#add-new').show();
 
+// }
+
+function modalEndereco(){
+    $('#btnEndereco').addClass('ativo');
+    $('#btnMinhaConta').removeClass('ativo');
+
+
+    $('.conta').hide();
+    $('.menuEndereco').show();
 }
 
 function modalConta(id) {
     $('#btnMinhaConta').addClass('ativo');
-    $('#btnMenus').removeClass('ativo');
-    $('#table').hide();
-    $('#add-new').hide();
+    $('#btnEndereco').removeClass('ativo');
+
+    // $('#table').hide();
+    // $('#add-new').hide();
+
     $('.conta').show();
-    $('.novo-menu').hide();
-    $('.button-cad-enviar').hide();
-    $('.btn-save-cad').show();
+    $('.menuEndereco').hide();
+
+    // $('.novo-menu').hide();
+    // $('.button-cad-enviar').hide();
+    // $('.btn-save-cad').show();
 
     let conta = id;
 
@@ -69,15 +82,15 @@ function modalConta(id) {
     });
 }
 
-function addNewMenu() {
-    $('#table').hide();
-    $('#add-new').hide();
-    $('.add-new').hide();
-    $('.novo-menu').show();
-    $('.saveEdit').hide();
-    $('.save').show();
+// function addNewMenu() {
+//     $('#table').hide();
+//     $('#add-new').hide();
+//     $('.add-new').hide();
+//     $('.novo-menu').show();
+//     $('.saveEdit').hide();
+//     $('.save').show();
 
-}
+// }
 
 function saveCadastro() {
     let dadosForm = new FormData($('#cad-atendimento')[0]);
@@ -248,6 +261,8 @@ function saveEdit() {
     });
 
 }
+
+
 
 function cancel() {
     location.reload();

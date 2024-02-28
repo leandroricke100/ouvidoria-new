@@ -10,7 +10,7 @@
 
             <div class="idenficacao">
                 <button id="itens" class="itens ativo"><i class="fas fa-user"></i>Identificação <p>Passo 1</p></button>
-                <button class="itens"><i class="fas fa-bullhorn"></i>Informações <p>Passo 2</p></button>
+                {{-- <button class="itens"><i class="fas fa-bullhorn"></i>Informações <p>Passo 2</p></button> --}}
             </div>
             <div class="container">
                 <div class="border"><span></span></div>

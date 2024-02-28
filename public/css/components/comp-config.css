@@ -332,3 +332,15 @@ select#status {
 .cancel:hover {
     opacity: 0.5;
 }
+
+.conta h1{
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.menuEndereco h1{
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+}
