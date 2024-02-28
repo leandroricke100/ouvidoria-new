@@ -145,5 +145,7 @@ function configuracao() {
 
 $(document).ready(function () {
     $('#codigo').mask('0000.000.000');
+    document.getElementById('codigo').value = '';
+
 });
 
