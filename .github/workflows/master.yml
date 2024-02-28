@@ -312,7 +312,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmmedeiros.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmmedeiros.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmsaojosedodivino:
     name: 🌐 Deploy - cmsaojosedodivino.gwouvidoria.com.br
@@ -336,7 +336,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmsaojosedodivino.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmsaojosedodivino.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmsenadormodestino:
     name: 🌐 Deploy - cmsenadormodestino.gwouvidoria.com.br
@@ -360,4 +360,4 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmsenadormodestino.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmsenadormodestino.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
