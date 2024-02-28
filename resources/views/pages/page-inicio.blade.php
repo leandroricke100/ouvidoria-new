@@ -126,6 +126,7 @@
                                     @endif. Consulte suas demandas.
                                 </p>
                             </div>
+
                             <a href="/atendimentos" class="inbox">Meu Inbox</a>
                         </div>
                     @endif
