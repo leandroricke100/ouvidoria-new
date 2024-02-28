@@ -28,7 +28,7 @@
             </a>
 
             <div class="div-codigo">
-                <input type="text" id="codigo" name="codigo" placeholder="Buscar por código" /><button class="btn-search-codigo"><i class="fas fa-search" onclick="buscarCodigo()"></i></button>
+                <input type="number" id="codigo" name="codigo" placeholder="Buscar por código" /><button class="btn-search-codigo"><i class="fas fa-search" onclick="buscarCodigo()"></i></button>
             </div>
 
 
