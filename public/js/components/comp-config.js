@@ -3,6 +3,9 @@ $(document).ready(function () {
     let id_usuario = $('[id_usuario]').attr('id_usuario');
     modalConta(id_usuario);
 
+
+    $('[dd=cep]').mask('00000-000');
+
     // $('#btnMenus').addClass('ativo');
     // $('.menu').show();
     // $('.conta').hide();
@@ -22,8 +25,11 @@ function modalEndereco(){
     $('#btnMinhaConta').removeClass('ativo');
 
 
+
+
     $('.conta').hide();
     $('.menuEndereco').show();
+    $('.btn-cancel-cad').show();
 }
 
 function modalConta(id) {
@@ -37,8 +43,8 @@ function modalConta(id) {
     $('.menuEndereco').hide();
 
     // $('.novo-menu').hide();
-    // $('.button-cad-enviar').hide();
-    // $('.btn-save-cad').show();
+    $('.button-cad-enviar').hide();
+    $('.btn-save-cad').show();
 
     let conta = id;
 

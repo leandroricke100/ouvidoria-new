@@ -208,7 +208,7 @@
 
             <div class="button-cad">
                 <button class="button-cad-enviar" type="submit">Prosseguir <i class="fal fa-angle-double-right" style="margin-left: 5px"></i></button>
-                <button class="button-cad-enviar btn-save-cad" type="button" onclick="saveCadastro()" style="display: none">Salvar <i class="fal fa-angle-double-right" style="margin-left: 5px"></i></button>
+                <button class="button-cad-enviar btn-save-cad" type="button" onclick="saveCadastro()" style="display: none"><i class="fal fa-save" style="margin-right: 5px"></i> Salvar</button>
             </div>
         </form>
     </section>
