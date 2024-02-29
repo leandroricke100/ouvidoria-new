@@ -108,7 +108,7 @@
                 <table width="100%" class="bloco-arquivado" style="display: none">
                     <thead>
                         <tr>
-                            <th>N°</th>
+                            <th >N°</th>
                             <th>De</th>
                             <th>Assunto</th>
                             <th>Data</th>

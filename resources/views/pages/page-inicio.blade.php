@@ -8,16 +8,13 @@
 
 
 @section('conteudo')
-    @include(
-        'components.comp-header',
-        [
-            'banner' => true,
-            'cadastro' => true,
-            'titulo_banner' => 'Central de Atendimento',
-            'subtitulo_banner' => $OuvidoriaConfiguracao->first()->titulo,
-            'voltar' => false,
-        ]
-    )
+    @include('components.comp-header', [
+        'banner' => true,
+        'cadastro' => true,
+        'titulo_banner' => 'Central de Atendimento',
+        'subtitulo_banner' => $OuvidoriaConfiguracao->first()->titulo,
+        'voltar' => false,
+    ])
 
     <main>
 
@@ -143,7 +140,7 @@
                 <div class="info-prefeitura">
                     <p class="prefeitura">{{ $OuvidoriaConfiguracao->first()->titulo }}</p>
                     <div class="tel-pref">
-                        <p>{{ $OuvidoriaConfiguracao->first()->informacoes }}</p>
+                        <p>{!! $OuvidoriaConfiguracao->first()->informacoes !!}</p>
                     </div>
 
                     <button class="organograma">Ver Organograma <i class="fal fa-angle-double-right"></i></button>

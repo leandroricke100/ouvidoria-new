@@ -12,7 +12,7 @@
         </a>
         <div class="cliente">
             <p><b>{{ $OuvidoriaConfiguracao->first()->titulo }}</b></p>
-            <p>{{ $OuvidoriaConfiguracao->first()->informacoes }}</p>
+            <p>{!! $OuvidoriaConfiguracao->first()->informacoes !!}</p>
         </div>
 
     </div>

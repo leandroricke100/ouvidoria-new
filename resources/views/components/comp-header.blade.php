@@ -32,21 +32,12 @@
                 <button class="btn-search-codigo"><i class="fas fa-search" onclick="buscarCodigo()"></i></button>
             </div>
 
-
             <div class="login-modal-mobile" style="display: none">
                 <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Entrar</button>
+                <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Configuração</button>
                 <button onclick="cad()"><i class="fal fa-user-plus"></i> Cadastro</button>
             </div>
 
-
-            {{-- <div class="btn-modal-search">
-                <button class="btn-search-number"><i class="fas fa-caret-down" onclick="openSearchBtn()"></i></button>
-
-                <div class="search-options" style="display: none">
-                    <a href="">Buscar por código</a>
-                    <a href>Buscar por número + cpf/cnpj</a>
-                </div>
-            </div> --}}
         </div>
 
         <div class="header-right">
