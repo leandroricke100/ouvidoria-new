@@ -1,3 +1,22 @@
+let classicEditor = null;
+
+$(document).ready(function () {
+
+    ClassicEditor
+        .create(document.querySelector('#atendimentoUsuario'))
+        .then(editor => {
+            classicEditor = editor;
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+
+
+
+});
+
 function printPage() {
     window.print();
 }
@@ -34,6 +53,8 @@ function deleteMsg(id) {
 
 function respostaUsuario() {
     let dadosForm = new FormData($('#cad-resposta-user')[0]);
+
+
 
     $.ajax({
         url: '/api/OuvidoriaAtendimento',

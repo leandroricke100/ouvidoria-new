@@ -173,6 +173,8 @@ class OuvidoriaController extends Controller
         $dadosForm = $request->all();
         if (!session('usuario')) return redirect('/');
 
+        if(!$dadosForm['atendimentoUsuario']) return ['status' =>false, 'msg' => 'Nehuma mensagem enviada'];
+
         $nome_arquivo = null;
         if ($request->file('arquivo')) {
             $FileHelper = new FileHelper;

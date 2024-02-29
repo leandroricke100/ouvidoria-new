@@ -34,7 +34,6 @@
 
             <div class="login-modal-mobile" style="display: none">
                 <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Entrar</button>
-                <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Configuração</button>
                 <button onclick="cad()"><i class="fal fa-user-plus"></i> Cadastro</button>
             </div>
 
@@ -76,9 +75,11 @@
             @endif
         </div>
 
-        <div class="modal-login" style="display: none;">
-            <button class="close-modal" onclick="closeModal()"><i class="fas fa-times-circle"></i></button>
-            @include('components.comp-login', ['usuario' => $usuario ?? null])
+        <div class="mobile-login">
+            <div class="modal-login" style="display: none;">
+                <button class="close-modal" onclick="closeModal()"><i class="fas fa-times-circle"></i></button>
+                @include('components.comp-login', ['usuario' => $usuario ?? null])
+            </div>
         </div>
     </div>
 </header>

@@ -39,7 +39,7 @@ header#comp-header {
 .login-modal-mobile {
     display: flex;
     flex-direction: column;
-    background-color: #1c1c1c;
+    background-color: #737373;
     top: 63px;
     position: absolute;
     /* left: 0px; */
@@ -50,17 +50,18 @@ header#comp-header {
     align-items: flex-start;
     justify-content: flex-start;
     gap: 10px;
-    height: 100vh;
-    top: 0;
+    min-height: 44vh;
+    top: 0px;
     width: 50%;
     right: 0;
     gap: 0;
-    padding: 13px 0;
+    padding: 60px 0;
+    border-radius: 4px 0px 0px 5px;
 }
 
 .login-modal-mobile button {
     padding: 9px;
-    background-color: transparent;
+    background-color: #919191;
     color: #fff;
     outline: none;
     border: none;
@@ -71,6 +72,8 @@ header#comp-header {
     text-align: left;
     width: 100%;
     padding: 15px 20px;
+    /* display: flex; */
+    margin-bottom: 9px;
 }
 
 .login-modal-mobile button i {

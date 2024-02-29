@@ -19,12 +19,6 @@ $(document).ready(function () {
 
 });
 
-function html_entity_decode(string) {
-    return $('<textarea />').html(string).text();
-}
-
-
-
 function modalEndereco() {
     $('#btnEndereco').addClass('ativo');
     $('#btnMinhaConta').removeClass('ativo');
@@ -46,7 +40,7 @@ function modalEndereco() {
             console.log(resposta);
             if (resposta.status) {
                 $('#nomeMunicipio').val(resposta.endereco.titulo);
-                classicEditor.setData(html_entity_decode(resposta.endereco.informacoes)); // Aqui aplicamos html_entity_decode()
+                classicEditor.setData(resposta.endereco.informacoes);
 
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });

@@ -427,6 +427,11 @@ div#btn-delete-msg {
     color: #ddd;
 }
 
+.ck-editor__editable[role="textbox"] {
+    /* Editing area */
+    min-height: 150px;
+}
+
 @media screen and (max-width:768px) {
 
     .container-atendi {
