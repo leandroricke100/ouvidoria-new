@@ -5,6 +5,7 @@
     <link href="{{ asset('css/pages/page-novo-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="{{ asset('js/pages/page-novo-atendimento.js') }}"></script>
+
 @endpush
 
 {{-- @php
