@@ -114,6 +114,7 @@ form#cad-atendimento select {
     font-size: 88%;
     margin-top: 20px;
     color: #333;
+    text-align: center;
 }
 
 .min-senha {
@@ -154,7 +155,17 @@ form#cad-atendimento select {
         width: auto !important;
     }
 
-    .padding-mobile {
-        padding: 15px;
+
+
+    .senha{
+        flex-direction: column;
+    }
+
+    .tipo-cad{
+        gap: 20px;
+    }
+
+    .cad-form-section{
+        margin-top: 0px;
     }
 }

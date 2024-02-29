@@ -28,13 +28,19 @@
             </a>
 
             <div class="div-codigo">
-                <input type="text" id="codigo" prevent-autocomplete placeholder="Buscar por código"/>
+                <input type="text" id="codigo" prevent-autocomplete placeholder="Buscar por código" />
                 <button class="btn-search-codigo"><i class="fas fa-search" onclick="buscarCodigo()"></i></button>
             </div>
-
             <div class="login-modal-mobile" style="display: none">
-                <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Entrar</button>
-                <button onclick="cad()"><i class="fal fa-user-plus"></i> Cadastro</button>
+                @if (isset($usuario))
+                    <button onclick="configuracao()"><i class="fas fa-users-cog"></i> Configurações</button>
+                    <button onclick="sair()"><i class="fas fa-power-off"></i> Sair</button>
+                @else
+                    <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Entrar</button>
+                    <button onclick="cad()"><i class="fal fa-user-plus"></i> Cadastro</button>
+                @endif
+
+
             </div>
 
         </div>
@@ -57,11 +63,9 @@
                         @if ($usuario->admin == 1)
                             <button onclick="configuracao()" class="configuracao">Configurações</button>
                         @else
-                            <button onclick="configuracao()" class="configuracao"
-                                    {{ $currentPage == 'configuracao' ? 'selected' : '' }}>Minha conta</button>
+                            <button onclick="configuracao()" class="configuracao" {{ $currentPage == 'configuracao' ? 'selected' : '' }}>Minha conta</button>
                         @endif
-                        <button onclick="sair()" class="sair"><i class="fas fa-power-off"
-                               style="margin-right: 5px"></i>Sair</button>
+                        <button onclick="sair()" class="sair"><i class="fas fa-power-off" style="margin-right: 5px"></i>Sair</button>
                     </div>
                 </div>
             @else

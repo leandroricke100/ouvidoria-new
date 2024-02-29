@@ -98,7 +98,7 @@ button.print {
 }
 
 .input-situacao {
-    padding: 6px 2px;
+    padding: 0px 2px;
     border: 1px solid #c9c9c9;
     border-radius: 9px;
     outline: none;
@@ -369,7 +369,7 @@ button#delete {
     padding: 3px 5px;
     color: #fff;
     border: none;
-    background-color: #ff2d2d;
+    background-color: #5b0000;
     border-radius: 6px;
     font-size: 13px;
     cursor: pointer;
@@ -432,6 +432,8 @@ div#btn-delete-msg {
     min-height: 150px;
 }
 
+
+
 @media screen and (max-width:768px) {
 
     .container-atendi {
@@ -457,4 +459,6 @@ div#btn-delete-msg {
     .container-atendimento {
         flex-direction: column;
     }
+
+
 }
