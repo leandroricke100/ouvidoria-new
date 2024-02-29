@@ -15,7 +15,13 @@ $(document).ready(function () {
     let id_usuario = $('[id_usuario]').attr('id_usuario');
     modalConta(id_usuario);
     $('[dd=cep]').mask('00000-000');
+
+
 });
+
+function html_entity_decode(string) {
+    return $('<textarea />').html(string).text();
+}
 
 
 
@@ -40,7 +46,8 @@ function modalEndereco() {
             console.log(resposta);
             if (resposta.status) {
                 $('#nomeMunicipio').val(resposta.endereco.titulo);
-                classicEditor.setData(resposta.endereco.informacoes);
+                classicEditor.setData(html_entity_decode(resposta.endereco.informacoes)); // Aqui aplicamos html_entity_decode()
+
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
