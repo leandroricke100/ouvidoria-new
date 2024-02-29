@@ -14,7 +14,9 @@ class IndexController extends Controller
     public function atendimentos(Request $request)
     {
         $user = session('usuario');
-        if (!$user) return redirect('/');
+
+
+        if (!session('usuario')) return redirect('/login');
 
 
         if ($user->admin == 1) {
@@ -150,4 +152,17 @@ class IndexController extends Controller
             'menus' => $menus,
         ]);
     }
+
+    public function novoAtendimento(Request $request)
+    {
+        $user = session('usuario');
+        if (!session('usuario')) return redirect('/login');
+
+        return view('pages.page-novo-atendimento', [
+            'usuario' => $user,
+        ]);
+    }
+
+
+
 }

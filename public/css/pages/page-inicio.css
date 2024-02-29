@@ -259,6 +259,7 @@ section.banner {
     text-align: left;
     font-weight: 600;
     text-decoration: none;
+    min-height: 130px;
 }
 
 .opcoes-home>div {
@@ -267,6 +268,7 @@ section.banner {
     gap: 20px;
     align-items: center;
     flex-wrap: wrap;
+
 }
 
 .opcoes-home .op i {

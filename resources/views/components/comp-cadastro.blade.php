@@ -18,12 +18,12 @@
             <div class="tipo-cad">
                 <div class="radio">
                     <input type="radio" id="pessoaFisica" name="tipoCadastro" value="pessoaFisica" checked required>
-                    <label for="pessoaFisica">Pessoa Física</label>
+                    <label for="pessoaFisica"> Pessoa Física <i class="fas fa-users" style="margin-left: 5px"></i></label>
                 </div>
 
                 <div class="radio">
                     <input type="radio" id="pessoaJuridica" name="tipoCadastro" value="pessoaJuridica" required>
-                    <label for="pessoaJuridica">Pessoa Jurídica</label>
+                    <label for="pessoaJuridica"> Pessoa Jurídica <i class="fas fa-building" style="margin-left: 5px"></i></label>
                 </div>
             </div>
 
@@ -71,7 +71,7 @@
 
                 <div class="field pf" style="flex-basis: 50%">
                     <label for="nomeCompleto">Nome completo:<span class="campo-obrigatorio"><span class="campo-obrigatorio">*</span></span></label>
-                    <input type="text" id="nomeCompleto" name="nomeCompleto" required>
+                    <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Nome completo" required>
                 </div>
 
 

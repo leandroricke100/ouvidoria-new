@@ -11,8 +11,6 @@
         ]
     )
     <main>
-        @include('components.comp-sigilo', ['sigilo' => true])
-
         @include('components.comp-cadastro')
     </main>
 

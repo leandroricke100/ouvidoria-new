@@ -89,6 +89,12 @@ class OuvidoriaController extends Controller
     {
         $dadosForm = $request->all();
 
+        // return response()->json([
+        //     'status' => true,
+        //     'msg' => 'Solicitação cadastrada com sucesso!',
+        //     'dados' => $dadosForm,
+        // ]);
+
 
         if (!session('usuario')) return redirect('/');
 
@@ -115,13 +121,21 @@ class OuvidoriaController extends Controller
         // CADASTRO DO ATENDIMENTO
         $atendimento = new OuvidoriaAtendimento;
 
-        if ($dadosForm['sigilo'] === 'semSigilo') {
-            $atendimento->sigiloso = 0;
-        } else {
-            $atendimento->sigiloso = 1;
+        // if ($dadosForm['sigilo'] === 'semSigilo') {
+        //     $atendimento->sigiloso = 0;
+        // } else {
+        //     $atendimento->sigiloso = 1;
+        // }
+
+
+        if ($dadosForm['assunto'] == 'Outros'){
+            $atendimento->assunto = $dadosForm['assuntoDesejado'];
+        }else{
+            $atendimento->assunto = $dadosForm['assunto'];
         }
 
-        $atendimento->assunto = $dadosForm['assunto'];
+        $atendimento->sigiloso = $dadosForm['sigilo'];
+        // $atendimento->assunto = $dadosForm['assunto'];
         $atendimento->tipo = $dadosForm['finalidade'];
         $atendimento->situacao = 'Novo';
         $atendimento->data = $dadosForm['data'];

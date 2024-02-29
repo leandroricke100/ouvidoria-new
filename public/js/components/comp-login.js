@@ -74,6 +74,35 @@ function loginModal(id) {
     });
 }
 
+$(document).ready(function () {
+
+    $('[dd=entrarCnpj]').keydown(function(){
+        try {
+            $('[dd=entrarCnpj]').unmask();
+        } catch (e) {}
+
+        var tamanho = $('[dd=entrarCnpj]').val().length;
+
+        if(tamanho < 11){
+            $('[dd=entrarCnpj]').mask("999.999.999-99");
+        } else {
+            $('[dd=entrarCnpj]').mask("99.999.999/9999-99");
+        }
+
+        // ajustando foco
+        var elem = this;
+        setTimeout(function(){
+            // mudo a posição do seletor
+            elem.selectionStart = elem.selectionEnd = 10000;
+        }, 0);
+        // reaplico o valor para mudar o foco
+        var currentValue = $(this).val();
+        $(this).val('');
+        $(this).val(currentValue);
+    });
+});
+
+
 function verificarEmail(id) {
     let $comp = $(`[comp-login=${id}]`);
     const email = $('[dd=emailLogin]').val();
@@ -111,7 +140,7 @@ function verificarEmail(id) {
     });
 }
 
-function senhaMostrar(){
+function senhaMostrar() {
 
     const senhaInput = $('[dd=senhaLogin]');
 
@@ -122,7 +151,7 @@ function senhaMostrar(){
 
 }
 
-function senhaOcultar(){
+function senhaOcultar() {
     const senhaInput = $('[dd=senhaLogin]');
 
     $('[dd=ocultar]').hide();

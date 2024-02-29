@@ -27,10 +27,7 @@ Route::get('/cadastro', function () {
     return view('pages.page-cadastro');
 });
 
-Route::get('novo/atendimento', function () {
-    if (!session('usuario')) return redirect('/login');
-    return view('pages.page-novo-atendimento');
-});
+Route::get('novo/atendimento', [IndexController::class, 'novoAtendimento'])->name('novo-atendimento');
 
 Route::get('/configuracao', [IndexController::class, 'menus'])->name('admin-menus');
 

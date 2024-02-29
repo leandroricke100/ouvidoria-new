@@ -22,25 +22,22 @@
         'subtitulo_banner_2' => 'Envie sua demanda para a Prefeitura',
     ])
     <main>
-        @include('components.comp-sigilo', ['sigilo' => false])
+        @include('components.comp-sigilo', ['sigilo' => true])
 
         <section class="container-main-atendimento">
-            <div class="idenficacao">
-                <div class="itens">
-                    <span><i class="fas fa-user"></i>Identificação</span>
-                    <p>Passo 1</p>
-                </div>
+            {{-- <div class="idenficacao">
+
                 <div class="itens ativo">
-                    <span><i class="fas fa-bullhorn"></i>Informações</span>
-                    <p>Passo 2</p>
+                    <span><i class="fas fa-info-circle"></i> Informações</span>
+
                 </div>
-            </div>
-            <div class="border"><span></span></div>
+            </div> --}}
+            {{-- <div class="border"><span></span></div> --}}
             <div class="text-sigiloso"><span><strong>Atendimento sigiloso:</strong> Seus dados estarão ocultos durante a tramitação. O pedido de sigilo deve ser justificado e caberá ao destinatário o deferimento ou não do sigilo.</span></div>
 
-            <form class="new-text form" id="new-atendimento-user">
+            <form class="form new-text" id="new-atendimento-user">
                 <div class="cad">
-                    <div class="inputs" style="flex-basis: 50%">
+                    <div class="inputs" style="flex-basis: 45%">
                         <label for="assunto">Assunto*:</label>
                         <select id="assunto" name="assunto" required>
                             <option value="" disabled selected>- Selecione -</option>
@@ -49,6 +46,11 @@
                             <option value="Reciclagem">Reciclagem</option>
                             <option value="Outros">Outros</option>
                         </select>
+                    </div>
+
+                    <div class="inputs outroAssuntoDesejado" style="flex-basis: 40%">
+                        <label for="assuntoDesejado">Assunto Desejado</label>
+                        <input type="text" name="assuntoDesejado" id="assuntoDesejado" placeholder="Digite o assuno" />
                     </div>
 
                     <div class="inputs">
@@ -88,8 +90,7 @@
 
                         <div class="inputs" style="flex-basis: 100%;">
                             <label for="atendimentoUsuario">Descrição*:</label>
-                            <textarea rows="8" cols="50" id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario"
-                                      rows="8" required></textarea>
+                            <textarea rows="8" cols="50" id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8" required></textarea>
                         </div>
 
                     </div>
@@ -110,16 +111,14 @@
 
                         <div class="inputs">
                             <label for="codAnterior">Cód. Anteriores:</label>
-                            <input type="text" id="codAnterior" name="codAnterior"
-                                   placeholder="Se este assunto já foi solicitado antes, informe o código">
+                            <input type="text" id="codAnterior" name="codAnterior" placeholder="Se este assunto já foi solicitado antes, informe o código">
                         </div>
                     </div>
 
                     <div class="bloco3">
                         <input type="file" id="arquivo" name="arquivo">
                         <input type="hidden" name="autor" id="autor" value="Usuario">
-                        <input type="hidden" name="sigilo" id="sigilo" value="sigilo">
-                        <input type="hidden" name="id_atendimento" id="id_atendimento" value="1">
+                        <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $usuario->id }}">
                         <button class="btn-enviar" type="submit">Registrar</button>
                     </div>
 

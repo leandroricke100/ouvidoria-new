@@ -32,7 +32,7 @@
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
     border-bottom: white;
-    margin-bottom: -11px;
+    margin-bottom: -21px;
     border-radius: 8px 8px 0 0;
     font-size: 13px;
     cursor: pointer;
@@ -106,6 +106,7 @@ input#sigilo {
 .sigilo p {
     color: #292929;
     font-weight: 600;
+    padding: 10px;
 }
 
 .input-sigilo label {
