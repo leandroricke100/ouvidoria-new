@@ -163,17 +163,31 @@ class IndexController extends Controller
         ]);
     }
     public function transparencia(Request $request)
-{
-    $quantidade = OuvidoriaAtendimento::max('id');
+    {
+        // Obter o primeiro e o último dia do mês atual
+        $primeiroDiaMesAtual = Carbon::now()->startOfMonth();
+        $ultimoDiaMesAtual = Carbon::now()->endOfMonth();
 
-    $quantidadeRespostas = OuvidoriaMensagem::where('autor', 'Camara')
-                            ->distinct('id_atendimento')
-                            ->count('id_atendimento');
+        // Filtrar os atendimentos dentro do intervalo do mês atual
+        $quantidadeMesAtual = OuvidoriaAtendimento::whereBetween('created_at', [$primeiroDiaMesAtual, $ultimoDiaMesAtual])->count();
 
-    return view('pages.page-transparencia', [
-        'quantidade' => $quantidade,
-        'quantidadeRespostas' => $quantidadeRespostas,
-    ]);
-}
+        // Filtrar as mensagens dentro do intervalo do mês atual
+        $quantidadeRespostasMesAtual = OuvidoriaMensagem::where('autor', 'camara')
+            ->whereBetween('created_at', [$primeiroDiaMesAtual, $ultimoDiaMesAtual])
+            ->distinct('id_atendimento')
+            ->count('id_atendimento');
 
+
+        // Calcular a porcentagem de respostas
+        $porcentagemDentroDoPrazo = ($quantidadeMesAtual != 0) ? ($quantidadeRespostasMesAtual / $quantidadeMesAtual) * 100 : 0;
+
+        // Limitar a porcentagem a 100%
+        $porcentagemDentroDoPrazo = min($porcentagemDentroDoPrazo, 100);
+
+        return view('pages.page-transparencia', [
+            'quantidade' => $quantidadeMesAtual,
+            'quantidadeRespostas' => $quantidadeRespostasMesAtual,
+            'porcentagemDentroDoPrazo' => $porcentagemDentroDoPrazo,
+        ]);
+    }
 }

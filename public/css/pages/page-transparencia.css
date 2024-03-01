@@ -13,6 +13,10 @@ section {
     margin-bottom: 30px;
 }
 
+.ano span{
+    font-size: 12px;
+}
+
 .atendimento h1{
     padding: 12px 17px 18px 17px;
     margin-bottom: 12px;
@@ -21,6 +25,7 @@ section {
     border-radius: 5px;
     color: #2c7bff;
     font-size: 21px;
+    margin-top: 20px;
 }
 .bloco {
     display: flex;
@@ -40,7 +45,31 @@ section {
     font-weight: 400;
     color: #696969;
     margin-bottom: 10px;
+
 }
+
+.text-bottom p {
+    font-weight: 400;
+    color: #696969;
+    font-size: 13px;
+    margin-top: 70px;
+}
+
+#title-assunto{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    margin-top: 50px;
+}
+
+span#grafico-porcentagem {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+
 
 @media screen and (max-width:768px){
     .bloco{

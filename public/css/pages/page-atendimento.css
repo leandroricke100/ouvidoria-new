@@ -63,9 +63,8 @@ button.print {
 }
 
 .image {
-    img {
-        max-height: 82px;
-    }
+    max-width: 82px;
+
 }
 
 .atendimento {
@@ -431,6 +430,8 @@ div#btn-delete-msg {
     /* Editing area */
     min-height: 150px;
 }
+
+
 
 
 

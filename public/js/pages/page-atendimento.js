@@ -11,6 +11,10 @@ $(document).ready(function () {
         .catch(error => {
             console.error(error);
         });
+
+
+
+
 });
 
 function printPage() {
