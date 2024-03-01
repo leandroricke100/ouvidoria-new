@@ -176,7 +176,7 @@ class OuvidoriaController extends Controller
         if(!$dadosForm['atendimentoUsuario']) return ['status' =>false, 'msg' => 'Nehuma mensagem enviada'];
 
         $nome_arquivo = null;
-        if ($request->file('arquivo')) {
+        if ($request->hasFile('arquivo')) {
             $FileHelper = new FileHelper;
             $infoAnexoImg = $FileHelper->upload([
                 'file' => $request->file('arquivo'),
@@ -474,17 +474,33 @@ class OuvidoriaController extends Controller
     {
         $dadosForm = $request->all();
 
+        if ($request->file('arquivo')) {
+            $FileHelper = new FileHelper;
+            $infoAnexoImg = $FileHelper->upload([
+                'file' => $request->file('arquivo'),
+                'pasta' => 'ouvidoria/arquivos',
+                'nome' => 'Arquivo Ouvidoria',
+                'observacao' => '',
+                'temporario' => false,
+                'restrito' => true,
+            ]);
+            $nome_arquivo = $infoAnexoImg['status'] ? $infoAnexoImg['nome_arquivo'] : null;
+
+
+        }
+
         $enderecoAtualizado = OuvidoriaConfiguracao::find(1);
 
         $enderecoAtualizado->informacoes = $dadosForm['enderecoCompleto'] ?? null;
         $enderecoAtualizado->titulo = $dadosForm['nomeMunicipio'] ?? null;
+        $enderecoAtualizado->arquivo = $nome_arquivo;
         $enderecoAtualizado->save();
-
 
         return response()->json([
             'status' => true,
             'msg' => 'Informações Atualizada.',
-            'endereco' => $dadosForm
+            'endereco' => $dadosForm,
+            'arquivo' => $nome_arquivo,
         ]);
     }
 }

@@ -20,7 +20,7 @@
             </div>
 
             <a href="/" class="brasao">
-                <img src="{{ asset('uploads/brasao.png') }}" />
+                <img src="/arquivo/{{ $OuvidoriaConfiguracao->first()->arquivo }}" />
                 <p>
                     <span>{{ $OuvidoriaConfiguracao->first()->titulo }}</span>
                     {{-- <span class="cidade">Campanário - MG</span> --}}

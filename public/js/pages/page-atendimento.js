@@ -50,6 +50,8 @@ function deleteMsg(id) {
 function respostaUsuario() {
     let dadosForm = new FormData($('#cad-resposta-user')[0]);
 
+    let resposta = classicEditor.getData();
+    dadosForm.append('atendimentoUsuario', resposta);
 
 
     $.ajax({
@@ -77,6 +79,10 @@ function respostaUsuario() {
 
         }
     });
+}
+
+function submitResposta() {
+    respostaUsuario();
 }
 
 $(() => $('form').submit(function (e) {

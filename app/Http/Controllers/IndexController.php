@@ -162,7 +162,18 @@ class IndexController extends Controller
             'usuario' => $user,
         ]);
     }
+    public function transparencia(Request $request)
+{
+    $quantidade = OuvidoriaAtendimento::max('id');
 
+    $quantidadeRespostas = OuvidoriaMensagem::where('autor', 'Camara')
+                            ->distinct('id_atendimento')
+                            ->count('id_atendimento');
 
+    return view('pages.page-transparencia', [
+        'quantidade' => $quantidade,
+        'quantidadeRespostas' => $quantidadeRespostas,
+    ]);
+}
 
 }

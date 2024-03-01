@@ -40,6 +40,8 @@ function modalEndereco() {
             console.log(resposta);
             if (resposta.status) {
                 $('#nomeMunicipio').val(resposta.endereco.titulo);
+                // $('#arquivo').val(resposta.endereco.arquivo);
+
                 classicEditor.setData(resposta.endereco.informacoes);
 
             } else {

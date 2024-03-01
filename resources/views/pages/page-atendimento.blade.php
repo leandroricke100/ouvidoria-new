@@ -241,8 +241,7 @@
                     @else
                         @if (isset($user) && $permitir_resposta)
                             <form class="new-text form" id="cad-resposta-user">
-                                <label for="atendimentoUsuario"><strong><i class="fas fa-retweet"></i> Interagir em
-                                        Atendimento</strong></label>
+                                <label for="atendimentoUsuario"><strong><i class="fas fa-retweet"></i> Interagir em Atendimento</strong></label>
                                 <p>Adicione informações e anexe arquivos, caso necessário:</p>
                                 <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
                                 <input type="file" id="arquivo" name="arquivo">
@@ -253,7 +252,7 @@
                                     <input type="hidden" name="autor" id="autor" value="Usuario">
                                     <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $atendimento->id }}">
                                 @endif
-                                <button id="btn-enviar" type="submit">Enviar</button>
+                                <button id="btn-enviar" type="button" onclick="submitResposta();">Enviar</button>
                             </form>
                         @endif
                     @endif

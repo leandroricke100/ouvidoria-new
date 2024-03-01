@@ -42,6 +42,11 @@
                 <form class="form" id="endereco-form">
                     <div class="cad-endereco">
                         <div style="display: none;" id_usuario="{{ $usuario->id }}"></div>
+                        <div class="img">
+                            <label>Foto do Brasão</label>
+                            <input type="file" id="arquivo" name="arquivo">
+                        </div>
+
                         <div class="field styleMunipio">
                             <label for="nomeMunicipio">Nome do Município</label>
                             <input type="text" id="nomeMunicipio" placeholder="Câmara Municipal XXXX - MG">

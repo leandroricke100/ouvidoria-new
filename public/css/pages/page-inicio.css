@@ -157,7 +157,6 @@ button.organograma {
     text-decoration: none;
 }
 
-
 .titulo-bx {
     padding: 15px;
     background-color: #f9f9f9;
@@ -169,6 +168,8 @@ button.organograma {
     margin-bottom: 15px;
     text-align: left;
     font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .banner-opcoes {

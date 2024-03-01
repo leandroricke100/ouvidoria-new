@@ -25,6 +25,10 @@ class FileHelper
 
         if ($tamanho > 524288000) return ['status' => false, 'msg' => "Tamanho máx. de arquivo permitido é de 500MB."];
 
+
+        $fonte = 'public';
+        // TODO: CORRIGIR ISSO FUTURAMENTE
+
         if ($fonte == 'storage') {
             $diretorio = Storage::path('uploads/' . $pasta);
             File::isDirectory($diretorio) or File::makeDirectory($diretorio, 0777, true, true);

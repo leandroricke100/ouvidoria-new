@@ -131,7 +131,7 @@
                 @endif
 
 
-                <span class="titulo-bx"><i class="fas fa-fw fa-chart-bar"></i> Transparência</span>
+                <a href="/transparencia" class="titulo-bx"><i class="fas fa-fw fa-chart-bar"></i> Transparência</a>
 
                 {{-- <div class="menus-right">
                 <button><i class="far fa-thumbs-up"></i> <strong>Consulta Prévia Online</strong></button>

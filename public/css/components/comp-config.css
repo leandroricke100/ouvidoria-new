@@ -438,3 +438,14 @@ textarea#endereco {
     /* Editing area */
     min-height: 150px;
 }
+
+.img{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.img label{
+    font-size: 88%;
+    color: #666 !important;
+}
