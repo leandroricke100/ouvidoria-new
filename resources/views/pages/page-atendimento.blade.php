@@ -35,6 +35,9 @@
                                 <p>{{ $atendimento->id }}/{{ $atendimento->ano }}</p>
                             </div>
                             <div class="cod">
+
+
+
                                 <span>Situação atual: </span>
                                 <input type="hidden" name="atendimento_id" id="atendimento_id" value="{{ $atendimento->id }}">
                                 @if ($user && $user->admin == 1)
