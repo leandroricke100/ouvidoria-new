@@ -23,9 +23,8 @@
             <input type="email" dd="emailLogin" placeholder="Ex: teste@teste.com" />
 
             <input type="text" name="entrarCnpj" dd="entrarCnpj" placeholder="CPF/CNPJ" style="display: none" />
-
             {{-- <input type="password" dd="senhaLogin" placeholder="*********" style="display: none" /> --}}
-
+{{-- teste --}}
             <div class="container-password" style="display: none">
                 <input type="password" dd="senhaLogin" placeholder="*********" />
                 <span class="visualizar-senha" dd="ocultar" onclick="senhaOcultar()" style="display: none"><i class="fas fa-eye-slash"></i></span>
