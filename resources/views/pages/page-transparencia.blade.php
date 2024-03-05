@@ -5,9 +5,6 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <script>
-
-
-
         $(document).ready(function() {
             // Opções para o primeiro gráfico (radialBar)
             var options1 = {
@@ -16,7 +13,7 @@
                     type: 'radialBar',
                 },
                 series: [{{ $porcentagemDentroDoPrazo }}],
-                labels: ['Respondidas'],
+                labels: ['Indice de satisfacao'],
             };
 
             // Opções para o segundo gráfico (bar)
@@ -36,14 +33,46 @@
                         x: 'Outros',
                         y: {{ $porcentagemDentroDoPrazo }}
                     }, {
-                        x: 'Limpeza de terreno baldio',
+                        x: 'Esgoto',
                         y: {{ $quantidade }}
                     }, {
-                        x: 'category C',
+                        x: 'Postos de Saúde',
                         y: {{ $porcentagemDentroDoPrazo }}
-                    }]
+                    },{
+                        x: 'Limpeza de terreno baldio',
+                        y: {{ $quantidade }}
+                    },{
+                        x: 'Marcação de consulta/procedimento',
+                        y: {{ $quantidade }}
+                    },{
+                        x: 'Fiscalização de Obras',
+                        y: {{ $quantidade }}
+                    },{
+                        x: 'Iluminação e Energia',
+                        y: {{ $quantidade }}
+                    },{
+                        x: 'Criação irregular de animais',
+                        y: {{ $quantidade }}
+                    },{
+                        x: 'Maus tratos a animais',
+                        y: {{ $quantidade }}
+                    },{
+                        x: 'Limpeza urbana',
+                        y: {{ $quantidade }}
+                    },
+
+                    ]
                 }]
             };
+
+            var options3 = {
+                chart: {
+                    type: 'donut',
+                    height: 400,
+                },
+                series: [44, 55, 13, 33, 11, 43, 22],
+                labels: ['Reclamação', 'Denúncia', 'Solicitação', 'Informação', 'Elogio', 'Sugestão', 'Simplifique']
+            }
 
             // Renderizar o primeiro gráfico
             var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
@@ -52,6 +81,9 @@
             // Renderizar o segundo gráfico
             var chart2 = new ApexCharts(document.querySelector("#assunto"), options2);
             chart2.render();
+
+            var chart3 = new ApexCharts(document.querySelector("#tipoManifestacao"), options3);
+            chart3.render();
         });
     </script>
 @endpush
@@ -104,6 +136,8 @@
 
             <div id="assunto"></div>
             <span id="grafico-porcentagem">Porcentagem (%)</span>
+
+            <div id="tipoManifestacao"></div>
 
 
             <div class="text-bottom">

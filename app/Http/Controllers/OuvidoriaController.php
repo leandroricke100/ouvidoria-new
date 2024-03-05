@@ -470,9 +470,12 @@ class OuvidoriaController extends Controller
         ]);
     }
 
+
     public function EditInfoAtualizado(Request $request)
     {
         $dadosForm = $request->all();
+        $enderecoAtualizado = OuvidoriaConfiguracao::find(1);
+
 
         if ($request->file('arquivo')) {
             $FileHelper = new FileHelper;
@@ -486,21 +489,22 @@ class OuvidoriaController extends Controller
             ]);
             $nome_arquivo = $infoAnexoImg['status'] ? $infoAnexoImg['nome_arquivo'] : null;
 
-
+            if ($infoAnexoImg['status']) {
+                // deletar antigo
+                $FileHelper->delete($enderecoAtualizado->arquivo);
+                $enderecoAtualizado->arquivo = $nome_arquivo;
+            }
         }
 
-        $enderecoAtualizado = OuvidoriaConfiguracao::find(1);
 
         $enderecoAtualizado->informacoes = $dadosForm['enderecoCompleto'] ?? null;
         $enderecoAtualizado->titulo = $dadosForm['nomeMunicipio'] ?? null;
-        $enderecoAtualizado->arquivo = $nome_arquivo;
         $enderecoAtualizado->save();
 
         return response()->json([
             'status' => true,
             'msg' => 'Informações Atualizada.',
             'endereco' => $dadosForm,
-            'arquivo' => $nome_arquivo,
         ]);
     }
 }

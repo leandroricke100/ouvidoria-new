@@ -67,4 +67,20 @@ class FileHelper
             'nome_arquivo' => $nome_arquivo_ext,
         ];
     }
+
+    public function delete($nome) {
+        $arquivo = Arquivo::where('nome_arquivo', $nome)->orWhere('arquivo', $nome)->first();
+        if (!$arquivo) return ['status' => false, 'msg' => "Arquivo não encontrado, tente novamente..."];
+
+
+        if ($arquivo->fonte == 'storage') {
+            Storage::delete('uploads/' . $arquivo->pasta . '/' . $arquivo->nome_arquivo);
+        } else {
+            File::delete(public_path() . '/uploads/' . $arquivo->pasta . '/' . $arquivo->nome_arquivo);
+        }
+
+        $arquivo->delete();
+
+        return ['status' => true, 'msg' => "Arquivo deletado com sucesso!"];
+    }
 }

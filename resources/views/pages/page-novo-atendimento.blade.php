@@ -42,9 +42,15 @@
                         <label for="assunto">Assunto*:</label>
                         <select id="assunto" name="assunto" required>
                             <option value="" disabled selected>- Selecione -</option>
-                            <option value="Demora no Atendimento">Demora no Atendimento</option>
-                            <option value="Meio Ambiente">Meio Ambiente</option>
-                            <option value="Reciclagem">Reciclagem</option>
+                            <option value="Esgoto">Esgoto</option>
+                            <option value="Limpeza de terreno baldio">Limpeza de terreno baldio</option>
+                            <option value="Postos de Saúde">Postos de Saúde</option>
+                            <option value="Marcação de consulta/procedimento">Marcação de consulta/procedimento</option>
+                            <option value="Fiscalização de Obras">Fiscalização de Obras</option>
+                            <option value="Iluminação e Energia">Iluminação e Energia</option>
+                            <option value="Criação irregular de animais">Criação irregular de animais</option>
+                            <option value="Maus tratos a animais">Maus tratos a animais</option>
+                            <option value="Limpeza urbana">Limpeza urbana</option>
                             <option value="Outros">Outros</option>
                         </select>
                     </div>
