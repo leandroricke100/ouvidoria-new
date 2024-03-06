@@ -12,6 +12,9 @@ $(document).ready(function () {
             console.error(error);
         });
 
+
+
+
     let id_usuario = $('[id_usuario]').attr('id_usuario');
     modalConta(id_usuario);
     $('[dd=cep]').mask('00000-000');

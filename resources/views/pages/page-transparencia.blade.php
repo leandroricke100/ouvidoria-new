@@ -13,11 +13,12 @@
                     type: 'radialBar',
                 },
                 series: [{{ $porcentagemDentroDoPrazo }}],
-                labels: ['Indice de satisfacao'],
+                labels: [''],
             };
 
             // Opções para o segundo gráfico (bar)
             var options2 = {
+
                 chart: {
                     type: 'bar',
                     height: 400,
@@ -29,40 +30,16 @@
                     }
                 },
                 series: [{
-                    data: [{
-                        x: 'Outros',
-                        y: {{ $porcentagemDentroDoPrazo }}
-                    }, {
-                        x: 'Esgoto',
-                        y: {{ $quantidade }}
-                    }, {
-                        x: 'Postos de Saúde',
-                        y: {{ $porcentagemDentroDoPrazo }}
-                    },{
-                        x: 'Limpeza de terreno baldio',
-                        y: {{ $quantidade }}
-                    },{
-                        x: 'Marcação de consulta/procedimento',
-                        y: {{ $quantidade }}
-                    },{
-                        x: 'Fiscalização de Obras',
-                        y: {{ $quantidade }}
-                    },{
-                        x: 'Iluminação e Energia',
-                        y: {{ $quantidade }}
-                    },{
-                        x: 'Criação irregular de animais',
-                        y: {{ $quantidade }}
-                    },{
-                        x: 'Maus tratos a animais',
-                        y: {{ $quantidade }}
-                    },{
-                        x: 'Limpeza urbana',
-                        y: {{ $quantidade }}
-                    },
-
+                    data: [
+                        @foreach ($porcentagemAssunto as $assunto => $porcentagem)
+                            {
+                                x: '{{ $assunto }}',
+                                y: {{ $porcentagem }},
+                            },
+                        @endforeach
                     ]
-                }]
+                }],
+
             };
 
             var options3 = {
@@ -70,9 +47,70 @@
                     type: 'donut',
                     height: 400,
                 },
-                series: [44, 55, 13, 33, 11, 43, 22],
-                labels: ['Reclamação', 'Denúncia', 'Solicitação', 'Informação', 'Elogio', 'Sugestão', 'Simplifique']
+                series: [
+                    @foreach ($porcentagemManifestacao as $manifestacao => $porcentagem)
+                        {{ $porcentagem }},
+                    @endforeach
+                ],
+                labels: [
+                    @foreach ($porcentagemManifestacao as $manifestacao => $porcentagem)
+                        '{{ $manifestacao }}',
+                    @endforeach
+                ]
             }
+            var options4 = {
+                plotOptions: {
+                    bar: {
+                        distributed: true
+                    }
+                },
+                chart: {
+                    type: 'bar',
+                    height: 400,
+                    width: '60%'
+                },
+                series: [{
+                    data: [
+                        @foreach ($porcentagemGenero as $genero => $porcentagem)
+                            {
+                                x: '{{ $genero }}',
+                                y: {{ $porcentagem }},
+                            },
+                        @endforeach
+                    ]
+                }]
+            };
+
+
+            var options5 = {
+                chart: {
+                    type: 'bar',
+                    height: 400,
+                    stackType: "100%"
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true
+                    }
+                },
+                colors: ['#56BDCA'],
+                series: [{
+                    data: [{
+                        x: 'Não Informado',
+                        y: 15,
+                    }, {
+                        x: '39-48',
+                        y: 20,
+                    }, {
+                        x: '29-38',
+                        y: 10
+                    }, {
+                        x: '18-28',
+                        y: 16
+                    }]
+                }],
+
+            };
 
             // Renderizar o primeiro gráfico
             var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
@@ -84,6 +122,12 @@
 
             var chart3 = new ApexCharts(document.querySelector("#tipoManifestacao"), options3);
             chart3.render();
+
+            var chart4 = new ApexCharts(document.querySelector("#genero"), options4);
+            chart4.render();
+
+            var chart5 = new ApexCharts(document.querySelector("#idade"), options5);
+            chart5.render();
         });
     </script>
 @endpush
@@ -129,6 +173,7 @@
                 </div>
             </div>
 
+            <span id="title-satisfacao">Indice de Satisfação</span>
             <div id="chart"></div>
 
             <span id="title-assunto">Principais Assuntos</span>
@@ -137,7 +182,17 @@
             <div id="assunto"></div>
             <span id="grafico-porcentagem">Porcentagem (%)</span>
 
+
+            <span id="title-manifestacao">Tipos manifestação</span>
             <div id="tipoManifestacao"></div>
+
+            <span id="title-genero">Gênero Solicitantes</span>
+            <div id="genero"></div>
+            <span id="grafico-porcentagem">Porcentagem (%)</span>
+
+            <span id="title-idade">Faixa Etária Solicitantes</span>
+            <div id="idade"></div>
+            <span id="grafico-porcentagem">Quantidade</span>
 
 
             <div class="text-bottom">

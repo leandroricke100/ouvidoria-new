@@ -8,6 +8,7 @@ use App\Models\OuvidoriaMensagem;
 use App\Models\OuvidoriaUsuario;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -164,6 +165,8 @@ class IndexController extends Controller
     }
     public function transparencia(Request $request)
     {
+
+
         // Obter o primeiro e o último dia do mês atual
         $primeiroDiaMesAtual = Carbon::now()->startOfMonth();
         $ultimoDiaMesAtual = Carbon::now()->endOfMonth();
@@ -184,10 +187,58 @@ class IndexController extends Controller
         // Limitar a porcentagem a 100%
         $porcentagemDentroDoPrazo = min($porcentagemDentroDoPrazo, 100);
 
+
+        $assuntos = OuvidoriaAtendimento::select('assunto', DB::raw('count(*) as total'))
+            ->groupBy('assunto')
+            ->get();
+
+        $totalAtendimentos = OuvidoriaAtendimento::count();
+
+        $porcentagemAssunto = [];
+
+        foreach ($assuntos as $assunto) {
+            $porcentagem = ($assunto->total / $totalAtendimentos) * 100;
+            $porcentagem = number_format($porcentagem, 1);
+            $porcentagemAssunto[$assunto->assunto] = $porcentagem;
+        }
+
+        $manifestacao = OuvidoriaAtendimento::select('tipo', DB::raw('count(*) as total'))
+            ->groupBy('tipo')
+            ->get();
+
+        $porcentagemManifestacao = [];
+
+        foreach ($manifestacao as $tipo) {
+            $porcentagem = ($tipo->total / $totalAtendimentos) * 100;
+            $porcentagem = number_format($porcentagem, 1);
+            $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
+        }
+
+        $porcentagemGenero = [
+            'Masculino' =>  OuvidoriaUsuario::whereNotNull('sexo')->where('sexo', 'Masculino')->count(),
+            'Feminino' => OuvidoriaUsuario::whereNotNull('sexo')->where('sexo', 'Feminino')->count(),
+            'Não Informado' => OuvidoriaUsuario::whereNull('sexo')->orWhere('sexo', '')->count(),
+        ];
+
+        $totalGenero = OuvidoriaUsuario::count();
+
+        foreach ($porcentagemGenero as $sexo => $contagem) {
+
+            $porcentagem = ($contagem / $totalGenero) * 100;
+            $porcentagem = number_format($porcentagem, 1);
+            $porcentagemGenero[$sexo] = $porcentagem;
+        }
+
+
+
+
         return view('pages.page-transparencia', [
             'quantidade' => $quantidadeMesAtual,
             'quantidadeRespostas' => $quantidadeRespostasMesAtual,
             'porcentagemDentroDoPrazo' => $porcentagemDentroDoPrazo,
+            'porcentagemAssunto' => $porcentagemAssunto,
+            'porcentagemManifestacao' => $porcentagemManifestacao,
+            'porcentagemGenero' => $porcentagemGenero,
         ]);
     }
 }
