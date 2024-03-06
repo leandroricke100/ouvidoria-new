@@ -229,8 +229,38 @@ class IndexController extends Controller
             $porcentagemGenero[$sexo] = $porcentagem;
         }
 
+        $usuarios = OuvidoriaUsuario::all();
 
+        $idade18_28 = 0;
+        $idade29_38 = 0;
+        $idade39_48 = 0;
+        $idadeNaoInformado = 0;
 
+        foreach ($usuarios as $usuario){
+            $idade = \Carbon\Carbon::parse($usuario->data_nascimento)->age;
+
+            if($idade >= 18 && $idade <= 28){
+                $idade18_28++;
+            } else if($idade >= 29 && $idade <= 38){
+                $idade29_38++;
+            } else if($idade >= 39 && $idade <= 48){
+                $idade39_48++;
+            } else {
+                $idadeNaoInformado++;
+            }
+        }
+
+        $totalUsuarios = $usuarios->count();
+
+        $idade18_28 = ($idade18_28 / $totalUsuarios) * 100;
+        $idade29_38 = ($idade29_38 / $totalUsuarios) * 100;
+        $idade39_48 = ($idade39_48 / $totalUsuarios) * 100;
+        $idadeNaoInformado = ($idadeNaoInformado / $totalUsuarios) * 100;
+
+        $idade18_28 = number_format($idade18_28, 1);
+        $idade29_38 = number_format($idade29_38, 1);
+        $idade39_48 = number_format($idade39_48, 1);
+        $idadeNaoInformado = number_format($idadeNaoInformado, 1);
 
         return view('pages.page-transparencia', [
             'quantidade' => $quantidadeMesAtual,
@@ -239,6 +269,10 @@ class IndexController extends Controller
             'porcentagemAssunto' => $porcentagemAssunto,
             'porcentagemManifestacao' => $porcentagemManifestacao,
             'porcentagemGenero' => $porcentagemGenero,
+            'idade18_28' => $idade18_28,
+            'idade29_38' => $idade29_38,
+            'idade39_48' => $idade39_48,
+            'idadeNaoInformado' => $idadeNaoInformado,
         ]);
     }
 }

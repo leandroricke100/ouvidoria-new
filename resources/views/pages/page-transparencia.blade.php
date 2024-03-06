@@ -97,16 +97,16 @@
                 series: [{
                     data: [{
                         x: 'Não Informado',
-                        y: 15,
+                        y: {{ $idadeNaoInformado }}
                     }, {
                         x: '39-48',
-                        y: 20,
+                        y: {{ $idade39_48 }}
                     }, {
                         x: '29-38',
-                        y: 10
+                        y: {{ $idade29_38 }}
                     }, {
                         x: '18-28',
-                        y: 16
+                        y: {{ $idade18_28 }}
                     }]
                 }],
 
@@ -192,7 +192,7 @@
 
             <span id="title-idade">Faixa Etária Solicitantes</span>
             <div id="idade"></div>
-            <span id="grafico-porcentagem">Quantidade</span>
+            <span id="grafico-porcentagem">Porcentagem (%)</span>
 
 
             <div class="text-bottom">
