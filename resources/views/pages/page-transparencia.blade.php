@@ -12,7 +12,7 @@
                     height: 400,
                     type: 'radialBar',
                 },
-                series: [{{ $porcentagemDentroDoPrazo }}],
+                series: [{{ $porcentagemAvaliacao }}],
                 labels: [''],
             };
 
@@ -112,6 +112,15 @@
 
             };
 
+            var options6 = {
+                chart: {
+                    height: 400,
+                    type: 'radialBar',
+                },
+                series: [{{ $porcentagemDentroDoPrazo }}],
+                labels: ['Mês: {{ Carbon\Carbon::now()->format('m/Y') }}'],
+            };
+
             // Renderizar o primeiro gráfico
             var chart1 = new ApexCharts(document.querySelector("#chart"), options1);
             chart1.render();
@@ -128,6 +137,9 @@
 
             var chart5 = new ApexCharts(document.querySelector("#idade"), options5);
             chart5.render();
+
+            var chart6 = new ApexCharts(document.querySelector("#resposta"), options6);
+            chart6.render();
         });
     </script>
 @endpush
@@ -194,6 +206,8 @@
             <div id="idade"></div>
             <span id="grafico-porcentagem">Porcentagem (%)</span>
 
+            <span id="resposta-porcentagem">Resposta no prazo</span>
+            <div id="resposta"></div>
 
             <div class="text-bottom">
                 <p>Dados disponibilizados conforme Lei 13.460 e Lei 12.527.</p>

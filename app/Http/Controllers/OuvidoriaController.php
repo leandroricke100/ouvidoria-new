@@ -512,6 +512,24 @@ class OuvidoriaController extends Controller
     {
         $dados = $request->all();
 
+        $atendimento = OuvidoriaAtendimento::find($dados['id_atendimento']);
+
+        if (!$atendimento) {
+            return response()->json([
+                'status' => false,
+                'msg' => 'Atendimento não encontrado.',
+            ]);
+        }
+
+        if($dados['permitido'] != 1){
+            return response()->json([
+                'status' => false,
+                'msg' => 'Você não tem permissão para classificar esse atendimento.',
+            ]);
+        }
+
+        $atendimento->classificacao = $dados['classificacao'];
+        $atendimento->save();
 
         return response()->json([
             'status' => true,

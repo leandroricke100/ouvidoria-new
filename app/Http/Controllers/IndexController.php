@@ -84,12 +84,23 @@ class IndexController extends Controller
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $id)->orderBy('id')->get()->all();
         $user = session('usuario');
 
+        $atendimento = OuvidoriaAtendimento::find($id);
+
+
+
         foreach ($mensagens as $mensagem) {
             $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
         }
 
         $admin = ($user->admin == 1);
         $titular = ($user->id == $atendimento->id_usuario);
+
+
+        $avaliacao = $atendimento->classificacao;;
+
+
+
+
 
         $permitido = $admin || $titular;
 
@@ -98,6 +109,8 @@ class IndexController extends Controller
             'mensagens' => $mensagens,
             'user' => $user,
             'permitir_resposta' => $permitido,
+            'titular' => $titular,
+            'avaliacao' => $avaliacao,
         ]);
     }
 
@@ -236,14 +249,14 @@ class IndexController extends Controller
         $idade39_48 = 0;
         $idadeNaoInformado = 0;
 
-        foreach ($usuarios as $usuario){
+        foreach ($usuarios as $usuario) {
             $idade = \Carbon\Carbon::parse($usuario->data_nascimento)->age;
 
-            if($idade >= 18 && $idade <= 28){
+            if ($idade >= 18 && $idade <= 28) {
                 $idade18_28++;
-            } else if($idade >= 29 && $idade <= 38){
+            } else if ($idade >= 29 && $idade <= 38) {
                 $idade29_38++;
-            } else if($idade >= 39 && $idade <= 48){
+            } else if ($idade >= 39 && $idade <= 48) {
                 $idade39_48++;
             } else {
                 $idadeNaoInformado++;
@@ -262,6 +275,17 @@ class IndexController extends Controller
         $idade39_48 = number_format($idade39_48, 1);
         $idadeNaoInformado = number_format($idadeNaoInformado, 1);
 
+        $classificacoes = OuvidoriaAtendimento::select('classificacao')->whereNotNull('classificacao')->get()->all();
+        $totalAvaliacoes = count($classificacoes);
+
+        $total = 0;
+        foreach ($classificacoes as $avaliacao) $total += $avaliacao->classificacao;
+
+        $resultado = $total / $totalAvaliacoes;
+        $resultado = number_format($resultado, 1);
+        $porcentagemAvaliacao = $resultado * 20;
+
+
         return view('pages.page-transparencia', [
             'quantidade' => $quantidadeMesAtual,
             'quantidadeRespostas' => $quantidadeRespostasMesAtual,
@@ -273,6 +297,7 @@ class IndexController extends Controller
             'idade29_38' => $idade29_38,
             'idade39_48' => $idade39_48,
             'idadeNaoInformado' => $idadeNaoInformado,
+            'porcentagemAvaliacao' => $porcentagemAvaliacao,
         ]);
     }
 }

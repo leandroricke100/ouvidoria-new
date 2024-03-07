@@ -12,10 +12,10 @@ $(document).ready(function () {
             console.error(error);
         });
 
-    const ratingInputs = document.querySelectorAll('.rating__input');
+    const inpuAvaliacao = document.querySelectorAll('.rating__input');
 
-    ratingInputs.forEach(input => {
-        input.addEventListener('change', enviarClassificacao);
+    inpuAvaliacao.forEach(avaliacao => {
+        avaliacao.addEventListener('change', enviarClassificacao);
     });
 
 
@@ -23,30 +23,26 @@ $(document).ready(function () {
 });
 
 function enviarClassificacao() {
-    const ratingInputs = document.querySelectorAll('.rating__input');
+
+    let idAtendimento = document.getElementById('id_atendimento').value;
+    let permitido = document.getElementById('permitido').value;
+
+    const inpuAvaliacao = document.querySelectorAll('.rating__input');
     let classificacao = null;
 
-    ratingInputs.forEach(input => {
-        if (input.checked) {
-            // Apenas a primeira classificação selecionada é necessária
-            classificacao = input.value;
-            // console.log('Classificação selecionada:', classificacao); // Adiciona este log para depuração
-            return; // Saia do loop assim que encontrar a classificação selecionada
+    inpuAvaliacao.forEach(avaliacao => {
+        if (avaliacao.checked) {
+
+            classificacao = avaliacao.value;
+            return;
         }
     });
 
-    if (classificacao === null) {
-        console.error('Nenhuma classificação selecionada');
-        return; // Não envie a requisição se nenhuma classificação estiver selecionada
-    }
-
-    console.log(classificacao);
-
-
     let dados = {
         classificacao: classificacao,
+        id_atendimento: idAtendimento,
+        permitido: permitido,
     };
-
 
     $.ajax({
         url: '/api/OuvidoriaClassificacao',
@@ -58,8 +54,10 @@ function enviarClassificacao() {
             console.log(resposta);
             if (resposta.status) {
                 popNotif({ msg: resposta.msg, time: 2000 });
+
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
+                location.reload();
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
