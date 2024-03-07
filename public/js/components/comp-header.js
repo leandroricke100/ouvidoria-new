@@ -8,6 +8,9 @@ $(function () {
 
 $(document).ready(function () {
     $('#codigo').mask('0000.000.000');
+
+
+
 });
 
 
@@ -32,6 +35,7 @@ function closeMenuMobile() {
     $('.login-modal-mobile').fadeOut(200);
     $('.open-mm').show();
     $('.close-mm').hide();
+    // $('#fundo-blur').hide();
 }
 
 function cad() {
@@ -40,6 +44,7 @@ function cad() {
 
 function modalLoginUser() {
 
+    $('#fundo-blur').show();
     $('.modal-login').fadeIn(300);
     $('.input-login').hide();
     $('.input-login-modal').show();
@@ -80,6 +85,7 @@ function closeModal() {
     $('.modal-login').hide();
     $('.input-login').show();
     $('.input-login-modal').hide();
+    $('#fundo-blur').hide();
 }
 
 

@@ -408,10 +408,11 @@ div#btn-delete-msg {
     cursor: pointer;
     padding: 0 0.1em;
     font-size: 20px;
+    color: orange;
 }
 
 #full-stars-example-two .rating__icon--star {
-    color: orange;
+    /* color: orange; */
 }
 
 .rating__input:checked~.rating__label .rating__icon--star {

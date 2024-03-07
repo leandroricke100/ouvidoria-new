@@ -163,6 +163,8 @@ button.btn-search-number {
     cursor: pointer;
     font-size: 13px;
     height: 89px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 /*pode ser que tenha header-richt*/
@@ -236,7 +238,7 @@ a.cadastro {
     align-items: stretch;
     font-size: 12px;
     padding: 0;
-    margin-right: 24px;
+    /* margin-right: 24px; */
 }
 
 .login-cad a {
@@ -244,9 +246,9 @@ a.cadastro {
     display: flex;
     align-items: center;
     line-height: 1;
-    font-size: 13px;
+    font-size: 14px;
     transition: .1s ease;
-    background: #efefef;
+    background: #ffffff;
     padding: 12px 20px;
     /* border-radius: 11px; */
     color: #333;
@@ -289,7 +291,7 @@ a.brasao {
     text-decoration: none;
     color: #313131;
     gap: 14px;
-    padding: 10px 0;
+    padding: 10px 0 10px 20px;
     font-size: 17px;
 }
 
@@ -327,7 +329,17 @@ a.brasao p .cidade {
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 19px 20px -18px #00000070;
-    z-index: 9999999;
+    z-index: 999;
+}
+
+#fundo-blur{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    backdrop-filter: blur(3px);
+    z-index: 99;
 }
 
 .close-modal {

@@ -12,7 +12,9 @@
 @endphp
 
 <header id="comp-header" class="{{ $currentPage == 'minhaconta' ? 'selected' : '' }}">
+    <div id="fundo-blur" style="display: none;"></div>
     <div class="conteudo">
+
         <div class="header-left">
             <div class="menu-left-modal" style="display: none">
                 <button class="btn-menu-mobile open-mm" onclick="openMenuMobile()"><i class="fas fa-bars"></i></button>
@@ -36,6 +38,7 @@
                     <button onclick="configuracao()"><i class="fas fa-users-cog"></i> Configurações</button>
                     <button onclick="sair()"><i class="fas fa-power-off"></i> Sair</button>
                 @else
+
                     <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Entrar</button>
                     <button onclick="cad()"><i class="fal fa-user-plus"></i> Cadastro</button>
                 @endif
@@ -107,3 +110,5 @@
         </div>
     </section>
 @endif
+
+

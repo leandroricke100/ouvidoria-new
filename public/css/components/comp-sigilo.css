@@ -2,15 +2,20 @@
     max-width: 1160px;
     margin-right: auto;
     margin-left: auto;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     gap: 6px;
     font-size: 12px;
     margin-top: 20px;
+    border-bottom: 1px solid #cdcdcd;
+    height: 40px;
 }
 
 .itens.ativo {
     background-color: white;
+    border-bottom: 2px solid white;
+    margin-bottom: -23px;
+    z-index: 3;
 }
 
 .itens.ativo i {

@@ -13,7 +13,7 @@
                 {{-- <button class="itens"><i class="fas fa-bullhorn"></i>Informações <p>Passo 2</p></button> --}}
             </div>
             <div class="container">
-                <div class="border"><span></span></div>
+                {{-- <div class="border"><span></span></div> --}}
                 <p>Manifestações anônimas deve ser feitas presencialmente ou pelo telefone 156 de segunda a sexta das 7h às 13h.</p>
                 <div class="sigilo">
                     <p>Identificação:</p>
