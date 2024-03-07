@@ -99,6 +99,7 @@ a.inbox {
     color: #333;
     font-size: 15px;
     width: 100%;
+    margin-bottom: 15px;
 }
 
 .tel-pref {
@@ -279,6 +280,38 @@ section.banner {
 .opcoes-home {
     display: flex;
     flex-direction: column;
+}
+
+
+.transparencia {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 9px;
+    color: #333;
+    font-size: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+a.transparencia-btn {
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background-color: #59bf59;
+    border-radius: 9px;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+a.transparencia-btn:hover {
+    opacity: 0.5
 }
 
 @media screen and (max-width: 768px) {
