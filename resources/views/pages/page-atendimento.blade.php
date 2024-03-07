@@ -87,7 +87,7 @@
                                 <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
                                 <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio" @if ($avaliacao == 5) checked @endif>
                                 <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $atendimento->id }}">
-                                <input type="hidden" name="permitido" id="permitido" value="{{ $titular }}">
+                                <input type="hidden" name="permitido" id="permitido" value="{{ $permitir_resposta }}">
                             </div>
                         </div>
 
@@ -180,13 +180,14 @@
                                                 <p>{{ $mensagem->id }}/{{ $atendimento->ano }}</p>
                                             </div>
 
-                                            @if ($mensagem->autor == 'Camara')
-                                                @if ($user->admin == 1)
+                                            @if ($user && $user->admin == 1)
+                                                @if ($mensagem->autor == 'Camara')
                                                     <div id="btn-delete-msg">
                                                         <button id="delete" onclick="deleteMsg({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
                                                     </div>
                                                 @endif
                                             @endif
+
                                         </div>
                                         <div class="tempo-res">
                                             <p>{{ $mensagem->created_at->format('d/m/Y') }} às

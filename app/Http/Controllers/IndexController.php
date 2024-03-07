@@ -96,19 +96,15 @@ class IndexController extends Controller
         $titular = ($user->id == $atendimento->id_usuario);
 
 
-        $avaliacao = $atendimento->classificacao;;
+        $avaliacao = $atendimento->classificacao;
 
-
-
-
-
-        $permitido = $admin || $titular;
+        $permitir_resposta = $admin || $titular;
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
             'user' => $user,
-            'permitir_resposta' => $permitido,
+            'permitir_resposta' => $permitir_resposta,
             'titular' => $titular,
             'avaliacao' => $avaliacao,
         ]);
@@ -132,13 +128,16 @@ class IndexController extends Controller
         $admin = $user && $user->admin == 1;
         $titular = $user && $user->id == $atendimento->id_usuario;
 
-        $permitido = $admin || $titular;
+        $avaliacao = $atendimento->classificacao;
+
+        $permitir_resposta = $admin || $titular;
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
             'user' => $user,
-            'permitir_resposta' => $permitido,
+            'permitir_resposta' => $permitir_resposta,
+            'avaliacao' => $avaliacao,
         ]);
     }
 

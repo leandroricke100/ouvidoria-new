@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="field pf" style="flex-basis: 50%">
+                <div class="field pf" style="flex-basis: 42%">
                     <label for="nomeCompleto">Nome completo:<span class="campo-obrigatorio"><span class="campo-obrigatorio">*</span></span></label>
                     <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Nome completo" required>
                 </div>
@@ -86,10 +86,6 @@
                     <input type="date" id="dataNascimento" name="dataNascimento">
                 </div>
 
-                <div class="field pf" style="flex-basis: 50%">
-                    <label for="funcao">Função:</label>
-                    <input type="text" id="funcao" name="funcao" placeholder="Função/Cargo">
-                </div>
 
                 <div class="field pf" style="flex-basis: 45%">
                     <label for="organizacao">Organização:</label>
@@ -123,17 +119,17 @@
                     </select>
                 </div>
 
-                <div class="field" style="flex-basis: 40%">
+                <div class="field" style="flex-basis: 50%">
                     <label for="email">E-mail*:</label>
                     <input type="text" id="email" name="email" value='' placeholder="Digite seu e-email" required>
                 </div>
 
-                <div class="field">
+                <div class="field" style="flex-basis: 45%">
                     <label for="telefone">Telefone:</label>
                     <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone">
                 </div>
 
-                <div class="field">
+                <div class="field" style="flex-basis: 50%">
                     <label for="celular">Celular:</label>
                     <input type="tel" id="celular" name="celular" placeholder="Digite seu celular">
                 </div>
