@@ -281,9 +281,14 @@ class IndexController extends Controller
         $total = 0;
         foreach ($classificacoes as $avaliacao) $total += $avaliacao->classificacao;
 
-        $resultado = $total / $totalAvaliacoes;
-        $resultado = number_format($resultado, 1);
-        $porcentagemAvaliacao = $resultado * 20;
+        if ($totalAvaliacoes) {
+            $resultado = $total / $totalAvaliacoes;
+            $resultado = number_format($resultado, 1);
+            $porcentagemAvaliacao = $resultado * 20;
+        } else {
+            $porcentagemAvaliacao = 0;
+        }
+
 
 
         return view('pages.page-transparencia', [
