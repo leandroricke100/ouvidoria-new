@@ -3,9 +3,9 @@
 
 @push('head')
     <link href="{{ asset('css/pages/page-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
-    <script src="{{ asset('js/pages/page-atendimento.js') }}"></script>
-    <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+    <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/pages/page-atendimento.js') }}"></script>
 @endpush
 
 

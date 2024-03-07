@@ -34,3 +34,5 @@ Route::post('/OuvidoriaCadAtualizado', [OuvidoriaController::class, 'EditCadAtua
 Route::post('/OuvidoriaEditInformacao', [OuvidoriaController::class, 'EditInformacao']);
 
 Route::post('/OuvidoriaInfoAtualizado', [OuvidoriaController::class, 'EditInfoAtualizado']);
+
+Route::post('/OuvidoriaClassificacao', [OuvidoriaController::class, 'Classsicacao']);

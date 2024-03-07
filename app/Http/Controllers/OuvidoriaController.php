@@ -128,9 +128,9 @@ class OuvidoriaController extends Controller
         // }
 
 
-        if ($dadosForm['assunto'] == 'Outros'){
+        if ($dadosForm['assunto'] == 'Outros') {
             $atendimento->assunto = $dadosForm['assuntoDesejado'];
-        }else{
+        } else {
             $atendimento->assunto = $dadosForm['assunto'];
         }
 
@@ -173,7 +173,7 @@ class OuvidoriaController extends Controller
         $dadosForm = $request->all();
         if (!session('usuario')) return redirect('/');
 
-        if(!$dadosForm['atendimentoUsuario']) return ['status' =>false, 'msg' => 'Nehuma mensagem enviada'];
+        if (!$dadosForm['atendimentoUsuario']) return ['status' => false, 'msg' => 'Nehuma mensagem enviada'];
 
         $nome_arquivo = null;
         if ($request->hasFile('arquivo')) {
@@ -505,6 +505,18 @@ class OuvidoriaController extends Controller
             'status' => true,
             'msg' => 'Informações Atualizada.',
             'endereco' => $dadosForm,
+        ]);
+    }
+
+    public function Classsicacao(Request $request)
+    {
+        $dados = $request->all();
+
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Avaliação Enviada.',
+            'dados' => $dados,
         ]);
     }
 }
