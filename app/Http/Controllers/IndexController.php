@@ -103,6 +103,9 @@ class IndexController extends Controller
         $numFormat = str_replace('.', '', $atendimento->codigo);
         $link = route('usuario-protocolo', ['numero' => $numFormat]);
 
+
+
+
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,

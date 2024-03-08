@@ -28,7 +28,7 @@
                 <div class="bloco1">
 
                     <div class="image">
-                        {!! substr(QrCode::size(90)->generate('{{ $link }}'), 38) !!}
+                        {!! substr(QrCode::size(90)->generate($link), 38) !!}
                     </div>
 
 
