@@ -218,12 +218,18 @@ class IndexController extends Controller
             ->groupBy('tipo')
             ->get();
 
-        $porcentagemManifestacao = [];
 
-        foreach ($manifestacao as $tipo) {
-            $porcentagem = ($tipo->total / $totalAtendimentos) * 100;
-            $porcentagem = number_format($porcentagem, 1);
-            $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
+
+        if ($manifestacao) {
+            $porcentagemManifestacao = [];
+
+            foreach ($manifestacao as $tipo) {
+                $porcentagem = ($tipo->total / $totalAtendimentos) * 100;
+                $porcentagem = number_format($porcentagem, 1);
+                $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
+            }
+        } else {
+            $porcentagemManifestacao = [0];
         }
 
         $porcentagemGenero = [
