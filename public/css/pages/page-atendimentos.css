@@ -154,9 +154,24 @@ span.prioridade {
     font-size: 11px;
     padding: 4px 7px;
     border-radius: 3px;
-    background-color: #4881c3 !important;
     border: 0 !important;
     color: white !important;
+}
+
+span.Baixo {
+    background-color: #4881c3 !important;
+}
+
+span.Média {
+    background-color: #ffcc00 !important;
+}
+
+span.alta {
+    background-color: #ff9933 !important;
+}
+
+span.urgente {
+    background-color: #ff0000 !important;
 }
 
 

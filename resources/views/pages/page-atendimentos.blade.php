@@ -67,7 +67,7 @@
                                                         @if ($atendimento->sigiloso == 1)
                                                             <span class="sigiloso">Sigiloso</span>
                                                         @else
-                                                            <span class="sigiloso">Sem Sigiloso</span>
+                                                            <span class="sigiloso">Sem Sigilo</span>
                                                         @endif
                                                     </div>
                                                 </a>
@@ -135,7 +135,7 @@
                                                         @if ($atendimento->sigiloso == 1)
                                                             <span class="sigiloso">Sigiloso</span>
                                                         @else
-                                                            <span class="sigiloso">Sem Sigiloso</span>
+                                                            <span class="sigiloso">Sem Sigilo</span>
                                                         @endif
                                                     </div>
                                                 </a>
@@ -144,7 +144,7 @@
                                                 <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                                     <div class="assunto">
                                                         <span class="title">{{ $atendimento->assunto }}</span>
-                                                        <span class="prioridade">{{ $atendimento->prioridade }}</span>
+                                                        <span class="prioridade {{$atendimento->prioridade}}">{{ $atendimento->prioridade }}</span>
                                                     </div>
                                                 </a>
                                             </td>

@@ -40,25 +40,27 @@
                                 <p>{{ $atendimento->id }}/{{ $atendimento->ano }}</p>
                             </div>
                             <div class="cod">
+                                <div class="cod-mobile">
+                                    <span>Situação atual: </span>
+                                    <input type="hidden" name="atendimento_id" id="atendimento_id" value="{{ $atendimento->id }}">
+                                    @if ($user && $user->admin == 1)
+                                        <select class="input-situacao" id="situacao" name="situacao">
+                                            <option value="Novo" {{ $atendimento->situacao == 'novo' ? 'selected' : '' }}>Novo
+                                            </option>
+                                            <option value="Andamento" {{ $atendimento->situacao == 'Andamento' ? 'selected' : '' }}>
+                                                Andamento</option>
+                                            <option value="Finalizado" {{ $atendimento->situacao == 'Finalizado' ? 'selected' : '' }}>
+                                                Finalizado</option>
+                                        </select>
+                                    @else
+                                        <p>{{ $atendimento->situacao }}</p>
+                                    @endif
 
-
-
-                                <span>Situação atual: </span>
-                                <input type="hidden" name="atendimento_id" id="atendimento_id" value="{{ $atendimento->id }}">
-                                @if ($user && $user->admin == 1)
-                                    <select class="input-situacao" id="situacao" name="situacao">
-                                        <option value="Novo" {{ $atendimento->situacao == 'novo' ? 'selected' : '' }}>Novo
-                                        </option>
-                                        <option value="Andamento" {{ $atendimento->situacao == 'Andamento' ? 'selected' : '' }}>
-                                            Andamento</option>
-                                        <option value="Finalizado" {{ $atendimento->situacao == 'Finalizado' ? 'selected' : '' }}>
-                                            Finalizado</option>
-                                    </select>
-                                @else
-                                    <p>{{ $atendimento->situacao }}</p>
-                                @endif
-                                <span>Código nº:</span>
-                                <p>{{ $atendimento->codigo }}</p>
+                                </div>
+                                <div class="cod-mobile bloco2">
+                                    <span>Código nº:</span>
+                                    <p>{{ $atendimento->codigo }}</p>
+                                </div>
                             </div>
                         </div>
                         <div class="div-print">
@@ -215,9 +217,13 @@
                                         <span></span>
                                     </div>
 
-                                    @if ($mensagem->arquivo !== null)
+                                    @if ($mensagem->arquivo)
                                         <div class="arquivo">
                                             <a class="link" href="/arquivo/{{ $mensagem->arquivo }}" target="blank"><i class="far fa-paperclip" style="margin-right: 8px"></i>Anexo</a>
+                                        </div>
+                                    @else
+                                        <div class="arquivo">
+                                            <span>Sem Anexo</span>
                                         </div>
                                     @endif
                                 </div>

@@ -72,6 +72,7 @@ button.print {
     align-items: center;
     gap: 10px;
     font-size: 18px;
+    margin-bottom: 7px;
 }
 
 .atendimento i {
@@ -234,6 +235,7 @@ button.print {
 .arquivo {
     font-size: 12px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 #cad-resposta-user {
@@ -331,7 +333,6 @@ textarea#atendimentoUsuario {
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
     width: 100%;
 }
 
@@ -433,8 +434,17 @@ div#btn-delete-msg {
 }
 
 
-.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items{
+.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
     flex-wrap: wrap !important;
+}
+
+.bloco2{
+    display: flex;
+    gap: 5px;
+}
+
+.res-comentario {
+    min-height: 50px;
 }
 
 
@@ -464,5 +474,29 @@ div#btn-delete-msg {
         flex-direction: column;
     }
 
+    .cod-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        margin-right: 12px;
+    }
+    .div-print{
+        justify-content: flex-end;
+        margin-top: 15px;
+    }
+
+    .painel-left{
+        gap: 10px;
+        border-radius: 0;
+    }
+
+    .painel-right{
+        margin-top: 10px;
+    }
+
+    .number-despacho{
+        justify-content: space-between;
+    }
 
 }
