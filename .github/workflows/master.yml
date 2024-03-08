@@ -26,7 +26,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/new.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/new.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmcampanario:
     name: 🌐 Deploy - cmcampanario.gwouvidoria.com.br
@@ -50,7 +50,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmcampanario.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmcampanario.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   pmfronteiradosvales:
     name: 🌐 Deploy - pmfronteiradosvales.gwouvidoria.com.br
@@ -74,7 +74,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/pmfronteiradosvales.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/pmfronteiradosvales.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmperiquito:
     name: 🌐 Deploy - cmperiquito.gwouvidoria.com.br
@@ -98,7 +98,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmperiquito.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmperiquito.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmpontodosvolantes:
     name: 🌐 Deploy - cmpontodosvolantes.gwouvidoria.com.br
@@ -122,7 +122,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmpontodosvolantes.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmpontodosvolantes.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmaguaboa:
     name: 🌐 Deploy - cmaguaboa.gwouvidoria.com.br
@@ -146,7 +146,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmaguaboa.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmaguaboa.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmmiravania:
     name: 🌐 Deploy - cmmiravania.gwouvidoria.com.br
@@ -170,7 +170,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmmiravania.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmmiravania.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmmanga:
     name: 🌐 Deploy - cmmanga.gwouvidoria.com.br
@@ -194,7 +194,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmmanga.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmmanga.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmmarilac:
     name: 🌐 Deploy - cmmarilac.gwouvidoria.com.br
@@ -218,7 +218,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmmarilac.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmmarilac.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
   cimcentral:
     name: 🌐 Deploy - cimcentral.gwouvidoria.com.br
     runs-on: ubuntu-latest
@@ -241,7 +241,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cimcentral.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cimcentral.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
   cmaimores:
     name: 🌐 Deploy - cmaimores.gwouvidoria.com.br
     runs-on: ubuntu-latest
@@ -264,7 +264,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmaimores.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmaimores.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmalpercata:
     name: 🌐 Deploy - cmalpercata.gwouvidoria.com.br
@@ -288,7 +288,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmalpercata.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmalpercata.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmmedeiros:
     name: 🌐 Deploy - cmmedeiros.gwouvidoria.com.br
@@ -312,7 +312,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmmedeiros.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmmedeiros.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmsaojosedodivino:
     name: 🌐 Deploy - cmsaojosedodivino.gwouvidoria.com.br
@@ -336,7 +336,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmsaojosedodivino.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmsaojosedodivino.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmsenadormodestino:
     name: 🌐 Deploy - cmsenadormodestino.gwouvidoria.com.br
@@ -360,7 +360,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmsenadormodestino.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmsenadormodestino.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmdemo:
     name: 🌐 Deploy - cmdemo.gwouvidoria.com.br
@@ -384,7 +384,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmdemo.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmdemo.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   ciscen:
     name: 🌐 Deploy - ciscen.gwouvidoria.com.br
@@ -408,7 +408,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/ciscen.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/ciscen.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmitambacuri:
     name: 🌐 Deploy - cmitambacuri.gwouvidoria.com.br
@@ -432,4 +432,4 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmitambacuri.gwouvidoria.com.br && composer remove bacon/bacon-qr-code && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmitambacuri.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
