@@ -18,10 +18,8 @@
 
     <main>
 
-        @php
-            $qrCode = QrCode::size(90)->generate('https://google.com.br');
-            echo substr($qrCode, 38);
-        @endphp
+
+        {{-- {!! substr(QrCode::size(90)->generate('https://google.com.br'), 38) !!} --}}
 
         <section class="banner">
 

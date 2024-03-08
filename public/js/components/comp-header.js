@@ -138,6 +138,7 @@ function buscarCodigo() {
             console.log(resposta);
             if (resposta.status) {
                 popNotif({ msg: resposta.msg, time: 2000 });
+                //console.log(resposta.link);
                 location.replace(resposta.link);
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
