@@ -449,3 +449,7 @@ textarea#endereco {
     font-size: 88%;
     color: #666 !important;
 }
+
+.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items{
+    flex-wrap: wrap !important;
+}

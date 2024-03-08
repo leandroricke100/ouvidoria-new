@@ -145,4 +145,8 @@ input#sigilo {
     .padding-mobile {
         padding: 15px;
     }
+
+    .container p{
+        font-size: 12px;
+    }
 }

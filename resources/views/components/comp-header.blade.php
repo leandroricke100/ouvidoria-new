@@ -35,10 +35,15 @@
             </div>
             <div class="login-modal-mobile" style="display: none">
                 @if (isset($usuario))
-                    <button onclick="configuracao()"><i class="fas fa-users-cog"></i> Configurações</button>
+                    <a class="inicio-mobile" href="/"><i class="fas fa-home"></i> Início</a>
+                    <a class="solicitacoes-mobile" href="/atendimentos"><i class="fas fa-inbox"></i> Solicitações</a>
+                    @if ($usuario->admin == 1)
+                        <button onclick="configuracao()" class="configuracao"><i class="fas fa-cogs"></i> Configurações</button>
+                    @else
+                        <button onclick="configuracao()" class="configuracao" {{ $currentPage == 'configuracao' ? 'selected' : '' }}><i class="fad fa-user-cog"></i> Minha conta</button>
+                    @endif
                     <button onclick="sair()"><i class="fas fa-power-off"></i> Sair</button>
                 @else
-
                     <button onclick="modalLoginUser()"><i class="fal fa-sign-in"></i> Entrar</button>
                     <button onclick="cad()"><i class="fal fa-user-plus"></i> Cadastro</button>
                 @endif
@@ -110,5 +115,3 @@
         </div>
     </section>
 @endif
-
-

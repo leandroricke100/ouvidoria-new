@@ -29,4 +29,12 @@
     #comp-footer {
         width: auto;
     }
+
+    #comp-footer .div-footer img{
+        width: 115px;
+    }
+
+    .cliente p{
+        font-size: 12px;
+    }
 }

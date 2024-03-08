@@ -38,24 +38,19 @@ header#comp-header {
 
 .login-modal-mobile {
     display: flex;
-    flex-direction: column;
     background-color: #737373;
-    top: 63px;
     position: absolute;
-    /* left: 0px; */
     flex-direction: column;
     z-index: 99;
-    width: 100%;
     height: 100px;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 10px;
-    min-height: 44vh;
+    min-height: 51vh;
     top: 0px;
     width: 50%;
     right: 0;
     gap: 0;
-    padding: 60px 0;
+    padding: 65px 0;
     border-radius: 4px 0px 0px 5px;
 }
 
@@ -73,11 +68,11 @@ header#comp-header {
     width: 100%;
     padding: 15px 20px;
     /* display: flex; */
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 }
 
 .login-modal-mobile button i {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .div-codigo {
@@ -329,7 +324,7 @@ a.brasao p .cidade {
     flex-direction: column;
     justify-content: center;
     box-shadow: 0 19px 20px -18px #00000070;
-    z-index: 999;
+    z-index: 99999;
 }
 
 #fundo-blur{
@@ -339,7 +334,7 @@ a.brasao p .cidade {
     width: 100%;
     min-height: 100vh;
     backdrop-filter: blur(3px);
-    z-index: 99;
+    z-index: 999;
 }
 
 .close-modal {
@@ -379,7 +374,7 @@ a.brasao p .cidade {
 
 
 .banner-header h1 {
-    font-size: 22px;
+    font-size: 20px;
     /* margin-bottom: 5px; */
     display: flex;
     align-items: center;
@@ -396,7 +391,7 @@ a.brasao p .cidade {
 
 .fa-bullhorn:before {
     content: "\f0a1";
-    font-size: 14px;
+    font-size: 20px;
     margin-right: 10px;
 }
 
@@ -472,6 +467,40 @@ a.inicio.selected {
 
 header#comp-header .header-right>* {
     height: 100%;
+}
+
+.inicio-mobile{
+    padding: 9px;
+    background-color: #919191;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    padding: 15px 20px;
+    /* display: flex; */
+    margin-bottom: 8px;
+}
+
+.solicitacoes-mobile{
+    padding: 9px;
+    background-color: #919191;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    text-align: left;
+    width: 100%;
+    padding: 15px 20px;
+    /* display: flex; */
+    margin-bottom: 8px;
 }
 
 

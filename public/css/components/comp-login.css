@@ -173,6 +173,14 @@
     .container-login {
         padding: 15px;
     }
+
+    .login{
+        max-width: inherit;
+    }
+
+    .modal-login{
+        width: 80%;
+    }
 }
 
 

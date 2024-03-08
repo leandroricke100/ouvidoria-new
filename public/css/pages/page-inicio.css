@@ -356,4 +356,9 @@ a.transparencia-btn:hover {
     .container .container-right .ajuda {
         width: 100%;
     }
+    .opcoes-home .op{
+        min-height: auto;
+    }
+
+
 }
