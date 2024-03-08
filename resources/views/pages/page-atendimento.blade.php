@@ -19,9 +19,7 @@
 
 
     <main>
-        {{-- @php
-            $link = route('usuario-protocolo', ['numero' => $numFormat]);
-        @endphp --}}
+
         <div class="container-login">
 
             @include('components.comp-sigilo', ['sigilo' => false])
@@ -30,7 +28,7 @@
                 <div class="bloco1">
 
                     <div class="image">
-                        {!! substr(QrCode::size(90)->generate(url()->current()), 38) !!}
+                        {!! substr(QrCode::size(90)->generate('{{ $link }}'), 38) !!}
                     </div>
 
 
