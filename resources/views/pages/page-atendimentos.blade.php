@@ -69,7 +69,7 @@
                                                         @if ($atendimento->sigiloso == 1)
                                                             <span class="sigiloso">Sigiloso</span>
                                                         @else
-                                                            <span class="sigiloso">Sem Sigilo</span>
+                                                            <span class="semSigilo">Sem Sigilo</span>
                                                         @endif
                                                     </div>
                                                 </a>
@@ -77,8 +77,9 @@
                                             <td>
                                                 <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                                     <div class="assunto">
-                                                        <span class="title">{{ $atendimento->assunto }}</span>
+
                                                         <span class="prioridade {{ $Helper->slugfy($atendimento->prioridade) }}">{{ $atendimento->prioridade }}</span>
+                                                        <span class="title">{{ $atendimento->assunto }}</span>
                                                     </div>
                                                 </a>
                                             </td>
@@ -137,7 +138,7 @@
                                                         @if ($atendimento->sigiloso == 1)
                                                             <span class="sigiloso">Sigiloso</span>
                                                         @else
-                                                            <span class="sigiloso">Sem Sigilo</span>
+                                                            <span class="semSigilo">Sem Sigilo</span>
                                                         @endif
                                                     </div>
                                                 </a>
@@ -145,8 +146,9 @@
                                             <td>
                                                 <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                                     <div class="assunto">
+
+                                                        <span class="prioridade {{ $Helper->slugfy($atendimento->prioridade) }}">{{ $atendimento->prioridade }}</span>
                                                         <span class="title">{{ $atendimento->assunto }}</span>
-                                                        <span class="prioridade {{ $atendimento->prioridade }}">{{ $atendimento->prioridade }}</span>
                                                     </div>
                                                 </a>
                                             </td>

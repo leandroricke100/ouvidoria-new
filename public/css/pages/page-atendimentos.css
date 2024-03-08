@@ -137,14 +137,23 @@ span.sigiloso {
     font-size: 11px;
     padding: 4px 4px;
     border-radius: 3px;
-    background: #fff !important;
-    border: 1px solid #aaa !important;
-    color: #888 !important;
+    background: #2c7bff !important;
+    border: 1px solid #2c7bff !important;
+    color: #fff !important;
+}
+
+span.semSigilo {
+    font-size: 11px;
+    padding: 4px 4px;
+    border-radius: 3px;
+    background: #ffffff !important;
+    border: 1px solid #2c7bff !important;
+    color: #2c7bff !important;
 }
 
 .assunto {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     gap: 6px;
     padding: 5px;
@@ -158,20 +167,20 @@ span.prioridade {
     color: white !important;
 }
 
-span.Baixo {
-    background-color: #4881c3 !important;
+span.baixo {
+    background-color:  #BFC9CA !important;
 }
 
-span.Média {
-    background-color: #ffcc00 !important;
+span.media {
+    background-color: #28B463 !important;
 }
 
 span.alta {
-    background-color: #ff9933 !important;
+    background-color:  #ffcc00 !important;
 }
 
 span.urgente {
-    background-color: #ff0000 !important;
+    background-color: #f74747  !important;
 }
 
 
