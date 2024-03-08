@@ -109,8 +109,6 @@
                             @else
                                 <span>Sem Sigilo</span>
                             @endif
-
-                            <p>Prioridade: Alta</p>
                         </div>
                         <div class="finalidade">
                             <p class="fina">{{ $atendimento->tipo }}:</p>
