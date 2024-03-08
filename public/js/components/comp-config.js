@@ -124,7 +124,6 @@ function modalConta(id) {
                 dados['senha'] = '';
                 dados['nomeCompleto'] = dados.nome_completo;
                 dados['dataNascimento'] = dados.data_nascimento;
-                dados['funcao'] = dados.cargo;
                 dados['emailAlternativo'] = dados.email_alternativo;
                 dados['nomeFantasia'] = dados.nome_fantasia;
                 dados['razaoSocial'] = dados.razao_social;

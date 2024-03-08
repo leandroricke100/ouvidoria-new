@@ -25,19 +25,7 @@ class OuvidoriaController extends Controller
 
         $user = new OuvidoriaUsuario;
 
-        if ($dadosForm['profissao'] == 'null') {
-            $user->profissao = null;
-        } else {
 
-            $user->profissao = $dadosForm['profissao'];
-
-
-            // if ($dadosForm['profissao'] == 'Outros'){
-            //     $user->profissao = $dadosForm['profissaoOutros'];
-            // }else{
-            //     $user->profissao = $dadosForm['profissao'];
-            // }
-        }
 
         if ($dadosForm['sexo'] == 'null') {
             $user->sexo = null;
@@ -62,7 +50,6 @@ class OuvidoriaController extends Controller
         $user->email = $dadosForm['email'];
         $user->email_alternativo = $dadosForm['emailAlternativo'];
         $user->endereco = $dadosForm['endereco'];
-        $user->cargo = $dadosForm['funcao'];
         $user->nome_completo = $dadosForm['nomeCompleto'];
         $user->contato_principal = $dadosForm['nomeContato'];
         $user->nome_fantasia = $dadosForm['nomeFantasia'];
@@ -439,7 +426,6 @@ class OuvidoriaController extends Controller
         $userUpdate->email = $dadosForm['email'] ?? null;
         $userUpdate->email_alternativo = $dadosForm['emailAlternativo'] ?? null;
         $userUpdate->endereco = $dadosForm['endereco'] ?? null;
-        $userUpdate->cargo = $dadosForm['funcao'] ?? null;
         $userUpdate->nome_completo = $dadosForm['nomeCompleto'] ?? null;
         $userUpdate->contato_principal = $dadosForm['nomeContato'] ?? null;
         $userUpdate->nome_fantasia = $dadosForm['nomeFantasia'] ?? null;
