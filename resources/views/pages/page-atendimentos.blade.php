@@ -1,3 +1,5 @@
+@inject('Helper', 'App\Helper\Helper')
+
 @extends('layout.layout-global', ['titulo' => 'Meus atendimentos'])
 
 @push('head')
@@ -76,7 +78,7 @@
                                                 <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                                     <div class="assunto">
                                                         <span class="title">{{ $atendimento->assunto }}</span>
-                                                        <span class="prioridade">{{ $atendimento->prioridade }}</span>
+                                                        <span class="prioridade {{ $Helper->slugfy($atendimento->prioridade) }}">{{ $atendimento->prioridade }}</span>
                                                     </div>
                                                 </a>
                                             </td>
@@ -144,7 +146,7 @@
                                                 <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
                                                     <div class="assunto">
                                                         <span class="title">{{ $atendimento->assunto }}</span>
-                                                        <span class="prioridade {{$atendimento->prioridade}}">{{ $atendimento->prioridade }}</span>
+                                                        <span class="prioridade {{ $atendimento->prioridade }}">{{ $atendimento->prioridade }}</span>
                                                     </div>
                                                 </a>
                                             </td>

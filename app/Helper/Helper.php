@@ -15,6 +15,36 @@ class Helper
         return  date('d/m/Y H:i:s', strtotime($data));
     }
 
+    public function slugfy($string, $divider = '-')
+    {
+        $string = mb_strtolower($string);
+
+        // replace non letter or digits by divider
+        $string = preg_replace('~[^\pL\d]+~u', $divider, $string);
+
+        // transliterate
+        $string = iconv('utf-8', 'us-ascii//TRANSLIT', $string);
+
+        // remove unwanted characters
+        $string = preg_replace('~[^-\w]+~', '', $string);
+
+        // trim
+        $string = trim($string, $divider);
+
+        // remove duplicate divider
+        $string = preg_replace('~-+~', $divider, $string);
+
+        // lowercase
+        $string = strtolower($string);
+
+        if (empty($string)) return 'n-a';
+
+        $ultima = substr($string, -1);
+        if ($ultima == '-') $string = substr($string, 0, -1);
+
+        return $string;
+    }
+
     // public function someHideEmail($data)
     // {
 
