@@ -137,12 +137,16 @@ class IndexController extends Controller
 
         $permitir_resposta = $admin || $titular;
 
+        $numFormat = str_replace('.', '', $atendimento->codigo);
+        $link = route('usuario-protocolo', ['numero' => $numFormat]);
+
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
             'user' => $user,
             'permitir_resposta' => $permitir_resposta,
             'avaliacao' => $avaliacao,
+            'link' => $link,
         ]);
     }
 
