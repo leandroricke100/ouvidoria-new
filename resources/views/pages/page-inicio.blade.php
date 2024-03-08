@@ -18,6 +18,11 @@
 
     <main>
 
+        @php
+            $qrCode = QrCode::size(90)->generate('https://google.com.br');
+            echo substr($qrCode, 38);
+        @endphp
+
         <section class="banner">
 
             <div class="banner-opcoes">
@@ -110,7 +115,7 @@
                     <p class="prefeitura"><i class="fas fa-fw fa-chart-bar"></i> Transparência</p>
 
 
-                    <a href="/transparencia" class="transparencia-btn"  >Ver Transparencia </a>
+                    <a href="/transparencia" class="transparencia-btn">Ver Transparencia </a>
                 </div>
 
                 <div class="info-prefeitura">
