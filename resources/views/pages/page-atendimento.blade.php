@@ -111,8 +111,8 @@
                             @endif
                         </div>
                         <div class="finalidade">
-                            <p class="fina">{{ $atendimento->tipo }}:</p>
-                            <p>Reclamação</p>
+                            <p>Finalidade: </p>
+                            <p class="fina">{{ $atendimento->tipo }}</p>
                         </div>
 
                         <div class="border">
@@ -156,7 +156,8 @@
 
                         <div class="msg">
                             <div class="data-time">
-                                <p><b>Data/Hora:</b> {{ date('d/m/Y H:i:s', strtotime($atendimento->created_at)) }}</p>
+                                <p><strong>Data/Hora:</strong></p>
+                                <p>{{ date('d/m/Y H:i:s', strtotime($atendimento->created_at)) }}</p>
                             </div>
                             <p>{{ $mensagens[0]->mensagem }}</p>
                         </div>

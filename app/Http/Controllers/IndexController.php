@@ -247,6 +247,14 @@ class IndexController extends Controller
             'Não Informado' => OuvidoriaUsuario::whereNull('sexo')->orWhere('sexo', '')->count(),
         ];
 
+        if($porcentagemGenero['Masculino'] == 0 && $porcentagemGenero['Feminino'] == 0 && $porcentagemGenero['Não Informado'] == 0){
+            $porcentagemGenero = [
+                'Masculino' => 0,
+                'Feminino' => 0,
+                'Não Informado' => 0,
+            ];
+        }
+
         $totalGenero = OuvidoriaUsuario::count();
 
         foreach ($porcentagemGenero as $sexo => $contagem) {

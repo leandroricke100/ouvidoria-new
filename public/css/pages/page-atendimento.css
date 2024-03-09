@@ -438,7 +438,7 @@ div#btn-delete-msg {
     flex-wrap: wrap !important;
 }
 
-.bloco2{
+.bloco2 {
     display: flex;
     gap: 5px;
 }
@@ -481,22 +481,25 @@ div#btn-delete-msg {
         gap: 4px;
         margin-right: 12px;
     }
-    .div-print{
+
+    .div-print {
         justify-content: flex-end;
         margin-top: 15px;
     }
 
-    .painel-left{
+    .painel-left {
         gap: 10px;
         border-radius: 0;
     }
 
-    .painel-right{
+    .painel-right {
         margin-top: 10px;
     }
 
-    .number-despacho{
+    .number-despacho {
         justify-content: space-between;
     }
+
+
 
 }
