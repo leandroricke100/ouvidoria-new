@@ -213,23 +213,60 @@ class IndexController extends Controller
             ->groupBy('assunto')
             ->get();
 
-        $totalAtendimentos = OuvidoriaAtendimento::count();
+        if ($assuntos->isEmpty()) {
+            $porcentagemAssunto = [
+                'Nenhum Cadastro' => 1,
+                'Esgoto' => 0,
+                'Limpeza de Terreno baldio' => 0,
+                'Postos de Saúde' => 0,
+                'Marcação de consulta/procedimento'=> 0,
+                'Fiscalização de Obras' => 0,
+                'Iluminação e Energia' => 0,
+                'Criação irregular de animais' => 0,
+                'Maus tratos a animais' => 0,
+                'Limpeza urbana' => 0,
+            ];
+        }else{
+            $totalAtendimentos = OuvidoriaAtendimento::count();
 
-        $porcentagemAssunto = [];
+            $porcentagemAssunto = [
+                'Esgoto' => 0,
+                'Limpeza de Terreno baldio' => 0,
+                'Postos de Saúde' => 0,
+                'Marcação de consulta/procedimento'=> 0,
+                'Fiscalização de Obras' => 0,
+                'Iluminação e Energia' => 0,
+                'Criação irregular de animais' => 0,
+                'Maus tratos a animais' => 0,
+                'Limpeza urbana' => 0,
+            ];
 
-        foreach ($assuntos as $assunto) {
-            $porcentagem = ($assunto->total / $totalAtendimentos) * 100;
-            $porcentagem = number_format($porcentagem, 1);
-            $porcentagemAssunto[$assunto->assunto] = $porcentagem;
+            foreach ($assuntos as $assunto) {
+                $porcentagem = ($assunto->total / $totalAtendimentos) * 100;
+                $porcentagem = number_format($porcentagem, 1);
+                $porcentagemAssunto[$assunto->assunto] = $porcentagem;
+            }
+
+            unset($porcentagemAssunto['Nenhum Cadastro']);
         }
+
 
         $manifestacao = OuvidoriaAtendimento::select('tipo', DB::raw('count(*) as total'))
             ->groupBy('tipo')
             ->get();
 
-
-
-        if ($manifestacao) {
+        if ($manifestacao->isEmpty()) {
+            $porcentagemManifestacao = [
+                'Reclamação' => 0,
+                'Sugestão' => 0,
+                'Elogio' => 0,
+                'Denúncia' => 0,
+                'Solicitação' => 0,
+                'Informação' => 0,
+                'Simplifique' => 0,
+                'Nenhum Cadastro' => 1,
+            ];
+        } else {
             $porcentagemManifestacao = [];
 
             foreach ($manifestacao as $tipo) {
@@ -237,9 +274,13 @@ class IndexController extends Controller
                 $porcentagem = number_format($porcentagem, 1);
                 $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
             }
-        } else {
-            $porcentagemManifestacao = [0];
+
+            unset($porcentagemManifestacao['Nenhum Cadastro']);
         }
+
+
+
+
 
         $porcentagemGenero = [
             'Masculino' =>  OuvidoriaUsuario::whereNotNull('sexo')->where('sexo', 'Masculino')->count(),
@@ -247,7 +288,9 @@ class IndexController extends Controller
             'Não Informado' => OuvidoriaUsuario::whereNull('sexo')->orWhere('sexo', '')->count(),
         ];
 
-        if($porcentagemGenero['Masculino'] == 0 && $porcentagemGenero['Feminino'] == 0 && $porcentagemGenero['Não Informado'] == 0){
+
+
+        if ($porcentagemGenero['Masculino'] == 0 && $porcentagemGenero['Feminino'] == 0 && $porcentagemGenero['Não Informado'] == 0) {
             $porcentagemGenero = [
                 'Masculino' => 0,
                 'Feminino' => 0,

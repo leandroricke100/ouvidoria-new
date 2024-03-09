@@ -58,6 +58,7 @@
                     @endforeach
                 ]
             }
+
             var options4 = {
                 plotOptions: {
                     bar: {
