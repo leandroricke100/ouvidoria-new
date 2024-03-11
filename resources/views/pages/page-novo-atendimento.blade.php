@@ -39,7 +39,7 @@
             <form class="form new-text" id="new-atendimento-user">
                 <div class="cad">
                     <div class="inputs" style="flex-basis: 45%">
-                        <label for="assunto">Assunto*:</label>
+                        <label for="assunto">Assunto: *</label>
                         <select id="assunto" name="assunto" required>
                             <option value="" disabled selected>- Selecione -</option>
                             <option value="Esgoto">Esgoto</option>
@@ -56,13 +56,13 @@
                     </div>
 
                     <div class="inputs outroAssuntoDesejado" style="flex-basis: 40%">
-                        <label for="assuntoDesejado">Assunto Desejado</label>
-                        <input type="text" name="assuntoDesejado" id="assuntoDesejado" placeholder="Digite o assuno" />
+                        <label for="assuntoDesejado">Assunto Desejado *</label>
+                        <input type="text" name="assuntoDesejado" id="assuntoDesejado" placeholder="Digite o assunto"/>
                     </div>
 
                     <div class="inputs">
-                        <label for="prioridade">Prioridade:</label>
-                        <select id="prioridade" name="prioridade" style="cursor: pointer">
+                        <label for="prioridade">Prioridade: *</label>
+                        <select id="prioridade" name="prioridade" style="cursor: pointer" required>
                             <option value="Baixo">Baixo</option>
                             <option value="Media">Média</option>
                             <option value="Alta">Alta</option>
@@ -71,13 +71,13 @@
                     </div>
 
                     <div class="inputs">
-                        <label for="data">Data:</label>
-                        <input type="date" id="data" name="data">
+                        <label for="data">Data do ocorrido: *</label>
+                        <input type="date" id="data" name="data" required>
                     </div>
 
                     <div class="inputs">
-                        <label for="hora">Hora:</label>
-                        <input type="time" id="hora" name="hora" placeholder="10:30">
+                        <label for="hora">Hora do ocorrido: *</label>
+                        <input type="time" id="hora" name="hora" required>
                     </div>
 
 
@@ -86,13 +86,13 @@
                             <p>Onde ocorreu? </p>
                         </div>
                         <div class="inputs">
-                            <label for="endereco">Endereço completo:</label>
-                            <input type="text" id="endereco" name="endereco" placeholder="Infome o endereço completo">
+                            <label for="endereco">Endereço completo: *</label>
+                            <input type="text" id="endereco" name="endereco" placeholder="Infome o endereço completo" required>
                         </div>
 
                         <div class="inputs">
-                            <label for="referencia">N° ou referência:</label>
-                            <input type="text" id="referencia" name="referencia" placeholder="N°">
+                            <label for="referencia">N° ou referência: *</label>
+                            <input type="text" id="referencia" name="referencia" placeholder="N°" required>
                         </div>
 
                         <div class="inputs" style="flex-basis: 100%;">
@@ -107,7 +107,7 @@
                     <div class="bloco2">
                         <div class="inputs">
                             <label for="finalidade">Finalidade:</label>
-                            <select id="finalidade" name="finalidade">
+                            <select id="finalidade" name="finalidade" required>
                                 <option value="Informação">Informação</option>
                                 <option value="Sugestão">Sugestão</option>
                                 <option value="Reclamação">Reclamação</option>
@@ -119,8 +119,8 @@
                         </div>
 
                         <div class="inputs">
-                            <label for="codAnterior">Cód. Anteriores:</label>
-                            <input type="text" id="codAnterior" name="codAnterior" placeholder="Se este assunto já foi solicitado antes, informe o código">
+                            <label for="codAnterior">Cód. Anteriores: </label>
+                            <input type="text" id="codAnterior" name="codAnterior" placeholder="Se este assunto já foi solicitado antes, informe o código" >
                         </div>
                     </div>
 

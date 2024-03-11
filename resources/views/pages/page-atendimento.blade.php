@@ -115,12 +115,17 @@
                             <p class="fina">{{ $atendimento->tipo }}</p>
                         </div>
 
+                        <div class="horario">
+                            <span>Em {{ date('d/m/Y', strtotime($atendimento->data)) }} às
+                                {{ $atendimento->created_at->format('H:i:s') }}</span>
+                        </div>
+
                         <div class="border">
                             <span></span>
                         </div>
 
                         <div class="horario">
-                            <span>Em {{ $atendimento->created_at->format('d/m/Y') }} às
+                            <span>Ocôrrido em: {{ $atendimento->data }} às
                                 {{ $atendimento->created_at->format('H:i:s') }}</span>
                             <p>Há {{ $mensagens[0]->tempo_atras }}</p>
                             @if ($atendimento->ref_atendimento)
@@ -150,6 +155,9 @@
                             <span>{{ $atendimento->situacao }}</span>
                             <h2>{{ $atendimento->assunto }}</h2>
                         </div>
+
+
+
                         <div class="border-2">
                             <span></span>
                         </div>

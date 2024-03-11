@@ -1,4 +1,5 @@
-$(function () {
+$(document).ready(function () {
+
     $('[name="tipoCadastro"]').change(function () {
         let tipo = $('[name="tipoCadastro"]:checked').val();
 
@@ -7,10 +8,21 @@ $(function () {
             $(".pf").show();
             $(".pj").hide();
             $("#nomeFantasia").removeAttr("required");
+            $("#cnpj").removeAttr("required");
+            $("#nomeContato").removeAttr("required");
+            $("#areaAtuacao").removeAttr("required");
+            $("#razaoSocial").removeAttr("required");
+
         } else {
             $(".pf").hide();
             $(".pj").show();
             $("#nomeCompleto").removeAttr("required");
+            $("#cpf").removeAttr("required");
+            $("#dataNascimento").removeAttr("required");
+            $("#organizacao").removeAttr("required");
+            $("#profissao").removeAttr("required");
+            $("#sexo").removeAttr("required");
+            $("#nomeFantasia").removeAttr("required");
         }
     });
 
@@ -39,20 +51,6 @@ $(function () {
         }
     });
 
-
-});
-
-$(document).ready(function () {
-    //SE USUARIO COLOCAR OPÇAO OUTROS ABRE O CAMPO PARA DIGITAR
-    // $('#profissaoOutros').hide();
-
-    // $('#profissao').change(function(){
-    //     if ($(this).val() === 'Outros'){
-    //         $('#profissaoOutros').show();
-    //     }else{
-    //         $('#profissaoOutros').hide();
-    //     }
-    // });
 
     const mostrarSenhaCheckbox = $('#mostarSenha');
     const senhaInput = $('#senha');
