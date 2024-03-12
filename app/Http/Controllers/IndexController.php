@@ -16,15 +16,36 @@ class IndexController extends Controller
     {
         $user = session('usuario');
 
+        $data = $request->all();
 
         if (!session('usuario')) return redirect('/login');
 
 
         if ($user->admin == 1) {
-            $atendimentos = OuvidoriaAtendimento::orderBy('created_at', 'desc')->get();
+            $query = OuvidoriaAtendimento::orderBy('created_at', 'desc');
         } else {
-            $atendimentos = OuvidoriaAtendimento::where('id_usuario', $user->id)->orderBy('created_at', 'desc')->get();
+            $query = OuvidoriaAtendimento::where('id_usuario', $user->id)->orderBy('created_at', 'desc');
         }
+
+        // Filtros
+        if (isset($data['sigiloso']) && $data['sigiloso'] != '') $query = $query->where('sigiloso', $data['sigiloso']);
+        if (isset($data['mes']) && $data['mes'] != '') {
+            $query->where(DB::raw('MONTH(created_at)'), $data['mes']);
+        }
+
+
+
+        // Palavra Chave
+        if (isset($data['palavra_chave']) && $data['palavra_chave'] != '') {
+            $query = $query->where(function ($query) use ($data) {
+                $query->where('assunto', 'like', '%' . $data['palavra_chave'] . '%');
+            });
+        }
+
+        // Resultados
+        $data['mes'] = isset($data['mes']) ? $data['mes'] : '';
+        $atendimentos = $query->get()->all();
+
 
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $user->id)->orderBy('id')->get()->all();
 
@@ -50,6 +71,7 @@ class IndexController extends Controller
             'mensagens' => $mensagens,
             'atendimentosAberto' => $atendimentosAberto,
             'atendimentosArquivado' => $atendimentosArquivado,
+            'filtro' => $data,
         ]);
     }
 
@@ -219,21 +241,21 @@ class IndexController extends Controller
                 'Esgoto' => 0,
                 'Limpeza de Terreno baldio' => 0,
                 'Postos de Saúde' => 0,
-                'Marcação de consulta/procedimento'=> 0,
+                'Marcação de consulta/procedimento' => 0,
                 'Fiscalização de Obras' => 0,
                 'Iluminação e Energia' => 0,
                 'Criação irregular de animais' => 0,
                 'Maus tratos a animais' => 0,
                 'Limpeza urbana' => 0,
             ];
-        }else{
+        } else {
             $totalAtendimentos = OuvidoriaAtendimento::count();
 
             $porcentagemAssunto = [
                 'Esgoto' => 0,
                 'Limpeza de Terreno baldio' => 0,
                 'Postos de Saúde' => 0,
-                'Marcação de consulta/procedimento'=> 0,
+                'Marcação de consulta/procedimento' => 0,
                 'Fiscalização de Obras' => 0,
                 'Iluminação e Energia' => 0,
                 'Criação irregular de animais' => 0,

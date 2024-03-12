@@ -111,13 +111,14 @@
                             @endif
                         </div>
                         <div class="finalidade">
-                            <p>Finalidade: </p>
+                            <p><strong>Finalidade: </strong></p>
                             <p class="fina">{{ $atendimento->tipo }}</p>
                         </div>
 
                         <div class="horario">
-                            <span>Em {{ date('d/m/Y', strtotime($atendimento->data)) }} às
+                            <span><strong>Criado em: </strong><br>{{ date('d/m/Y', strtotime($atendimento->created_at)) }} às
                                 {{ $atendimento->created_at->format('H:i:s') }}</span>
+                            <p>Há {{ $mensagens[0]->tempo_atras }}</p>
                         </div>
 
                         <div class="border">
@@ -125,12 +126,12 @@
                         </div>
 
                         <div class="horario">
-                            <span>Ocôrrido em: {{ $atendimento->data }} às
-                                {{ $atendimento->created_at->format('H:i:s') }}</span>
-                            <p>Há {{ $mensagens[0]->tempo_atras }}</p>
-                            @if ($atendimento->ref_atendimento)
+                            <span><strong>Ocôrrido em: </strong><br>{{ date('d/m/y', strtotime($atendimento->data)) }} às
+                                {{ $atendimento->hora }}</span>
+
+                            @if ($atendimento->cod_atendimento_anterior)
                                 <span>
-                                    <p>Cód. Anterior: </p>{{ $atendimento->ref_atendimento }}
+                                    <p>Cód. Atendimento anterior: </p>{{ $atendimento->cod_atendimento_anterior }}
                                 </span>
                             @endif
                         </div>
@@ -152,8 +153,15 @@
                     </div>
                     <div class="painel-right">
                         <div class="title">
-                            <span>{{ $atendimento->situacao }}</span>
-                            <h2>{{ $atendimento->assunto }}</h2>
+                            <div class="bloco-title">
+                                <span>{{ $atendimento->situacao }}</span>
+                                <h2>{{ $atendimento->assunto }}</h2>
+                            </div>
+
+                            <div class="data-time">
+                                <p><strong>Data/Hora:</strong></p>
+                                <p>{{ date('d/m/Y H:i:s', strtotime($atendimento->created_at)) }}</p>
+                            </div>
                         </div>
 
 
@@ -163,10 +171,7 @@
                         </div>
 
                         <div class="msg">
-                            <div class="data-time">
-                                <p><strong>Data/Hora:</strong></p>
-                                <p>{{ date('d/m/Y H:i:s', strtotime($atendimento->created_at)) }}</p>
-                            </div>
+
                             <p>{{ $mensagens[0]->mensagem }}</p>
                         </div>
 

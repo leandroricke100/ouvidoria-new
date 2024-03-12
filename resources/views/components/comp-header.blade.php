@@ -30,7 +30,7 @@
             </a>
 
             <div class="div-codigo">
-                <input type="text" id="codigo" prevent-autocomplete placeholder="Buscar por código" />
+                <input type="text" id="codigo" prevent-autocomplete placeholder="Buscar por Protocolo" />
                 <button class="btn-search-codigo"><i class="fas fa-search" onclick="buscarCodigo()"></i></button>
             </div>
             <div class="login-modal-mobile" style="display: none">
