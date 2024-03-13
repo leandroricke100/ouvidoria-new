@@ -80,12 +80,10 @@ section.bloco-atendimentos {
 table.bloco-aberto th {
     background: #efefef;
     padding: 10px 4px;
+    width: 0px;
 }
 
-/* table.bloco-arquivado th {
-    background: #efefef;
-    padding: 10px 4px;
-} */
+
 
 .div-padding {
     border: 1px solid #ddd;
