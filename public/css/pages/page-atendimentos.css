@@ -80,12 +80,10 @@ section.bloco-atendimentos {
 table.bloco-aberto th {
     background: #efefef;
     padding: 10px 4px;
+    width: 0px;
 }
 
-/* table.bloco-arquivado th {
-    background: #efefef;
-    padding: 10px 4px;
-} */
+
 
 .div-padding {
     border: 1px solid #ddd;
@@ -253,10 +251,23 @@ button#btnBuscar {
     gap: 10px;
 }
 
+form.itens-pesquisar {
+    width: 100%;
+}
+
+.wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+}
+
 .field {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    flex: 1;
 }
 
 .field label{
@@ -283,6 +294,26 @@ button#btnBuscar {
 
 .field select:focus{
 border-color: #2c7bff;
+}
+
+.nenhumAtendimento{
+    text-align: center;
+    margin-top: 138px;
+}
+
+.tempoAtras{
+    color: #666 !important;
+    margin-top: 7px !important;
+}
+
+.atendimentoColor{
+    color: black;
+}
+
+.container.button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 768px) {
