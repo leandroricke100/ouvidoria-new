@@ -124,8 +124,10 @@
                         </div>
                     </div>
 
+
+
                     <div class="bloco3">
-                        <input type="file" id="arquivo" name="arquivo">
+                        <input type="file" id="arquivo" name="arquivo" multiple  onchange="limitarArquivos(this)">
                         <input type="hidden" name="autor" id="autor" value="Usuario">
                         <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $usuario->id }}">
                         <button class="btn-enviar" type="submit">Registrar</button>

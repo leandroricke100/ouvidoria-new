@@ -456,6 +456,83 @@ div#btn-delete-msg {
     gap: 5px;
 }
 
+#fundo-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    backdrop-filter: blur(3px);
+    background-color: #02020287;
+    z-index: 999;
+}
+div#confirmarExcluir {
+    position: fixed;
+    z-index: 10000;
+    background-color: #ffffff;
+    padding: 20px 10px;
+    width: 300px;
+    top: 40%;
+    left: 40%;
+    text-align: center;
+    border-radius: 15px;
+    transition: .1s ease;
+}
+
+
+.titleExcluir{
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.second-title{
+    font-size: 14px;
+    color: #515151;
+}
+
+.btn-confirmar{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+button#confirmar {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    padding: 11px 11px;
+    background-color: #59bf59;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+}
+
+.btn-confirmar i{
+    margin-right: 10px;
+}
+
+button#cancelar {
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    padding: 11px 11px;
+    background-color: #d55e5e;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+
 
 @media screen and (max-width:768px) {
 
