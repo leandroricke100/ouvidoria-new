@@ -29,11 +29,22 @@ class IndexController extends Controller
 
         // Filtros
         if (isset($data['sigiloso']) && $data['sigiloso'] != '') $query = $query->where('sigiloso', $data['sigiloso']);
+
         if (isset($data['mes']) && $data['mes'] != '') {
             $query->where(DB::raw('MONTH(created_at)'), $data['mes']);
         }
 
+        if(isset($data['ano']) && $data['ano'] != '') {
+            $query->where(DB::raw('YEAR(created_at)'), $data['ano']);
+        }
 
+        if(isset($data['situacao']) && $data['situacao'] != '') {
+            $query->where('situacao', $data['situacao']);
+        }
+
+        if(isset($data['prioridade']) && $data['prioridade'] != '') {
+            $query->where('prioridade', $data['prioridade']);
+        }
 
         // Palavra Chave
         if (isset($data['palavra_chave']) && $data['palavra_chave'] != '') {
@@ -42,8 +53,16 @@ class IndexController extends Controller
             });
         }
 
+        if(isset($data['periodo_inicial']) && $data['periodo_inicial'] != '') {
+            $query->where('created_at', '>=', $data['periodo_inicial']);
+        }
+
+        if(isset($data['periodo_final']) && $data['periodo_final'] != '') {
+            $query->where('created_at', '<=', $data['periodo_final']);
+        }
+
         // Resultados
-        $data['mes'] = isset($data['mes']) ? $data['mes'] : '';
+
         $atendimentos = $query->get()->all();
 
 

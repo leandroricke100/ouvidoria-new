@@ -36,83 +36,96 @@
 
                 <form method="get" class="itens-pesquisar">
 
-                    <div class="field" style="flex-basis: 33%">
-                        <label for="sigiloso">Sigiloso</label>
-                        <select name="sigiloso" id="sigiloso">
-                            <option {{ isset($filtro) && $filtro['sigiloso'] == '' ? 'selected' : '' }} selected value="" >Ver todos</option>
-                            <option {{ isset($filtro) && $filtro['sigiloso'] == '0' ? 'selected' : '' }} value="0">Não</option>
-                            <option {{ isset($filtro) && $filtro['sigiloso'] == '1' ? 'selected' : '' }} value="1">Sim</option>
-                        </select>
+                    <div class="wrap">
+
+                        <div class="field" style="flex-basis: 100%">
+                            <label for="palavra_chave">Palavra chave</label>
+                            <input type="text" name="palavra_chave" id="palavra_chave" placeholder="Ex.: Orçamento">
+                        </div>
+
+                        <div class="field" style="flex-basis: 5%">
+                            <label for="sigiloso">Sigiloso</label>
+                            <select name="sigiloso" id="sigiloso">
+                                <option {{ isset($filtro['sigiloso']) && $filtro['sigiloso'] == '' ? 'selected' : '' }} selected value="">Ver todos</option>
+                                <option {{ isset($filtro['sigiloso']) && $filtro['sigiloso'] == '0' ? 'selected' : '' }} value="0">Não</option>
+                                <option {{ isset($filtro['sigiloso']) && $filtro['sigiloso'] == '1' ? 'selected' : '' }} value="1">Sim</option>
+                            </select>
+                        </div>
+
+
+                        <div class="field" style="flex-basis: 5%">
+                            <label for="prioridade">Prioridade</label>
+                            <select name="prioridade" id="prioridade">
+                                <option {{isset($filtro) && $filtro['prioridade'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
+                                <option {{isset($filtro) && $filtro['prioridade'] == 'Baixo' ? 'selected' : '' }} value="Baixo">Baixo</option>
+                                <option {{isset($filtro) && $filtro['prioridade'] == 'Média' ? 'selected' : '' }} value="Média">Média</option>
+                                <option {{isset($filtro) && $filtro['prioridade'] == 'Alta' ? 'selected' : '' }} value="Alta">Alta</option>
+                                <option {{isset($filtro) && $filtro['prioridade'] == 'Urgente' ? 'selected' : '' }} value="Urgente">Urgente</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 5%">
+                            <label for="situacao">Situação</label>
+                            <select name="situacao" id="situacao">
+                                <option {{isset($filtro) && $filtro['situacao'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
+                                <option {{isset($filtro) && $filtro['situacao'] == 'Novo' ? 'selected' : '' }}  value="Novo">Novo</option>
+                                <option {{isset($filtro) && $filtro['situacao'] == 'Andamento' ? 'selected' : '' }}  value="Andamento">Andamento</option>
+                                <option {{isset($filtro) && $filtro['situacao'] == 'Finalizado' ? 'selected' : '' }}  value="Finalizado">Fechado</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 10%">
+                            <label for="mes">Mês</label>
+                            <select name="mes">
+                                <option {{ isset($filtro) && $filtro['mes'] == '' ? 'selected' : '' }} selected value="">Ver todos</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '1' ? 'selected' : '' }} value="1">Janeiro</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '2' ? 'selected' : '' }} value="2">Fevereiro</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '3' ? 'selected' : '' }} value="3">Março</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '4' ? 'selected' : '' }} value="4">Abril</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '5' ? 'selected' : '' }} value="5">Maio</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '6' ? 'selected' : '' }} value="6">Junho</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '7' ? 'selected' : '' }} value="7">Julho</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '8' ? 'selected' : '' }} value="8">Agosto</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '9' ? 'selected' : '' }} value="9">Setembro</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '10' ? 'selected' : '' }} value="10">Outubro</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '11' ? 'selected' : '' }} value="11">Novembro</option>
+                                <option {{ isset($filtro) && $filtro['mes'] == '12' ? 'selected' : '' }} value="12">Dezembro</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 5%">
+                            <label for="ano">Ano</label>
+                            <select name="ano" id="ano">
+                                <option {{ isset($filtro) && $filtro['ano'] == '' ? 'selected' : '' }} value="" selected>Ver todos</>
+                                <option {{ isset($filtro) && $filtro['ano'] == '2024' ? 'selected' : '' }} value="2024">2024</option>
+                                <option {{ isset($filtro) && $filtro['ano'] == '2023' ? 'selected' : '' }} value="2023">2023</option>
+                                <option {{ isset($filtro) && $filtro['ano'] == '2022' ? 'selected' : '' }} value="2022">2022</option>
+                                <option {{ isset($filtro) && $filtro['ano'] == '2021' ? 'selected' : '' }} value="2021">2021</option>
+                                <option {{ isset($filtro) && $filtro['ano'] == '2020' ? 'selected' : '' }} value="2020">2020</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 10%">
+                            <label for="periodo_inicial">Período Inicial</label>
+                            <input type="date" name="periodo_inicial" id="periodo_inicial">
+                        </div>
+
+                        <div class="field" style="flex-basis: 10%">
+                            <label for="periodo_final">Período Final</label>
+                            <input type="date" name="periodo_final" id="periodo_final">
+                        </div>
+
                     </div>
 
-                    <div class="field" style="flex-basis: 33%">
-                        <label for="prioridade">Prioridade</label>
-                        <select name="prioridade" id="prioridade">
-                            <option value="" selected>Ver todos</option>
-                            <option value="Baixo">Baixo</option>
-                            <option value="Média">Média</option>
-                            <option value="Alta">Alta</option>
-                            <option value="Urgente">Urgente</option>
-                        </select>
-                    </div>
 
-                    <div class="field" style="flex-basis: 32%">
-                        <label for="situacao">Situação</label>
-                        <select name="situacao" id="situacao">
-                            <option value="" selected>Ver todos</option>
-                            <option value="Aberto">Aberto</option>
-                            <option value="Fechado">Fechado</option>
-                        </select>
-                    </div>
+                    <div class="container button">
+                        <div>
 
-                    <div class="field" style="flex-basis: 50%">
-                        <label for="mes">Mês</label>
-                        <select name="mes">
-                            <option {{ isset($filtro) && $filtro['mes'] == '' ? 'selected' : '' }} selected value="">Ver todos</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '1' ? 'selected' : '' }} value="1">Janeiro</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '2' ? 'selected' : '' }} value="2">Fevereiro</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '3' ? 'selected' : '' }} value="3">Março</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '4' ? 'selected' : '' }} value="4">Abril</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '5' ? 'selected' : '' }} value="5">Maio</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '6' ? 'selected' : '' }} value="6">Junho</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '7' ? 'selected' : '' }} value="7">Julho</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '8' ? 'selected' : '' }} value="8">Agosto</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '9' ? 'selected' : '' }} value="9">Setembro</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '10' ? 'selected' : '' }} value="10">Outubro</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '11' ? 'selected' : '' }} value="11">Novembro</option>
-                            <option {{ isset($filtro) && $filtro['mes'] == '12' ? 'selected' : '' }} value="12">Dezembro</option>
-                        </select>
-                    </div>
+                        </div>
 
-                    <div class="field" style="flex-basis: 49%">
-                        <label for="ano">Ano</label>
-                        <select name="ano">
-                            <option value="" selected>Ver todos</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                        </select>
-                    </div>
-
-                    <div class="field" style="flex-basis: 30%">
-                        <label for="periodo_inicial">Período Inicial</label>
-                        <input type="date" name="periodo_inicial" id="periodo_inicial">
-                    </div>
-
-                    <div class="field" style="flex-basis: 30%">
-                        <label for="periodo_final">Período Final</label>
-                        <input type="date" name="periodo_final" id="periodo_final">
-                    </div>
-
-                    <div class="field" style="flex-basis: 38%">
-                        <label for="palavra_chave">Palavra chave</label>
-                        <input type="text" name="palavra_chave" placeholder="Ex.: Orçamento">
-                    </div>
-
-                    <div class="field">
-                        <button type="submit" id="btnBuscar"><i class="fas fa-search"></i> Buscar</button>
+                        <div class="buttonBuscar">
+                            <button type="submit" id="btnBuscar"><i class="fas fa-search"></i> Buscar</button>
+                        </div>
                     </div>
                 </form>
 
@@ -134,10 +147,10 @@
                     <table width="100%" class="bloco-aberto">
                         <thead>
                             <tr>
+                                <th>Data do Atendimento</th>
                                 <th>Atendimento</th>
                                 <th>Sigilo</th>
                                 <th>Assunto</th>
-                                <th>Data</th>
                             </tr>
                         </thead>
 
@@ -147,12 +160,26 @@
                                     <div id="emAberto" class="emAberto">
                                         <tr>
                                             <td>
+                                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
+                                                    <div class="data">
+
+                                                        <p class="dataHora">{{ date('d/m/Y H:i:s', strtotime($atendimento->created_at)) }}</p>
+
+                                                        @if ($atendimento->endereco)
+                                                            <span><i class="fas fa-map-marker-alt"></i></span>
+                                                        @endif
+
+
+                                                    </div>
+                                                </a>
+                                            </td>
+                                            <td>
                                                 <a class="link-atendimento" href="/atendimento/{{ $atendimento->id }}">
                                                     <div class="number-atendimento">
-                                                        <span class="title-atendi">Atendimento
+                                                        <span class="title-atendi atendimentoColor">N° Atendimento
                                                             {{ $atendimento->id }}/{{ $atendimento->ano }}</span>
-                                                        <p>N° {{ $atendimento->codigo }}</p>
-                                                        <p class="dataHora">{{ date('d/m/Y H:i:s', strtotime($atendimento->created_at)) }}</p>
+                                                        <p class="atendimentoColor">N° Protocolo {{ $atendimento->codigo }}</p>
+                                                        <p class="tempoAtras">Há {{ $atendimento->tempo_atras }}</p>
                                                     </div>
                                                 </a>
                                             </td>
@@ -173,21 +200,6 @@
 
                                                         <span class="prioridade {{ $Helper->slugfy($atendimento->prioridade) }}">{{ $atendimento->prioridade }}</span>
                                                         <span class="title">{{ $atendimento->assunto }}</span>
-                                                    </div>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
-                                                    <div class="data">
-                                                        <p>Há {{ $atendimento->tempo_atras }}</p>
-                                                        {{-- @if ($mensagens->id_atendimento == $usuario->id && $mensagens->arquivo !== null)
-                                        <span><i class="far fa-paperclip"></i></span>
-                                    @endif --}}
-                                                        @if ($atendimento->endereco)
-                                                            <span><i class="fas fa-map-marker-alt"></i></span>
-                                                        @endif
-
-
                                                     </div>
                                                 </a>
                                             </td>
@@ -203,10 +215,10 @@
                     <table width="100%" class="bloco-arquivado" style="display: none">
                         <thead>
                             <tr>
+                                <th>Data do Atendimento</th>
                                 <th>Atendimento</th>
                                 <th>Sigilo</th>
                                 <th>Assunto</th>
-                                <th>Data</th>
                             </tr>
                         </thead>
 
@@ -216,12 +228,22 @@
                                     <div id="emAberto" class="emAberto">
                                         <tr>
                                             <td>
+                                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
+                                                    <div class="data">
+                                                        <p class="dataHora">{{ $atendimento->created_at }}</p>
+
+                                                        <span><i class="far fa-paperclip"></i></span>
+                                                        <span><i class="fas fa-map-marker-alt"></i></span>
+                                                    </div>
+                                                </a>
+                                            </td>
+                                            <td>
                                                 <a class="link-atendimento" href="/atendimento/{{ $atendimento->id }}">
                                                     <div class="number-atendimento">
-                                                        <span class="title-atendi">Atendimento
+                                                        <span class="title-atendi atendimentoColor">N° Atendimento
                                                             {{ $atendimento->id }}/{{ $atendimento->ano }}</span>
-                                                        <p>N° {{ $atendimento->codigo }}</p>
-                                                        <p class="dataHora">{{ $atendimento->created_at }}</p>
+                                                        <p class="atendimentoColor">N° Protocolo {{ $atendimento->codigo }}</p>
+                                                        <p class="tempoAtras">Há {{ $atendimento->tempo_atras }}</p>
                                                     </div>
                                                 </a>
                                             </td>
@@ -245,15 +267,7 @@
                                                     </div>
                                                 </a>
                                             </td>
-                                            <td>
-                                                <a class="link-atendimento" href="/atendimento/{{ $atendimento->numero }}">
-                                                    <div class="data">
-                                                        <p>Há {{ $atendimento->tempo_atras }}</p>
-                                                        <span><i class="far fa-paperclip"></i></span>
-                                                        <span><i class="fas fa-map-marker-alt"></i></span>
-                                                    </div>
-                                                </a>
-                                            </td>
+
                                         </tr>
 
                                     </div>
@@ -262,7 +276,8 @@
                         </tbody>
                     </table>
                 @else
-                    <h1>Nenhum ticket</h1>
+                    <h1 class="nenhumAtendimento">Nenhum Atendimento!
+                    </h1>
                 @endif
             </div>
 
