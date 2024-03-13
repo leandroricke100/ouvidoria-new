@@ -16,6 +16,8 @@ class IndexController extends Controller
     {
         $user = session('usuario');
 
+
+
         $data = $request->all();
 
         if (!session('usuario')) return redirect('/login');
@@ -91,6 +93,8 @@ class IndexController extends Controller
             'atendimentosAberto' => $atendimentosAberto,
             'atendimentosArquivado' => $atendimentosArquivado,
             'filtro' => $data,
+            'user' => $user,
+
         ]);
     }
 

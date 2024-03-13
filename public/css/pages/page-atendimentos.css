@@ -173,7 +173,7 @@ span.prioridade {
 }
 
 span.baixo {
-    background-color:  #BFC9CA !important;
+    background-color: #BFC9CA !important;
 }
 
 span.media {
@@ -181,11 +181,11 @@ span.media {
 }
 
 span.alta {
-    background-color:  #ffcc00 !important;
+    background-color: #ffcc00 !important;
 }
 
 span.urgente {
-    background-color: #f74747  !important;
+    background-color: #f74747 !important;
 }
 
 
@@ -239,7 +239,7 @@ button#btnBuscar {
     border-radius: 12px;
 }
 
-.title-pequisar h2{
+.title-pequisar h2 {
     font-size: 17px;
     font-weight: 500;
     margin-bottom: 20px;
@@ -270,11 +270,11 @@ form.itens-pesquisar {
     flex: 1;
 }
 
-.field label{
+.field label {
     font-size: 14px;
 }
 
-.field input{
+.field input {
     padding: 6px;
     min-height: 34px;
     border: 1px solid #c9c9c9;
@@ -283,7 +283,7 @@ form.itens-pesquisar {
     outline: none;
 }
 
-.field select{
+.field select {
     padding: 6px;
     min-height: 34px;
     border: 1px solid #c9c9c9;
@@ -292,21 +292,21 @@ form.itens-pesquisar {
     outline: none;
 }
 
-.field select:focus{
-border-color: #2c7bff;
+.field select:focus {
+    border-color: #2c7bff;
 }
 
-.nenhumAtendimento{
+.nenhumAtendimento {
     text-align: center;
     margin-top: 138px;
 }
 
-.tempoAtras{
+.tempoAtras {
     color: #666 !important;
     margin-top: 7px !important;
 }
 
-.atendimentoColor{
+.atendimentoColor {
     color: black;
 }
 
@@ -316,10 +316,12 @@ border-color: #2c7bff;
     justify-content: space-between;
 }
 
+
 @media screen and (max-width: 768px) {
     .div-padding {
         padding: 5px;
     }
+
     section.bloco-atendimentos {
         padding: 0px 15px;
         margin-bottom: 24px;

@@ -67,13 +67,26 @@ function enviarClassificacao() {
 
 }
 
+let id;
 
+function confirmarExcluir(mensagemId) {
+    id = mensagemId;
+    $('#fundo-blur').show();
+    $('#confirmarExcluir').show();
+}
+
+function cancelarExcluir() {
+
+    $('#fundo-blur').hide();
+    $('#confirmarExcluir').hide();
+}
 
 function printPage() {
     window.print();
 }
 
-function deleteMsg(id) {
+function deleteMsg() {
+
 
 
     $.ajax({
@@ -89,6 +102,8 @@ function deleteMsg(id) {
             if (resposta.status) {
 
                 popNotif({ msg: resposta.msg, time: 2000 });
+                $('#fundo-blur').hide();
+                $('#confirmarExcluir').hide();
                 location.reload();
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });

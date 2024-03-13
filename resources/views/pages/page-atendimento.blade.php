@@ -24,7 +24,13 @@
 
             @include('components.comp-sigilo', ['sigilo' => false])
 
+
             <section class="container-atendi">
+
+
+                <div id="fundo-blur" style="display: none"></div>
+
+
                 <div class="bloco1">
 
                     <div class="image">
@@ -35,6 +41,18 @@
 
                     <div class="number-atendimento">
                         <div class="bloco-atendimento">
+
+                            <div id="confirmarExcluir" style="display: none">
+                                <h2 class="titleExcluir">Tem certeza que deseja excluir? </h2>
+                                <span class="second-title">Não será possível reverter essa ação</span>
+
+                                <div class="btn-confirmar">
+                                    <button id="cancelar" onclick="cancelarExcluir()"><i class="fal fa-times-circle"></i> Cancelar</button>
+                                    <button id="confirmar" onclick="deleteMsg()"><i class="fas fa-trash-alt"></i> Confirmar</button>
+                                </div>
+
+                            </div>
+
                             <div class="atendimento">
                                 <h2><i class="fas fa-bullhorn"></i> <strong>Atendimento</strong></h2>
                                 <p>{{ $atendimento->id }}/{{ $atendimento->ano }}</p>
@@ -177,7 +195,8 @@
 
                         @if ($mensagens[0]->arquivo)
                             <div class="arquivo">
-                                <a class="link" href="/arquivo/{{ $mensagens[0]->arquivo }}" target="blank"><i class="far fa-paperclip" style="margin-right: 6px"></i>Anexo</a>
+                                <a class="link" href="/arquivo/{{ $mensagens[0]->arquivo }}" target="blank">
+                                    <i class="far fa-paperclip" style="margin-right: 6px"></i>Anexo</a>
                             </div>
                         @else
                             <div class="arquivo">
@@ -204,7 +223,7 @@
                                             @if ($user && $user->admin == 1)
                                                 @if ($mensagem->autor == 'Camara')
                                                     <div id="btn-delete-msg">
-                                                        <button id="delete" onclick="deleteMsg({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
+                                                        <button id="delete" onclick="confirmarExcluir({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
                                                     </div>
                                                 @endif
                                             @endif

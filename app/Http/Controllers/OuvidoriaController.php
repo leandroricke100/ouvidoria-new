@@ -185,6 +185,21 @@ class OuvidoriaController extends Controller
         $respostaUser->arquivo = $nome_arquivo;
         $respostaUser->save();
 
+
+        $countMensagens = OuvidoriaMensagem::where('id_atendimento', $dadosForm['id_atendimento'])->count();
+        $primeiraRespostaCamara = $countMensagens === 1 && $dadosForm['autor'] === 'Camara';
+
+
+        // Se for a primeira resposta e for da Câmara, atualize a situação do atendimento para "Andamento"
+        if ($primeiraRespostaCamara) {
+            $atendimento = OuvidoriaAtendimento::find($dadosForm['id_atendimento']);
+            if ($atendimento) {
+                $atendimento->situacao = 'Andamento';
+                $atendimento->save();
+            }
+        }
+
+
         return response()->json([
             'status' => true,
             'msg' => 'Nova mensagem enviada com sucesso!',
@@ -507,7 +522,7 @@ class OuvidoriaController extends Controller
             ]);
         }
 
-        if($dados['permitido'] != 1){
+        if ($dados['permitido'] != 1) {
             return response()->json([
                 'status' => false,
                 'msg' => 'Você não tem permissão para classificar esse atendimento.',

@@ -59,6 +59,13 @@ function efetuarCadastro() {
     });
 }
 
+function limitarArquivos(input) {
+    if (input.files.length > 4) {
+        alert("Você só pode enviar no máximo 4 arquivos.");
+        input.value = '';
+    }
+}
+
 function outroAssunto() {
     $('.outroAssuntoDesejado').show();
     $('#assuntoDesejado').focus();
