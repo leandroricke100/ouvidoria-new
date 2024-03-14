@@ -504,7 +504,7 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmitaguara.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmitaguara.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
 
   cmmateusleme:
     name: 🌐 Deploy - cmmateusleme.gwouvidoria.com.br
@@ -528,4 +528,28 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
           port: ${{ secrets.ftp_port }}
-          script: 'cd /home/gwouvidoria/clientes/cmmateusleme.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+          script: 'cd /home/gwouvidoria/clientes/cmmateusleme.gwouvidoria.com.br && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
+
+  cmnacipraydan:
+    name: 🌐 Deploy - cmnacipraydan.gwouvidoria.com.br
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔎 Verificando Diretório
+        uses: actions/checkout@v3
+
+      - name: 📂 Sincronizando Arquivos
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.ftp_host }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: clientes/cmnacipraydan.gwouvidoria.com.br/
+
+      - name: ▶️ Executando Scripts
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.ftp_host }}
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
+          port: ${{ secrets.ftp_port }}
+          script: 'cd /home/gwouvidoria/clientes/cmnacipraydan.gwouvidoria.com.br && composer update && php artisan migrate --force && php artisan optimize:clear && php artisan route:cache'
