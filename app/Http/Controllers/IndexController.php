@@ -9,6 +9,7 @@ use App\Models\OuvidoriaUsuario;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class IndexController extends Controller
 {
@@ -36,15 +37,15 @@ class IndexController extends Controller
             $query->where(DB::raw('MONTH(created_at)'), $data['mes']);
         }
 
-        if(isset($data['ano']) && $data['ano'] != '') {
+        if (isset($data['ano']) && $data['ano'] != '') {
             $query->where(DB::raw('YEAR(created_at)'), $data['ano']);
         }
 
-        if(isset($data['situacao']) && $data['situacao'] != '') {
+        if (isset($data['situacao']) && $data['situacao'] != '') {
             $query->where('situacao', $data['situacao']);
         }
 
-        if(isset($data['prioridade']) && $data['prioridade'] != '') {
+        if (isset($data['prioridade']) && $data['prioridade'] != '') {
             $query->where('prioridade', $data['prioridade']);
         }
 
@@ -55,11 +56,11 @@ class IndexController extends Controller
             });
         }
 
-        if(isset($data['periodo_inicial']) && $data['periodo_inicial'] != '') {
+        if (isset($data['periodo_inicial']) && $data['periodo_inicial'] != '') {
             $query->where('created_at', '>=', $data['periodo_inicial']);
         }
 
-        if(isset($data['periodo_final']) && $data['periodo_final'] != '') {
+        if (isset($data['periodo_final']) && $data['periodo_final'] != '') {
             $query->where('created_at', '<=', $data['periodo_final']);
         }
 
@@ -133,9 +134,28 @@ class IndexController extends Controller
 
 
 
+
+        if (!$atendimento) {
+            return view('404', ['msg' => 'Página não encontrada']);
+        }
+
+        $primeiraRespostaCamara = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->where('autor', 'Camara')->count() >= 1;
+
         foreach ($mensagens as $mensagem) {
             $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
+            // $primeiraRespostaCamara = $countMensagens >= 2 && $mensagem->autor === 'Camara';
+             //dd($primeiraRespostaCamara);
         }
+
+
+
+        $userReclamanteId = $atendimento->id_usuario;
+
+
+
+        $userReclamante = OuvidoriaUsuario::find($userReclamanteId);
+
+
 
         $admin = ($user->admin == 1);
         $titular = ($user->id == $atendimento->id_usuario);
@@ -149,6 +169,8 @@ class IndexController extends Controller
         $link = route('usuario-protocolo', ['numero' => $numFormat]);
 
 
+
+
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
@@ -157,6 +179,9 @@ class IndexController extends Controller
             'titular' => $titular,
             'avaliacao' => $avaliacao,
             'link' => $link,
+            'primeiraRespostaCamara' => $primeiraRespostaCamara,
+            'userReclamante' => $userReclamante,
+            'por_codigo' => true,
         ]);
     }
 
@@ -185,6 +210,9 @@ class IndexController extends Controller
         $numFormat = str_replace('.', '', $atendimento->codigo);
         $link = route('usuario-protocolo', ['numero' => $numFormat]);
 
+        $primeiraRespostaCamara = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->where('autor', 'Camara')->count() >= 1;
+
+
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
@@ -192,6 +220,9 @@ class IndexController extends Controller
             'permitir_resposta' => $permitir_resposta,
             'avaliacao' => $avaliacao,
             'link' => $link,
+            'userReclamante' => OuvidoriaUsuario::find($atendimento->id_usuario),
+            'primeiraRespostaCamara' => $primeiraRespostaCamara,
+            'por_codigo' => false,
         ]);
     }
 

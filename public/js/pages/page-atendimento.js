@@ -79,6 +79,10 @@ function cancelarExcluir() {
 
     $('#fundo-blur').hide();
     $('#confirmarExcluir').hide();
+
+    $('#infoFullUser').hide();
+    $('.div-pai').hide();
+    $('#conteudoPai').hide();
 }
 
 function printPage() {
@@ -150,6 +154,12 @@ function respostaUsuario() {
 
         }
     });
+}
+
+function infoReclamente(){
+    $('#fundo-blur').show();
+    $('#infoFullUser').show();
+    $('#conteudoPai').show();
 }
 
 function submitResposta() {

@@ -52,6 +52,166 @@
                                 </div>
 
                             </div>
+                            @if ($por_codigo)
+                                <div id="infoFullUser" style="display: none">
+                                    @if ($userReclamante->tipo_pessoa == 'pessoaFisica')
+                                        <div class="div-pai" id="conteudoPai" style="display: none">
+                                            <div class="close">
+                                                <button class="btn-close" onclick="cancelarExcluir()"><i class="fas fa-times"></i> Fechar</button>
+                                            </div>
+                                            <div class="titleDados">
+                                                <h1 style="margin-bottom: 15px "><i class="fad fa-user"></i> Dados do Usuário</h1>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Tipo de Cadastro: </span>
+                                                <span>Pessoa Fisíca</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Nome: </span>
+                                                <span>{{ $userReclamante->nome_completo }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Sexo: </span>
+                                                <span>{{ $userReclamante->sexo }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">CPF: </span>
+                                                <span>{{ $userReclamante->cpf }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Data de Nascimento: </span>
+                                                <span>{{ date('d/m/Y', strtotime($userReclamante->data_nascimento)) }}
+                                                </span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Email: </span>
+                                                <span>{{ $userReclamante->email }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Email Alternativo: </span>
+                                                @if ($userReclamante->email_alternativo)
+                                                    <span>{{ $userReclamante->email_alternativo }}</span>
+                                                @else
+                                                    <span>Não Informado</span>
+                                                @endif
+                                            </div>
+
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Telefone: </span>
+                                                @if ($userReclamante->email_alternativo)
+                                                    <span>{{ $userReclamante->telefone }}</span>
+                                                @else
+                                                    <span>Não Informado</span>
+                                                @endif
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Celular: </span>
+                                                <span>{{ $userReclamante->celular }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Endereço do Usuário: </span>
+                                                <span><strong>Rua/N°: </strong>{{ $userReclamante->endereco }}</span>
+                                                <span><strong>Bairro: </strong>{{ $userReclamante->bairro }}</span>
+                                                <span><strong>Cidade: </strong>{{ $userReclamante->cidade }}</span>
+                                                <span><strong>CEP: </strong>{{ $userReclamante->cep }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Organização: </span>
+                                                <span>{{ $userReclamante->organizacao }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Profissão: </span>
+                                                <span>{{ $userReclamante->profissao }}</span>
+                                            </div>
+
+                                        </div>
+                                    @else
+                                        <div class="div-pai" id="conteudoPai" style="display: none">
+                                            <div class="close">
+                                                <button class="btn-close" onclick="cancelarExcluir()"><i class="fas fa-times"></i> Fechar</button>
+                                            </div>
+                                            <div class="titleDados">
+                                                <h1 style="margin-bottom: 15px "><i class="fad fa-building"></i> Dados do Usuário</h1>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Tipo de Cadastro: </span>
+                                                <span>Pessoa Jurídica</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Nome do Responsável: </span>
+                                                <span>{{ $userReclamante->nome_responsavel }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Razão Social: </span>
+                                                <span>{{ $userReclamante->razao_social }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Nome Fantasia: </span>
+                                                <span>{{ $userReclamante->nome_fantasia }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">CNPJ: </span>
+                                                <span>{{ $userReclamante->cnpj }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Área de Atuação: </span>
+                                                <span>{{ $userReclamante->area_atuacao }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Email: </span>
+                                                <span>{{ $userReclamante->email }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Email Alternativo: </span>
+                                                <span>{{ $userReclamante->email_alternativo }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Telefone: </span>
+                                                @if ($userReclamante->telefone)
+                                                    <span>{{ $userReclamante->telefone }}</span>
+                                                @else
+                                                    <span>Não Informado</span>
+                                                @endif
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Celular: </span>
+                                                <span>{{ $userReclamante->celular }}</span>
+                                            </div>
+
+                                            <div class="conteudoInfo">
+                                                <span class="title-info">Endereço do Usuário: </span>
+                                                <span><strong>Rua/N°: </strong>{{ $userReclamante->endereco }}</span>
+                                                <span><strong>Bairro: </strong>{{ $userReclamante->bairro }}</span>
+                                                <span><strong>Cidade: </strong>{{ $userReclamante->cidade }}</span>
+                                                <span><strong>CEP: </strong>{{ $userReclamante->cep }}</span>
+                                            </div>
+
+                                        </div>
+                                    @endif
+                                </div>
+                            @endif
 
                             <div class="atendimento">
                                 <h2><i class="fas fa-bullhorn"></i> <strong>Atendimento</strong></h2>
@@ -59,24 +219,34 @@
                             </div>
                             <div class="cod">
                                 <div class="cod-mobile">
-                                    <span>Situação atual: </span>
+                                    <span><strong>Situação atual: </strong></span>
                                     <input type="hidden" name="atendimento_id" id="atendimento_id" value="{{ $atendimento->id }}">
-                                    @if ($user && $user->admin == 1)
-                                        <select class="input-situacao" id="situacao" name="situacao">
-                                            <option value="Novo" {{ $atendimento->situacao == 'novo' ? 'selected' : '' }}>Novo
-                                            </option>
-                                            <option value="Andamento" {{ $atendimento->situacao == 'Andamento' ? 'selected' : '' }}>
-                                                Andamento</option>
-                                            <option value="Finalizado" {{ $atendimento->situacao == 'Finalizado' ? 'selected' : '' }}>
-                                                Finalizado</option>
-                                        </select>
+                                    @if ($primeiraRespostaCamara)
+                                        @if ($user && $user->admin == 1)
+                                            <select class="input-situacao" id="situacao" name="situacao">
+                                                <option value="Novo" {{ $atendimento->situacao == 'novo' ? 'selected' : '' }}>Novo
+                                                </option>
+                                                <option value="Andamento" {{ $atendimento->situacao == 'Andamento' ? 'selected' : '' }}>
+                                                    Andamento</option>
+                                                <option value="Finalizado" {{ $atendimento->situacao == 'Finalizado' ? 'selected' : '' }}>
+                                                    Finalizado</option>
+                                            </select>
+                                        @else
+                                            <p>{{ $atendimento->situacao }}</p>
+                                        @endif
                                     @else
-                                        <p>{{ $atendimento->situacao }}</p>
+                                        @if ($user && $user->admin == 1)
+                                            <select class="input-situacao" id="situacao" name="situacao">
+                                                <option value="Novo" {{ $atendimento->situacao == 'novo' ? 'selected' : '' }}>Novo
+                                                </option>
+                                            </select>
+                                        @else
+                                            <p>{{ $atendimento->situacao }}</p>
+                                        @endif
                                     @endif
-
                                 </div>
                                 <div class="cod-mobile bloco2">
-                                    <span>Código nº:</span>
+                                    <span><strong>Código nº:</strong></span>
                                     <p>{{ $atendimento->codigo }}</p>
                                 </div>
                             </div>
@@ -122,7 +292,7 @@
                 <div class="container-atendimento">
                     <div class="painel-left">
                         <div class="bloco-sigilo">
-                            @if ($atendimento->sigilo == 0)
+                            @if ($atendimento->sigiloso == 1)
                                 <span>Sigilosa</span>
                             @else
                                 <span>Sem Sigilo</span>
@@ -146,6 +316,41 @@
                         <div class="horario">
                             <span><strong>Ocôrrido em: </strong><br>{{ date('d/m/y', strtotime($atendimento->data)) }} às
                                 {{ $atendimento->hora }}</span>
+                            @if ($por_codigo)
+                                @if ($atendimento->sigiloso == 0)
+                                    <div class="dadosUser">
+                                        <div class="nameUser">
+                                            <strong>Reclamante:</strong>
+                                            @if ($userReclamante->tipo_pessoa == 'pessoaFisica')
+                                                <p>{{ $userReclamante->nome_completo }}</p>
+                                            @else
+                                                <p>{{ $userReclamante->nome_responsavel }}</p>
+                                            @endif
+
+                                        </div>
+
+                                        <div class="cpfCnpj">
+                                            <strong>CPF/CNPJ:</strong>
+                                            @if ($userReclamante->tipo_pessoa == 'pessoaFisica')
+                                                <p>{{ $userReclamante->cpf }}</p>
+                                            @else
+                                                <p>{{ $userReclamante->cnpj }}</p>
+                                            @endif
+
+                                        </div>
+
+                                        @if ($user->admin == 1)
+                                            <button class="informacao" onclick="infoReclamente()">
+                                                <i class="fas fa-info-circle" style="margin-right: 5px"></i> Informações do Reclamante
+                                            </button>
+                                        @endif
+
+
+                                    </div>
+                                @endif
+                            @endif
+
+
 
                             @if ($atendimento->cod_atendimento_anterior)
                                 <span>
@@ -272,9 +477,12 @@
                 </div>
 
                 <div class="situacao-atual">
-                    <p>Situação atual:</p>
+                    <p><strong>Situação atual:</strong></p>
                     @if ($atendimento->situacao == 'Finalizado')
-                        <span>Encerrado</span>
+                        <div class="novoChamado">
+                            <span>Encerrado</span>
+                            <span>Abrir um novo Com Referência a esse atendimento?<button>Abrir</button></span>
+                        </div>
                     @else
                         <span>Em tramitação interna</span>
                     @endif
