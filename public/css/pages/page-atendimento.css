@@ -91,7 +91,7 @@ button.print {
 
 .cod {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     font-size: 12px;
     flex-direction: row;
     align-items: center;
@@ -477,7 +477,24 @@ div#confirmarExcluir {
     text-align: center;
     border-radius: 15px;
     transition: .1s ease;
+    box-shadow: 3px 6px 11px #00000061;
 }
+
+#infoFullUser{
+    position: absolute;
+    z-index: 10000;
+    background-color: #ffffff;
+    padding: 20px 10px;
+    width: 34%;
+    height: 761px;
+    top: 8%;
+    left: 36%;
+    text-align: center;
+    border-radius: 15px;
+    transition: .1s ease;
+    box-shadow: 3px 6px 11px #00000061;
+}
+
 
 
 .titleExcluir{
@@ -531,8 +548,65 @@ button#cancelar {
     align-items: center;
 }
 
+.cod-mobile {
+    display: flex;
+    gap: 5px;
+}
+
+.nameUser{
+    margin-bottom: 10px;
+}
+
+.cpfCnpj{
+    margin-bottom: 10px;
+
+}
+
+.informacao{
+    padding: 3px;
+    border: none;
+    outline: none;
+    background-color: #2c7bff;
+    color: white;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn-close{
+    padding: 5px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #d55e5e;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.conteudoInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #ebebeb;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.div-pai {
+    overflow-y: scroll;
+    padding: 15px;
+    height: 100%;
+}
 
 
+.title-info{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
 @media screen and (max-width:768px) {
 
