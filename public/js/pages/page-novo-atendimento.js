@@ -77,8 +77,6 @@ function efetuarCadastro() {
         }
     });
 
-
-
 }
 
 

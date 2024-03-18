@@ -111,6 +111,8 @@ class OuvidoriaController extends Controller
         $atendimento = new OuvidoriaAtendimento;
 
 
+
+
         if ($dadosForm['assunto'] == 'Outros') {
             $atendimento->assunto = $dadosForm['assuntoDesejado'];
         } else {
