@@ -165,6 +165,10 @@ function cnpjCpf() {
     $('.text-cnpj-email').show();
     $('.text-cpf-email').hide();
 
+
+    $('[dd=emailLoginModal]').hide();
+
+
     $('[dd=entrarCnpj]').show();
     $('[dd=emailLogin]').hide();
 
@@ -175,6 +179,8 @@ function cnpjCpf() {
 function entrarEmail() {
     $('.text-cnpj-email').hide();
     $('.text-cpf-email').show();
+
+    $('[dd=emailLoginModal]').show();
 
     $('[dd=entrarCnpj]').hide();
     $('[dd=emailLogin]').show();

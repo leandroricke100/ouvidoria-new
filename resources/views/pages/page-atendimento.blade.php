@@ -352,9 +352,9 @@
 
 
 
-                            @if ($atendimento->cod_atendimento_anterior)
-                                <span>
-                                    <p>Cód. Atendimento anterior: </p>{{ $atendimento->cod_atendimento_anterior }}
+                            @if ($atendimento->ref_atendimento)
+                                <span class="cod-anterior">
+                                    <p>Cód. Atendimento anterior: </p>{{ $AtendimentoAnterior }}
                                 </span>
                             @endif
                         </div>
@@ -395,7 +395,7 @@
 
                         <div class="msg">
 
-                            <p>{{ $mensagens[0]->mensagem }}</p>
+                            <p>{!! $mensagens[0]->mensagem !!}</p>
                         </div>
 
                         @if ($mensagens[0]->arquivo)
@@ -481,7 +481,10 @@
                     @if ($atendimento->situacao == 'Finalizado')
                         <div class="novoChamado">
                             <span>Encerrado</span>
-                            <span>Abrir um novo Com Referência a esse atendimento?<button>Abrir</button></span>
+                            @if ($abrirAtendimento)
+                                <span class="novo">Abrir um novo atendimento com Referência a esse atendimento? <a class="btn-novoAtendimento" href="{{ route('rotadenovoatendimento', ['codigo_ref' => $atendimento->codigo]) }}">Novo</a>
+                            @endif
+                            </span>
                         </div>
                     @else
                         <span>Em tramitação interna</span>

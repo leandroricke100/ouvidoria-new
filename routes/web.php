@@ -29,7 +29,7 @@ Route::get('/cadastro', function () {
 
 Route::get('/transparencia', [IndexController::class, 'transparencia'])->name('page-transparencia');
 
-Route::get('novo/atendimento', [IndexController::class, 'novoAtendimento'])->name('novo-atendimento');
+Route::get('novo/atendimento/{codigo_ref?}', [IndexController::class, 'novoAtendimento'])->name('rotadenovoatendimento');
 
 Route::get('/configuracao', [IndexController::class, 'menus'])->name('admin-menus');
 

@@ -132,6 +132,17 @@ class IndexController extends Controller
 
         $atendimento = OuvidoriaAtendimento::find($id);
 
+        if($atendimento->ref_atendimento != null){
+            $AtendimentoAnterior = $atendimento->ref_atendimento;
+        }else{
+            $AtendimentoAnterior = null;
+        }
+
+        if($user->id == $atendimento->id_usuario){
+            $abrirAtendimento = true;
+        }else{
+            $abrirAtendimento = false;
+        }
 
 
 
@@ -143,15 +154,10 @@ class IndexController extends Controller
 
         foreach ($mensagens as $mensagem) {
             $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
-            // $primeiraRespostaCamara = $countMensagens >= 2 && $mensagem->autor === 'Camara';
-             //dd($primeiraRespostaCamara);
+
         }
 
-
-
         $userReclamanteId = $atendimento->id_usuario;
-
-
 
         $userReclamante = OuvidoriaUsuario::find($userReclamanteId);
 
@@ -182,6 +188,8 @@ class IndexController extends Controller
             'primeiraRespostaCamara' => $primeiraRespostaCamara,
             'userReclamante' => $userReclamante,
             'por_codigo' => true,
+            'AtendimentoAnterior' => $AtendimentoAnterior,
+            'abrirAtendimento' => $abrirAtendimento,
         ]);
     }
 
@@ -199,6 +207,12 @@ class IndexController extends Controller
 
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->orderBy('id')->get()->all();
         $user = session('usuario');
+
+        if(isset($user) && $user->id == $atendimento->id_usuario){
+            $abrirAtendimento = true;
+        }else{
+            $abrirAtendimento = false;
+        }
 
         $admin = $user && $user->admin == 1;
         $titular = $user && $user->id == $atendimento->id_usuario;
@@ -223,6 +237,7 @@ class IndexController extends Controller
             'userReclamante' => OuvidoriaUsuario::find($atendimento->id_usuario),
             'primeiraRespostaCamara' => $primeiraRespostaCamara,
             'por_codigo' => false,
+            'abrirAtendimento' => $abrirAtendimento,
         ]);
     }
 
@@ -251,15 +266,20 @@ class IndexController extends Controller
         ]);
     }
 
-    public function novoAtendimento(Request $request)
+    public function novoAtendimento(Request $request, $codigo_ref = null)
     {
         $user = session('usuario');
-        if (!session('usuario')) return redirect('/login');
+        if (!$user) return redirect('/login');
+
+
 
         return view('pages.page-novo-atendimento', [
             'usuario' => $user,
+            'codigo_ref' => $codigo_ref,
         ]);
     }
+
+
     public function transparencia(Request $request)
     {
 
@@ -282,7 +302,7 @@ class IndexController extends Controller
         $porcentagemDentroDoPrazo = ($quantidadeMesAtual != 0) ? ($quantidadeRespostasMesAtual / $quantidadeMesAtual) * 100 : 0;
 
         // Limitar a porcentagem a 100%
-        $porcentagemDentroDoPrazo = min($porcentagemDentroDoPrazo, 100);
+        $porcentagemDentroDoPrazo = number_format($porcentagemDentroDoPrazo, 1);
 
 
         $assuntos = OuvidoriaAtendimento::select('assunto', DB::raw('count(*) as total'))
