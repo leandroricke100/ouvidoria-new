@@ -180,6 +180,17 @@ button.btn-enviar:hover {
     opacity: 0.5;
 }
 
+.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items{
+    flex-wrap: wrap !important;
+    justify-content: space-around;
+}
+
+.ck-editor__editable[role="textbox"] {
+    /* Editing area */
+    min-height: 200px;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .bloco3 {

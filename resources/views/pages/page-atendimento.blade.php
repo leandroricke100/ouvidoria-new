@@ -481,7 +481,9 @@
                     @if ($atendimento->situacao == 'Finalizado')
                         <div class="novoChamado">
                             <span>Encerrado</span>
-                            <span class="novo">Abrir um novo atendimento com Referência a esse atendimento? <a class="btn-novoAtendimento" href="{{ route('rotadenovoatendimento', ['codigo_ref' => $atendimento->codigo]) }}">Novo</a>
+                            @if ($abrirAtendimento)
+                                <span class="novo">Abrir um novo atendimento com Referência a esse atendimento? <a class="btn-novoAtendimento" href="{{ route('rotadenovoatendimento', ['codigo_ref' => $atendimento->codigo]) }}">Novo</a>
+                            @endif
                             </span>
                         </div>
                     @else

@@ -1,4 +1,18 @@
+let classicEditor = null;
+
 $(document).ready(function () {
+
+    ClassicEditor
+        .create(document.querySelector('#atendimentoUsuario'))
+        .then(editor => {
+            classicEditor = editor;
+
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+
     $('[name="assunto"]').change(function () {
         let tipo = $('[name="assunto"]').val();
 
@@ -27,6 +41,9 @@ $(document).ready(function () {
 
     $('#codAnterior').mask('0000.000.000');
 });
+
+
+
 
 function efetuarCadastro() {
     let dadosForm = new FormData($('#new-atendimento-user')[0]);

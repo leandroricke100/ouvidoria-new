@@ -134,11 +134,17 @@ class IndexController extends Controller
 
         if($atendimento->ref_atendimento != null){
             $AtendimentoAnterior = $atendimento->ref_atendimento;
-
-
         }else{
             $AtendimentoAnterior = null;
         }
+
+        if($user->id == $atendimento->id_usuario){
+            $abrirAtendimento = true;
+        }else{
+            $abrirAtendimento = false;
+        }
+
+
 
         if (!$atendimento) {
             return view('404', ['msg' => 'Página não encontrada']);
@@ -183,6 +189,7 @@ class IndexController extends Controller
             'userReclamante' => $userReclamante,
             'por_codigo' => true,
             'AtendimentoAnterior' => $AtendimentoAnterior,
+            'abrirAtendimento' => $abrirAtendimento,
         ]);
     }
 
@@ -200,6 +207,12 @@ class IndexController extends Controller
 
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->orderBy('id')->get()->all();
         $user = session('usuario');
+
+        if(isset($user) && $user->id == $atendimento->id_usuario){
+            $abrirAtendimento = true;
+        }else{
+            $abrirAtendimento = false;
+        }
 
         $admin = $user && $user->admin == 1;
         $titular = $user && $user->id == $atendimento->id_usuario;
@@ -224,6 +237,7 @@ class IndexController extends Controller
             'userReclamante' => OuvidoriaUsuario::find($atendimento->id_usuario),
             'primeiraRespostaCamara' => $primeiraRespostaCamara,
             'por_codigo' => false,
+            'abrirAtendimento' => $abrirAtendimento,
         ]);
     }
 
