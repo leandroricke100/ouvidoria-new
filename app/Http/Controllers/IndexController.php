@@ -302,7 +302,7 @@ class IndexController extends Controller
         $porcentagemDentroDoPrazo = ($quantidadeMesAtual != 0) ? ($quantidadeRespostasMesAtual / $quantidadeMesAtual) * 100 : 0;
 
         // Limitar a porcentagem a 100%
-        $porcentagemDentroDoPrazo = min($porcentagemDentroDoPrazo, 100);
+        $porcentagemDentroDoPrazo = number_format($porcentagemDentroDoPrazo, 1);
 
 
         $assuntos = OuvidoriaAtendimento::select('assunto', DB::raw('count(*) as total'))

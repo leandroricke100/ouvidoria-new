@@ -36,7 +36,7 @@
             {{-- <div class="border"><span></span></div> --}}
             <div class="text-sigiloso"><span><strong>Atendimento sigiloso:</strong> Seus dados estarão ocultos durante a tramitação. O pedido de sigilo deve ser justificado e caberá ao destinatário o deferimento ou não do sigilo.</span></div>
 
-            <form class="form new-text" id="new-atendimento-user">
+            <form class="form new-text" id="newAtendimentoUser">
                 <div class="cad">
                     <div class="inputs" style="flex-basis: 45%">
                         <label for="assunto">Assunto: *</label>
@@ -97,7 +97,10 @@
 
                         <div class="inputs" style="flex-basis: 100%;">
                             <label for="atendimentoUsuario">Descrição*:</label>
-                            <textarea rows="8" cols="50" id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8" required></textarea>
+                            <textarea  id="atendimentoUsuarioText" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
+
+
+
                         </div>
 
                     </div>
@@ -127,7 +130,12 @@
 
 
                     <div class="bloco3">
-                        <input type="file" id="arquivo" name="arquivo" multiple onchange="limitarArquivos(this)">
+                        <div class="blocoFiles">
+                            <input type="file" dd="arquivo" name="arquivo">
+                            <input type="file" dd="arquivo" name="arquivo">
+                            <input type="file" dd="arquivo" name="arquivo">
+                            <input type="file" dd="arquivo" name="arquivo">
+                        </div>
                         <input type="hidden" name="autor" id="autor" value="Usuario">
                         <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $usuario->id }}">
                         <button class="btn-enviar" type="submit">Registrar</button>

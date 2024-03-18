@@ -12,11 +12,11 @@ $(document).ready(function () {
             console.error(error);
         });
 
-    const inpuAvaliacao = document.querySelectorAll('.rating__input');
+        const inpuAvaliacao = document.querySelectorAll('.rating__input');
 
-    inpuAvaliacao.forEach(avaliacao => {
+        inpuAvaliacao.forEach(avaliacao => {
         avaliacao.addEventListener('change', enviarClassificacao);
-    });
+        });
 
 
 
@@ -90,8 +90,6 @@ function printPage() {
 }
 
 function deleteMsg() {
-
-
 
     $.ajax({
         url: '/api/OuvidoriaDeleteMensagem',

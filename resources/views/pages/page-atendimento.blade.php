@@ -395,7 +395,7 @@
 
                         <div class="msg">
 
-                            <p>{{ $mensagens[0]->mensagem }}</p>
+                            <p>{!! $mensagens[0]->mensagem !!}</p>
                         </div>
 
                         @if ($mensagens[0]->arquivo)

@@ -110,12 +110,6 @@ class OuvidoriaController extends Controller
         // CADASTRO DO ATENDIMENTO
         $atendimento = new OuvidoriaAtendimento;
 
-        // if ($dadosForm['sigilo'] === 'semSigilo') {
-        //     $atendimento->sigiloso = 0;
-        // } else {
-        //     $atendimento->sigiloso = 1;
-        // }
-
 
         if ($dadosForm['assunto'] == 'Outros') {
             $atendimento->assunto = $dadosForm['assuntoDesejado'];
