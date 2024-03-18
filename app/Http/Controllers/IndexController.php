@@ -132,8 +132,13 @@ class IndexController extends Controller
 
         $atendimento = OuvidoriaAtendimento::find($id);
 
+        if($atendimento->ref_atendimento != null){
+            $AtendimentoAnterior = $atendimento->ref_atendimento;
 
 
+        }else{
+            $AtendimentoAnterior = null;
+        }
 
         if (!$atendimento) {
             return view('404', ['msg' => 'Página não encontrada']);
@@ -143,15 +148,10 @@ class IndexController extends Controller
 
         foreach ($mensagens as $mensagem) {
             $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
-            // $primeiraRespostaCamara = $countMensagens >= 2 && $mensagem->autor === 'Camara';
-             //dd($primeiraRespostaCamara);
+
         }
 
-
-
         $userReclamanteId = $atendimento->id_usuario;
-
-
 
         $userReclamante = OuvidoriaUsuario::find($userReclamanteId);
 
@@ -182,6 +182,7 @@ class IndexController extends Controller
             'primeiraRespostaCamara' => $primeiraRespostaCamara,
             'userReclamante' => $userReclamante,
             'por_codigo' => true,
+            'AtendimentoAnterior' => $AtendimentoAnterior,
         ]);
     }
 
@@ -251,15 +252,20 @@ class IndexController extends Controller
         ]);
     }
 
-    public function novoAtendimento(Request $request)
+    public function novoAtendimento(Request $request, $codigo_ref = null)
     {
         $user = session('usuario');
-        if (!session('usuario')) return redirect('/login');
+        if (!$user) return redirect('/login');
+
+
 
         return view('pages.page-novo-atendimento', [
             'usuario' => $user,
+            'codigo_ref' => $codigo_ref,
         ]);
     }
+
+
     public function transparencia(Request $request)
     {
 

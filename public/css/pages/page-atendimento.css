@@ -13,6 +13,13 @@
     gap: 10px;
 }
 
+.situacao-atual p{
+    display: flex;
+    flex-direction: row;
+    min-width: 125px;
+}
+
+
 .situacao-atual span {
     color: #666;
 }
@@ -606,6 +613,39 @@ button#cancelar {
 .title-info{
     font-weight: bold;
     margin-bottom: 5px;
+}
+
+.novoChamado {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.novo{
+    font-size: 13px;
+}
+
+.btn-novoAtendimento{
+    background-color: #59bf59;
+    border: none;
+    color: #fff;
+    padding: 3px 8px;
+    margin-left: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cod-anterior{
+    display: flex;
+    flex-direction: column;
+}
+
+.cod-anterior p{
+    margin-bottom: 5px;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
 @media screen and (max-width:768px) {

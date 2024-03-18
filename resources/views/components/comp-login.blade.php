@@ -37,6 +37,8 @@
     @else
         <div class="input-login-modal">
             <input type="email" dd="emailLoginModal" placeholder="Ex: teste@teste.com" />
+            <input type="text" name="entrarCnpj" dd="entrarCnpj" placeholder="CPF/CNPJ" style="display: none" />
+
             <div class="container-password">
                 <input type="password" dd="senhaLoginModal" placeholder="*********" />
                 <span class="visualizar-senha" id="ocultar" onclick="ocultarSenha()" style="display: none"><i class="fas fa-eye-slash"></i></span>

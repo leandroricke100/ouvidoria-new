@@ -5,7 +5,6 @@
     <link href="{{ asset('css/pages/page-novo-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <script src="{{ asset('js/pages/page-novo-atendimento.js') }}"></script>
-
 @endpush
 
 {{-- @php
@@ -57,7 +56,7 @@
 
                     <div class="inputs outroAssuntoDesejado" style="flex-basis: 40%">
                         <label for="assuntoDesejado">Assunto Desejado *</label>
-                        <input type="text" name="assuntoDesejado" id="assuntoDesejado" placeholder="Digite o assunto"/>
+                        <input type="text" name="assuntoDesejado" id="assuntoDesejado" placeholder="Digite o assunto" />
                     </div>
 
                     <div class="inputs">
@@ -120,14 +119,14 @@
 
                         <div class="inputs">
                             <label for="codAnterior">Cód. Anteriores: </label>
-                            <input type="text" id="codAnterior" name="codAnterior" placeholder="Se este assunto já foi solicitado antes, informe o código" >
+                            <input type="text" id="codAnterior" name="codAnterior" placeholder="Se este assunto já foi solicitado antes, informe o código" value="{{ $codigo_ref ?? '' }}">
                         </div>
                     </div>
 
 
 
                     <div class="bloco3">
-                        <input type="file" id="arquivo" name="arquivo" multiple  onchange="limitarArquivos(this)">
+                        <input type="file" id="arquivo" name="arquivo" multiple onchange="limitarArquivos(this)">
                         <input type="hidden" name="autor" id="autor" value="Usuario">
                         <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $usuario->id }}">
                         <button class="btn-enviar" type="submit">Registrar</button>

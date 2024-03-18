@@ -23,6 +23,9 @@ $(document).ready(function () {
     $('input[name="sigiloso"]').change(function () {
         $('#sigilo').val($(this).val());
     });
+
+
+    $('#codAnterior').mask('0000.000.000');
 });
 
 function efetuarCadastro() {
