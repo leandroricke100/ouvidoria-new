@@ -127,6 +127,113 @@ span#resposta-porcentagem {
     margin-bottom: 14px;
 }
 
+.container-pesquisar {
+    padding: 15px;
+    background-color: #efefef;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+}
+
+.title-pequisar h2 {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.itens-pesquisar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+form.itens-pesquisar {
+    width: 100%;
+}
+
+.wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.field label {
+    font-size: 14px;
+}
+
+.field input {
+    padding: 6px;
+    min-height: 34px;
+    border: 1px solid #c9c9c9;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.field select {
+    padding: 6px;
+    min-height: 34px;
+    border: 1px solid #c9c9c9;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+}
+
+.field select:focus {
+    border-color: #2c7bff;
+}
+
+.nenhumAtendimento {
+    text-align: center;
+    margin-top: 138px;
+}
+
+.tempoAtras {
+    color: #666 !important;
+    margin-top: 7px !important;
+}
+
+.atendimentoColor {
+    color: black;
+}
+
+.container.button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button#btnBuscar {
+    background-color: #2c7bff;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+    padding: 0 15px;
+    cursor: pointer;
+    min-height: 35px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    justify-content: center;
+    margin-top: 23px;
+    width: 134px;
+}
+
+button#btnBuscar:hover{
+    opacity: 0.5;
+}
+
+
 @media screen and (max-width:768px) {
     .bloco {
         flex-direction: column;

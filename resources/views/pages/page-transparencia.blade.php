@@ -42,6 +42,8 @@
 
             };
 
+
+
             var options3 = {
                 chart: {
                     type: 'donut',
@@ -49,6 +51,7 @@
                 },
                 series: [
                     @foreach ($porcentagemManifestacao as $manifestacao => $porcentagem)
+
                         {{ $porcentagem }},
                     @endforeach
                 ],
@@ -152,9 +155,128 @@
     ])
     <main>
         <section>
+
+
+            <div class="container-pesquisar">
+
+                <div class="title-pequisar">
+                    <h2>Busca Detalhada</h2>
+                </div>
+
+                <form method="get" class="itens-pesquisar">
+
+                    <div class="wrap">
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="assuntoPrincipal">Pincipais Assuntos</label>
+                            <select name="assuntoPrincipal" id="assuntoPrincipal">
+                                <option {{ isset($filtro['sigiloso']) && $filtro['sigiloso'] == '' ? 'selected' : '' }} selected value="">Ver todos</option>
+                                <option {{ isset($filtro['sigiloso']) && $filtro['sigiloso'] == '1' ? 'selected' : '' }} value="1">Sim</option>
+                            </select>
+                        </div>
+
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="manifestacaoTipo">Tipos manifestação</label>
+                            <select name="manifestacaoTipo" id="manifestacaoTipo">
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == 'Sugestão' ? 'selected' : '' }} value="Sugestão">Sugestão</option>
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == 'Denúncia' ? 'selected' : '' }} value="Denúncia">Denúncia</option>
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == 'Solicitação' ? 'selected' : '' }} value="Solicitação">Solicitação</option>
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == 'Simplifique' ? 'selected' : '' }} value="Simplifique">Simplifique</option>
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == 'Informação' ? 'selected' : '' }} value="Informação">Informação</option>
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == 'Elogio' ? 'selected' : '' }} value="Elogio">Elogio</option>
+                                <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == 'Reclamação' ? 'selected' : '' }} value="Reclamação">Reclamação</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="generos">Gênero</label>
+                            <select name="generos" id="generos">
+                                <option {{ isset($filtro['generos']) && $filtro['generos'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
+                                <option {{ isset($filtro['generos']) && $filtro['generos'] == 'Masculino' ? 'selected' : '' }} value="Masculino">Masculino</option>
+                                <option {{ isset($filtro['generos']) && $filtro['generos'] == 'Feminino' ? 'selected' : '' }} value="Feminino">Feminino</option>
+                                <option {{ isset($filtro['generos']) && $filtro['generos'] == 'Não informado' ? 'selected' : '' }} value="Não informado">Não informado</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="faixaEtaria">Faixa Etária</label>
+                            <select name="faixaEtaria" id="faixaEtaria">
+                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
+                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Novo' ? 'selected' : '' }} value="Novo">18-28</option>
+                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Andamento' ? 'selected' : '' }} value="Andamento">29-38</option>
+                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Finalizado' ? 'selected' : '' }} value="Finalizado">39-48</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="prazoResposta">Resposta no prazo</label>
+                            <select name="prazoResposta" id="prazoResposta">
+                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
+                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Novo' ? 'selected' : '' }} value="Novo">Sim</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 20%">
+                            <label for="mes">Mês</label>
+                            <select name="mes">
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == '' ? 'selected' : '' }} selected value="">Mês Atual</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Janeiro' ? 'selected' : '' }} value="1">Janeiro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Fevereiro' ? 'selected' : '' }} value="2">Fevereiro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Março' ? 'selected' : '' }} value="3">Março</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Abril' ? 'selected' : '' }} value="4">Abril</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Maio' ? 'selected' : '' }} value="5">Maio</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Junho' ? 'selected' : '' }} value="6">Junho</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Julho' ? 'selected' : '' }} value="7">Julho</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Agosto' ? 'selected' : '' }} value="8">Agosto</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Setembro' ? 'selected' : '' }} value="9">Setembro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Outubro' ? 'selected' : '' }} value="10">Outubro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Novembro' ? 'selected' : '' }} value="11">Novembro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Dezembro' ? 'selected' : '' }} value="12">Dezembro</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="ano">Ano</label>
+                            <select name="ano" id="ano">
+                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '' ? 'selected' : '' }} selected value="">Ano Atual</option>
+                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '2024' ? 'selected' : '' }}  value="2024">2024</option>
+                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '2023' ? 'selected' : '' }} value="2023">2023</option>
+                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '2022' ? 'selected' : '' }} value="2022">2022</option>
+                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '2021' ? 'selected' : '' }} value="2021">2021</option>
+                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '2020' ? 'selected' : '' }} value="2020">2020</option>
+                            </select>
+                        </div>
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="periodo_inicial">Período Inicial</label>
+                            <input type="date" name="periodo_inicial" id="periodo_inicial">
+                        </div>
+
+                        <div class="field" style="flex-basis: 15%">
+                            <label for="periodo_final">Período Final</label>
+                            <input type="date" name="periodo_final" id="periodo_final">
+                        </div>
+
+                    </div>
+
+
+                    <div class="container button">
+                        <div>
+
+                        </div>
+
+                        <div class="buttonBuscar">
+                            <button type="submit" id="btnBuscar"><i class="fas fa-search"></i> Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             <div class="ano">
-                <h2>Ano de referencia: {{ Carbon\Carbon::now()->format('Y') }}.</h2>
-                <span><strong>Obs.:</strong> os valores são computados mensalmente (dados referentes ao mês {{ Carbon\Carbon::now()->format('m/Y') }}).</span>
+                <h2>Ano de referencia: {{ $ano }}.</h2>
+                <span><strong>Obs.:</strong> os valores são computados mensalmente (dados referentes ao mês <strong>{{ $mesAtual }}</strong> ).</span>
             </div>
 
             <div class="atendimento">
