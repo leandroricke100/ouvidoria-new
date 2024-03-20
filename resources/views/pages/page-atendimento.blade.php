@@ -433,6 +433,15 @@
                                                 @endif
                                             @endif
 
+                                            @if ($mensagem->permitidoDelete)
+                                                <div id="btn-delete-msg">
+                                                    <button id="delete" onclick="confirmarExcluir({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
+                                                </div>
+                                            @endif
+
+
+
+
                                         </div>
                                         <div class="tempo-res">
                                             <p>{{ $mensagem->created_at->format('d/m/Y') }} às

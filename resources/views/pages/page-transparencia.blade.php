@@ -167,16 +167,16 @@
 
                     <div class="wrap">
 
-                        <div class="field" style="flex-basis: 15%">
+                        {{-- <div class="field" style="flex-basis: 15%">
                             <label for="assuntoPrincipal">Pincipais Assuntos</label>
                             <select name="assuntoPrincipal" id="assuntoPrincipal">
                                 <option {{ isset($filtro['sigiloso']) && $filtro['sigiloso'] == '' ? 'selected' : '' }} selected value="">Ver todos</option>
                                 <option {{ isset($filtro['sigiloso']) && $filtro['sigiloso'] == '1' ? 'selected' : '' }} value="1">Sim</option>
                             </select>
-                        </div>
+                        </div> --}}
 
 
-                        <div class="field" style="flex-basis: 15%">
+                        {{-- <div class="field" style="flex-basis: 15%">
                             <label for="manifestacaoTipo">Tipos manifestação</label>
                             <select name="manifestacaoTipo" id="manifestacaoTipo">
                                 <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
@@ -216,7 +216,7 @@
                                 <option {{ isset($filtro['situacao']) && $filtro['situacao'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
                                 <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Novo' ? 'selected' : '' }} value="Novo">Sim</option>
                             </select>
-                        </div>
+                        </div> --}}
 
                         <div class="field" style="flex-basis: 20%">
                             <label for="mes">Mês</label>

@@ -100,7 +100,10 @@ class IndexController extends Controller
     }
 
     public function calcularTempoAtras($data)
+
     {
+
+
 
         $agora = Carbon::now();
         $dataAtendimento = Carbon::parse($data);
@@ -153,6 +156,17 @@ class IndexController extends Controller
         $primeiraRespostaCamara = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->where('autor', 'Camara')->count() >= 1;
 
         foreach ($mensagens as $mensagem) {
+            $agora = Carbon::now();
+            $dataAtendimento = Carbon::parse($mensagem->created_at);
+
+            $diferencaEmMinutos = $agora->diffInMinutes($dataAtendimento);;
+
+            if ($diferencaEmMinutos <= 10) {
+                $mensagem->permitidoDelete = true;
+            }else{
+                $mensagem->permitidoDelete = false;
+            }
+
             $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
         }
 
@@ -173,8 +187,7 @@ class IndexController extends Controller
         $numFormat = str_replace('.', '', $atendimento->codigo);
         $link = route('usuario-protocolo', ['numero' => $numFormat]);
 
-
-
+        //pegar a aprtir do do array de mensagens a primeira resposta do usuario
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
@@ -284,17 +297,11 @@ class IndexController extends Controller
         $data = $request->all();
 
 
-        //  dd($data);
-
-        if (isset($data['ano']) && $data['ano'] != '') {
-            $ano = $data['ano'];
-        } else {
-            $ano = Carbon::now()->year;
-        }
 
         if (isset($data['mes']) && $data['mes'] != '') {
-
+            $ano = date('Y');
             if ($data['mes'] == '01') {
+
                 $mesAtual = 'Janeiro/' . $ano;
             } else if ($data['mes'] == '02') {
                 $mesAtual = 'Fevereiro/' . $ano;
@@ -320,8 +327,23 @@ class IndexController extends Controller
                 $mesAtual = 'Dezembro/' . $ano;
             }
         } else {
+            $ano = date('Y');
             $mesAtual = Carbon::now()->month . '/' . $ano;
         }
+
+        if (isset($data['ano']) && $data['ano'] != '') {
+            $ano = $data['ano'];
+        } else {
+            $ano = Carbon::now()->year;
+        }
+
+        // if (isset($data['periodo_inicial']) && $data['periodo_inicial'] != '') {
+        //     $query->where('created_at', '>=', $data['periodo_inicial']);
+        // }
+
+        // if (isset($data['periodo_final']) && $data['periodo_final'] != '') {
+        //     $query->where('created_at', '<=', $data['periodo_final']);
+        // }
 
 
 
@@ -508,8 +530,6 @@ class IndexController extends Controller
                     $porcentagem = number_format($porcentagem, 1);
                     $porcentagemGenero[$genero->sexo] = $porcentagem;
                 }
-
-
             } else {
                 $totalGenero = OuvidoriaUsuario::count();
 

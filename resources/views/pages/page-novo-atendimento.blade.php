@@ -130,12 +130,9 @@
 
 
                     <div class="bloco3">
-                        <div class="blocoFiles">
+
                             <input type="file" dd="arquivo" name="arquivo">
-                            <input type="file" dd="arquivo" name="arquivo">
-                            <input type="file" dd="arquivo" name="arquivo">
-                            <input type="file" dd="arquivo" name="arquivo">
-                        </div>
+
                         <input type="hidden" name="autor" id="autor" value="Usuario">
                         <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $usuario->id }}">
                         <button class="btn-enviar" type="submit">Registrar</button>

@@ -88,7 +88,7 @@ class OuvidoriaController extends Controller
         if (!session('usuario')) return redirect('/');
 
         $nome_arquivo = null;
-        if ($request->file('arquivo')) {
+        if ($request->hasFile('arquivo')) {
             $FileHelper = new FileHelper;
             $infoAnexoImg = $FileHelper->upload([
                 'file' => $request->file('arquivo'),
@@ -154,55 +154,55 @@ class OuvidoriaController extends Controller
     }
 
     public function atendimento(Request $request)
-{
-    $dadosForm = $request->all();
-    if (!session('usuario')) return redirect('/');
+    {
+        $dadosForm = $request->all();
+        if (!session('usuario')) return redirect('/');
 
-    if (!$dadosForm['atendimentoUsuario']) return ['status' => false, 'msg' => 'Nenhuma mensagem enviada'];
+        if (!$dadosForm['atendimentoUsuario']) return ['status' => false, 'msg' => 'Nenhuma mensagem enviada'];
 
-    $nome_arquivo = null;
-    if ($request->hasFile('arquivo')) {
-        $FileHelper = new FileHelper;
-        $infoAnexoImg = $FileHelper->upload([
-            'file' => $request->file('arquivo'),
-            'pasta' => 'ouvidoria/arquivos',
-            'nome' => 'Arquivo Ouvidoria',
-            'observacao' => '',
-            'temporario' => false,
-            'restrito' => true,
-        ]);
-        $nome_arquivo = $infoAnexoImg['status'] ? $infoAnexoImg['nome_arquivo'] : null;
+        $nome_arquivo = null;
+        if ($request->hasFile('arquivo')) {
+            $FileHelper = new FileHelper;
+            $infoAnexoImg = $FileHelper->upload([
+                'file' => $request->file('arquivo'),
+                'pasta' => 'ouvidoria/arquivos',
+                'nome' => 'Arquivo Ouvidoria',
+                'observacao' => '',
+                'temporario' => false,
+                'restrito' => true,
+            ]);
+            $nome_arquivo = $infoAnexoImg['status'] ? $infoAnexoImg['nome_arquivo'] : null;
 
-        if (!$infoAnexoImg['status']) return ['status' => false, 'msg' => 'Falha no upload do arquivo.', 'retorno' => $infoAnexoImg];
-    }
-
-    $respostaUser = new OuvidoriaMensagem;
-    $respostaUser->id_atendimento = $dadosForm['id_atendimento'];
-    $respostaUser->autor = $dadosForm['autor'];
-    $respostaUser->mensagem = $dadosForm['atendimentoUsuario'];
-    $respostaUser->arquivo = $nome_arquivo;
-    $respostaUser->save();
-
-
-    $countMensagens = OuvidoriaMensagem::where('id_atendimento', $dadosForm['id_atendimento'])->count();
-    $primeiraRespostaCamara = $countMensagens >= 2 && $dadosForm['autor'] === 'Camara';
-
-    // Se for a primeira resposta e for da Câmara, atualize a situação do atendimento para "Andamento"
-    if ($primeiraRespostaCamara) {
-        $atendimento = OuvidoriaAtendimento::find($dadosForm['id_atendimento']);
-        if ($atendimento) {
-            $atendimento->situacao = 'Andamento';
-            $atendimento->save();
+            if (!$infoAnexoImg['status']) return ['status' => false, 'msg' => 'Falha no upload do arquivo.', 'retorno' => $infoAnexoImg];
         }
-    }
 
-    return response()->json([
-        'status' => true,
-        'msg' => 'Nova mensagem enviada com sucesso!',
-        'dados' => $dadosForm,
-        'primeiraRespostaCamara' => $primeiraRespostaCamara,
-    ]);
-}
+        $respostaUser = new OuvidoriaMensagem;
+        $respostaUser->id_atendimento = $dadosForm['id_atendimento'];
+        $respostaUser->autor = $dadosForm['autor'];
+        $respostaUser->mensagem = $dadosForm['atendimentoUsuario'];
+        $respostaUser->arquivo = $nome_arquivo;
+        $respostaUser->save();
+
+
+        $countMensagens = OuvidoriaMensagem::where('id_atendimento', $dadosForm['id_atendimento'])->count();
+        $primeiraRespostaCamara = $countMensagens >= 2 && $dadosForm['autor'] === 'Camara';
+
+        // Se for a primeira resposta e for da Câmara, atualize a situação do atendimento para "Andamento"
+        if ($primeiraRespostaCamara) {
+            $atendimento = OuvidoriaAtendimento::find($dadosForm['id_atendimento']);
+            if ($atendimento) {
+                $atendimento->situacao = 'Andamento';
+                $atendimento->save();
+            }
+        }
+
+        return response()->json([
+            'status' => true,
+            'msg' => 'Nova mensagem enviada com sucesso!',
+            'dados' => $dadosForm,
+            'primeiraRespostaCamara' => $primeiraRespostaCamara,
+        ]);
+    }
 
 
     public function login(Request $request)
