@@ -100,8 +100,8 @@
                 colors: ['#56BDCA'],
                 series: [{
                     data: [{
-                        x: 'Não Informado',
-                        y: {{ $idadeNaoInformado }}
+                        x: 'Acima de 48',
+                        y: {{ $idadeAcimade48 }}
                     }, {
                         x: '39-48',
                         y: {{ $idade39_48 }}
@@ -122,7 +122,7 @@
                     type: 'radialBar',
                 },
                 series: [{{ $porcentagemDentroDoPrazo }}],
-                labels: ['Mês: {{ Carbon\Carbon::now()->format('m/Y') }}'],
+                labels: [ '{{ $mesAtual }}'],
             };
 
             // Renderizar o primeiro gráfico
@@ -221,7 +221,7 @@
                         <div class="field" style="flex-basis: 20%">
                             <label for="mes">Mês</label>
                             <select name="mes">
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == '' ? 'selected' : '' }} selected value="">Mês Atual</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == '' ? 'selected' : '' }}  value="">Mês Atual</option>
                                 <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Janeiro' ? 'selected' : '' }} value="1">Janeiro</option>
                                 <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Fevereiro' ? 'selected' : '' }} value="2">Fevereiro</option>
                                 <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Março' ? 'selected' : '' }} value="3">Março</option>

@@ -163,7 +163,7 @@ class IndexController extends Controller
 
             if ($diferencaEmMinutos <= 10) {
                 $mensagem->permitidoDelete = true;
-            }else{
+            } else {
                 $mensagem->permitidoDelete = false;
             }
 
@@ -296,12 +296,21 @@ class IndexController extends Controller
     {
         $data = $request->all();
 
-
+        if (isset($data['ano']) && $data['ano'] != '') {
+            $anoAtual = $data['ano'];
+        } else {
+            $anoAtual = Carbon::now()->year;
+        }
 
         if (isset($data['mes']) && $data['mes'] != '') {
-            $ano = date('Y');
-            if ($data['mes'] == '01') {
+            if (isset($data['ano']) && $data['ano'] != '') {
+                $ano = $data['ano'];
+            } else {
+                $ano = Carbon::now()->year;
+            }
 
+
+            if ($data['mes'] == '01') {
                 $mesAtual = 'Janeiro/' . $ano;
             } else if ($data['mes'] == '02') {
                 $mesAtual = 'Fevereiro/' . $ano;
@@ -327,25 +336,41 @@ class IndexController extends Controller
                 $mesAtual = 'Dezembro/' . $ano;
             }
         } else {
-            $ano = date('Y');
-            $mesAtual = Carbon::now()->month . '/' . $ano;
+            if (isset($data['ano']) && $data['ano'] != '') {
+                $ano = $data['ano'];
+            } else {
+                $ano = Carbon::now()->year;
+            }
+
+
+            $mesAtual = Carbon::now()->month;
+
+            if ($mesAtual == '1') {
+                $mesAtual = 'Janeiro/' . $ano;
+            } else if ($mesAtual == '2') {
+                $mesAtual = 'Fevereiro/' . $ano;
+            } else if ($mesAtual == '3') {
+                $mesAtual = 'Março/' . $ano;
+            } else if ($mesAtual == '4') {
+                $mesAtual = 'Abril/' . $ano;
+            } else if ($mesAtual == '5') {
+                $mesAtual = 'Maio/' . $ano;
+            } else if ($mesAtual == '6') {
+                $mesAtual = 'Junho/' . $ano;
+            } else if ($mesAtual == '7') {
+                $mesAtual = 'Julho/' . $ano;
+            } else if ($mesAtual == '8') {
+                $mesAtual = 'Agosto/' . $ano;
+            } else if ($mesAtual == '9') {
+                $mesAtual = 'Setembro/' . $ano;
+            } else if ($mesAtual == '10') {
+                $mesAtual = 'Outubro/' . $ano;
+            } else if ($mesAtual == '11') {
+                $mesAtual = 'Novembro/' . $ano;
+            } else if ($mesAtual == '12') {
+                $mesAtual = 'Dezembro/' . $ano;
+            }
         }
-
-        if (isset($data['ano']) && $data['ano'] != '') {
-            $ano = $data['ano'];
-        } else {
-            $ano = Carbon::now()->year;
-        }
-
-        // if (isset($data['periodo_inicial']) && $data['periodo_inicial'] != '') {
-        //     $query->where('created_at', '>=', $data['periodo_inicial']);
-        // }
-
-        // if (isset($data['periodo_final']) && $data['periodo_final'] != '') {
-        //     $query->where('created_at', '<=', $data['periodo_final']);
-        // }
-
-
 
 
 
@@ -364,16 +389,19 @@ class IndexController extends Controller
                 ->distinct('id_atendimento')
                 ->count('id_atendimento');
 
+            //dd($quantidadeRespostasMesAtual, $quantidadeMesAtual);
+
             $porcentagemDentroDoPrazo = ($quantidadeMesAtual != 0) ? ($quantidadeRespostasMesAtual / $quantidadeMesAtual) * 100 : 0;
 
             // Limitar a porcentagem a 100%
             $porcentagemDentroDoPrazo = number_format($porcentagemDentroDoPrazo, 1);
         } else {
-            $quantidadeMesAtual = OuvidoriaAtendimento::whereBetween('created_at', [$primeiroDiaMesAtual, $ultimoDiaMesAtual])->count();
+            $quantidadeMesAtual = OuvidoriaAtendimento::whereMonth('created_at', [$primeiroDiaMesAtual, $ultimoDiaMesAtual])->whereYear('created_at', $anoAtual)->count();
 
             // Filtrar as mensagens dentro do intervalo do
             $quantidadeRespostasMesAtual = OuvidoriaMensagem::where('autor', 'camara')
                 ->whereBetween('created_at', [$primeiroDiaMesAtual, $ultimoDiaMesAtual])
+                ->whereYear('created_at', $ano)
                 ->distinct('id_atendimento')
                 ->count('id_atendimento');
 
@@ -385,16 +413,17 @@ class IndexController extends Controller
             $porcentagemDentroDoPrazo = number_format($porcentagemDentroDoPrazo, 1);
         }
 
-        // Filtrar os atendimentos dentro do intervalo do mês atual
-
 
 
         if (isset($data['mes']) && $data['mes'] != '') {
             // Se um mês foi selecionado, adicione uma condição para filtrar os registros do mês correspondente
             $assuntos = OuvidoriaAtendimento::whereMonth('created_at', $data['mes'])
+                ->whereYear('created_at', $anoAtual)
                 ->select('assunto', DB::raw('count(*) as total'))
                 ->groupBy('assunto')
                 ->get();
+
+
 
             $totalAtendimentos = OuvidoriaAtendimento::count();
 
@@ -403,18 +432,23 @@ class IndexController extends Controller
                 $porcentagem = number_format($porcentagem, 1);
                 $porcentagemAssunto[$assunto->assunto] = $porcentagem;
             }
-
-            //dd($porcentagemAssunto);
-
-
         } else {
             // Caso contrário, traga todos os registros
-            $assuntos = OuvidoriaAtendimento::select('assunto', DB::raw('count(*) as total'))
+
+            $mesAtual = Carbon::now()->month;
+
+            $assuntos = OuvidoriaAtendimento::whereMonth('created_at', $mesAtual)
+                ->whereYear('created_at', $anoAtual)
+                ->select('assunto', DB::raw('count(*) as total'))
                 ->groupBy('assunto')
                 ->get();
+
+            //dd($mesAtual, $anoAtual);
+
+
         }
 
-        //dd($assuntos);
+
 
         if ($assuntos->isEmpty()) {
             $porcentagemAssunto = [
@@ -454,28 +488,24 @@ class IndexController extends Controller
         }
 
 
-        $porcentagemManifestacao = [];
-        if (isset($data['manifestacaoTipo']) && $data['manifestacaoTipo'] != '') {
-            $manifestacoes = OuvidoriaAtendimento::where('tipo', $data['manifestacaoTipo'])
+        $porcentagemManifestacao = [
+            'Reclamação' => 0,
+            'Sugestão' => 0,
+            'Elogio' => 0,
+            'Denúncia' => 0,
+            'Solicitação' => 0,
+            'Informação' => 0,
+            'Simplifique' => 0,
+        ];
+        if (isset($data['mes']) && $data['mes'] != '') {
+            $manifestacoes = OuvidoriaAtendimento::whereMonth('created_at', $data['mes'])
+                ->whereYear('created_at', $anoAtual)
                 ->select('tipo', DB::raw('count(*) as total'))
                 ->groupBy('tipo')
                 ->get();
 
+            if ($manifestacoes->isEmpty()) {
 
-
-            $totalAtendimentos = OuvidoriaAtendimento::count();
-
-            foreach ($manifestacoes as $tipo) {
-                $porcentagem = ($tipo->total / $totalAtendimentos) * 100;
-                $porcentagem = number_format($porcentagem, 1);
-                $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
-            }
-        } else {
-            $manifestacao = OuvidoriaAtendimento::select('tipo', DB::raw('count(*) as total'))
-                ->groupBy('tipo')
-                ->get();
-
-            if ($manifestacao->isEmpty()) {
                 $porcentagemManifestacao = [
                     'Reclamação' => 0,
                     'Sugestão' => 0,
@@ -487,68 +517,107 @@ class IndexController extends Controller
                     'Nenhum Cadastro' => 1,
                 ];
             } else {
-                $porcentagemManifestacao = [];
-                $totalAtendimentos = OuvidoriaAtendimento::count();
 
-                if ($totalAtendimentos != 0) {
-                    foreach ($manifestacao as $tipo) {
-                        $porcentagem = ($tipo->total / $totalAtendimentos) * 100;
-
-                        $porcentagem = number_format($porcentagem, 1);
-                        $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
-                    }
-                } else {
-                    // Se o total de atendimentos for zero, defina todas as porcentagens como zero para evitar divisão por zero
-                    foreach ($manifestacao as $tipo) {
-                        $porcentagemManifestacao[$tipo->tipo] = 0;
-                    }
-                }
-                unset($porcentagemManifestacao['Nenhum Cadastro']);
-            }
-        }
-
-        //dd($porcentagemManifestacao);
-
-
-        $porcentagemGenero = [];
-
-        if (isset($data['generos']) && $data['generos'] != '') {
-            if (isset($data['mes']) && $data['mes'] != '') {
-                $totalGenero = OuvidoriaUsuario::whereMonth('created_at', $data['mes'])
-                    ->whereYear('created_at', $ano)
-                    ->count();
-
-                $generos = OuvidoriaUsuario::whereMonth('created_at', $data['mes'])
-                    ->whereYear('created_at', $ano)
-                    ->get();
-
-
-                foreach ($generos as $genero) {
-
-                    $porcentagem = ($genero->total / $totalGenero) * 100;
-
+                // dd($manifestacoes);
+                $totalAtendimentos = $manifestacoes->count();
+                foreach ($manifestacoes as $tipo) {
+                    $porcentagem = ($tipo->total / $totalAtendimentos) * 100;
                     $porcentagem = number_format($porcentagem, 1);
-                    $porcentagemGenero[$genero->sexo] = $porcentagem;
-                }
-            } else {
-                $totalGenero = OuvidoriaUsuario::count();
-
-                $generos = OuvidoriaUsuario::where('sexo', $data['generos'])
-                    ->select('sexo', DB::raw('count(*) as total'))
-                    ->groupBy('sexo')
-                    ->get();
-
-                foreach ($generos as $genero) {
-                    $porcentagem = ($genero->total / $totalGenero) * 100;
-                    $porcentagem = number_format($porcentagem, 1);
-                    $porcentagemGenero[$genero->sexo] = $porcentagem;
+                    $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
                 }
             }
         } else {
-            $totalGenero = OuvidoriaUsuario::count();
+
+            $mes = Carbon::now()->month;
+            $manifestacao = OuvidoriaAtendimento::whereMonth('created_at', $mes)
+                ->whereYear('created_at', $anoAtual)
+                ->select('tipo', DB::raw('count(*) as total'))
+                ->groupBy('tipo')
+                ->get();
+
+            if ($manifestacao->isEmpty()) {
+
+                $porcentagemManifestacao = [
+                    'Reclamação' => 0,
+                    'Sugestão' => 0,
+                    'Elogio' => 0,
+                    'Denúncia' => 0,
+                    'Solicitação' => 0,
+                    'Informação' => 0,
+                    'Simplifique' => 0,
+                    'Nenhum Cadastro' => 1,
+                ];
+            } else {
+
+                $totalAtendimentos = $manifestacao->count();
+
+                //dd($totalAtendimentos, $manifestacao);
+
+                foreach ($manifestacao as $tipo) {
+                    $porcentagem = ($tipo->total / $totalAtendimentos) * 100;
+                    $porcentagem = number_format($porcentagem, 1);
+                    $porcentagemManifestacao[$tipo->tipo] = $porcentagem;
+                }
+            }
+        }
 
 
-            $generos = OuvidoriaUsuario::select('sexo', DB::raw('count(*) as total'))
+
+
+        $porcentagemGenero = [
+            'Masculino' => 0,
+            'Feminino' => 0,
+            'Não Informado' => 0,
+        ];
+
+        if (isset($data['mes']) && $data['mes'] != '') {
+
+
+
+            $generos = OuvidoriaUsuario::whereMonth('created_at', $data['mes'])
+                ->whereYear('created_at', $anoAtual)
+                ->select('sexo', DB::raw('COUNT(*) as total'))
+                ->groupBy('sexo')
+                ->get();
+
+
+            if ($generos->isEmpty()) {
+
+
+                $porcentagemGenero = [
+                    'Masculino' => 0,
+                    'Feminino' => 0,
+                    'Não Informado' => 0,
+                    'Nenhum Cadastro' => 1,
+                ];
+            } else {
+
+                $totalGenero = OuvidoriaUsuario::whereMonth('created_at', $data['mes'])
+                    ->whereYear('created_at', $anoAtual)
+                    ->count();
+
+                //dd($totalGenero);
+
+                foreach ($generos as $genero) {
+                    $porcentagem = ($genero->total / $totalGenero) * 100;
+                    $porcentagem = number_format($porcentagem, 1);
+                    // Define a porcentagem diretamente para o gênero
+                    $porcentagemGenero[$genero->sexo] = $porcentagem;
+                }
+
+
+
+                //dd($porcentagemGenero);
+            }
+        } else {
+
+            $mes = Carbon::now()->month;
+
+            //dd($mes);
+
+            $generos = OuvidoriaUsuario::whereMonth('created_at', $mes)
+                ->whereYear('created_at', $anoAtual)
+                ->select('sexo', DB::raw('count(*) as total'))
                 ->groupBy('sexo')
                 ->get();
 
@@ -556,61 +625,119 @@ class IndexController extends Controller
                 $porcentagemGenero = [
                     'Masculino' => 0,
                     'Feminino' => 0,
+                    'Não Informado' => 0,
                     'Nenhum Cadastro' => 1,
                 ];
             } else {
-                $porcentagemGenero = [];
-                if ($totalGenero != 0) {
-                    foreach ($generos as $genero) {
-                        $porcentagem = ($genero->total / $totalGenero) * 100;
-                        $porcentagem = number_format($porcentagem, 1);
-                        $porcentagemGenero[$genero->sexo] = $porcentagem;
-                    }
-                } else {
-                    // Se o total de atendimentos for zero, defina todas as porcentagens como zero para evitar divisão por zero
-                    foreach ($generos as $genero) {
-                        $porcentagemGenero[$genero->sexo] = 0;
-                    }
+
+                $totalGenero = OuvidoriaUsuario::whereMonth('created_at',$mes)
+                    ->whereYear('created_at', $anoAtual)
+                    ->count();
+
+
+                foreach ($generos as $genero) {
+
+
+                    $porcentagem = ($genero->total / $totalGenero) * 100;
+                    $porcentagem = number_format($porcentagem, 1);
+                    $porcentagemGenero[$genero->sexo] = $porcentagem;
                 }
-                unset($porcentagemGenero['Nenhum Cadastro']);
             }
         }
 
+        if (isset($data['mes']) && $data['mes'] != '') {
+            $usarios = OuvidoriaUsuario::whereMonth('created_at', $data['mes'])->whereYear('created_at', $anoAtual)->get();
 
-        $usuarios = OuvidoriaUsuario::all();
+            $idade18_28 = 0;
+            $idade29_38 = 0;
+            $idade39_48 = 0;
+            $idadeAcimade48 = 0;
 
-        $idade18_28 = 0;
-        $idade29_38 = 0;
-        $idade39_48 = 0;
-        $idadeNaoInformado = 0;
+            foreach ($usarios as $usuario) {
+                $idade = \Carbon\Carbon::parse($usuario->data_nascimento)->age;
 
-        foreach ($usuarios as $usuario) {
-            $idade = \Carbon\Carbon::parse($usuario->data_nascimento)->age;
+                if ($idade >= 18 && $idade <= 28) {
+                    $idade18_28++;
+                } else if ($idade >= 29 && $idade <= 38) {
+                    $idade29_38++;
+                } else if ($idade >= 39 && $idade <= 48) {
+                    $idade39_48++;
+                } else {
+                    $idadeAcimade48++;
+                }
+            }
 
-            if ($idade >= 18 && $idade <= 28) {
-                $idade18_28++;
-            } else if ($idade >= 29 && $idade <= 38) {
-                $idade29_38++;
-            } else if ($idade >= 39 && $idade <= 48) {
-                $idade39_48++;
-            } else {
-                $idadeNaoInformado++;
+            $totalUsuarios = OuvidoriaUsuario::whereMonth('created_at', $data['mes'])->whereYear('created_at', $anoAtual)->count();
+
+            if($totalUsuarios == 0){
+                $idade18_28 = 0;
+                $idade29_38 = 0;
+                $idade39_48 = 0;
+                $idadeAcimade48 = 0;
+            }else{
+                $idade18_28 = ($idade18_28 / $totalUsuarios) * 100;
+                $idade29_38 = ($idade29_38 / $totalUsuarios) * 100;
+                $idade39_48 = ($idade39_48 / $totalUsuarios) * 100;
+                $idadeAcimade48 = ($idadeAcimade48 / $totalUsuarios) * 100;
+
+                $idade18_28 = number_format($idade18_28, 1);
+                $idade29_38 = number_format($idade29_38, 1);
+                $idade39_48 = number_format($idade39_48, 1);
+                $idadeAcimade48 = number_format($idadeAcimade48, 1);
+            }
+
+
+
+        }else{
+            $mesAtual = Carbon::now()->month;
+
+            $usarios = OuvidoriaUsuario::whereMonth('created_at', $mesAtual)->whereYear('created_at', $anoAtual)->get();
+
+            $idade18_28 = 0;
+            $idade29_38 = 0;
+            $idade39_48 = 0;
+            $idadeAcimade48 = 0;
+
+
+            foreach ($usarios as $usuario) {
+                $idade = \Carbon\Carbon::parse($usuario->data_nascimento)->age;
+
+                if ($idade >= 18 && $idade <= 28) {
+                    $idade18_28++;
+                } else if ($idade >= 29 && $idade <= 38) {
+                    $idade29_38++;
+                } else if ($idade >= 39 && $idade <= 48) {
+                    $idade39_48++;
+                } else {
+                    $idadeAcimade48++;
+                }
+            }
+
+
+            $totalUsuarios = OuvidoriaUsuario::whereMonth('created_at', $mesAtual)->whereYear('created_at', $anoAtual)->count();
+
+
+            if($totalUsuarios == 0){
+                $idade18_28 = 0;
+                $idade29_38 = 0;
+                $idade39_48 = 0;
+                $idadeAcimade48 = 0;
+            }else{
+                $idade18_28 = ($idade18_28 / $totalUsuarios) * 100;
+                $idade29_38 = ($idade29_38 / $totalUsuarios) * 100;
+                $idade39_48 = ($idade39_48 / $totalUsuarios) * 100;
+                $idadeAcimade48 = ($idadeAcimade48 / $totalUsuarios) * 100;
             }
         }
 
-        $totalUsuarios = $usuarios->count();
+        if (isset($data['mes']) && $data['mes'] != '') {
 
-        $idade18_28 = ($idade18_28 / $totalUsuarios) * 100;
-        $idade29_38 = ($idade29_38 / $totalUsuarios) * 100;
-        $idade39_48 = ($idade39_48 / $totalUsuarios) * 100;
-        $idadeNaoInformado = ($idadeNaoInformado / $totalUsuarios) * 100;
+            $classificacoes = OuvidoriaAtendimento::whereMonth('created_at', $data['mes'])->whereYear('created_at', $anoAtual)->select('classificacao')->whereNotNull('classificacao')->get()->all();
+        } else {
+            $mes = Carbon::now()->month;
+            $classificacoes = OuvidoriaAtendimento::whereMonth('created_at', $mes)->whereYear('created_at', $anoAtual)->select('classificacao')->whereNotNull('classificacao')->get()->all();
+        }
 
-        $idade18_28 = number_format($idade18_28, 1);
-        $idade29_38 = number_format($idade29_38, 1);
-        $idade39_48 = number_format($idade39_48, 1);
-        $idadeNaoInformado = number_format($idadeNaoInformado, 1);
-
-        $classificacoes = OuvidoriaAtendimento::select('classificacao')->whereNotNull('classificacao')->get()->all();
         $totalAvaliacoes = count($classificacoes);
 
         $total = 0;
@@ -624,6 +751,83 @@ class IndexController extends Controller
             $porcentagemAvaliacao = 0;
         }
 
+        if (isset($data['ano']) && $data['ano'] != '') {
+            $anoAtual = $data['ano'];
+        } else {
+            $anoAtual = Carbon::now()->year;
+        }
+
+        if (isset($data['mes']) && $data['mes'] != '') {
+            if (isset($data['ano']) && $data['ano'] != '') {
+                $ano = $data['ano'];
+            } else {
+                $ano = Carbon::now()->year;
+            }
+
+
+            if ($data['mes'] == '01') {
+                $mesAtual = 'Janeiro/' . $ano;
+            } else if ($data['mes'] == '02') {
+                $mesAtual = 'Fevereiro/' . $ano;
+            } else if ($data['mes'] == '03') {
+                $mesAtual = 'Março/' . $ano;
+            } else if ($data['mes'] == '04') {
+                $mesAtual = 'Abril/' . $ano;
+            } else if ($data['mes'] == '05') {
+                $mesAtual = 'Maio/' . $ano;
+            } else if ($data['mes'] == '06') {
+                $mesAtual = 'Junho/' . $ano;
+            } else if ($data['mes'] == '07') {
+                $mesAtual = 'Julho/' . $ano;
+            } else if ($data['mes'] == '08') {
+                $mesAtual = 'Agosto/' . $ano;
+            } else if ($data['mes'] == '09') {
+                $mesAtual = 'Setembro/' . $ano;
+            } else if ($data['mes'] == '10') {
+                $mesAtual = 'Outubro/' . $ano;
+            } else if ($data['mes'] == '11') {
+                $mesAtual = 'Novembro/' . $ano;
+            } else if ($data['mes'] == '12') {
+                $mesAtual = 'Dezembro/' . $ano;
+            }
+        } else {
+            if (isset($data['ano']) && $data['ano'] != '') {
+                $ano = $data['ano'];
+            } else {
+                $ano = Carbon::now()->year;
+            }
+
+
+            $mesAtual = Carbon::now()->month;
+
+            if ($mesAtual == '1') {
+                $mesAtual = 'Janeiro/' . $ano;
+            } else if ($mesAtual == '2') {
+                $mesAtual = 'Fevereiro/' . $ano;
+            } else if ($mesAtual == '3') {
+                $mesAtual = 'Março/' . $ano;
+            } else if ($mesAtual == '4') {
+                $mesAtual = 'Abril/' . $ano;
+            } else if ($mesAtual == '5') {
+                $mesAtual = 'Maio/' . $ano;
+            } else if ($mesAtual == '6') {
+                $mesAtual = 'Junho/' . $ano;
+            } else if ($mesAtual == '7') {
+                $mesAtual = 'Julho/' . $ano;
+            } else if ($mesAtual == '8') {
+                $mesAtual = 'Agosto/' . $ano;
+            } else if ($mesAtual == '9') {
+                $mesAtual = 'Setembro/' . $ano;
+            } else if ($mesAtual == '10') {
+                $mesAtual = 'Outubro/' . $ano;
+            } else if ($mesAtual == '11') {
+                $mesAtual = 'Novembro/' . $ano;
+            } else if ($mesAtual == '12') {
+                $mesAtual = 'Dezembro/' . $ano;
+            }
+        }
+
+
 
 
         return view('pages.page-transparencia', [
@@ -636,10 +840,10 @@ class IndexController extends Controller
             'idade18_28' => $idade18_28,
             'idade29_38' => $idade29_38,
             'idade39_48' => $idade39_48,
-            'idadeNaoInformado' => $idadeNaoInformado,
+            'idadeAcimade48' => $idadeAcimade48,
             'porcentagemAvaliacao' => $porcentagemAvaliacao,
             'filtro' => $data,
-            'ano' => $ano,
+            'ano' => $anoAtual,
             'mesAtual' => $mesAtual,
         ]);
     }
