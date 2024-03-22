@@ -12,8 +12,9 @@
                     height: 400,
                     type: 'radialBar',
                 },
-                series: [{{ $porcentagemAvaliacao }}],
-                labels: [''],
+                series: [{{ $classificacoesPorcentagem }}],
+                labels: ['{{ $classificacoesPorcentagem == 0 ? 'Sem classificação' : 'Avaliação' }}'],
+
             };
 
             // Opções para o segundo gráfico (bar)
@@ -50,15 +51,20 @@
                     height: 400,
                 },
                 series: [
-                    @foreach ($porcentagemManifestacao as $manifestacao => $porcentagem)
 
+                    @foreach ($manifestacoesPorcentagem as $manifestacao => $porcentagem)
                         {{ $porcentagem }},
                     @endforeach
+
                 ],
                 labels: [
-                    @foreach ($porcentagemManifestacao as $manifestacao => $porcentagem)
+                    //se tiver setado o valor de $manifestacaoTipo, ele vai exibir o q quantidade queryAtendimentosManifestacao se nao manifestacoesPorcentagem
+
+                    @foreach ($manifestacoesPorcentagem as $manifestacao => $porcentagem)
                         '{{ $manifestacao }}',
                     @endforeach
+
+
                 ]
             }
 
@@ -75,12 +81,20 @@
                 },
                 series: [{
                     data: [
-                        @foreach ($porcentagemGenero as $genero => $porcentagem)
+                        @if (isset($filtro['generos']) && $filtro['generos'] != '')
                             {
-                                x: '{{ $genero }}',
-                                y: {{ $porcentagem }},
+                                x: '',
+                                y: '{{ $porcentagemGenero }}',
                             },
-                        @endforeach
+                        @else
+                            @foreach ($porcentagemGenero as $genero => $porcentagem)
+                                {
+                                    x: '{{ $genero }}',
+                                    y: {{ $porcentagem }},
+                                },
+                            @endforeach
+                        @endif
+
                     ]
                 }]
             };
@@ -99,19 +113,22 @@
                 },
                 colors: ['#56BDCA'],
                 series: [{
-                    data: [{
-                        x: 'Acima de 48',
-                        y: {{ $idadeAcimade48 }}
-                    }, {
-                        x: '39-48',
-                        y: {{ $idade39_48 }}
-                    }, {
-                        x: '29-38',
-                        y: {{ $idade29_38 }}
-                    }, {
-                        x: '18-28',
-                        y: {{ $idade18_28 }}
-                    }]
+                    data: [
+                        @if (isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] != '')
+                            {
+                                x: '{{ $filtro['faixaEtaria'] }}' ,
+                                y: '{{ $porcentagemIdade }}',
+                            },
+                        @else
+
+                            @foreach ($porcentagemIdade as $idade => $porcentagem)
+                                {
+                                    x: '{{ $idade }}',
+                                    y: {{ $porcentagem }},
+                                },
+                            @endforeach
+                        @endif
+                    ]
                 }],
 
             };
@@ -121,8 +138,8 @@
                     height: 400,
                     type: 'radialBar',
                 },
-                series: [{{ $porcentagemDentroDoPrazo }}],
-                labels: [ '{{ $mesAtual }}'],
+                series: ['100'],
+                labels: ['{{ $mesAtual }}'],
             };
 
             // Renderizar o primeiro gráfico
@@ -176,7 +193,7 @@
                         </div> --}}
 
 
-                        {{-- <div class="field" style="flex-basis: 15%">
+                        <div class="field" style="flex-basis: 24%">
                             <label for="manifestacaoTipo">Tipos manifestação</label>
                             <select name="manifestacaoTipo" id="manifestacaoTipo">
                                 <option {{ isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
@@ -190,7 +207,7 @@
                             </select>
                         </div>
 
-                        <div class="field" style="flex-basis: 15%">
+                        <div class="field" style="flex-basis: 24%">
                             <label for="generos">Gênero</label>
                             <select name="generos" id="generos">
                                 <option {{ isset($filtro['generos']) && $filtro['generos'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
@@ -200,17 +217,18 @@
                             </select>
                         </div>
 
-                        <div class="field" style="flex-basis: 15%">
+                        <div class="field" style="flex-basis: 24%">
                             <label for="faixaEtaria">Faixa Etária</label>
                             <select name="faixaEtaria" id="faixaEtaria">
-                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
-                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Novo' ? 'selected' : '' }} value="Novo">18-28</option>
-                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Andamento' ? 'selected' : '' }} value="Andamento">29-38</option>
-                                <option {{ isset($filtro['situacao']) && $filtro['situacao'] == 'Finalizado' ? 'selected' : '' }} value="Finalizado">39-48</option>
+                                <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
+                                <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '18-28' ? 'selected' : '' }} value="18-28">18-28</option>
+                                <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '29-38' ? 'selected' : '' }} value="29-38">29-38</option>
+                                <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '39-48' ? 'selected' : '' }} value="39-48">39-48</option>
+                                <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '+ 48' ? 'selected' : '' }} value="+ 48">+ 48</option>
                             </select>
                         </div>
 
-                        <div class="field" style="flex-basis: 15%">
+                        {{-- <div class="field" style="flex-basis: 15%">
                             <label for="prazoResposta">Resposta no prazo</label>
                             <select name="prazoResposta" id="prazoResposta">
                                 <option {{ isset($filtro['situacao']) && $filtro['situacao'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
@@ -218,10 +236,10 @@
                             </select>
                         </div> --}}
 
-                        <div class="field" style="flex-basis: 20%">
+                        <div class="field" style="flex-basis: 24%">
                             <label for="mes">Mês</label>
                             <select name="mes">
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == '' ? 'selected' : '' }}  value="">Mês Atual</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == '' ? 'selected' : '' }} value="">Mês Atual</option>
                                 <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Janeiro' ? 'selected' : '' }} value="1">Janeiro</option>
                                 <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Fevereiro' ? 'selected' : '' }} value="2">Fevereiro</option>
                                 <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Março' ? 'selected' : '' }} value="3">Março</option>
@@ -237,11 +255,11 @@
                             </select>
                         </div>
 
-                        <div class="field" style="flex-basis: 15%">
+                        <div class="field" style="flex-basis: 24%">
                             <label for="ano">Ano</label>
                             <select name="ano" id="ano">
                                 <option {{ isset($filtro['ano']) && $filtro['ano'] == '' ? 'selected' : '' }} selected value="">Ano Atual</option>
-                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '2024' ? 'selected' : '' }}  value="2024">2024</option>
+                                <option {{ isset($filtro['ano']) && $filtro['ano'] == '2024' ? 'selected' : '' }} value="2024">2024</option>
                                 <option {{ isset($filtro['ano']) && $filtro['ano'] == '2023' ? 'selected' : '' }} value="2023">2023</option>
                                 <option {{ isset($filtro['ano']) && $filtro['ano'] == '2022' ? 'selected' : '' }} value="2022">2022</option>
                                 <option {{ isset($filtro['ano']) && $filtro['ano'] == '2021' ? 'selected' : '' }} value="2021">2021</option>
@@ -249,12 +267,12 @@
                             </select>
                         </div>
 
-                        <div class="field" style="flex-basis: 15%">
+                        <div class="field" style="flex-basis: 24%">
                             <label for="periodo_inicial">Período Inicial</label>
                             <input type="date" name="periodo_inicial" id="periodo_inicial">
                         </div>
 
-                        <div class="field" style="flex-basis: 15%">
+                        <div class="field" style="flex-basis: 24%">
                             <label for="periodo_final">Período Final</label>
                             <input type="date" name="periodo_final" id="periodo_final">
                         </div>
@@ -301,7 +319,7 @@
                 <div class="bloco">
                     <div class="qnt-manifestacao">
                         <p>DENTRO DO PRAZO</p>
-                        <span>{{ $porcentagemDentroDoPrazo }}%</span>
+                        <span>100%</span>
                     </div>
 
 
@@ -323,11 +341,23 @@
 
             <span id="title-genero">Gênero Solicitantes</span>
             <div id="genero"></div>
-            <span id="grafico-porcentagem">Porcentagem (%)</span>
+            <span id="grafico-porcentagem">
+                @if (isset($filtro['generos']) && $filtro['generos'] != '')
+                    <strong>Quantidade {{ $filtro['generos'] }}: {{$porcentagemGenero}}. </strong>
+                @else
+                    Porcentagem (%)
+                @endif
+            </span>
 
             <span id="title-idade">Faixa Etária Solicitantes</span>
             <div id="idade"></div>
-            <span id="grafico-porcentagem">Porcentagem (%)</span>
+            <span id="grafico-porcentagem">
+                @if (isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] != '')
+                    <strong>Quantidade: {{$porcentagemIdade  }} </strong>
+                @else
+                    Porcentagem (%)
+                @endif
+            </span>
 
             <span id="resposta-porcentagem">Resposta no prazo</span>
             <div id="resposta"></div>
