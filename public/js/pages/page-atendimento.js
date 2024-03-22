@@ -12,11 +12,11 @@ $(document).ready(function () {
             console.error(error);
         });
 
-        const inpuAvaliacao = document.querySelectorAll('.rating__input');
+    const inpuAvaliacao = document.querySelectorAll('.rating__input');
 
-        inpuAvaliacao.forEach(avaliacao => {
+    inpuAvaliacao.forEach(avaliacao => {
         avaliacao.addEventListener('change', enviarClassificacao);
-        });
+    });
 
 
 
@@ -154,7 +154,7 @@ function respostaUsuario() {
     });
 }
 
-function infoReclamente(){
+function infoReclamente() {
     $('#fundo-blur').show();
     $('#infoFullUser').show();
     $('#conteudoPai').show();
@@ -186,6 +186,8 @@ function updateInput() {
     };
 
 
+
+
     $.ajax({
         url: '/api/OuvidoriaInputAdmin',
         type: "POST",
@@ -196,7 +198,7 @@ function updateInput() {
             console.log(resposta);
             if (resposta.status) {
                 popNotif({ msg: resposta.msg, time: 2000 });
-                location.reload();
+                //location.reload();
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }

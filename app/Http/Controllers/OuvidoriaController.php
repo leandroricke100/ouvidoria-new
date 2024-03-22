@@ -7,6 +7,7 @@ use App\Models\OuvidoriaUsuario;
 use App\Models\OuvidoriaAtendimento;
 use App\Models\OuvidoriaConfiguracao;
 use App\Models\OuvidoriaMensagem;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -16,6 +17,7 @@ class OuvidoriaController extends Controller
 {
     public function cadastro(Request $request)
     {
+
         $dadosForm = $request->all();
 
         // return response()->json([
@@ -309,12 +311,19 @@ class OuvidoriaController extends Controller
 
     public function inputAdmin(Request $request)
     {
-
+        $dataAtual = Carbon::now()->format('Y-m-d H:i:s');
         $dadosForm = $request->all();
+
+        $dadosForm['data'] = $dataAtual;
+
+
 
         $atendimento = OuvidoriaAtendimento::find($dadosForm['id']);
         $atendimento->situacao = $dadosForm['situacao'];
 
+        if ($dadosForm['situacao'] == 'Finalizado') {
+            $atendimento->finalizado_em = $dataAtual;
+        }
         $atendimento->save();
 
 

@@ -1,6 +1,7 @@
 @inject('OuvidoriaConfiguracao', 'App\Models\OuvidoriaConfiguracao')
 
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

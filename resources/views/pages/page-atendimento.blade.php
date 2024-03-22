@@ -2,6 +2,8 @@
 
 
 @push('head')
+
+
     <link href="{{ asset('css/pages/page-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
@@ -506,6 +508,8 @@
                 </div>
 
 
+
+
                 <div class="new-atendimento">
                     @if ($atendimento->situacao == 'Finalizado')
                     @else
@@ -517,6 +521,7 @@
                                 <input type="file" id="arquivo" name="arquivo">
                                 @if ($user->admin == 1)
                                     <input type="hidden" name="autor" id="autor" value="Camara">
+
                                     <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $atendimento->id }}">
                                 @else
                                     <input type="hidden" name="autor" id="autor" value="Usuario">
