@@ -138,7 +138,7 @@
                     height: 400,
                     type: 'radialBar',
                 },
-                series: ['100'],
+                series: ['{{$porcentagemDentroDoPrazo}}'],
                 labels: ['{{ $mesAtual }}'],
             };
 
@@ -319,7 +319,7 @@
                 <div class="bloco">
                     <div class="qnt-manifestacao">
                         <p>DENTRO DO PRAZO</p>
-                        <span>100%</span>
+                        <span>{{$porcentagemDentroDoPrazo}} %</span>
                     </div>
 
 

@@ -322,8 +322,6 @@ class IndexController extends Controller
         if (!count($setado)) $queryUsuarios = $queryUsuarios->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'));
 
 
-
-
         // Filtro por Assunto
         $assuntos = [];
         $assuntosPorcentagem = [];
@@ -449,8 +447,6 @@ class IndexController extends Controller
             }
 
 
-
-
             if ($data['faixaEtaria'] == '18-28') {
                 $porcentagemIdade = $idade18_28;
             } elseif ($data['faixaEtaria'] == '29-38') {
@@ -491,12 +487,6 @@ class IndexController extends Controller
                 ];
             }
         }
-
-
-
-
-
-
 
         // Filtro por classificação
 
@@ -550,13 +540,81 @@ class IndexController extends Controller
 
         $mesNome = $mesNome[$mesAtual];
 
+        if (isset($data['ano']) && $data['ano'] != '') {
+            $anoAtual = $data['ano'];
+        } else {
+            $anoAtual = date('Y');
+        }
+
+        //filtrar por atendimento finalizado_em até 30 dias
+        if (isset($data['mes']) && $data['mes'] != '') {
+            $iniciomes = Carbon::createFromDate($data['ano'], $data['mes'], 1)->startOfMonth();
+            $fimmes = Carbon::createFromDate($data['ano'], $data['mes'], 1)->endOfMonth();
+
+            $totalAtendimentos = OuvidoriaAtendimento::where('created_at', '>=', $iniciomes)
+                ->where('created_at', '<=', $fimmes)
+                ->whereYear('created_at', $anoAtual)
+                ->count();
+
+            $atendimentosFinalizados = OuvidoriaAtendimento::where('finalizado_em', '>=', $iniciomes)
+                ->where('finalizado_em', '<=', $fimmes)
+                ->whereYear('created_at', $anoAtual)
+                ->count();
+
+            if ($totalAtendimentos != 0) {
+                $porcentagemDentroDoPrazo = ($atendimentosFinalizados / $totalAtendimentos) * 100;
+                $porcentagemDentroDoPrazo = number_format($porcentagemDentroDoPrazo, 1);
+            } else {
+                $porcentagemDentroDoPrazo = 0; // ou outro valor padrão desejado
+            }
+        } else if (isset($data['periodo_inicial']) && $data['periodo_inicial'] != '' || isset($data['periodo_final']) && $data['periodo_final'] != '') {
+            // Se apenas o período inicial estiver definido
+            if (isset($data['periodo_inicial']) && $data['periodo_inicial'] != '' && !isset($data['periodo_final'])) {
+                $periodo_inicial = Carbon::parse($data['periodo_inicial']);
+                $periodo_final = $periodo_inicial->copy()->addDays(30)->endOfDay(); // Adiciona 30 dias ao período inicial
+            }
+            // Se apenas o período final estiver definido
+            else if (!isset($data['periodo_inicial']) && isset($data['periodo_final']) && $data['periodo_final'] != '') {
+                $periodo_final = Carbon::parse($data['periodo_final'])->endOfDay();
+                $periodo_inicial = $periodo_final->copy()->subDays(30); // Subtrai 30 dias do período final
+            }
+            // Se ambos os períodos estiverem definidos
+            else {
+                $periodo_inicial = Carbon::parse($data['periodo_inicial']);
+                $periodo_final = Carbon::parse($data['periodo_final'])->endOfDay(); // Define o final do dia
+            }
+
+            $totalAtendimentos = OuvidoriaAtendimento::whereBetween('created_at', [$periodo_inicial, $periodo_final])->count();
+
+            $atendimentosFinalizados = OuvidoriaAtendimento::whereBetween('finalizado_em', [$periodo_inicial, $periodo_final])->count();
+
+            if ($totalAtendimentos != 0) {
+                $porcentagemDentroDoPrazo = ($atendimentosFinalizados / $totalAtendimentos) * 100;
+                $porcentagemDentroDoPrazo = number_format($porcentagemDentroDoPrazo, 1);
+            } else {
+                $porcentagemDentroDoPrazo = 0; // ou outro valor padrão desejado
+            }
+        } else {
+            $totalAtendimentos = OuvidoriaAtendimento::where('created_at', '>=', Carbon::now()->subDays(30))->count();
+
+            $atendimentosFinalizados = OuvidoriaAtendimento::where('finalizado_em', '>=', Carbon::now()->subDays(30))
+                ->where('finalizado_em', '<=', Carbon::now())
+                ->count();
+
+            if ($totalAtendimentos != 0) {
 
 
-        //dd($porcentagemIdade);
+                $porcentagemDentroDoPrazo = ($atendimentosFinalizados / $totalAtendimentos) * 100;
+                $porcentagemDentroDoPrazo = number_format($porcentagemDentroDoPrazo, 1);
+            } else {
+                $porcentagemDentroDoPrazo = 0; // ou outro valor padrão desejado
+            }
+        }
+
         return view('pages.page-transparencia', [
             'quantidade' => $totalAtendimentos, // OK
             'quantidadeRespostas' => $queryRespostas->count(), // OK
-            // 'porcentagemDentroDoPrazo' => $porcentagemDentroDoPrazo,
+            'porcentagemDentroDoPrazo' => $porcentagemDentroDoPrazo,
             'porcentagemAssunto' => $assuntosPorcentagem, // OK
             'manifestacoesPorcentagem' => $manifestacoesPorcentagem, // OK
             'porcentagemGenero' => $porcentagemGenero, // OK

@@ -185,9 +185,6 @@ function updateInput() {
         id: id,
     };
 
-
-
-
     $.ajax({
         url: '/api/OuvidoriaInputAdmin',
         type: "POST",
