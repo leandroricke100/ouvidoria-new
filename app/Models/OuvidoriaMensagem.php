@@ -14,4 +14,10 @@ class OuvidoriaMensagem extends Model
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
+
+    public function atendimento()
+    {
+        return $this->belongsTo(OuvidoriaAtendimento::class, 'id_atendimento');
+    }
+
 }

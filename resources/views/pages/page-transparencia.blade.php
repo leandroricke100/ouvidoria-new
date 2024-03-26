@@ -60,6 +60,7 @@
                 labels: [
                     //se tiver setado o valor de $manifestacaoTipo, ele vai exibir o q quantidade queryAtendimentosManifestacao se nao manifestacoesPorcentagem
 
+
                     @foreach ($manifestacoesPorcentagem as $manifestacao => $porcentagem)
                         '{{ $manifestacao }}',
                     @endforeach
@@ -81,7 +82,7 @@
                 },
                 series: [{
                     data: [
-                        @if (isset($filtro['generos']) && $filtro['generos'] != '')
+                        @if (isset($filtro['genero']) && $filtro['genero'] != '')
                             {
                                 x: '',
                                 y: '{{ $porcentagemGenero }}',
@@ -114,20 +115,13 @@
                 colors: ['#56BDCA'],
                 series: [{
                     data: [
-                        @if (isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] != '')
+                        @foreach ($porcentagemIdade as $idade => $porcentagem)
                             {
-                                x: '{{ $filtro['faixaEtaria'] }}' ,
-                                y: '{{ $porcentagemIdade }}',
+                                x: '{{ $idade }}',
+                                y: {{ $porcentagem }},
                             },
-                        @else
+                        @endforeach
 
-                            @foreach ($porcentagemIdade as $idade => $porcentagem)
-                                {
-                                    x: '{{ $idade }}',
-                                    y: {{ $porcentagem }},
-                                },
-                            @endforeach
-                        @endif
                     ]
                 }],
 
@@ -138,7 +132,7 @@
                     height: 400,
                     type: 'radialBar',
                 },
-                series: ['{{$porcentagemDentroDoPrazo}}'],
+                series: ['{{ $porcentagemDentroDoPrazo }}'],
                 labels: ['{{ $mesAtual }}'],
             };
 
@@ -208,12 +202,12 @@
                         </div>
 
                         <div class="field" style="flex-basis: 24%">
-                            <label for="generos">Gênero</label>
-                            <select name="generos" id="generos">
-                                <option {{ isset($filtro['generos']) && $filtro['generos'] == '' ? 'selected' : '' }} value="" selected>Ver todos</option>
-                                <option {{ isset($filtro['generos']) && $filtro['generos'] == 'Masculino' ? 'selected' : '' }} value="Masculino">Masculino</option>
-                                <option {{ isset($filtro['generos']) && $filtro['generos'] == 'Feminino' ? 'selected' : '' }} value="Feminino">Feminino</option>
-                                <option {{ isset($filtro['generos']) && $filtro['generos'] == 'Não informado' ? 'selected' : '' }} value="Não informado">Não informado</option>
+                            <label for="genero">Gênero</label>
+                            <select name="genero" id="generos">
+                                <option {{ isset($filtro['genero']) && $filtro['genero'] == '' ? 'selected' : '' }} value="">Ver todos</option>
+                                <option {{ isset($filtro['genero']) && $filtro['genero'] == 'Masculino' ? 'selected' : '' }} value="Masculino">Masculino</option>
+                                <option {{ isset($filtro['genero']) && $filtro['genero'] == 'Feminino' ? 'selected' : '' }} value="Feminino">Feminino</option>
+                                <option {{ isset($filtro['genero']) && $filtro['genero'] == 'Não informado' ? 'selected' : '' }} value="Não informado">Não informado</option>
                             </select>
                         </div>
 
@@ -224,7 +218,7 @@
                                 <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '18-28' ? 'selected' : '' }} value="18-28">18-28</option>
                                 <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '29-38' ? 'selected' : '' }} value="29-38">29-38</option>
                                 <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '39-48' ? 'selected' : '' }} value="39-48">39-48</option>
-                                <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == '+ 48' ? 'selected' : '' }} value="+ 48">+ 48</option>
+                                <option {{ isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] == 'Acima de 48' ? 'selected' : '' }} value="Acima de 48">Acima de 48</option>
                             </select>
                         </div>
 
@@ -239,19 +233,19 @@
                         <div class="field" style="flex-basis: 24%">
                             <label for="mes">Mês</label>
                             <select name="mes">
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == '' ? 'selected' : '' }} value="">Mês Atual</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Janeiro' ? 'selected' : '' }} value="1">Janeiro</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Fevereiro' ? 'selected' : '' }} value="2">Fevereiro</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Março' ? 'selected' : '' }} value="3">Março</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Abril' ? 'selected' : '' }} value="4">Abril</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Maio' ? 'selected' : '' }} value="5">Maio</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Junho' ? 'selected' : '' }} value="6">Junho</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Julho' ? 'selected' : '' }} value="7">Julho</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Agosto' ? 'selected' : '' }} value="8">Agosto</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Setembro' ? 'selected' : '' }} value="9">Setembro</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Outubro' ? 'selected' : '' }} value="10">Outubro</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Novembro' ? 'selected' : '' }} value="11">Novembro</option>
-                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 'Dezembro' ? 'selected' : '' }} value="12">Dezembro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == '' ? 'selected' : '' }} selected value="">Mês Atual</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 1 ? 'selected' : '' }} value="1">Janeiro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 2 ? 'selected' : '' }} value="2">Fevereiro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 3 ? 'selected' : '' }} value="3">Março</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 4 ? 'selected' : '' }} value="4">Abril</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 5 ? 'selected' : '' }} value="5">Maio</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 6 ? 'selected' : '' }} value="6">Junho</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 7 ? 'selected' : '' }} value="7">Julho</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 8 ? 'selected' : '' }} value="8">Agosto</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 9 ? 'selected' : '' }} value="9">Setembro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 10 ? 'selected' : '' }} value="10">Outubro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 11 ? 'selected' : '' }} value="11">Novembro</option>
+                                <option {{ isset($filtro['mes']) && $filtro['mes'] == 12 ? 'selected' : '' }} value="12">Dezembro</option>
                             </select>
                         </div>
 
@@ -269,12 +263,12 @@
 
                         <div class="field" style="flex-basis: 24%">
                             <label for="periodo_inicial">Período Inicial</label>
-                            <input type="date" name="periodo_inicial" id="periodo_inicial">
+                            <input type="date" name="periodo_inicial" id="periodo_inicial" value="{{ $filtro['periodo_inicial'] ?? '' }}">
                         </div>
 
                         <div class="field" style="flex-basis: 24%">
                             <label for="periodo_final">Período Final</label>
-                            <input type="date" name="periodo_final" id="periodo_final">
+                            <input type="date" name="periodo_final" id="periodo_final" value="{{ $filtro['periodo_final'] ?? '' }}">
                         </div>
 
                     </div>
@@ -294,7 +288,7 @@
 
             <div class="ano">
                 <h2>Ano de referencia: {{ $ano }}.</h2>
-                <span><strong>Obs.:</strong> os valores são computados mensalmente (dados referentes ao mês <strong>{{ $mesAtual }}</strong> ).</span>
+                <span><strong>Obs.:</strong> os valores são computados mensalmente (dados referentes ao mês de <strong>{{ $mesAtual }}</strong> ).</span>
             </div>
 
             <div class="atendimento">
@@ -319,7 +313,7 @@
                 <div class="bloco">
                     <div class="qnt-manifestacao">
                         <p>DENTRO DO PRAZO</p>
-                        <span>{{$porcentagemDentroDoPrazo}} %</span>
+                        <span>{{ $porcentagemDentroDoPrazo }} %</span>
                     </div>
 
 
@@ -339,11 +333,23 @@
             <span id="title-manifestacao">Tipos manifestação</span>
             <div id="tipoManifestacao"></div>
 
+            @php
+                $porcentagemManifestacaoTipo = array_values($manifestacoesPorcentagem)[0];
+
+            @endphp
+            <span id="grafico-porcentagem" style="margin-top: 20px">
+                @if (isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] != '')
+                    <strong>Total {{ $porcentagemManifestacaoTipo }} </strong>
+                @else
+                    Porcentagem (%)
+                @endif
+            </span>
+
             <span id="title-genero">Gênero Solicitantes</span>
             <div id="genero"></div>
             <span id="grafico-porcentagem">
-                @if (isset($filtro['generos']) && $filtro['generos'] != '')
-                    <strong>Quantidade {{ $filtro['generos'] }}: {{$porcentagemGenero}}. </strong>
+                @if (isset($filtro['genero']) && $filtro['genero'] != '')
+                    <strong>Total {{ $filtro['genero'] }}: {{ $porcentagemGenero }}% </strong>
                 @else
                     Porcentagem (%)
                 @endif
@@ -353,7 +359,7 @@
             <div id="idade"></div>
             <span id="grafico-porcentagem">
                 @if (isset($filtro['faixaEtaria']) && $filtro['faixaEtaria'] != '')
-                    <strong>Quantidade: {{$porcentagemIdade  }} </strong>
+                    <strong>Quantidade</strong>
                 @else
                     Porcentagem (%)
                 @endif
