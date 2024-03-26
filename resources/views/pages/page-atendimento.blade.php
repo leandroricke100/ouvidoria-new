@@ -2,8 +2,6 @@
 
 
 @push('head')
-
-
     <link href="{{ asset('css/pages/page-atendimento.css') }}?v={{ time() }}" rel="stylesheet">
     <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
     <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
@@ -248,12 +246,29 @@
                                     @endif
                                 </div>
                                 <div class="cod-mobile bloco2">
+
                                     <span><strong>Código nº:</strong></span>
                                     <p>{{ $atendimento->codigo }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="div-print">
+                            <div class="prazo">
+                                @if ($dataRestante > 20)
+                                    <span id="green"></span>
+                                @elseif ($dataRestante > 10)
+                                    <span id="yellow"></span>
+                                @else
+                                    <span id="red"></span>
+                                @endif
+                                <p id="dias">Prazo:
+                                    @if ($dataRestante <= 0)
+                                        ATRASADO
+                                    @else
+                                        {{ $dataRestante }} Dia(s)
+                                    @endif <i class="fas fa-exclamation-triangle"></i>
+                                </p>
+                            </div>
                             <button onclick="printPage()" class="print"><i class="fas fa-print"></i> Imprimir</button>
                         </div>
                     </div>
@@ -435,7 +450,7 @@
                                                 @endif
                                             @endif
 
-                                            @if ($mensagem->permitidoDelete)
+                                            @if ($mensagem->permitidoDelete && $mensagem->autor == 'Usuario')
                                                 <div id="btn-delete-msg">
                                                     <button id="delete" onclick="confirmarExcluir({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
                                                 </div>

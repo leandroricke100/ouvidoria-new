@@ -186,7 +186,14 @@ class IndexController extends Controller
         $numFormat = str_replace('.', '', $atendimento->codigo);
         $link = route('usuario-protocolo', ['numero' => $numFormat]);
 
-        //pegar a aprtir do do array de mensagens a primeira resposta do usuario
+        //contar quantos dias se passaram desde a abertura do atendimento
+
+        $dataAbertura = Carbon::parse($atendimento->created_at);
+        $dataAtual = Carbon::now();
+
+        $diferencaEmDias = $dataAbertura->diffInDays($dataAtual);
+        $dataRestante = 30 - $diferencaEmDias;
+
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
@@ -201,6 +208,7 @@ class IndexController extends Controller
             'por_codigo' => true,
             'AtendimentoAnterior' => $AtendimentoAnterior,
             'abrirAtendimento' => $abrirAtendimento,
+            'dataRestante' => $dataRestante,
         ]);
     }
 

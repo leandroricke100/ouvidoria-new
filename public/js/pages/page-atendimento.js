@@ -19,6 +19,14 @@ $(document).ready(function () {
     });
 
 
+    // $('#bolinha').mouseover(function () {
+    //     $('#dias').css('display', 'block');
+    // });
+
+    // $('#bolinha').mouseout(function () {
+    //     $('#dias').css('display', 'none');
+    // });
+
 
 });
 
