@@ -40,6 +40,20 @@ $(document).ready(function () {
 
 
     $('#codAnterior').mask('0000.000.000');
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('arquivo');
+        const fileName = document.getElementById('file-name');
+
+        input.addEventListener('change', function () {
+            if (input.value.length > 0) {
+                fileName.textContent = input.value.split('\\').pop(); // Extraindo apenas o nome do arquivo
+            } else {
+                fileName.textContent = 'Nenhum arquivo selecionado';
+            }
+        });
+    });
 });
 
 

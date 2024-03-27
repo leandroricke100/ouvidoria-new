@@ -97,7 +97,7 @@
 
                         <div class="inputs" style="flex-basis: 100%;">
                             <label for="atendimentoUsuario">Descrição*:</label>
-                            <textarea  id="atendimentoUsuarioText" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
+                            <textarea id="atendimentoUsuarioText" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
 
 
 
@@ -131,7 +131,13 @@
 
                     <div class="bloco3">
 
-                            <input type="file" dd="arquivo" name="arquivo">
+                        {{-- <input type="file" dd="arquivo" name="arquivo"> --}}
+
+                        <div class="img">
+                            <label for="arquivo">Selecionar um arquivo</label>
+                            <input type="file" id="arquivo" name="arquivo" value="">
+                            <span id="file-name">Nenhum arquivo selecionado</span>
+                        </div>
 
                         <input type="hidden" name="autor" id="autor" value="Usuario">
                         <input type="hidden" name="id_atendimento" id="id_atendimento" value="{{ $usuario->id }}">

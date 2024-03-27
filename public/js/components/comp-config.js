@@ -19,8 +19,21 @@ $(document).ready(function () {
     modalConta(id_usuario);
     $('[dd=cep]').mask('00000-000');
 
+    var $input = document.getElementById('arquivo'),
+        $fileName = document.getElementById('file-name');
+
+    $input.addEventListener('change', function () {
+
+        if ($input.value.length > 0) {
+            $fileName.textContent = this.value;
+        } else {
+            $fileName.textContent = 'Nenhum arquivo selecionado';
+        }
+    });
 
 });
+
+
 
 function modalEndereco() {
     $('#btnEndereco').addClass('ativo');
@@ -194,3 +207,5 @@ $(() => $('form').submit(function (e) {
     saveInfo();
     e.preventDefault();
 }));
+
+

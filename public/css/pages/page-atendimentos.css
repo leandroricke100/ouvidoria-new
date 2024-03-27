@@ -90,8 +90,9 @@ table.bloco-aberto th {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    min-height: 349px;
+    max-height: 700px;
     margin-bottom: 50px;
+    overflow-y: scroll;
 }
 
 .link-atendimento {

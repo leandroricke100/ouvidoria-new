@@ -707,12 +707,38 @@ p.diasRestantes {
     color: #666;
 }
 
-.esquerda{
+.esquerda {
     margin-left: 30px;
 }
 
-.direita{
+.direita {
     margin-right: 30px;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.imgfile label {
+    background-color: #2c7bff;
+    border-radius: 5px;
+    color: #fff !important;
+    padding: 6px 20px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 15px !important;
+}
+
+.imgfile label:hover {
+    background-color: #818181;
+}
+
+span#file-name {
+    background-color: #8f8f8f;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 11px;
 }
 
 @media screen and (max-width:768px) {
@@ -772,6 +798,16 @@ p.diasRestantes {
         align-items: flex-start;
         flex-direction: row;
         gap: 10px;
+    }
+
+    .imgfile {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    span#file-name {
+        width: 250px !important;
     }
 
 }

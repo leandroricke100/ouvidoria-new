@@ -460,7 +460,7 @@
 
 
 
-                                            @if ($dono  )
+                                            @if ($dono)
                                                 @if ($mensagem->permitidoDelete && $mensagem->autor == 'Usuario')
                                                     <div id="btn-delete-msg">
                                                         <button id="delete" onclick="confirmarExcluir({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
@@ -542,7 +542,11 @@
                                 <label for="atendimentoUsuario"><strong><i class="fas fa-retweet"></i> Interagir em Atendimento</strong></label>
                                 <p>Adicione informações e anexe arquivos, caso necessário:</p>
                                 <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
-                                <input type="file" id="arquivo" name="arquivo">
+                                <div class="imgfile">
+                                    <label for="arquivo">Selecionar um arquivo</label>
+                                    <input type="file" id="arquivo" name="arquivo" value="">
+                                    <span id="file-name">Nenhum arquivo selecionado</span>
+                                </div>
                                 @if ($user->admin == 1)
                                     <input type="hidden" name="autor" id="autor" value="Camara">
 

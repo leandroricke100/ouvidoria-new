@@ -333,23 +333,23 @@ select#status {
     opacity: 0.5;
 }
 
-#endereco-form{
+#endereco-form {
     width: 100%;
 }
 
-.conta h1{
+.conta h1 {
     text-align: center;
     padding: 15px;
     font-size: 18px;
 }
 
-.menuEndereco h1{
+.menuEndereco h1 {
     text-align: center;
     padding: 15px;
     font-size: 18px;
 }
 
-.form-endereco{
+.form-endereco {
     background-color: #ECECEC;
     max-width: 1049px;
     margin-right: auto;
@@ -360,7 +360,7 @@ select#status {
     padding: 12px 17px 18px 17px;
 }
 
-.cad-endereco{
+.cad-endereco {
     /* display: flex; */
     /* flex-wrap: wrap; */
     gap: 15px;
@@ -370,13 +370,14 @@ select#status {
     display: flex;
     flex-direction: column;
 }
-.field{
+
+.field {
     display: flex;
     flex-direction: column;
     flex: 1
 }
 
-.field label{
+.field label {
     font-size: 88%;
     color: #666 !important;
 }
@@ -398,11 +399,12 @@ select#estado {
     min-height: 38px !important;
     color: #666 !important;
 }
-.btn-save-cad{
+
+.btn-save-cad {
     background-color: #59bf59 !important;
 }
 
-.btn-cancel-cad{
+.btn-cancel-cad {
     background-color: #d55e5e !important;
 }
 
@@ -421,7 +423,8 @@ button.button-cad-enviar.btn-save-cad {
     align-items: center;
     justify-content: center;
 }
-.styleMunipio{
+
+.styleMunipio {
     min-width: 250px;
 }
 
@@ -430,7 +433,7 @@ textarea#endereco {
     border: 1px solid #c9c9c9;
 }
 
-.styleMunipio label{
+.styleMunipio label {
     margin-bottom: 6px;
 }
 
@@ -439,18 +442,57 @@ textarea#endereco {
     min-height: 150px;
 }
 
-.img{
+.img {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.img label{
+.title-brasao {
     font-size: 88%;
     color: #666 !important;
 }
 
-.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items{
+.ck.ck-toolbar.ck-toolbar_grouping>.ck-toolbar__items {
     flex-wrap: wrap !important;
     justify-content: space-around;
+}
+
+input[type='file'] {
+    display: none
+}
+
+.img label {
+    background-color: #2c7bff;
+    border-radius: 5px;
+    color: #fff !important;
+    padding: 6px 20px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.img label:hover {
+    background-color: #818181;
+}
+
+span#file-name {
+    background-color: #8f8f8f;
+    color: white;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 11px;
+}
+
+@media screen and (max-width: 768px) {
+    .imgFile {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+    span#file-name {
+        max-width: 250px;
+    }
 }

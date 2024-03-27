@@ -19,13 +19,18 @@ $(document).ready(function () {
     });
 
 
-    // $('#bolinha').mouseover(function () {
-    //     $('#dias').css('display', 'block');
-    // });
+    document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('arquivo');
+        const fileName = document.getElementById('file-name');
 
-    // $('#bolinha').mouseout(function () {
-    //     $('#dias').css('display', 'none');
-    // });
+        input.addEventListener('change', function () {
+            if (input.value.length > 0) {
+                fileName.textContent = input.value.split('\\').pop(); // Extraindo apenas o nome do arquivo
+            } else {
+                fileName.textContent = 'Nenhum arquivo selecionado';
+            }
+        });
+    });
 
 
 });
