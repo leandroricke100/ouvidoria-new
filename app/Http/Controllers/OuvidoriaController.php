@@ -80,30 +80,27 @@ class OuvidoriaController extends Controller
     {
         $dadosForm = $request->all();
 
-        // return response()->json([
-        //     'status' => true,
-        //     'msg' => 'Solicitação cadastrada com sucesso!',
-        //     'dados' => $dadosForm,
-        // ]);
-
 
         if (!session('usuario')) return redirect('/');
 
-        $nome_arquivo = null;
-        if ($request->hasFile('arquivo')) {
-            $FileHelper = new FileHelper;
-            $infoAnexoImg = $FileHelper->upload([
-                'file' => $request->file('arquivo'),
-                'pasta' => 'ouvidoria/arquivos',
-                'nome' => 'Arquivo Ouvidoria',
-                'observacao' => '',
-                'temporario' => false,
-                'restrito' => true,
-            ]);
-            $nome_arquivo = $infoAnexoImg['status'] ? $infoAnexoImg['nome_arquivo'] : null;
 
-            if (!$infoAnexoImg['status']) return ['status' => false, 'msg' => 'Falha no upload do arquivo.', 'retorno' => $infoAnexoImg];
+        $arquivos = [];
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile('arquivo' . $i)) {
+                $FileHelper = new FileHelper;
+                $infoAnexoImg = $FileHelper->upload([
+                    'file' => $request->file('arquivo' . $i),
+                    'pasta' => 'ouvidoria/arquivos',
+                    'nome' => 'Arquivo Ouvidoria',
+                    'observacao' => '',
+                    'temporario' => false,
+                    'restrito' => true,
+                ]);
+
+                if ($infoAnexoImg['status']) $arquivos[] = $infoAnexoImg['nome_arquivo'];
+            }
         }
+
 
         $ultimoAtendimento = OuvidoriaAtendimento::where('ano', date('Y'))->orderBy('id', 'desc')->first();
         $numero = $ultimoAtendimento ? $ultimoAtendimento->numero + 1 : 1;
@@ -111,8 +108,6 @@ class OuvidoriaController extends Controller
 
         // CADASTRO DO ATENDIMENTO
         $atendimento = new OuvidoriaAtendimento;
-
-
 
 
         if ($dadosForm['assunto'] == 'Outros') {
@@ -142,7 +137,7 @@ class OuvidoriaController extends Controller
 
         $mensagem->mensagem = $dadosForm['atendimentoUsuario'];
         $mensagem->id_atendimento = $atendimento->id;
-        $mensagem->arquivo = $nome_arquivo;
+        $mensagem->arquivos = json_encode($arquivos);
         $mensagem->autor = $dadosForm['autor'];
         $mensagem->save();
 
@@ -162,29 +157,31 @@ class OuvidoriaController extends Controller
 
         if (!$dadosForm['atendimentoUsuario']) return ['status' => false, 'msg' => 'Nenhuma mensagem enviada'];
 
-        $nome_arquivo = null;
-        if ($request->hasFile('arquivo')) {
-            $FileHelper = new FileHelper;
-            $infoAnexoImg = $FileHelper->upload([
-                'file' => $request->file('arquivo'),
-                'pasta' => 'ouvidoria/arquivos',
-                'nome' => 'Arquivo Ouvidoria',
-                'observacao' => '',
-                'temporario' => false,
-                'restrito' => true,
-            ]);
-            $nome_arquivo = $infoAnexoImg['status'] ? $infoAnexoImg['nome_arquivo'] : null;
 
-            if (!$infoAnexoImg['status']) return ['status' => false, 'msg' => 'Falha no upload do arquivo.', 'retorno' => $infoAnexoImg];
+
+        $arquivos = [];
+        for ($i = 1; $i <= 5; $i++) {
+            if ($request->hasFile('arquivo' . $i)) {
+                $FileHelper = new FileHelper;
+                $infoAnexoImg = $FileHelper->upload([
+                    'file' => $request->file('arquivo' . $i),
+                    'pasta' => 'ouvidoria/arquivos',
+                    'nome' => 'Arquivo Ouvidoria',
+                    'observacao' => '',
+                    'temporario' => false,
+                    'restrito' => true,
+                ]);
+
+                if ($infoAnexoImg['status']) $arquivos[] = $infoAnexoImg['nome_arquivo'];
+            }
         }
 
         $respostaUser = new OuvidoriaMensagem;
         $respostaUser->id_atendimento = $dadosForm['id_atendimento'];
         $respostaUser->autor = $dadosForm['autor'];
         $respostaUser->mensagem = $dadosForm['atendimentoUsuario'];
-        $respostaUser->arquivo = $nome_arquivo;
+        $respostaUser->arquivos = json_encode($arquivos);
         $respostaUser->save();
-
 
         $countMensagens = OuvidoriaMensagem::where('id_atendimento', $dadosForm['id_atendimento'])->count();
         $primeiraRespostaCamara = $countMensagens >= 2 && $dadosForm['autor'] === 'Camara';

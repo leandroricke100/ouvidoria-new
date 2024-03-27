@@ -85,7 +85,7 @@ function efetuarCadastro() {
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });
             }
-            location.replace('/atendimentos');
+
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             console.log(XMLHttpRequest, textStatus, errorThrown);

@@ -422,11 +422,14 @@
                             <p>{!! $mensagens[0]->mensagem !!}</p>
                         </div>
 
-                        @if ($mensagens[0]->arquivo)
-                            <div class="arquivo">
-                                <a class="link" href="/arquivo/{{ $mensagens[0]->arquivo }}" target="blank">
-                                    <i class="far fa-paperclip" style="margin-right: 6px"></i>Anexo</a>
-                            </div>
+                        @if ($mensagens[0]->arquivos)
+                            @foreach (json_decode($mensagens[0]->arquivos, true) as $arquivo)
+                                <div class="arquivo">
+                                    <a class="link" href="/arquivo/{{ $arquivo }}" target="blank">
+                                        <i class="far fa-paperclip" style="margin-right: 6px"></i> Anexo - {{ $arquivo }}
+                                    </a>
+                                </div>
+                            @endforeach
                         @else
                             <div class="arquivo">
                                 <span>Sem Anexo</span>
@@ -490,10 +493,14 @@
                                         <span></span>
                                     </div>
 
-                                    @if ($mensagem->arquivo)
-                                        <div class="arquivo">
-                                            <a class="link" href="/arquivo/{{ $mensagem->arquivo }}" target="blank"><i class="far fa-paperclip" style="margin-right: 8px"></i>Anexo</a>
-                                        </div>
+                                    @if ($mensagem->arquivos)
+                                        @foreach (json_decode($mensagem->arquivos, true) as $arquivo)
+                                            <div class="arquivo">
+                                                <a class="link" href="/arquivo/{{ $arquivo }}" target="blank">
+                                                    <i class="far fa-paperclip" style="margin-right: 8px"></i> Anexo - {{ $arquivo }}
+                                                </a>
+                                            </div>
+                                        @endforeach
                                     @else
                                         <div class="arquivo">
                                             <span>Sem Anexo</span>
@@ -543,8 +550,8 @@
                                 <p>Adicione informações e anexe arquivos, caso necessário:</p>
                                 <textarea id="atendimentoUsuario" name="atendimentoUsuario" class="atendimentoUsuario" rows="8"></textarea>
                                 <div class="imgfile">
-                                    <label for="arquivo">Selecionar um arquivo</label>
-                                    <input type="file" id="arquivo" name="arquivo" value="">
+                                    <label for="arquivo1">Selecionar um arquivo</label>
+                                    <input type="file" id="arquivo1" name="arquivo1" value="">
                                     <span id="file-name">Nenhum arquivo selecionado</span>
                                 </div>
                                 @if ($user->admin == 1)

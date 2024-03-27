@@ -130,12 +130,9 @@
 
 
                     <div class="bloco3">
-
-                        {{-- <input type="file" dd="arquivo" name="arquivo"> --}}
-
                         <div class="img">
-                            <label for="arquivo">Selecionar um arquivo</label>
-                            <input type="file" id="arquivo" name="arquivo" value="">
+                            <label for="arquivo1">Selecionar um arquivo</label>
+                            <input type="file" id="arquivo1" name="arquivo1" value="">
                             <span id="file-name">Nenhum arquivo selecionado</span>
                         </div>
 
