@@ -203,6 +203,11 @@ class IndexController extends Controller
 
         $dono = $user && $user->id ==  $atendimento->id_usuario;
 
+        $permitirAvaliar = $user && $user->id ==  $atendimento->id_usuario;
+
+
+
+
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
@@ -220,6 +225,7 @@ class IndexController extends Controller
             'dataRestante' => $dataRestante,
             'avaliacaoEnviada' => $avaliacaoEnviada,
             'dono' => $dono,
+            'permitirAvaliar' => $permitirAvaliar,
         ]);
     }
 
@@ -231,12 +237,20 @@ class IndexController extends Controller
 
         $atendimento = OuvidoriaAtendimento::where('codigo', $protocolo)->first();
 
+
+
+
+
         if (!$atendimento) {
             return view('404', ['msg' => 'Página não encontrada']);
         }
 
         $mensagens = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->orderBy('id')->get()->all();
         $user = session('usuario');
+
+        foreach ($mensagens as $mensagem) {
+            $mensagem->tempo_atras = $this->calcularTempoAtras($mensagem->created_at);
+        }
 
         if (isset($user) && $user->id == $atendimento->id_usuario) {
             $abrirAtendimento = true;
@@ -256,6 +270,32 @@ class IndexController extends Controller
 
         $primeiraRespostaCamara = OuvidoriaMensagem::where('id_atendimento', $atendimento->id)->where('autor', 'Camara')->count() >= 1;
 
+        if ($atendimento->ref_atendimento != null) {
+            $AtendimentoAnterior = $atendimento->ref_atendimento;
+        } else {
+            $AtendimentoAnterior = null;
+        }
+
+
+
+        $dataAbertura = Carbon::parse($atendimento->created_at);
+        $dataAtual = Carbon::now();
+
+        $diferencaEmDias = $dataAbertura->diffInDays($dataAtual);
+        $dataRestante = 30 - $diferencaEmDias;
+
+        $avaliacaoEnviada = $atendimento->classificacao;
+
+        $avaliacaoEnviada ? $avaliacaoEnviada = true : $avaliacaoEnviada = false;
+
+        //se tiver usuario logado e admin for 0, ele pode avaliar
+
+        $permitirAvaliar = $user && $user->id ==  $atendimento->id_usuario;
+
+
+        $dono = $user && $user->id ==  $atendimento->id_usuario;
+
+
 
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
@@ -268,6 +308,11 @@ class IndexController extends Controller
             'primeiraRespostaCamara' => $primeiraRespostaCamara,
             'por_codigo' => false,
             'abrirAtendimento' => $abrirAtendimento,
+            'dataRestante' => $dataRestante,
+            'AtendimentoAnterior' => $AtendimentoAnterior,
+            'avaliacaoEnviada' => $avaliacaoEnviada,
+            'permitirAvaliar' => $permitirAvaliar,
+            'dono' => $dono,
         ]);
     }
 

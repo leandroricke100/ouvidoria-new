@@ -260,8 +260,10 @@
                 </div>
 
 
+
+
                 {{-- SE ATENDIMENTO ESTIVER FINALIZADO MOSTRAR CONTAINER AVALIAÇÃO --}}
-                @if ($atendimento->situacao == 'Finalizado' && $user->admin == 0 && $avaliacaoEnviada == false)
+                @if ($atendimento->situacao == 'Finalizado' && $avaliacaoEnviada == false && $permitirAvaliar)
                     <div class="container-avalicao">
 
                         <div class="avalicao">
@@ -454,7 +456,11 @@
                                                 @endif
                                             @endif
 
-                                            @if ($dono)
+
+
+
+
+                                            @if ($dono  )
                                                 @if ($mensagem->permitidoDelete && $mensagem->autor == 'Usuario')
                                                     <div id="btn-delete-msg">
                                                         <button id="delete" onclick="confirmarExcluir({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
