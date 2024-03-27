@@ -107,10 +107,11 @@ input#sigilo {
     margin-right: 10px;
 }
 
-.sigilo p {
+#text-identificacao {
     color: #292929;
     font-weight: 600;
     padding: 10px;
+    margin-bottom: 59px;
 }
 
 .input-sigilo label {
@@ -131,13 +132,24 @@ input#sigilo {
     border-radius: 5px;
 }
 
-.modal-Sigi {
-    background-color: #fff;
-    padding: 12px;
-    width: 154px;
+.modal-semSigi {
+    background-color: #656565;
+    width: 250px;
     font-size: 12px;
     border-radius: 5px;
+    margin-bottom: 12px;
+    height: 69px;
 }
+
+.text-modal {
+    color: #fff !important;
+    padding: 0px !important;
+}
+
+span#sigi {
+    cursor: pointer;
+}
+
 
 
 @media screen and (max-width:768px) {
@@ -145,7 +157,7 @@ input#sigilo {
         padding: 15px;
     }
 
-    .container p{
+    .container p {
         font-size: 12px;
     }
 }

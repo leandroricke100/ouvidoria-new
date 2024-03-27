@@ -1,5 +1,6 @@
 @push('head')
     <script src="{{ asset('js/components/comp-sigilo.js') }}"></script>
+    <script src="{{ asset('js/tools/jquery.min.js') }}"></script>
     <link href="{{ asset('css/components/comp-sigilo.css') }}?v={{ time() }}" rel="stylesheet">
 @endpush
 
@@ -16,18 +17,16 @@
                 {{-- <div class="border"><span></span></div> --}}
                 <p>Manifestações anônimas deve ser feitas presencialmente ou pelo telefone 156 de segunda a sexta das 7h às 13h.</p>
                 <div class="sigilo">
-                    <p>Identificação:</p>
+                    <p id="text-identificacao">Identificação:</p>
 
-                    {{-- <div class="modal-semSigi" style="display: none">
+                    <div class="modal-semSigi" style="display: none" id="modal-sigilo" >
                         <p class="text-modal">Seus dados estaram disponivéis durante toda a tramitação de sua solicitação.
                         </p>
-                    </div> --}}
+                    </div>
 
-                    {{-- <div class="modal-Sigi" style="display: none">
-                        <p class="text-modal">Seus dados estaram ocultos durante toda a tramitação. O pedido de sigilo deve
-                            ser
-                            justificado e caberá o destinatáio o cabemento ou não do sigilo.</p>
-                    </div> --}}
+                    <div class="modal-semSigi" style="display: none" id="modal-semsigilo">
+                        <p class="text-modal" >Seus dados estaram ocultos durante toda a tramitação.</p>
+                    </div>
 
                     <div class="input-sigilo">
                         <input type="radio" id="semSigilo" name="sigiloso" value="0" checked required>
