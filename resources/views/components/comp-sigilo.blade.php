@@ -32,12 +32,13 @@
                     <div class="input-sigilo">
                         <input type="radio" id="semSigilo" name="sigiloso" value="0" checked required>
                         <label for="semSigilo" style="margin-bottom: -4px;">
-                            Sem sigilo <span onclick="openInfoSigi()" class="semSigi"><i class="fas fa-question-circle"></i></span>
+                            Sem sigilo <span id="semSigi" class="semSigi"><i class="fas fa-question-circle"></i></span>
                         </label>
+
 
                         <input style="margin-left: 15px" type="radio" id="sigilo" name="sigiloso" value="1" required>
                         <label for="sigilo" style="margin-bottom: -4px;">
-                            Sigiloso <span class="sigi"><i class="fas fa-question-circle"></i></span>
+                            Sigiloso <span id="sigi" class="sigi"><i class="fas fa-question-circle"></i></span>
                         </label>
                     </div>
                 </div>

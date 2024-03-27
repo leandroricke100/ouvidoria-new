@@ -62,6 +62,7 @@ function enviarClassificacao() {
             console.log(resposta);
             if (resposta.status) {
                 popNotif({ msg: resposta.msg, time: 2000 });
+                location.reload();
 
             } else {
                 popNotif({ tipo: 'error', msg: resposta.msg, time: 2000 });

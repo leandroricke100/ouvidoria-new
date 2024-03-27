@@ -195,6 +195,15 @@ class IndexController extends Controller
         $dataRestante = 30 - $diferencaEmDias;
 
 
+        //se usuario ja avaliou o atendimento
+
+        $avaliacaoEnviada = $atendimento->classificacao;
+
+        $avaliacaoEnviada ? $avaliacaoEnviada = true : $avaliacaoEnviada = false;
+
+        $dono = $user && $user->id ==  $atendimento->id_usuario;
+
+
         return view('pages.page-atendimento', [
             'atendimento' => $atendimento,
             'mensagens' => $mensagens,
@@ -209,6 +218,8 @@ class IndexController extends Controller
             'AtendimentoAnterior' => $AtendimentoAnterior,
             'abrirAtendimento' => $abrirAtendimento,
             'dataRestante' => $dataRestante,
+            'avaliacaoEnviada' => $avaliacaoEnviada,
+            'dono' => $dono,
         ]);
     }
 

@@ -261,7 +261,7 @@
 
 
                 {{-- SE ATENDIMENTO ESTIVER FINALIZADO MOSTRAR CONTAINER AVALIAÇÃO --}}
-                @if ($atendimento->situacao == 'Finalizado')
+                @if ($atendimento->situacao == 'Finalizado' && $user->admin == 0 && $avaliacaoEnviada == false)
                     <div class="container-avalicao">
 
                         <div class="avalicao">
@@ -300,23 +300,25 @@
                                 <span>Sem Sigilo</span>
                             @endif
 
-                            <div class="prazo">
-                                @if ($dataRestante > 20)
-                                    <span id="green"></span>
-                                @elseif ($dataRestante > 10)
-                                    <span id="yellow"></span>
-                                @else
-                                    <span id="red"></span>
-                                @endif
-                                <div id="dias">
-                                    <p class="text-prazo">Prazo:</p>
-                                    @if ($dataRestante <= 0)
-                                        ATRASADO
+                            @if ($atendimento->situacao != 'Finalizado')
+                                <div class="prazo">
+                                    @if ($dataRestante > 20)
+                                        <span id="green"></span>
+                                    @elseif ($dataRestante > 10)
+                                        <span id="yellow"></span>
                                     @else
-                                        <p class="diasRestantes">{{ $dataRestante }} Dia(s)</p>
-                                    @endif <i class="fas fa-exclamation-triangle"></i>
+                                        <span id="red"></span>
+                                    @endif
+                                    <div id="dias">
+                                        <p class="text-prazo">Prazo:</p>
+                                        @if ($dataRestante <= 0)
+                                            ATRASADO
+                                        @else
+                                            <p class="diasRestantes">{{ $dataRestante }} Dia(s)</p>
+                                        @endif <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                         <div class="finalidade">
                             <p><strong>Finalidade: </strong></p>
@@ -435,11 +437,10 @@
                 <div class="comentario">
                     @foreach ($mensagens as $mensagem)
                         @if (!$loop->first)
-                            <div class="bloco">
+                            <div class="bloco {{ $mensagem->autor == 'Usuario' ? 'esquerda' : 'direita' }}">
                                 <div class="bloco-left">
                                     <div>
                                         <div class="number-despacho">
-
                                             <div class="despacho">
                                                 <p>Despacho</p>
                                                 <p>{{ $mensagem->id }}/{{ $atendimento->ano }}</p>
@@ -453,14 +454,13 @@
                                                 @endif
                                             @endif
 
-                                            @if ($mensagem->permitidoDelete && $mensagem->autor == 'Usuario')
-                                                <div id="btn-delete-msg">
-                                                    <button id="delete" onclick="confirmarExcluir({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
-                                                </div>
+                                            @if ($dono)
+                                                @if ($mensagem->permitidoDelete && $mensagem->autor == 'Usuario')
+                                                    <div id="btn-delete-msg">
+                                                        <button id="delete" onclick="confirmarExcluir({{ $mensagem->id }})"><i class="fas fa-trash-alt"></i></button>
+                                                    </div>
+                                                @endif
                                             @endif
-
-
-
 
                                         </div>
                                         <div class="tempo-res">

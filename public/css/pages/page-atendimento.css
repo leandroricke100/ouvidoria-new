@@ -26,6 +26,7 @@
 
 .border3 {
     border-bottom: 1px solid #e3e3e3;
+    margin-top: 30px;
 }
 
 .bloco-atendimento {
@@ -286,14 +287,14 @@ textarea#atendimentoUsuario {
 }
 
 .comentario {
-    padding: 30px;
+    padding: 10px;
 }
 
 .bloco {
     border: 1px solid #e3e3e3;
     display: flex;
     border-radius: 6px;
-    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
 .bloco-left {
@@ -704,6 +705,14 @@ div#dias {
 
 p.diasRestantes {
     color: #666;
+}
+
+.esquerda{
+    margin-left: 30px;
+}
+
+.direita{
+    margin-right: 30px;
 }
 
 @media screen and (max-width:768px) {
