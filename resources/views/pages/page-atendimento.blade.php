@@ -253,22 +253,7 @@
                             </div>
                         </div>
                         <div class="div-print">
-                            <div class="prazo">
-                                @if ($dataRestante > 20)
-                                    <span id="green"></span>
-                                @elseif ($dataRestante > 10)
-                                    <span id="yellow"></span>
-                                @else
-                                    <span id="red"></span>
-                                @endif
-                                <p id="dias">Prazo:
-                                    @if ($dataRestante <= 0)
-                                        ATRASADO
-                                    @else
-                                        {{ $dataRestante }} Dia(s)
-                                    @endif <i class="fas fa-exclamation-triangle"></i>
-                                </p>
-                            </div>
+
                             <button onclick="printPage()" class="print"><i class="fas fa-print"></i> Imprimir</button>
                         </div>
                     </div>
@@ -314,6 +299,24 @@
                             @else
                                 <span>Sem Sigilo</span>
                             @endif
+
+                            <div class="prazo">
+                                @if ($dataRestante > 20)
+                                    <span id="green"></span>
+                                @elseif ($dataRestante > 10)
+                                    <span id="yellow"></span>
+                                @else
+                                    <span id="red"></span>
+                                @endif
+                                <div id="dias">
+                                    <p class="text-prazo">Prazo:</p>
+                                    @if ($dataRestante <= 0)
+                                        ATRASADO
+                                    @else
+                                        <p class="diasRestantes">{{ $dataRestante }} Dia(s)</p>
+                                    @endif <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="finalidade">
                             <p><strong>Finalidade: </strong></p>

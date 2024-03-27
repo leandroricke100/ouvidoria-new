@@ -44,7 +44,7 @@
 
                             <div class="field" style="flex-basis: 100%">
                                 <label for="palavra_chave">Palavra chave</label>
-                                <input type="text" name="palavra_chave" id="palavra_chave" placeholder="Ex.: Orçamento">
+                                <input type="text" name="palavra_chave" id="palavra_chave" placeholder="Ex.: Orçamento" value="{{ $filtro['palavra_chave'] ?? '' }}">
                             </div>
 
                             <div class="field" style="flex-basis: 5%">
@@ -111,12 +111,12 @@
 
                             <div class="field" style="flex-basis: 10%">
                                 <label for="periodo_inicial">Período Inicial</label>
-                                <input type="date" name="periodo_inicial" id="periodo_inicial">
+                                <input type="date" name="periodo_inicial" id="periodo_inicial" value="{{ $filtro['periodo_inicial'] ?? '' }}">
                             </div>
 
                             <div class="field" style="flex-basis: 10%">
                                 <label for="periodo_final">Período Final</label>
-                                <input type="date" name="periodo_final" id="periodo_final">
+                                <input type="date" name="periodo_final" id="periodo_final" value="{{ $filtro['periodo_final'] ?? '' }}">
                             </div>
 
                         </div>

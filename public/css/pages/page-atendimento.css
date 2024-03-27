@@ -13,7 +13,7 @@
     gap: 10px;
 }
 
-.situacao-atual p{
+.situacao-atual p {
     display: flex;
     flex-direction: row;
     min-width: 125px;
@@ -55,7 +55,6 @@
 
 .div-print {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: end;
 }
@@ -162,7 +161,7 @@ button.print {
     display: flex;
     flex-direction: column;
     font-size: 13px;
-    gap: 29px;
+    gap: 22px;
     flex: 1;
 }
 
@@ -480,6 +479,7 @@ div#btn-delete-msg {
     background-color: #02020287;
     z-index: 999;
 }
+
 div#confirmarExcluir {
     position: fixed;
     z-index: 10000;
@@ -494,7 +494,7 @@ div#confirmarExcluir {
     box-shadow: 3px 6px 11px #00000061;
 }
 
-#infoFullUser{
+#infoFullUser {
     position: absolute;
     z-index: 10000;
     background-color: #ffffff;
@@ -513,17 +513,17 @@ div#confirmarExcluir {
 
 
 
-.titleExcluir{
+.titleExcluir {
     font-size: 17px;
     margin-bottom: 5px;
 }
 
-.second-title{
+.second-title {
     font-size: 14px;
     color: #515151;
 }
 
-.btn-confirmar{
+.btn-confirmar {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -546,7 +546,7 @@ button#confirmar {
 
 }
 
-.btn-confirmar i{
+.btn-confirmar i {
     margin-right: 10px;
 }
 
@@ -569,16 +569,16 @@ button#cancelar {
     gap: 5px;
 }
 
-.nameUser{
+.nameUser {
     margin-bottom: 10px;
 }
 
-.cpfCnpj{
+.cpfCnpj {
     margin-bottom: 10px;
 
 }
 
-.informacao{
+.informacao {
     padding: 3px;
     border: none;
     outline: none;
@@ -590,7 +590,7 @@ button#cancelar {
     margin-top: 20px;
 }
 
-.btn-close{
+.btn-close {
     padding: 5px;
     border: none;
     outline: none;
@@ -619,7 +619,7 @@ button#cancelar {
 }
 
 
-.title-info{
+.title-info {
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -630,11 +630,11 @@ button#cancelar {
     justify-content: space-between;
 }
 
-.novo{
+.novo {
     font-size: 13px;
 }
 
-.btn-novoAtendimento{
+.btn-novoAtendimento {
     background-color: #59bf59;
     border: none;
     color: #fff;
@@ -645,12 +645,12 @@ button#cancelar {
     text-decoration: none;
 }
 
-.cod-anterior{
+.cod-anterior {
     display: flex;
     flex-direction: column;
 }
 
-.cod-anterior p{
+.cod-anterior p {
     margin-bottom: 5px;
     color: black;
     font-weight: bold;
@@ -660,10 +660,10 @@ button#cancelar {
 .prazo {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-top: 22px;
 }
 
-#red{
+#red {
     background-color: red;
     box-shadow: 1px 2px 10px #00000061;
 
@@ -673,17 +673,16 @@ button#cancelar {
     width: 35px;
 }
 
-#green{
+#green {
     background-color: green;
     box-shadow: 1px 2px 10px #00000061;
-
     border-radius: 50%;
     display: flex;
-    height: 35px;
-    width: 35px;
+    height: 20px;
+    width: 20px;
 }
 
-#yellow{
+#yellow {
     background-color: yellow;
     box-shadow: 1px 2px 10px #00000061;
     border-radius: 50%;
@@ -692,8 +691,18 @@ button#cancelar {
     width: 35px;
 }
 
-p#dias {
-    margin-top: 8px;
+div#dias {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.text-prazo {
+    font-weight: bold;
+    color: black;
+}
+
+p.diasRestantes {
     color: #666;
 }
 
@@ -734,7 +743,7 @@ p#dias {
     .div-print {
         justify-content: space-between;
         margin-top: 15px;
-        flex-direction: row;
+        flex-direction: inherit;
     }
 
     .painel-left {
@@ -750,6 +759,10 @@ p#dias {
         justify-content: space-between;
     }
 
-
+    .prazo {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 10px;
+    }
 
 }

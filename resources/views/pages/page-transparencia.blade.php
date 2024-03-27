@@ -339,7 +339,7 @@
             @endphp
             <span id="grafico-porcentagem" style="margin-top: 20px">
                 @if (isset($filtro['manifestacaoTipo']) && $filtro['manifestacaoTipo'] != '')
-                    <strong>Total {{ $porcentagemManifestacaoTipo }} </strong>
+                    <strong>Total: {{ $porcentagemManifestacaoTipo }} </strong>
                 @else
                     Porcentagem (%)
                 @endif
